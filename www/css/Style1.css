@@ -1,0 +1,82 @@
+﻿#a{
+  background-color:aqua;
+}
+        #locator{
+            position: absolute; visibility: visible; left: 20px; top: 180px; height: 100px; width: 450px; 
+        }
+
+        #locator1{
+            position: absolute; visibility: visible; left: 750px; top: 200px; height: 300px; width: 450px; 
+            font-size:large;
+            
+        }
+
+
+        img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+       
+        p{
+            font-style:normal;font-size:x-large;
+        }
+
+        #a1{
+             
+            font-style:normal;font-size:x-large;
+
+        }
+         div.social-wrap button {
+    padding-right: 45px;
+    height: 35px;
+    background: none;
+    border: none;
+    display: block;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-family:"Merriweather Sans", sans-serif;
+    font-size: 14px;
+    margin-bottom: 15px;
+    width: 205px;
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    box-shadow: 0 4px 2px -2px gray;
+    text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
+}
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+cursor: pointer;
+}
+button#twitter {
+    border-color: #007aa6;
+    background-color: #008cbf;
+    background-image: url(https://g.twimg.com/Twitter_logo_white.png);
+cursor: pointer;
+}
+button#googleplus {
+    border-color: #111;
+    background-color: red;
+    text-shadow: #333 -1px -1px 0;
+    background-image:url(http://www.iconsdb.com/icons/preview/white/google-plus-xxl.png);
+cursor: pointer;
+}
+button#instagram {
+    border-color: saddlebrown;
+    background-color: saddlebrown;
+    background-image:url(http://icons.iconarchive.com/icons/designbolts/free-instagram/256/Active-Instagram-3-icon.png);
+cursor: pointer;
+}
+#b1{
+     background-color: cornflowerblue;
+    color: white;
+padding: 14px 14px;
+    margin: 4px 0;
+border-radius: 8px;
+cursor: pointer;
+}

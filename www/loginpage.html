@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Statusphere-Login </title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="\css\Style2.css" />
+    <script src="\js\angular.min.js"></script>
+
+</head>
+
+    <body ng-app="myangularapp" ng-controller="myangularController">
+        
+
+        <div class="container">
+            <h1> Welcome User</h1>
+            <form name="form1">
+                <div>
+
+
+                    <div>
+                        <label> UserName:  </label>
+                        <br />
+
+                        <input type="text" name="username" ng-model="username" placeholder="username" required="" />
+                    </div>
+
+
+                    <div>
+                        <label> Password:</label>
+
+                        <br />
+                        <input type="password" name="password" ng-model="password" placeholder="password" required="" />
+                    </div>
+                    <br />
+                    <div id="button">
+
+                        <button name="button" type="submit" ng-click="login()"> Login </button>
+
+                    </div>
+
+                    <br />
+
+                    <div id="link">
+                        <a href="forgot_password.html"> Forgot password?   </a>
+                    </div>
+                    <label>
+                        <input data-ng-click="rememberMe()" data-ng-model="remember" name="remember" type="checkbox">   Remember Me
+                    </label>
+                </div>
+            </form>
+
+        </div>
+
+        <script>
+
+        var myangularapp = angular.module("myangularapp", []);
+        myangularapp.controller("myangularController", function ($scope, $http) {
+
+
+            $scope.login = function () {
+
+
+                $scope.username;
+                $scope.password;
+
+                $http.post('http://localhost/loginangulartutorial/webservices/login.php', {
+                    username: $scope.username,
+                    password: $scope.password,
+                }).then(function (response) {
+                    alert('hi i am working');
+                    //alert(JSON.stringify(response));
+                    alert(response.data[0].status);
+                    if (response.data[0].status == 1) {
+                        window.location.href = 'http://www.statusphere.com/influencer.html';
+                    }
+
+                }, function errorCallback(response) {
+                    alert('error');
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+            }
+
+        });
+
+
+        </script>
+    </body>
+</html>

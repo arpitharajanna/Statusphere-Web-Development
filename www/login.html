@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Statusphere</title>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="\css\Style1.css" />
+    <script src="\js\angular.min.js"></script>
+</head>
+<body bgcolor="DCDCDC" ng-app="Startup" ng-controller="myctrl">
+    <div id="a">
+
+        <img class="displayed" src="http://joinstatus.com/wp-content/uploads/2016/07/Statusphere-logo.png" alt="mobile logo">
+    </div>
+    <center>   <h1><b>      WELCOME TO STATUSPHERE</b>           </h1>                </center>
+    <div id="locator">
+        <p>
+            Statusphere was created by social influencers that were tired of
+            receiving emails from brands pitching crappy products.
+            Because of this, each product is vetted and tested to ensure quality.
+            We complete a full review of each Statusphere product on our site
+            that you will be able to review before selecting it to be in your StatusBox.
+        </p>
+    </div>
+
+
+
+
+    <div id="locator1">
+        <b>Existing Users - </b>
+        <button id="b1" ng-click="login()">Login</button>
+        <br />
+        <b>New to Statusphere -</b>
+        <button id="b1" ng-click="register()">Signup</button>
+
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--OR--</p>
+        <div class="social-wrap a">
+            <button id="facebook">Sign up with Facebook</button>
+            <button id="twitter">Sign up with Twitter</button>
+            <button id="googleplus">Sign up with Google</button>
+            <button id="instagram">Sign up with Instagram</button>
+        </div>
+    </div>
+    <script>
+
+        var app = angular.module('Startup', []);
+        app.controller("myctrl", function ($scope) {
+
+            $scope.login=function()
+            {
+                window.location = "loginpage.html";
+            }
+            $scope.register=function()
+            {
+                window.location = "signup.html";
+            }
+        });
+
+    </script>
+</body>
+</html>
