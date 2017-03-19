@@ -1,0 +1,40 @@
+﻿
+h1{
+    
+    text-align:center;
+}
+
+input[type=text],[type=password]{
+    
+            width: 100%;
+    padding: 10px 5px;
+    margin:5px;
+    margin-left:0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-style:normal;
+    font-size:medium;
+cursor: pointer;
+}
+button[type=submit]
+        {
+    align-self:center;
+            
+            width: 70%;
+    
+    color: white;
+    padding: 14px 14px;
+    margin: 8px 0;
+    margin-left:72px;
+    
+    
+    
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+        }
+.panel-body {
+    background: #ADD8E6	;
+}
