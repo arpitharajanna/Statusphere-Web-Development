@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="images/Statusphere-logo.png" height="100" width="250">
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -40,20 +40,20 @@
             <ol class="carousel-indicators">
                 <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#mycarousel" data-slide-to="1"></li>
-            <li data-target="#mycarousel" data-slide-to="2"></li>
-                </ol>
+                <li data-target="#mycarousel" data-slide-to="2"></li>
+            </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="images/f6ccfe7d97e709cdf0eef0556590ce7a.jpg" />
-                   
+                    <img src="images/f6ccfe7d97e709cdf0eef0556590ce7a.jpg" id="center"/>
+
                 </div>
                 <div class="item">
-                    <img src="images/e1973a38300083.575c7d143f7f1.jpg" />
-                   
+                    <img src="images/e1973a38300083.575c7d143f7f1.jpg" id="center"/>
+
                 </div>
                 <div class="item">
-                    <img src="images/top-cosmetic-and-beauty-products_z15jqr.jpg" />
-                   
+                    <img src="images/top-cosmetic-and-beauty-products_z15jqr.jpg" id="center"/>
+
                 </div>
                 <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -67,7 +67,7 @@
     <br />
     <br />
     <div class="container">
-        
+
         <div class="row">
             <div class="col-md-6">
                 <a href="#" class="thumbnail">
@@ -75,31 +75,28 @@
                 </a>
                 <p class="well">Statusphere was created by social influencers that were tired of receiving emails from brands pitching crappy products. Because of this, each product is vetted and tested to ensure quality. We complete a full review of each Statusphere product on our site that you will be able to review before selecting it to be in your StatusBox.</p>
             </div>
-            <div class="col-md-offset-3 col-md-3">
+            <div class="col-md-offset-1 col-md-3">
 
-                <h4><strong> Existing Users ?  </strong></h4> <button class="btn btn-primary" ng-click="login()">Login</button>
-
-                <br />
-                <br />
-
-                <h4><strong>New to Statusphere ?</strong></h4>
-                <button class="btn btn-primary" ng-click="register()">Signup</button>
-                <br />
-                <br />
-
-                <h4>
+                <h4><strong><p id="p1"> Existing Users ? </p> </strong></h4>
+                <div class="centered">
+                    <button class="btn btn-primary" ng-click="login()">Login</button>
+                    </div>
                     
-                        <p>--OR--</p></h4>
-                <br />
-                <br />
+                    <h4><strong><p id="p1"> New to Statusphere ?</p> </strong></h4>
+                    <div class="centered">
+                        <button class="btn btn-primary" ng-click="register()">Signup</button>
+                    </div>
+                    
+                    <h4><p id="p1">--OR--</p></h4>
+                    
 
-                <div class="social-wrap a">
-                    <button id="facebook">Sign up with Facebook</button>
-                    <button id="twitter">Sign up with Twitter</button>
-                    <button id="googleplus">Sign up with Google</button>
-                    <button id="instagram">Sign up with Instagram</button>
+                    <div class="social-wrap a">
+                        <button id="facebook">Sign up with Facebook</button>
+                        <button id="twitter">Sign up with Twitter</button>
+                        <button id="googleplus">Sign up with Google</button>
+                        <button id="instagram">Sign up with Instagram</button>
+                    </div>
                 </div>
-            </div>
         </div>
 
     </div>
@@ -109,10 +106,10 @@
                 <p> Copyright Statusphere</p>
             </div>
             <div class="navbar-text pull-right">
-            <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
                 <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
                 <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
-                </div>
+            </div>
 
         </div>
     </div>
@@ -122,12 +119,10 @@
         var app = angular.module('Startup', []);
         app.controller("myctrl", function ($scope) {
 
-            $scope.login=function()
-            {
+            $scope.login = function () {
                 window.location = "login.html";
             }
-            $scope.register=function()
-            {
+            $scope.register = function () {
                 window.location = "signup.html";
             }
         });
@@ -139,4 +134,5 @@
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
+
 </html>

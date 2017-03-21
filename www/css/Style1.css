@@ -44,3 +44,137 @@ button#instagram {
     background-image:url(../images/Active-Instagram-3-icon.png);
 cursor: pointer;
 }
+
+
+@media screen and (max-width:320px){
+    #facebook{
+        width:100%;
+    }
+    #googleplus{
+            width:100%;
+    }
+    #instagram{
+            width:100%;
+    }
+    #twitter{
+            width:100%;
+    }
+    #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}
+}
+@media screen and (max-width:375px){
+    #facebook{
+        width:100%;
+    }
+    #googleplus{
+            width:100%;
+    }
+    #instagram{
+            width:100%;
+    }
+    #twitter{
+            width:100%;
+    }
+    #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}
+}
+@media screen and (max-width:768px){
+    #facebook{
+       display:block;
+        margin:10px auto;
+    }
+    #googleplus{
+       display:block;
+        margin:10px auto;
+    }
+    #instagram{
+            display:block;
+        margin:10px auto;
+    }
+    #twitter{
+            display:block;
+        margin:10px auto;
+    }
+    #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}
+#center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}  
+}
+@media screen and (max-width:1024px) {
+#center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}  
+}
+@media screen and (max-width:1440px) {
+#center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}  
+}
+@media screen and (max-width:2560px) {
+#center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ #p1{
+        text-align:center;
+    }
+    .btn btn-primary{
+        display: flex; justify-content: center;
+    }
+    .centered
+{
+    text-align:center;
+}  
+}

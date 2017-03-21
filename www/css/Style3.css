@@ -1,18 +1,9 @@
 ﻿
-h1{
-    
-    text-align:center;
-}
 
 input[type=text],[type=password],[type=email]{
     
          
    
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-style:normal;
-    font-size:medium;
 cursor: pointer;
 }
 button[type=submit]
@@ -23,4 +14,68 @@ button[type=submit]
 
 .panel-body {
     background: #ADD8E6	;
+}
+.text-center{
+     margin:10px auto;
+}
+@media screen and (max-width:320px) {
+ navbar-position {
+        .navbar-static-bottom;
+        
+    }
+}
+
+@media screen and (max-width:375px) {
+ navbar-position {
+        .navbar-static-bottom;
+        
+    }
+}
+@media screen and (max-width:425px) {
+ navbar-position {
+        .navbar-static-bottom;
+        
+    }
+}
+
+@media screen and (max-width:768px) {
+    navbar-position {
+        .navbar-fixed-bottom;
+        
+    }
+    button {
+    width:50%;
+    
+    }
+}
+
+@media screen and (max-width:1024px) {
+    navbar-position {
+        .navbar-fixed-bottom;
+        
+    }
+    button {
+    width:50%;
+    
+    }
+}
+@media screen and (max-width:1440px) {
+    navbar-position {
+        .navbar-fixed-bottom;
+        
+    }
+    button {
+    width:50%;
+    
+    }
+}
+@media screen and (max-width:2560px) {
+    navbar-position {
+        .navbar-fixed-bottom;
+        
+    }
+    button {
+    width:50%;
+    
+    }
 }

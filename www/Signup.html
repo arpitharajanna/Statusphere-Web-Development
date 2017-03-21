@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="images/Statusphere-logo.png" height="100" width="250">
+                <img src="images/Statusphere-logo.png" style="width:100%;">
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <span style="color:red;" class="help-block" ng-show="theForm.password.$error.required && theForm.$submitted">Password is required </span>
-                                    <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*) & length should be 8-20</span>
+                                    <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -90,10 +90,10 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-6 text-center">
+                            <div class="text-center">
                                 <button type="submit" class="btn btn-primary" onclick="onsubmit($valid)" id="button" /> Submit
                             </div>
-                            <div class="col-md-6 text-left">
+                            <div class="text-center">
 
                                 <button id="button1" type="reset" class="btn btn-primary" ng-click="reset(theForm)" />
                                 Clear
@@ -103,37 +103,53 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
-    
-        
-    <script>
-        var app = angular.module("myapp", []);
-        app.controller("myctrl", function ($scope, $http) {
-
-
-            $scope.onsubmit = function (valid) {
-
-                $http.post("    ", $scope.formModel).success(function (data) {
-                    console.log(":) ")
-                }).error(function (data) {
-                    console.log(":( ")
-                });
-            };
+    </div>
 
 
 
 
-            $scope.reset = function (theForm) {
-                $scope.master = {};
-                theForm.$setPristine();
 
-            };
+    <div class="navbar navbar-inverse navbar-position" role="navigation">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+        </div>
+        <script>
+            var app = angular.module("myapp", []);
+            app.controller("myctrl", function ($scope, $http) {
 
 
-        });
- </script>
-    <script src="js/jquery-3.2.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                $scope.onsubmit = function (valid) {
+
+                    $http.post("    ", $scope.formModel).success(function (data) {
+                        console.log(":) ")
+                    }).error(function (data) {
+                        console.log(":( ")
+                    });
+                };
+
+
+
+
+                $scope.reset = function (theForm) {
+                    $scope.master = {};
+                    theForm.$setPristine();
+
+                };
+
+
+            });
+        </script>
+        <script src="js/jquery-3.2.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
