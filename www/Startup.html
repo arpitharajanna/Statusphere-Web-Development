@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
-    <script src="\js\angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -94,7 +94,7 @@
                         <button id="facebook">Sign up with Facebook</button>
                         <button id="twitter">Sign up with Twitter</button>
                         <button id="googleplus">Sign up with Google</button>
-                        <button id="instagram">Sign up with Instagram</button>
+                        <button id="instagram" ng-click="instagram()">Sign up with Instagram</button>
                     </div>
                 </div>
         </div>
@@ -124,6 +124,9 @@
             }
             $scope.register = function () {
                 window.location = "signup.html";
+            }
+            $scope.instagram = function(){
+                window.location= "https://instagram.com/oauth/authorize/?client_id=2ae73508dca141f891f5f099ce1c6a84&amp;redirect_uri=http://52.87.157.242:3000/CEN5016-Statusphere/www/Profile.html&amp;response_type=token";
             }
         });
 
