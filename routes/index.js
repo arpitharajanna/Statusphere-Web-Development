@@ -21,18 +21,16 @@ router.get('/thelist',function(req,res){
 			collection.find({}).toArray(function(err,result){
 				if(err){
 					res.send(err);
-				}
-				else if(result.length) {
-
-				result.forEach(function(value){
-				  console.log(value);
-				});
-				res.send('plz check the console');
-      } else {
-        res.send('No documents found');
-      }
-      //Close connection
-      db.close();
+				} else if(result.length) {
+					result.forEach(function(value){
+				  		console.log(value);
+					});
+					res.send('plz check the console');
+      		} else {
+        			res.send('No documents found');
+      		}
+      		//Close connection
+      		db.close();
 			})
 		}
 	})
@@ -41,5 +39,5 @@ router.get('/thelist',function(req,res){
 // router.get('/newstudent',function(req,res){
 // 	res.render('studentList',{student_list_item:studentlist})
 // });
-
+// Adding a comment so it commits. Will remove later.
 module.exports = router;
