@@ -1,0 +1,38 @@
+How to CheckIn Code to the GIT:
+
+Linux/ Mac Environment:
+Use console / command prompt to checkout / checkin file
+
+1. Clone the repository 
+  %> git clone https://github.com/bwj-GitHub/CEN5016-Statusphere.git
+
+2. Add new files
+
+  %> git add <file name>
+ 
+3. Commit it 
+
+  %> git commit <file Name>
+   or
+  %> git commit *    
+     This will commit all the updated or newly added files 
+
+4. Finally push your chnages into the repository
+
+  %> git push 
+
+    Use your login id and password when prompted
+
+
+----
+Other command
+5. git status 
+  
+   Check the status of your repo
+
+6. git log 
+
+   Show checkin details
+
+
+
