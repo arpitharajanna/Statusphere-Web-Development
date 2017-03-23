@@ -106,6 +106,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">Home</a></li>
                     <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#Login">Sign In</a></li>
+                    <li> <a href="#"data-toggle="modal" data-target="#SignUp" >Apply</a></li>
                 </ul>
             </div>
         </div>
@@ -141,7 +143,7 @@
     </div>
     <br />
     <br />
-    <div class="container">
+    <div class="container" name="divSignInSection" id="divSignInSectionID">
 
         <div class="row">
             <div class="col-md-6">
@@ -161,17 +163,17 @@
                 <h4><strong><p id="p1"> New to Statusphere ?</p> </strong></h4>
                 <div class="centered">
                     <!--<button class="btn btn-primary" ng-click="register()">Signup</button>-->
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#SignUp" >SignUp</button>
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#SignUp" >Apply</button>
                 </div>
                     
                 <h4><p id="p1">--OR--</p></h4>
                     
 
                 <div class="social-wrap a">
-                    <button id="facebook">Sign up with Facebook</button>
-                    <button id="twitter">Sign up with Twitter</button>
-                    <button id="googleplus">Sign up with Google</button>
-                    <button id="instagram" ng-click="instagram()">Sign up with Instagram</button>
+                    <button id="facebook">Sign in with Facebook</button>
+                    <button id="twitter">Sign in with Twitter</button>
+                    <button id="googleplus">Sign in with Google</button>
+                    <button id="instagram" ng-click="instagram()">Sign in with Instagram</button>
                 </div>
 
                 <!-- Modal  Login -->
@@ -188,18 +190,18 @@
                             <div class="modal-body"">
 
                                 <form name="frmLogIn" ng-submit="onsubmit(frmSignUp.$valid)" novalidate="novalidate" role="form">
-                                <div class="form-group">
+                                <div class="text-center">
                                     <input type="text" name="username" ng-model="username" placeholder="username" required="" />
                                     <span class="help-block" ng-show="(frmLogIn.username.$error.required && frmLogIn.$submitted)" style="color:red;">Username is required</span>
                                 </div>
-                                <div class="form-group">
+                                <div class="text-center">
                                     <input type="password" name="password" ng-model="password" placeholder="password" required="" />
                                     <span class="help-block" ng-show="(frmLogIn.password.$error.required && frmLogIn.$submitted)" style="color:red;">Password is required</span>
                                 </div>
                                 <br />
-                                <div class="form-group" id="button">
+                                <div class="form-group" id="btnLogIn">
                                     <div class="text-center">
-                                        <button name="button" type="submit" ng-click="onsubmit" class="btn btn-primary"> Let Me In </button>
+                                        <button name="button" type="submit" ng-click="onsubmit" class="btn btn-primary"> LogIn </button>
                                     </div>
                                 </div>
 
@@ -223,7 +225,7 @@
                 </div> <!-- End of Modal Login -->
 
 
-                <!-- Modal  Sign Up -->
+                <!-- Modal  Apply  -->
                 <div class="modal fade" id="SignUp" role="dialog">
                     <div class="modal-dialog">
     
@@ -235,61 +237,62 @@
                             </div>
                             <!-- Modal Body -->
                             <div class="modal-body">
-                        <form name="frmSignUp" novalidate="novalidate" class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label class="control-label col-md-2" for="name">UserName:</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-unique="{key: 'users', property: 'username'}" ng-minlength="3" ng-maxlength="25" />
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="color:red;" id="s1" class="help-block" ng-show="(frmSignUp.text.$error.required && frmSignUp.$submitted)">Username is required</span>
-                                    <span style="color:red;" id="s1" class="help-block" ng-show="(!frmSignUp.text.$pristine && frmSignUp.text.$error.minlength)"> Username too short</span>
-                                    <span style="color:red;" id="s1" class="help-block" ng-show="(!frmSignUp.text.$pristine && frmSignUp.text.$error.maxlength)"> Username too long</span>
-                                    <span style="color:red;" id="s1" class="help-block" ng-show="frmSignUp.text.$error.unique && frmSignUp.$submitted"> Username is already taken</span>
-                                </div>
+                                <!-- Complete Signup/Apply Form-->
+                                <form name="frmSignUp" novalidate="novalidate" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="name">UserName:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-unique="{key: 'users', property: 'username'}" ng-minlength="3" ng-maxlength="25" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="(frmSignUp.text.$error.required && frmSignUp.$submitted)">Username is required</span>
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="(!frmSignUp.text.$pristine && frmSignUp.text.$error.minlength)"> Username too short</span>
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="(!frmSignUp.text.$pristine && frmSignUp.text.$error.maxlength)"> Username too long</span>
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="frmSignUp.text.$error.unique && frmSignUp.$submitted"> Username is already taken</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <label class="control-label col-md-2" for="email">Email:</label>
+                                        <div class="col-md-6">
+
+                                            <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span style="color:red;" class="help-block" ng-show="frmSignUp.email.$error.required && frmSignUp.$submitted">Email is required</span>
+                                            <span style="color:red;" class="help-block" ng-show="!frmSignUp.email.$pristine && frmSignUp.email.$error.email"> please enter valid email</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="password">Password:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span style="color:red;" class="help-block" ng-show="frmSignUp.password.$error.required && frmSignUp.$submitted">Password is required </span>
+                                            <span style="color:red;" class="help-block" ng-show="!frmSignUp.password.$pristine && frmSignUp.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span style="color:red;" class="help-block" ng-show="frmSignUp.password1.$error.required && frmSignUp.$submitted">Password confirmation is required</span>
+                                            <span style="color:red;" class="help-block" ng-show="(!frmSignUp.password1.$pristine && $frmSignUp.password.$error.required && !frmSignUp.password1.$error.required) || (!frmSignUp.password1.$pristine && frmSignUp.password.$viewValue!==frmSignUp.password1.$viewValue) || (!frmSignUp.password1.$pristine && !frmSignUp.password.$error.required && frmSignUp.password1.$error.required)"> Password Mismatch</span>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary" id="sbtnSignUp" onclick="onsubmit($valid)"  > Submit </button>&nbsp;&nbsp; &nbsp;
+                                        <button type="reset" class="btn btn-primary" id="btnSignUpClear" ng-click="reset(frmSignUp)" /> Clear </button>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="form-group">
-
-                                <label class="control-label col-md-2" for="email">Email:</label>
-                                <div class="col-md-6">
-
-                                    <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="color:red;" class="help-block" ng-show="frmSignUp.email.$error.required && frmSignUp.$submitted">Email is required</span>
-                                    <span style="color:red;" class="help-block" ng-show="!frmSignUp.email.$pristine && frmSignUp.email.$error.email"> please enter valid email</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2" for="password">Password:</label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="color:red;" class="help-block" ng-show="frmSignUp.password.$error.required && frmSignUp.$submitted">Password is required </span>
-                                    <span style="color:red;" class="help-block" ng-show="!frmSignUp.password.$pristine && frmSignUp.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" />
-                                </div>
-                                <div class="col-md-4">
-                                    <span style="color:red;" class="help-block" ng-show="frmSignUp.password1.$error.required && frmSignUp.$submitted">Password confirmation is required</span>
-                                    <span style="color:red;" class="help-block" ng-show="(!frmSignUp.password1.$pristine && $frmSignUp.password.$error.required && !frmSignUp.password1.$error.required) || (!frmSignUp.password1.$pristine && frmSignUp.password.$viewValue!==frmSignUp.password1.$viewValue) || (!frmSignUp.password1.$pristine && !frmSignUp.password.$error.required && frmSignUp.password1.$error.required)"> Password Mismatch</span>
-
-                                </div>
-
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary" id="sbtnSignUp" onclick="onsubmit($valid)"  > Submit </button>&nbsp;&nbsp; &nbsp;
-                                <button type="reset" class="btn btn-primary" id="btnSignUpClear" ng-click="reset(frmSignUp)" /> Clear </button>
-                            </div>
-                        </form>
-                    </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
@@ -297,6 +300,9 @@
       
                     </div>
                 </div> <!-- End of Modal Login -->
+
+
+
 
 
 
