@@ -36,6 +36,10 @@ router.get('/thelist',function(req,res){
 	})
 })
 
+
+router.get('/random', function(req, res) {
+	res.send('Inside random');
+})
 // router.get('/newstudent',function(req,res){
 // 	res.render('studentList',{student_list_item:studentlist})
 // });

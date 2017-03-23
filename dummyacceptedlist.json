@@ -1,0 +1,35 @@
+{
+  "categoryName": "Sample Set of Applicants",
+  "applicants": [
+    {
+      "applicantusername": "cashmeoutside",
+      "instagramhandle": "cashmeoutsidegirl",
+      "noofinstagramfollowers": 100000,
+      "averagenooflikes": 500
+    },
+    {
+      "applicantusername": "pakalupapito",
+      "instagramhandle": "pakalupapitoguy",
+      "noofinstagramfollowers": 200000,
+      "averagenooflikes": 800
+    },
+    {
+      "applicantusername": "saltbae",
+      "instagramhandle": "saltbae",
+      "noofinstagramfollowers": 100000,
+      "averagenooflikes": 700
+    },
+    {
+      "applicantusername": "girleatworld",
+      "instagramhandle": "girleatworldgirl",
+      "noofinstagramfollowers": 300000,
+      "averagenooflikes": 800
+    },
+    {
+      "applicantusername": "kaylaitsines",
+      "instagramhandle": "girleatworldgirl",
+      "noofinstagramfollowers": 100000,
+      "averagenooflikes": 400
+    }
+  ]
+}
