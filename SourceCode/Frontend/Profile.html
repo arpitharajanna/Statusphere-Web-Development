@@ -2,111 +2,238 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
-    <link rel="stylesheet" href="css/Style4.css" type="text/css" />
-    <script src="js/angular.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style5.css" />
+    <script src="\js\angular.min.js"></script>
     <script src="js/countries.js"></script>
-    <script src="js/Upload.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
 </head>
 <body ng-app="myapp" ng-controller="myctrl">
-    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
-        <fieldset class="personal_info">
-            <legend> Personal Info </legend>
-            
-            <p>
-                <label for="first_name"> First name:</label>
-                <input type="text" name="firstname" ng-model="Form.firstname" id="first_name" required="required" />
-            </p>
-                <br />
+    <script src="js/angular-datepicker.js"></script>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
 
-            <p>
-                <label for="last_name"> Last name:</label>
-                <input type="text" name="lastname" ng-model="Form.lastname" id="last_name" required="required" />
-            </p>
-            <br />
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title"> Personal Info </h1>
+                    </div>
+                    <div class="panel-body">
+                        <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
+                            <div class="form-group required">
+                                <label for="firstname" class="control-label">  First Name </label>
+                                <input class="form-control" id="firstname" name="firstname" placeholder="Firstname" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="lastname" class="control-label">  Last Name </label>
+                                <input class="form-control" id="lastname" name="lastname" placeholder="Lastname" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="DOB" class="control-label">  Date Of Birth </label>
 
-            <p>
-                <label for="instagram_name"> Instagram Account:</label>
-                <input type="text" name="instagram_name" ng-model="Form.instname" id="instagram_name" required="required" />
-            </p>
-            <br />
-            <p>
-                <label for="fb_name"> Facebook username:</label>
-                <input type="text" name="fbname" ng-model="Form.fbname" id="fbname" required="required" />
-            </p>
-            <br />
-            <p>
-                <label for="twitter_name"> Twitter username:</label>
-                <input type="text" name="twitter_name" ng-model="Form.twitter_name" id="twitter_name" required="required" />
-            </p>
-            <br />
-            <p>
-                <label for="sn_name"> Snapchat username:</label>
-                <input type="text" name="sn_name" ng-model="Form.sn_name" id="sn_name" required="required" />
-            </p>
-            <br />
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
 
-            <p>
-                <label for="yt_channel"> Youtube channel:</label>
-                <input type="text" name="yt_channel" ng-model="Form.yt_channel" id="yt_channel" required="required" />
-            </p>
-            <br />
-            <p>
-                <label for="blog"> Blog/Website:</label>
-                <input type="url" name="blog" ng-model="Form.blog" id="blog" required="required" />
-            </p>
-            <br />
-                <p>
-                    <label for="addr1"> Address line 1:</label>
-                    <input type="text" name="addr1" ng-model="Form.addr1" id="addr1" required="required" />
-                </p>
-                <br />
-                <p>
-                    <label for="addr2"> Address line 2:</label>
-                    <input type="text" name="addr2" ng-model="Form.addr2" id="addr2" required="required" />
-                </p>
-                <br />
-                <p>
-                    <label for="num"> Contact number:</label>
-                    <input type="number" name="num" ng-model="Form.num" id="num" required="required" />
-                </p>
-                <br />
-                <p>
-                    <label for="code"> Zip Code:</label>
-                    <input type="text" name="code" ng-model="Form.code" id="code" required="required" />
-                </p>
-            <br />
-        </fieldset>
-    </form>
-    <img ng-if="image" src="{{image}}" alt="">
-    <form action="">
-        <input my-upload type="file" name="upload">
-    </form>
+                                <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker1').datetimepicker();
+                                    });
+                                </script>
+
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="Gender" class="control-label">  Gender </label>
+                                <select class="form-control" id="gender1">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group required">
+                                <label for="Instagram-Account" class="control-label">  Instagram Account </label>
+                                <input class="form-control" id="Instagram-Account" name="Instagram-Account" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="Facebook-name" class="control-label">  Facebook name </label>
+                                <input class="form-control" id="Facebook-name" name="Facebook-name" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="Twitter-username" class="control-label">  Twitter username </label>
+                                <input class="form-control" id="Twitter-username" name="Twitter-username" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="Snapchat-username" class="control-label">  Snapchat username </label>
+                                <input class="form-control" id="Snapchat-username" name="Snapchat-username" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="youtubechannel" class="control-label">  Youtube Channel </label>
+                                <input class="form-control" id="youtubechannel" name="youtubechannel" required="required" type="text" />
+                            </div>
+                            <div class="form-group">
+                                <label for="blog" class="control-label">  Blog/Website </label>
+                                <input class="form-control" id="blog" name="blog" type="url" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="addr1" class="control-label">  Address Line 1 </label>
+                                <input class="form-control" id="addr1" name="addr1" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="addr2" class="control-label">  Address Line 2 </label>
+                                <input class="form-control" id="addr2" name="addr2" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="country" class="control-label">  Country </label>
+                                <select ng-model="countrty" ng-options=""></select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="states" class="control-label">  State </label>
+                                <select ng-model="state" ng-options=""></select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="city" class="control-label">  City </label>
+                                <input class="form-control" id="city" name="city" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="zip" class="control-label">  Zip Code </label>
+                                <input class="form-control" id="zip" name="zip" required="required" type="text" />
+                            </div>
+                            <div class="form-group required">
+                                <label for="phno" class="control-label">  Mobile number </label>
+                                <input class="form-control" id="phno" name="phno" required="required" type="text" />
+                            </div>
+                            <fieldset>
+                                <legend>  Categories  </legend>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Fashion
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Food
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Sports
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Electronic Gadgets
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Lifestyle
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Makeup
+                                    </label>
+
+                                </div>
+                            </fieldset>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                        
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-offset-3 col-md-3">
+                <h2>   Upload your picture   </h2>
+                <img ng-if="image" src="{{image}}" alt="">
+                <form action="">
+                    <input my-upload type="file" name="upload">
+                </form>
+
+            </div>
+        </div>
+        </div>
     
-    <script>
-        
-        angular.module('myApp', []).
 
-        controller('myctrl', ['$scope', function (scope) {
-            scope.image = "";
-        }]).
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
 
-        directive('myUpload', [function () {
-            return {
-                restrict: 'A',
-                link: function (scope, elem, attrs) {
-                    var reader = new FileReader();
-                    reader.onload = function (e) {
-                        scope.image = e.target.result;
-                        scope.$apply();
-                    }
+        </div>
+    </div>
+   
 
-                    elem.on('change', function () {
-                        reader.readAsDataURL(elem[0].files[0]);
-                    });
-                }
-            };
-        }]);
-    </script>
+                       <script>
+                           var app=angular.module("myapp",[]);
+                           app.directive('myUpload', [function () {
+                                return {
+                                    restrict: 'A',
+                                    link: function (scope, elem, attrs) {
+                                        var reader = new FileReader();
+                                        reader.onload = function (e) {
+                                            scope.image = e.target.result;
+                                            scope.$apply();
+                                        }
+
+                                        elem.on('change', function () {
+                                            reader.readAsDataURL(elem[0].files[0]);
+                                        });
+                                    }
+                                };
+                            }]);
+                        </script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+  
 </body>
 </html>
