@@ -7,7 +7,9 @@
       "noofinstagramfollowers": 3250,
       "noofposts": 75,
       "averagenooflikes": 500,
-      "averagenoofcomments": 25
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.6,
+      "liketofollowerratio": 5
     },
     {
       "applicantusername": "pakalupapito",
@@ -15,7 +17,9 @@
       "noofinstagramfollowers": 4000,
       "noofposts": 80,
       "averagenooflikes": 300,
-      "averagenoofcomments": 25
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.4,
+      "liketofollowerratio": 5
     },
     {
       "applicantusername": "saltbae",
@@ -23,7 +27,9 @@
       "noofinstagramfollowers": 2000,
       "noofposts": 75,
       "averagenooflikes": 700,
-      "averagenoofcomments": 25
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
     },
     {
       "applicantusername": "girleatworld",
@@ -31,7 +37,9 @@
       "noofinstagramfollowers": 1000,
       "noofposts": 75,
       "averagenooflikes": 800,
-      "averagenoofcomments": 25
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
     },
     {
       "applicantusername": "kaylaitsines",
@@ -39,7 +47,9 @@
       "noofinstagramfollowers": 1000,
       "noofposts": 75,
       "averagenooflikes": 400,
-      "averagenoofcomments": 25
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
     }
   ]
 }
