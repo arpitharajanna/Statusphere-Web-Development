@@ -10,7 +10,11 @@ var mongo= require('mongodb');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+
 var applicant = require('./models/applicant');
+
+var acceptedlist = require('./routes/acceptedlist');
+
 var app = express();
 mongoose.connect('mongodb://localhost:27017/applicant');
 // view engine setup
@@ -35,6 +39,8 @@ require('./config/passport');
 
 app.use(passport.initialize());
 app.use('/', index);
+app.use('/acceptedlist', acceptedlist);
+
 // app.use('/api', routesApi);
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
