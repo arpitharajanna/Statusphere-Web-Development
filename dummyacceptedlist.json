@@ -4,32 +4,42 @@
     {
       "applicantusername": "cashmeoutside",
       "instagramhandle": "cashmeoutsidegirl",
-      "noofinstagramfollowers": 100000,
-      "averagenooflikes": 500
+      "noofinstagramfollowers": 3250,
+      "noofposts": 75,
+      "averagenooflikes": 500,
+      "averagenoofcomments": 25
     },
     {
       "applicantusername": "pakalupapito",
       "instagramhandle": "pakalupapitoguy",
-      "noofinstagramfollowers": 200000,
-      "averagenooflikes": 800
+      "noofinstagramfollowers": 4000,
+      "noofposts": 80,
+      "averagenooflikes": 300,
+      "averagenoofcomments": 25
     },
     {
       "applicantusername": "saltbae",
       "instagramhandle": "saltbae",
-      "noofinstagramfollowers": 100000,
-      "averagenooflikes": 700
+      "noofinstagramfollowers": 2000,
+      "noofposts": 75,
+      "averagenooflikes": 700,
+      "averagenoofcomments": 25
     },
     {
       "applicantusername": "girleatworld",
       "instagramhandle": "girleatworldgirl",
-      "noofinstagramfollowers": 300000,
-      "averagenooflikes": 800
+      "noofinstagramfollowers": 1000,
+      "noofposts": 75,
+      "averagenooflikes": 800,
+      "averagenoofcomments": 25
     },
     {
       "applicantusername": "kaylaitsines",
       "instagramhandle": "girleatworldgirl",
-      "noofinstagramfollowers": 100000,
-      "averagenooflikes": 400
+      "noofinstagramfollowers": 1000,
+      "noofposts": 75,
+      "averagenooflikes": 400,
+      "averagenoofcomments": 25
     }
   ]
 }
