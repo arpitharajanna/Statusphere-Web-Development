@@ -9,7 +9,7 @@
     <script src="js/countries.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  
+
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -37,165 +37,205 @@
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title"> Personal Info </h1>
-                    </div>
-                    <div class="panel-body">
-                        <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
-                            <div class="form-group required">
-                                <label for="firstname" class="control-label">  First Name </label>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title"> Personal Info </h1>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-8">
+                    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
+                        <div class="form-group required col-md-12">
+                            <label for="firstname" class="control-label col-md-3">  First Name </label>
+                            <div class="col-md-5">
                                 <input class="form-control" id="firstname" name="firstname" placeholder="Firstname" required="required" type="text" />
                             </div>
-                            <div class="form-group required">
-                                <label for="lastname" class="control-label">  Last Name </label>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <br/>
+                        <div class="form-group required col-md-12">
+                            <label for="lastname" class="control-label col-md-3">  Last Name </label>
+                            <div class="col-md-5">
                                 <input class="form-control" id="lastname" name="lastname" placeholder="Lastname" required="required" type="text" />
                             </div>
-                            <div class="form-group required">
-                                <label for="DOB" class="control-label">  Date Of Birth </label>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
 
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <input type='text' class="form-control" />
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                </div>
+                            <div class='input-group date col-md-5' id='datetimepicker1'>
+                                <input type="date" class="form-control" />
+                                <!--<span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>-->
+                            </div>
+                            <span class="col-md-4"></span>
 
-                                <script type="text/javascript">
+                            <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker1').datetimepicker();
                                     });
-                                </script>
+                            </script>
 
-                            </div>
+                        </div>
 
-                            <div class="form-group required">
-                                <label for="Gender" class="control-label">  Gender </label>
-                                <select class="form-control" id="gender1">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                            </div>
+                      <div class="form-group required col-md-12">
+                            <label for="Gender" class="control-label col-md-3">  Gender </label>
+                          <div class="col-md-5">
+                              <select class="form-control" id="gender1">
+                                  <option>Male</option>
+                                  <option>Female</option>
+                              </select>
+                          </div>
+                       </div>
 
 
-                            <div class="form-group required">
-                                <label for="Instagram-Account" class="control-label">  Instagram Account </label>
-                                <input class="form-control" id="Instagram-Account" name="Instagram-Account" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="Facebook-name" class="control-label">  Facebook name </label>
-                                <input class="form-control" id="Facebook-name" name="Facebook-name" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="Twitter-username" class="control-label">  Twitter username </label>
-                                <input class="form-control" id="Twitter-username" name="Twitter-username" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="Snapchat-username" class="control-label">  Snapchat username </label>
-                                <input class="form-control" id="Snapchat-username" name="Snapchat-username" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="youtubechannel" class="control-label">  Youtube Channel </label>
-                                <input class="form-control" id="youtubechannel" name="youtubechannel" required="required" type="text" />
-                            </div>
-                            <div class="form-group">
-                                <label for="blog" class="control-label">  Blog/Website </label>
-                                <input class="form-control" id="blog" name="blog" type="url" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="addr1" class="control-label">  Address Line 1 </label>
-                                <input class="form-control" id="addr1" name="addr1" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="addr2" class="control-label">  Address Line 2 </label>
-                                <input class="form-control" id="addr2" name="addr2" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="country" class="control-label">  Country </label>
-                                <select ng-model="countrty" ng-options=""></select>
-                            </div>
-                            <div class="form-group required">
-                                <label for="states" class="control-label">  State </label>
-                                <select ng-model="state" ng-options=""></select>
-                            </div>
-                            <div class="form-group required">
-                                <label for="city" class="control-label">  City </label>
-                                <input class="form-control" id="city" name="city" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="zip" class="control-label">  Zip Code </label>
-                                <input class="form-control" id="zip" name="zip" required="required" type="text" />
-                            </div>
-                            <div class="form-group required">
-                                <label for="phno" class="control-label">  Mobile number </label>
-                                <input class="form-control" id="phno" name="phno" required="required" type="text" />
-                            </div>
-                            <fieldset>
-                                <legend>  Categories  </legend>
-                                <div class="form-check">
+                         <div class="form-group required col-md-12">
+                            <label for="Instagram-Account" class="control-label col-md-3">  Instagram Account </label>
+                             <div class="col-md-5">
+                                 <input class="form-control" id="Instagram-Account" name="Instagram-Account" required="required" type="text" />
+                             </div>
+                             </div>
+                         <div class="form-group required col-md-12">
+                            <label for="Facebook-name" class="control-label col-md-3">  Facebook name </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="Facebook-name" name="Facebook-name" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="Twitter-username" class="control-label col-md-3">  Twitter username </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="Twitter-username" name="Twitter-username" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="Snapchat-username" class="control-label col-md-3">  Snapchat username </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="Snapchat-username" name="Snapchat-username" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="youtubechannel" class="control-label col-md-3">  Youtube Channel </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="youtubechannel" name="youtubechannel" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="blog" class="control-label col-md-3">  Blog/Website </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="blog" name="blog" type="url" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="addr1" name="addr1" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="addr2" class="control-label col-md-3">  Address Line 2 </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="addr2" name="addr2" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="country" class="control-label col-md-3">  Country </label>
+                              <div class="col-md-5">
+                            <select ng-model="countrty" ng-options=""></select>
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="states" class="control-label col-md-3">  State </label>
+                              <div class="col-md-5">
+                            <select ng-model="state" ng-options=""></select>
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="city" class="control-label col-md-3">  City </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="city" name="city" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="zip" class="control-label col-md-3">  Zip Code </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="zip" name="zip" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="phno" class="control-label col-md-3">  Mobile number </label>
+                              <div class="col-md-5">
+                            <input class="form-control" id="phno" name="phno" required="required" type="text" />
+                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label col-md-3">  Categories  </label>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Fashion
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check col-md-3">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Food
                                     </label>
                                 </div>
-                                <div class="form-check">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>       
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Sports
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check col-md-4">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Electronic Gadgets
                                     </label>
                                 </div>
-                                <div class="form-check">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Lifestyle
                                     </label>
                                 </div>
-                                <div class="form-check">
+                                <div class="form-check col-md-4">
                                     <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input">
                                         Makeup
                                     </label>
-
                                 </div>
-                            </fieldset>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                        </form>
-
-                        
-
-                    </div>
+                        </div>                                                                                                                
+   
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h2>   Upload your picture   </h2>
+                    <img ng-if="image" src="{{image}}" alt="">
+                    <form action="">
+                        <input my-upload type="file" name="upload">
+                    </form>
 
                 </div>
-
-
-            </div>
-            <div class="col-md-offset-3 col-md-3">
-                <h2>   Upload your picture   </h2>
-                <img ng-if="image" src="{{image}}" alt="">
-                <form action="">
-                    <input my-upload type="file" name="upload">
-                </form>
-
             </div>
         </div>
-        </div>
-    
+    </div>
+
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
@@ -210,9 +250,9 @@
 
         </div>
     </div>
-   
 
-                       <script>
+
+    <script>
                            var app=angular.module("myapp",[]);
                            app.directive('myUpload', [function () {
                                 return {
@@ -223,17 +263,16 @@
                                             scope.image = e.target.result;
                                             scope.$apply();
                                         }
-
                                         elem.on('change', function () {
                                             reader.readAsDataURL(elem[0].files[0]);
                                         });
                                     }
                                 };
                             }]);
-                        </script>
+    </script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  
-  
+
+
 </body>
 </html>
