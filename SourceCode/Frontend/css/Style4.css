@@ -1,0 +1,19 @@
+﻿.personal_info label{
+    float:left;
+    width:150px;
+    text-align:right;
+    margin-right:10px;
+       }
+fieldset{
+    width:600px;
+}
+
+input[type=text],[type=number],[type=url]{
+    
+            width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box;
+    font-style:normal;
+    font-size:medium;
+}
