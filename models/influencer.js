@@ -1,14 +1,18 @@
 var mongoose = require('mongoose');
 
-var applicantSchema = new mongoose.Schema({
-applicant_username{
+var influencerSchema = new mongoose.Schema({
+influencer_username{
 	type:String,
 	unique :true,
 	required : true
 },
-applicant_password{
+influencer_password{
 	type: String,
 	required:true
+},
+applicant_id{
+	type: Number;
+	required: true
 },
 firstName{
     type: String,
@@ -28,6 +32,10 @@ gender{
 },
 followers{
 	type: Number,
+	required: true
+},
+address{
+	type: String,
 	required: true
 },
 emaild{
@@ -52,16 +60,20 @@ twitter_url{
 facebook_Url{
 	type:String,
 	unique: true,
-	required: 
+	required:
 },
 categories{
 	type: String;
 	required: true
 },
-date_applied{
+date_accepted{
 	type: Date;
+	required: true
+},
+gamification_points{
+	type: Number,
 	required: true
 }
 });
 
-module.exports = mongoose.model('applicant', applicantSchema);
+module.exports = mongoose.model('influencer', influencerSchema);
