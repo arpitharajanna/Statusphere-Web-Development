@@ -52,7 +52,7 @@ twitter_url{
 facebook_Url{
 	type:String,
 	unique: true,
-	required: 
+ 
 },
 categories{
 	type: String;
