@@ -14,8 +14,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <script src="controller/profile.js"></script>
 </head>
-<body ng-app="myapp" ng-controller="myctrl">
+<body ng-app="appProfile" ng-controller="ctrlProfile">
     <script src="js/angular-datepicker.js"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -62,20 +63,13 @@
                         <div class="form-group required col-md-12">
                             <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
 
-                            <div class='input-group date col-md-5' id='datetimepicker1'>
-                                <input type="date" class="form-control" />
+                            <div class="col-md-5">
+                                <input class="form-control" id="txtdateofbirth" name="dateofbirth"  required="required" type="date" />
                                 <!--<span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>-->
                             </div>
-                            <span class="col-md-4"></span>
-
-                            <script type="text/javascript">
-                                    $(function () {
-                                        $('#datetimepicker1').datetimepicker();
-                                    });
-                            </script>
-
+                            <span class="col-md-4"></span>                           
                         </div>
 
                       <div class="form-group required col-md-12">
@@ -140,13 +134,22 @@
                         <div class="form-group required col-md-12">
                             <label for="country" class="control-label col-md-3">  Country </label>
                               <div class="col-md-5">
-                            <select ng-model="countrty" ng-options=""></select>
+                            <select class="form-control" id="drpCountry" ng-model="selectCountry" ng-options="c.countryname for c in country" ng-change="changeCountry()">
+                                <option value="">Select Country</option>
+                               <!-- <option ng-repeat="countryname in country"></option>-->
+
+                            </select>
                              </div>
                         </div>
                         <div class="form-group required col-md-12">
                             <label for="states" class="control-label col-md-3">  State </label>
                               <div class="col-md-5">
-                            <select ng-model="state" ng-options=""></select>
+                            <select class="form-control" id="drpState" ng-model="selectCity" ng-options="c.state_name for c in selectCountry.states">
+                                <option value="">Select state</option>
+                                <!--<option ng-repeat="state in countryname" ></option>-->
+                                
+                            </select>
+                                  
                              </div>
                         </div>
                         <div class="form-group required col-md-12">
