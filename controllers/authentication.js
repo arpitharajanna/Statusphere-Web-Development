@@ -18,6 +18,7 @@ Applicant.firstName = req.body.firstName;
 Applicant.username = req.body.username;
 Applicant.password = req.body.password;
 
+
 //Applicant.setPassword(req.body.password.toString());
 Applicant.save(function(err){
     console.log(req.body.firstName);

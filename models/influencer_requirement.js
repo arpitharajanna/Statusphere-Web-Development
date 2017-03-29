@@ -1,28 +1,28 @@
 var mongoose = require('mongoose');
 
 var influencer_requirementSchema = new mongoose.Schema({
-influencer_id{
+influencer_id:{
 	type: Number,
 	unique :true,
 	required : true
 },
-requirement_id{
+requirement_id:{
 	type:Number,
 	unique : true,
 	required: true
 
 },
-package_id{
+package_id:{
 	type: Number,
-	unique ; true,
+	unique : true,
 	required: true
 
 },
-linkforpost{
+linkforpost:{
 	type: String,
 	required: true;
 },
-statusofrequirement{
+statusofrequirement:{
 	type: Boolean,
 	required: true
 }

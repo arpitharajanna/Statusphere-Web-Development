@@ -1,32 +1,32 @@
 var mongoose = require('mongoose');
 
 var packageSchema = new mongoose.Schema({
-product_id{
+product_id:{
 	type: Number,
 	unique :true,
 	required : true
 },
-influencer_id{
+influencer_id:{
 	type: Number,
 	unique: true,
 	required: true
 
 },
-tracking_id{
+tracking_id:{
 	type: Number,
 	unique: true,
 	required : true
 },
-status{
+status:{
 	type: varchar,
 	required: true
 },
-shipping_date{
+shipping_date:{
 	type: Date,
 	required:true
 
 },
-package_timestamp{
+package_timestamp:{
 	type: Date,
 	required: true
 }

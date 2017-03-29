@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 
 var requirementSchema = new mongoose.Schema({
-product_id{
+product_id:{
 	type: Number,
 	unique :true,
 	required : true
 },
-requirement_description{
+requirement_description:{
 	type:String,
 	required: true
 
