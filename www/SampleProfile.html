@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style5.css" />
+    <script src="\js\angular.min.js"></script>
+    <script src="js/countries.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body ng-app="myapp" ng-controller="myctrl">
+    <script src="js/angular-datepicker.js"></script>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title"> Personal Info </h1>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-8">
+                    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
+                        <div class="form-group required col-md-12">
+                            <label for="firstname" class="control-label col-md-3">  First Name </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="firstname" name="firstname" placeholder="Firstname" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <br />
+                        <div class="form-group required col-md-12">
+                            <label for="lastname" class="control-label col-md-3">  Last Name </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="lastname" name="lastname" placeholder="Lastname" required="required" type="text" />
+                            </div>
+                            <span class="col-md-4"></span>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
+
+                            <div class='input-group date col-md-5' id='datetimepicker1'>
+                                <input type="date" class="form-control" />
+                                <!--<span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>-->
+                            </div>
+                            <span class="col-md-4"></span>
+
+                            <script type="text/javascript">
+                                    $(function () {
+                                        $('#datetimepicker1').datetimepicker();
+                                    });
+                            </script>
+
+                        </div>
+
+                        <div class="form-group required col-md-12">
+                            <label for="Gender" class="control-label col-md-3">  Gender </label>
+                            <div class="col-md-5">
+                                <select class="form-control" id="gender1">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group required col-md-12">
+                            <label for="Instagram-Account" class="control-label col-md-3">  Instagram Account </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="Instagram-Account" name="Instagram-Account" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="Facebook-name" class="control-label col-md-3">  Facebook name </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="Facebook-name" name="Facebook-name" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="Twitter-username" class="control-label col-md-3">  Twitter username </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="Twitter-username" name="Twitter-username" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="Snapchat-username" class="control-label col-md-3">  Snapchat username </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="Snapchat-username" name="Snapchat-username" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="youtubechannel" class="control-label col-md-3">  Youtube Channel </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="youtubechannel" name="youtubechannel" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="blog" class="control-label col-md-3">  Blog/Website </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="blog" name="blog" type="url" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="addr1" name="addr1" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="addr2" class="control-label col-md-3">  Address Line 2 </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="addr2" name="addr2" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="country" class="control-label col-md-3">  Country </label>
+                            <div class="col-md-5">
+                                <select ng-model="countrty" ng-options=""></select>
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="states" class="control-label col-md-3">  State </label>
+                            <div class="col-md-5">
+                                <select ng-model="state" ng-options=""></select>
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="city" class="control-label col-md-3">  City </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="city" name="city" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="zip" class="control-label col-md-3">  Zip Code </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="zip" name="zip" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group required col-md-12">
+                            <label for="phno" class="control-label col-md-3">  Mobile number </label>
+                            <div class="col-md-5">
+                                <input class="form-control" id="phno" name="phno" required="required" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label col-md-3">  Categories  </label>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Fashion
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Food
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Sports
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Electronic Gadgets
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-9">
+                                <div class="form-check col-md-3">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Lifestyle
+                                    </label>
+                                </div>
+                                <div class="form-check col-md-4">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Makeup
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h2>   Upload your picture   </h2>
+                    <img ng-if="image" src="{{image}}" alt="">
+                    <form action="">
+                        <input my-upload type="file" name="upload">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+                           var app=angular.module("myapp",[]);
+                           app.directive('myUpload', [function () {
+                                return {
+                                    restrict: 'A',
+                                    link: function (scope, elem, attrs) {
+                                        var reader = new FileReader();
+                                        reader.onload = function (e) {
+                                            scope.image = e.target.result;
+                                            scope.$apply();
+                                        }
+                                        elem.on('change', function () {
+                                            reader.readAsDataURL(elem[0].files[0]);
+                                        });
+                                    }
+                                };
+                            }]);
+    </script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
