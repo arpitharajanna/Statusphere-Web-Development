@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="\js\angular.min.js"></script>
+</head>
+<body ng-app="ProfileLoadApp" ng-controller="ProfileLoadCtrl">
+
+
+    
+    <div ng-repeat="x in fieldname">
+        <label for="firstname" class="control-label">  First Name: </label>
+        <span>{{x.firstname}}</span>
+        <label for="lastname" class="control-label">  Last Name </label>
+        <span>{{x.lastname}}</span>
+        <label for="DOB" class="control-label">  Date Of Birth </label>
+        <span>{{x.dob}}</span>
+        <label for="Gender" class="control-label">  Gender </label>
+        <span>{{x.gender}}</span>
+        <label for="Instagram-Account" class="control-label">  Instagram Account </label>
+        <span>{{instagram account}}</span>
+        <label for="Facebook-name" class="control-label">  Facebook name </label>
+        <span>{{facebook account}}</span>
+        <label for="Twitter-username" class="control-label">  Twitter username </label>
+        <span>{{twitter account}}</span>
+        <label for="Snapchat-username" class="control-label">  Snapchat username </label>
+        <span>{{snapchat name}}</span>
+        <label for="youtubechannel" class="control-label">  Youtube Channel </label>
+        <span>{{youtube channel}}</span>
+        <label for="blog" class="control-label">  Blog/Website </label>
+        <span>{{Blog}}</span>
+        <label for="addr1" class="control-label">  Address Line 1 </label>
+        <span>{{}}</span>
+        <label for="addr2" class="control-label">  Address Line 2 </label>
+        <span>{{}}</span>
+        <label for="country" class="control-label">  Country </label>
+        <span>{{}}</span>
+        <label for="states" class="control-label">  State </label>
+        <span>{{}}</span>
+        <label for="city" class="control-label">  City </label>
+        <span>{{}}</span>
+        <label for="zip" class="control-label">  Zip Code </label>
+        <span>{{}}</span>
+        <label for="phno" class="control-label">  Mobile number </label>
+        <span>{{}}</span>
+        
+        
+
+
+        
+        
+
+
+        
+        
+
+
+        
+        
+
+
+        
+        
+
+
+        
+        
+
+        
+        
+
+        
+        <input class="form-control" id="city" name="city" required="required" type="text" />
+
+        
+        <input class="form-control" id="zip" name="zip" required="required" type="text" />
+
+        
+        <input class="form-control" id="phno" name="phno" required="required" type="text" />
+
+        <label>      Categories  </label>
+
+
+    </div>
+
+
+        <script>
+
+            var app = angular.module("ProfileLoadApp", []);
+            app.controller("ProfileLoadCtrl", function ($scope, $http) {
+
+                $http.get('Json/Profile.json').then(function (response) {
+
+                    $scope.fieldname = response.data.userinfo;
+
+
+                });
+
+
+            });
+
+
+
+
+        </script>
+</body>
+
+</html>

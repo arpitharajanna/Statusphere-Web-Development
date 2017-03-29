@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="name">UserName:</label>
+            <div>
+                <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-unique="{key: 'users', property: 'username'}" ng-minlength="3" ng-maxlength="25" />
+            </div>
+          
+        </div>
+
+        <div class="form-group">
+
+            <label for="email">Email:</label>
+            <div>
+
+                <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <div>
+                <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+            </div>
+            
+        </div>
+        <div class="form-group">
+
+            <label for="retype-password">Confirm Password:</label>
+            <div >
+                <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" />
+            </div>
+            
+
+
+        </div>
+        <br />
+        <br />
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" onclick="onsubmit($valid)" id="button" /> Submit
+        </div>
+        <br />
+        <div class="text-center">
+
+            <button id="button1" type="reset" class="btn btn-primary" ng-click="reset(theForm)" />
+            Clear
+
+        </div>
+    </form>
+</body>
+</html>
