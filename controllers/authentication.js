@@ -2,6 +2,13 @@ var passport= require('passport')
 var mongoose = require('mongoose')
 var applicant = require('../models/applicant');
 
+
+var sendJSONresponse = function(res, status, content) {
+  res.status(status);
+  res.json(content);
+};
+
+
 module.exports.register = function(req,res){
 
 // var applicant = new applicant({
@@ -34,10 +41,10 @@ module.exports.login = function(req,res){
 		return;
 	}
 	if (applicant){
-		token=applicant.generateJwt();
+		//token=applicant.generateJwt();
 		res.status(200);
 		res.json({
-			"token":token
+			"token":applicant
 		});
 	
 	}
