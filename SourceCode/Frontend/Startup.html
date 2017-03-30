@@ -252,8 +252,7 @@
 
                                 </div>
                             </form>
-                            <pre>    {{theForm.password | json}}   </pre>
-                            <pre>    {{theForm.password1 | json}}   </pre>
+                        
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
@@ -374,22 +373,23 @@
                 submit: function () {
                     if ($scope.formModel.$invalid || $scope.formModel.password != $scope.formModel.password1)
                         return false;
-                    else
-                        var data = $.param({
-                            applicant: JSON.stringify({
-                                username: $scope.name,
-                                email: $scope.email,
-                                password: $scope.password,
-
-                            })
-                        });
-                    alert($scope.formModel.name + ' ' + $scope.formModel.password);
-                    $http.post("/", data).success(function (response) {
-                        console.log('Data posted successfully');
-                        alert(response);
-                        
-                    });
-
+                    else {
+                        /*  var data = $.param({
+                              applicant: JSON.stringify({
+                                  username: $scope.name,
+                                  email: $scope.email,
+                                  password: $scope.password,
+  
+                              })
+                          }); */
+                        alert($scope.formModel.name + ' ' + $scope.formModel.password);
+                        /* $http.post("/", data).success(function (response) {
+                             console.log('Data posted successfully');
+                             alert(response);  
+                             
+                         }); */
+                        window.location.href="http://localhost:57257/Profile.html";
+                    }
                 }
             };
 
