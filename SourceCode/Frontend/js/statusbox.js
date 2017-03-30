@@ -6,7 +6,7 @@ appProfile.controller("ctrlStatusbox", function ($scope, $http) {
 
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
-       // alert(productID);
+       alert("hi");
        $("#Product").modal();
        
     }
