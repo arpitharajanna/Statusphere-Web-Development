@@ -12,6 +12,7 @@ influencer_password:{
 },
 applicant_id:{
 	type: Number;
+	unique: true,
 	required: true
 },
 firstName:{
