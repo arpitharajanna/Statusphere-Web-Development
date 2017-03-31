@@ -11,7 +11,7 @@ influencer_password:{
 	required:true
 },
 applicant_id:{
-	type: Number;
+	type: Number,
 	unique: true,
 	required: true
 },
@@ -64,11 +64,11 @@ facebook_Url:{
 	required:
 },
 categories:{
-	type: String;
+	type: String,
 	required: true
 },
 date_accepted:{
-	type: Date;
+	type: Date,
 	required: true
 },
 gamification_points:{
