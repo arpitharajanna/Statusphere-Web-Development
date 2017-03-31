@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
-    <script src="\js\angular.min.js"></script>
+    <script src="js/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
@@ -106,7 +106,7 @@
                 <h4><strong><p id="p1"> Existing Users ? </p> </strong></h4>
 
                 <div class="centered">
-                    <button id="login1" class="btn btn-primary" data-toggle="modal" data-target="#login" ng-click="login()">Login</button>
+                    <button id="login1" class="btn btn-primary" data-toggle="modal" data-target="#login">Login</button>
                 </div>
                 <div id="login" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -117,7 +117,7 @@
                                 <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
                             </div>
                             <div class="modal-body">
-                                <form name="form1" ng-submit="onsubmit()" novalidate="novalidate" role="form">
+                                <form name="form1" ng-submit="form1.$valid && formLogin.login()" novalidate="novalidate" role="form">
 
 
 
@@ -125,14 +125,14 @@
 
                                         <div class="text-center">
 
-                                            <input type="text" name="username" ng-model="username" placeholder="username" required="" />
+                                            <input type="text" name="username" ng-model="formLogin.username" placeholder="username" required="required" />
                                             <i class="fa fa-user login-field-icon"></i>
                                             <span class="help-block" ng-show="(form1.username.$error.required && form1.$submitted)" style="color:red;">Username is required</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="text-center">
-                                            <input type="password" name="password" ng-model="password" placeholder="password" required="" />
+                                            <input type="password" name="password" ng-model="formLogin.password" placeholder="password" required="required" />
                                             <i class="fa fa-lock login-field-icon"></i>
                                             <span class="help-block" ng-show="(form1.password.$error.required && form1.$submitted)" style="color:red;">Password is required</span>
                                         </div>
@@ -143,7 +143,7 @@
                                             <button name="button" type="submit" class="btn btn-primary"> Login </button>
                                         </div>
                                     </div>
-
+                                  
                                     <br />
 
                                     <div class="form-group">
@@ -189,7 +189,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2" for="name">UserName:</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-unique="{key: 'users', property: 'username'}" ng-minlength="3" ng-maxlength="25" />
+                                        <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-minlength="3" ng-maxlength="25" />
                                     </div>
                                     <div class="col-md-4">
                                         <!--<span style="color:red;" id="s1" class="help-block" ng-show="(theForm.text.$error.required && theForm.$submitted)">Username is required</span>-->
@@ -245,12 +245,12 @@
                                 <!--  <button class="btn btn-primary" type="submit" ng-click="formModel.onSubmit($event)" />Submit-->  
                                 </div>
                                 <br />
-                                <div class="text-center">
+                               <!-- <div class="text-center">
 
                                     <button id="button1" type="reset" class="btn btn-default" ng-click="reset(theForm)" />
                                     Clear
 
-                                </div>
+                                </div>-->
                             </form>
                         
                         </div>
@@ -392,7 +392,31 @@
                     }
                 }
             };
+            $scope.formLogin = {
 
+
+                login: function () {
+                    if ($scope.formLogin.$invalid)
+                        return false;
+                    else {
+                        /*  var data = $.param({
+                              applicant: JSON.stringify({
+                                  username: $scope.name,
+                                  email: $scope.email,
+                                  password: $scope.password,
+  
+                              })
+                          }); */
+                        alert($scope.formLogin.username + ' ' + $scope.formLogin.password);
+                        /* $http.post("/", data).success(function (response) {
+                             console.log('Data posted successfully');
+                             alert(response);  
+                             
+                         }); */
+                        window.location.href = "http://localhost:57257/Profile.html";
+                    }
+                }
+            };
 
 
                     
@@ -419,7 +443,7 @@
             };
             */
 
-            $scope.reset = function (theForm) {
+       /*     $scope.reset = function (theForm) {
                 $scope.master = {};
                 theForm.$setPristine();
                 $scope.formModel = {};
@@ -427,7 +451,7 @@
                 
             };
 
-
+            */
 
         });
 
