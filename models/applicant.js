@@ -14,7 +14,7 @@ username:{
 	required : true
 },
 firstName: {
-	type: String
+	type: String,
 	required: true
 	
   },
