@@ -20,7 +20,7 @@ package_id:{
 },
 linkforpost:{
 	type: String,
-	required: true;
+	required: true
 },
 statusofrequirement:{
 	type: Boolean,
