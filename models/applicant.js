@@ -8,21 +8,66 @@ var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 
 var applicantSchema = new mongoose.Schema({
-username:{
+applicant_username: {
 	type:String,
-	unique :true,
-	required : true
+	unique:true,
+	required: true
+},
+applicant_password: {
+	type: String,
+	required:true
 },
 firstName: {
+    type: String,
+    required: true
+},
+lastname: {
 	type: String,
 	required: true
-	
-  },
-
-password:{
+},
+birthday: {
+	type: Number,
+	required: true
+},
+gender: {
 	type: String,
-    required: true
-  },
+	required: true
+},
+followers: {
+	type: Number,
+	required: true
+},
+emaild: {
+	type: String,
+	unique: true,
+	required: true
+},
+image_url: {
+	type: String,
+	required: true
+},
+instagram_url: {
+	type: String,
+	unique: true,
+	required: true
+},
+twitter_url: {
+	type: String,
+	unique: true,
+	required: true
+},
+facebook_url: {
+	type: String,
+	unique: true, 
+},
+categories: {
+	type: String;
+	required: true
+},
+date_applied: {
+	type: Date
+	required: true
+},
 hash: String,
 salt: String
 
