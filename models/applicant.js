@@ -8,12 +8,12 @@ var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 
 var applicantSchema = new mongoose.Schema({
-applicant_username: {
+username: {
 	type:String,
 	unique:true,
 	required: true
 },
-applicant_password: {
+password: {
 	type: String,
 	required:true
 },
