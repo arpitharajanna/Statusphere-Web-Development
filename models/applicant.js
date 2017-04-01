@@ -37,7 +37,7 @@ followers: {
 	type: Number,
 	required: true
 },
-emaild: {
+email: {
 	type: String,
 	unique: true,
 	required: true
