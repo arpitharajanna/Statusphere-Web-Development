@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="js/statusbox.js"></script>
 </head>
 <body ng-app="appStatusbox" ng-controller="ctrlStatusbox">
     <nav class="navbar navbar-default">
@@ -32,6 +32,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">Home</a></li>
                     <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#"> SignOut</a></li>
                 </ul>
             </div>
         </div>
@@ -39,73 +40,34 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">           
             <ul class="nav navbar-nav">
-                <li ><a href="#">Profile</a></li>
+                <li ><a href="Profile.html">Profile</a></li>
                 <li class="active"><a href="Statusbox.html">Status Box</a></li>
-                <li><a href="#">TO DO List</a></li>
+                <li><a href="ToDoList.html">TO DO List</a></li>
             </ul>
            
         </div>
     </nav>
-
     <div class="container">
         <div  class="row">
-            <div class="col-md-4">                
-                 <img class="center-block" src="images/Active-Instagram-3-icon.png" data-target="#Product" data-toggle="modal" />                   
-                <div class="centered">
-                    <label class="checkbox-inline" >
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>
-                </div>
-            <div class="col-md-4" >
-                <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                <div class="centered">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>                   
-            </div>
-            <div class="col-md-4" >
-                <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                <div class="centered">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>  
-            </div>
+           <!-- <ul>
+                <li >    -->
+                    <div class="col-md-4" ng-repeat="product in statusbox" >
+                        <img class="center-block" height="250" width="250" ng-src="{{product.productpath}}" data-id="1212" ng-click="openmodal(product.productid)" />
+                    <!-- <p></p>-->
+                        <div class="centered">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="" style="text-align:center;">{{product.productname}}
+                            </label>
+                        </div>
+                     </div>
+          
+              <!--   </li>
+            </ul> -->
         </div>
        
-      
-        <br/>
-        <div class="row">
-            <div class="col-md-4" >
-                <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                <div class="centered">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-4" >
-                <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                <div class="centered">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                <div class="centered">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" style="text-align:center;">Facial & Gommage
-                    </label>
-                </div>                
-            </div>
-        </div>
     </div>
 
-    <!-- Modal  Login -->
+    <!-- Modal  Product -->
     <div class="modal fade" id="Product" role="dialog">
         <div class="modal-dialog">
 
@@ -117,41 +79,43 @@
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="centered">
-                            <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-                            <label>Facial & Gommage</label>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-2">Desciption:</label>                            
-                            <p class="col-md-10" >When the Influencer clicks on product, he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton "Yes I want this product and I agree to complete the required above actions" and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.</p>                           
-                        </div>
-                        <div class="form-group">                           
-                            <label class="control-label col-md-3">Requirements:</label>  
-                            <div class="form-group col-md-9">
-                                <p >1. Instagram Post featuring both Products.</p>
-                                <p >2. On Instagram must tag @seriousskincare.</p>
+                    <form name="frmaddtobox" novalidate="novalidate">
+                        <div class="form-group" ng-repeat="product in statusbox | filter:{ productid:productID}">
+                            <div class="centered">
+                                <img class="center-block" height="250" width="250" ng-src="{{product.productpath}}" />
+                                <label>{{product.productname}}</label>
                             </div>
-                        </div>
-                        <div class="form-group">                            
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Desciption:</label>
+                                <p class="col-md-10">{{product.productdesc}}</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Requirements:</label>
+                                <div class="form-group col-md-9">
+                                    <div ng-repeat="requirement in product.requirements">
+                                        <p>{{requirement.requirement_desc}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="checkbox-inline">
-                                    <input type="radio" value="" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
-                                </label>  
-                                                    
-                        </div>
-                        <div class="form-group">
-                           
-                            <label class="checkbox-inline">
-                                <input type="radio" value="" style="text-align:center;">No I don't want this product
-                            </label> 
-                            
-                        </div>
-                        <div class="form-group">
-                            <div class="text-center ">
-                                <button name="button" type="submit" class="btn btn-primary">Add to box </button>
+                                    <input type="radio" value="" style="text-align:center;" name="productagreement" required>Yes I want that product and I agree to complete the required above actions
+                                </label>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="checkbox-inline">
+                                    <input type="radio" value="" style="text-align:center;" name="productagreement" required>No I don't want this product
+                                </label>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="text-center ">
+                                    <button name="button" type="submit" class="btn btn-primary" ng-click="addtobox()">Add to box </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -159,7 +123,7 @@
             </div>
 
         </div>
-    </div> <!-- End of Modal Login -->
+    </div> <!-- End of Modal Product -->
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">

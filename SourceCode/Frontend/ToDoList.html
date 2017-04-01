@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style1.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+
+    <!-- Bootstrap Libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      
+    </script>
+    <script src="controller/todolist.js"></script>
+</head>
+<body ng-app="appTodolist" ng-controller="ctrlTodolist">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#"> SignOut</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a href="Profile.html">Profile</a></li>
+                <li ><a href="Statusbox.html">Status Box</a></li>
+                <li class="active"><a href="ToDoList.html">TO DO List</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+   
+    <div class="container">
+        <div class="row">
+            <!-- <ul>
+                 <li >    -->
+            <div class="col-md-12" ng-repeat="todo in todolist" style="border-style:ridge">
+                <div class="col-md-4">
+                    <div class="centered">
+                        <label class="checkbox-inline">
+                            {{todo.productname}}
+                        </label>
+                    </div>
+                    <img class="center-block" height="250" width="250" ng-src="{{todo.productpath}}" />
+                </div>
+                <div class="col-md-8">
+
+                    <div class="col-md-12">
+                        <div class="col-md-6" >                           
+                                <label class="control-label pull-left">Requirements:</label>                            
+                                <br />
+                                <br />
+                            <div  ng-repeat="req in todo.requirements">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="" style="text-align:center;" ng-checked="{{req.statusofrequirement}}">
+                                    {{req.requirement_desc}}
+                                </label>
+                                <br />
+                                <br />    
+                            </div>                                                                                                                      
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label pull-left">Post Link:</label>
+                            <br />         
+                            <div ng-repeat="req in todo.requirements">
+                                <input class="form-control" type="text" value="{{req.linkforpost}}" />
+                                <br />
+                                </div>                                                             
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+         
+            <div class="col-md-12">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="text-center ">
+                        <button name="button" type="submit" class="btn btn-primary">Submit </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    
+                </div>
+                </div>
+            <!--   </li>
+            </ul> -->
+        </div>
+
+    </div>
+
+    
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
