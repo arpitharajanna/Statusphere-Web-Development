@@ -1,0 +1,55 @@
+{
+  "categoryName": "Sample Set of Applicants",
+  "applicants": [
+    {
+      "username": "cashmeoutside",
+      "instagram_url": "cashmeoutsidegirl",
+      "followers": 3250,
+      "noofposts": 75,
+      "averagenooflikes": 500,
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.6,
+      "liketofollowerratio": 5
+    },
+    {
+      "username": "pakalupapito",
+      "instagram_url": "pakalupapitoguy",
+      "followers": 4000,
+      "noofposts": 80,
+      "averagenooflikes": 300,
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.4,
+      "liketofollowerratio": 5
+    },
+    {
+      "username": "saltbae",
+      "instagram_url": "saltbae",
+      "followers": 2000,
+      "noofposts": 75,
+      "averagenooflikes": 700,
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
+    },
+    {
+      "username": "girleatworld",
+      "instagram_url": "girleatworldgirl",
+      "followers": 1000,
+      "noofposts": 75,
+      "averagenooflikes": 800,
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
+    },
+    {
+      "username": "kaylaitsines",
+      "instagram_url": "girleatworldgirl",
+      "followers": 1000,
+      "noofposts": 75,
+      "averagenooflikes": 400,
+      "averagenoofcomments": 25,
+      "commenttofollowerratio": 0.2,
+      "liketofollowerratio": 5
+    }
+  ]
+}

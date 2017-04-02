@@ -15,6 +15,13 @@ var applicant = require('./models/applicant');
 
 var acceptedlist = require('./routes/acceptedlist');
 
+// apis for calling database
+// API to get whole list of applicants
+var applicantlist = require('./routes/api/applicantlist');
+// API to get whole list of influencers
+var influencerlist = require('./routes/api/influencerlist');
+
+
 var app = express();
 mongoose.connect('mongodb://localhost:27017/applicant');
 // view engine setup
@@ -40,6 +47,8 @@ require('./config/passport');
 app.use(passport.initialize());
 app.use('/', index);
 app.use('/acceptedlist', acceptedlist);
+app.use('/api/applicantlist', applicantlist);
+app.use('/api/influencerlist', influencerlist);
 
 // app.use('/api', routesApi);
 // catch 404 and forward to error handler
