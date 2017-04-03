@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
     <script src="js/angular.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
+
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -25,7 +25,6 @@
             });
             FB.AppEvents.logPageView();
         };
-
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -53,7 +52,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">Home</a></li>
-                    <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
                     <li> <a href="#login1"> Login </a></li>
                     <li> <a href="#" data-toggle="modal" data-target="#signup1"> Apply </a></li>
                 </ul>
@@ -143,12 +142,12 @@
                                             <button name="button" type="submit" class="btn btn-primary"> Login </button>
                                         </div>
                                     </div>
-                                  
+
                                     <br />
 
                                     <div class="form-group">
                                         <div class="text-center">
-                                        <a href="#" class="login-link text-center">Lost your password?</a>
+                                            <a href="#" class="login-link text-center">Lost your password?</a>
                                         </div>
                                     </div>
                                     <div class="text-center">
@@ -172,129 +171,138 @@
 
                 </div>
 
-                
-            
-            <div id="signup1" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header login_modal_header">
 
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h2 class="modal-title" id="myModalLabel">Apply</h2>
-                        </div>
-                        <div class="modal-body">
-                            <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
+
+                <div id="signup1" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header login_modal_header">
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h2 class="modal-title" id="myModalLabel">Apply</h2>
+                            </div>
+                            <div class="modal-body">
+                                <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
                                 <form name="theForm" novalidate="novalidate" class="form-horizontal" ng-submit="formModel.submit()" role="form">
-                            <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="name">UserName:</label>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-minlength="3" ng-maxlength="25" />
+                                    <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="name">UserName:</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" ng-model="formModel.name" id="name" name="text" required="required" ng-minlength="3" ng-maxlength="25" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!--<span style="color:red;" id="s1" class="help-block" ng-show="(theForm.text.$error.required && theForm.$submitted)">Username is required</span>-->
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.minlength)"> Username too short</span>
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.maxlength)"> Username too long</span>
+                                            <span style="color:red;" id="s1" class="help-block" ng-show="theForm.text.$error.unique && theForm.$submitted"> Username is already taken</span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <!--<span style="color:red;" id="s1" class="help-block" ng-show="(theForm.text.$error.required && theForm.$submitted)">Username is required</span>-->
-                                        <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.minlength)"> Username too short</span>
-                                        <span style="color:red;" id="s1" class="help-block" ng-show="(!theForm.text.$pristine && theForm.text.$error.maxlength)"> Username too long</span>
-                                        <span style="color:red;" id="s1" class="help-block" ng-show="theForm.text.$error.unique && theForm.$submitted"> Username is already taken</span>
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
+                                    <div class="form-group">
 
-                                    <label class="control-label col-md-2" for="email">Email:</label>
-                                    <div class="col-md-6">
+                                        <label class="control-label col-md-2" for="email">Email:</label>
+                                        <div class="col-md-6">
 
-                                        <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+                                            <input type="email" class="form-control" ng-model="formModel.email" id="email" name="email" required="required" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!--<span style="color:red;" class="help-block" ng-show="theForm.email.$error.required && theForm.$submitted">Email is required</span>-->
+                                            <span style="color:red;" class="help-block" ng-show="!theForm.email.$pristine && theForm.email.$error.email"> please enter valid email</span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <!--<span style="color:red;" class="help-block" ng-show="theForm.email.$error.required && theForm.$submitted">Email is required</span>-->
-                                        <span style="color:red;" class="help-block" ng-show="!theForm.email.$pristine && theForm.email.$error.email"> please enter valid email</span>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2" for="password">Password:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!--   <span style="color:red;" class="help-block" ng-show="theForm.password.$error.required && theForm.$submitted">Password is required </span>-->
+                                            <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="password">Password:</label>
-                                    <div class="col-md-6">
-                                        <input type="password" class="form-control" ng-model="formModel.password" id="password" name="password" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
-                                    </div>
-                                    <div class="col-md-4">
-                                     <!--   <span style="color:red;" class="help-block" ng-show="theForm.password.$error.required && theForm.$submitted">Password is required </span>-->
-                                        <span style="color:red;" class="help-block" ng-show="!theForm.password.$pristine && theForm.password.$error.pattern">the password must be alphanumeric, with atleast one lower, upper case letter, one special character (!@#$%^&*-) & length should be 8-20</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
+                                    <div class="form-group">
 
-                                    <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
-                                    <div class="col-md-6">
-                                        <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                       <!-- <span style="color:red;" class="help-block" ng-show="theForm.password1.$error.required && theForm.$submitted">Password confirmation is required</span>-->
-                                        <span style="color:red;" class="help-block" ng-show="(!theForm.password1.$pristine && theForm.password.$error.required && !theForm.password1.$error.required) || (!theForm.password1.$pristine && theForm.password.$viewValue!==theForm.password1.$viewValue) || (!theForm.password1.$pristine && !theForm.password.$error.required && theForm.password1.$error.required)"> Password Mismatch</span>
-                                        <!---<span style="color:red;" class="help-block" ng-show="theForm.password1.$error.match">Password Mismatch </span>-->
+                                        <label class="control-label col-md-2" for="retype-password">Confirm Password:</label>
+                                        <div class="col-md-6">
+                                            <input type="password" class="form-control" ng-model="formModel.password1" id="retype-password" name="password1" required="required" ng-pattern="/(?=^.{8,20}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- <span style="color:red;" class="help-block" ng-show="theForm.password1.$error.required && theForm.$submitted">Password confirmation is required</span>-->
+                                            <span style="color:red;" class="help-block" ng-show="(!theForm.password1.$pristine && theForm.password.$error.required && !theForm.password1.$error.required) || (!theForm.password1.$pristine && theForm.password.$viewValue!==theForm.password1.$viewValue) || (!theForm.password1.$pristine && !theForm.password.$error.required && theForm.password1.$error.required)"> Password Mismatch</span>
+                                            <!---<span style="color:red;" class="help-block" ng-show="theForm.password1.$error.match">Password Mismatch </span>-->
+
+                                        </div>
 
                                     </div>
-                                    
-                                </div>
-                                <br />
-                                <br />
+                                    <br />
+                                    <br />
 
-                                <div class="text-center">
-                                    <!--<button class="btn btn-primary" id="button" ng-click="submit();" /> Submit-->
-                                    <!--<button class="btn btn-primary" type="submit" /> Submit-->
-                                    <button class="btn btn-primary" type="submit" ng-disabled="theForm.$invalid"/> Submit
-                                <!--  <button class="btn btn-primary" type="submit" ng-click="formModel.onSubmit($event)" />Submit-->  
-                                </div>
-                                <br />
-                               <!-- <div class="text-center">
+                                    <div class="text-center">
+                                        <!--<button class="btn btn-primary" id="button" ng-click="submit();" /> Submit-->
+                                        <!--<button class="btn btn-primary" type="submit" /> Submit-->
+                                        <button class="btn btn-primary" type="submit" ng-disabled="theForm.$invalid" /> Submit
+                                        <!--  <button class="btn btn-primary" type="submit" ng-click="formModel.onSubmit($event)" />Submit-->
+                                    </div>
+                                    <br />
+                                    <!-- <div class="text-center">
+                                         <button id="button1" type="reset" class="btn btn-default" ng-click="reset(theForm)" />
+                                         Clear
+                                     </div>-->
+                                </form>
 
-                                    <button id="button1" type="reset" class="btn btn-default" ng-click="reset(theForm)" />
-                                    Clear
-
-                                </div>-->
-                            </form>
-                        
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
-            <h4><p id="p1">--OR--</p></h4>
 
 
-            <div class="social-wrap a">
-                <button id="facebook" ng-click="FBlogin()">Log in with Facebook</button>
-                <button id="twitter">Log in with Twitter</button>
-                <button id="googleplus">Log in with Google</button>
-                <button id="instagram">Log in with Instagram</button>
+                <h4><p id="p1">--OR--</p></h4>
+
+
+                <div class="social-wrap a">
+                    <button id="facebook" ng-click="FBlogin()">Log in with Facebook</button>
+                    <button id="twitter">Log in with Twitter</button>
+                    <button id="googleplus">Log in with Google</button>
+                    <button id="instagram">Log in with Instagram</button>
+                </div>
             </div>
         </div>
     </div>
-        </div>
 
-    
+
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
-            <div class="navbar-text pull-left">
-                <p> Copyright Statusphere</p>
-            </div>
-            <div class="navbar-text pull-right">
-                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
-                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
-                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
-            </div>
+            <div class="col-md-4">
+                <div class="navbar-text pull-left">
 
+                    <p> Copyright Statusphere</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="navbar-text pull-right" id="ContactUS">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>  
+                    <br/>
+                    <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="navbar-text pull-right">
+
+                    <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-
         var app = angular.module('Startup', []);
         app.controller("myctrl", function ($scope, $http) {
-
             $scope.FBlogin = function () {
                 FB.login(function (response) {
                     if (response.authResponse) {
@@ -307,16 +315,15 @@
                     }
                 });
             };
-
             /*    $scope.formModel = {};
                  $scope.jsonStructure = [];
                  $scope.submitting = false;
-     
-     
+
+
                  $scope.submit = function () {
                    if (valid) {
                          $scope.jsonStructure.push($scope.formModel);
-                         
+
                          $scope.submitting = true;
                          console.log($scope.formModel);
                          alert($scope.formModel);
@@ -330,24 +337,17 @@
                          });
                      */
             //   } else {
-
             //  console.log('Invalid');
-
             //   };
-
         /*    $scope.submit = function () {
-
-
-
                 var data = $.param({
                     book: JSON.stringify({
                         username: $scope.name,
                         email: $scope.email,
                         password: $scope.password,
-                       
+
                     })
                 });
-
                 $http.post("/", data).success(function (response) {
                     console.log('Data posted successfully');
                     alert(response);
@@ -355,21 +355,12 @@
                     response[0].username;
                     var  sample = response.rows.row;
                     for (var i = 0 ; i < l ; i++) {
-
                         alert(response[i].username);
                     }
                 })
-
             };
-
-
             */
-
-
-
             $scope.formModel = {
-
-
                 submit: function () {
                     if ($scope.formModel.$invalid || $scope.formModel.password != $scope.formModel.password1)
                         return false;
@@ -379,22 +370,20 @@
                                   username: $scope.name,
                                   email: $scope.email,
                                   password: $scope.password,
-  
+
                               })
                           }); */
                         alert($scope.formModel.name + ' ' + $scope.formModel.password);
                         /* $http.post("/", data).success(function (response) {
                              console.log('Data posted successfully');
-                             alert(response);  
-                             
+                             alert(response);
+
                          }); */
                         window.location.href="http://localhost:57257/Profile.html";
                     }
                 }
             };
             $scope.formLogin = {
-
-
                 login: function () {
                     if ($scope.formLogin.$invalid)
                         return false;
@@ -404,14 +393,14 @@
                                   username: $scope.name,
                                   email: $scope.email,
                                   password: $scope.password,
-  
+
                               })
                           }); */
                         alert($scope.formLogin.username + ' ' + $scope.formLogin.password);
                         /* $http.post("/", data).success(function (response) {
                              console.log('Data posted successfully');
-                             alert(response);  
-                             
+                             alert(response);
+
                          }); */
                         window.location.href = "http://localhost:57257/Profile.html";
                     }
@@ -419,14 +408,9 @@
             };
 
 
-                    
-            
-            
 
 /*
             $scope.formModel = {
-
-
                 onsubmit: function (event) {
                     if (dataIsntValid) {
                         displayErrors();
@@ -438,24 +422,18 @@
                         alert("success");
                     }
                 }
-            
 
             };
             */
-
        /*     $scope.reset = function (theForm) {
                 $scope.master = {};
                 theForm.$setPristine();
                 $scope.formModel = {};
                 theForm.$setUntouched();
-                
+
             };
-
             */
-
         });
-
-
     </script>
 
 
