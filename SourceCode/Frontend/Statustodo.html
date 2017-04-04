@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/Style6.css" />
+    <script src="js/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+</head>
+<body ng-app="status_app">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/Statusphere-logo.png" style="width:100%;" />
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="#"> Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <ul class="nav nav-tabs nav-tabs-responsive">
+            <li class="active"><a href="#Profile" data-toggle="tab"> Profile </a></li>
+            <li><a href="#Status-List" data-toggle="tab"> Status List </a></li>
+            <li><a href="#To-Do-List" data-toggle="tab">  To-Do List </a></li>
+        </ul>
+
+
+        <div class="tab-content">
+
+            <div class="tab-pane fade in active" id="Profile">
+
+                <p> First Para is Here </p>
+
+            </div>
+            <div class="tab-pane fade" id="Status-List">
+                <br />
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <br />
+                            <img src="images/Active-Instagram-3-icon.png">
+                            <div class="caption">
+                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="Product" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <center><h2 class="modal-title"> Overview of product</h2></center>
+                            </div>
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="centered">
+                                        <center> <label>Facial & Gommage</label></center>
+                                        <img class="center-block" src="images/Active-Instagram-3-icon.png" />
+                                       
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <center><label class="control-label">Desciption:</label></center>
+                                        
+                                        <p>When the Influencer clicks on product, he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton "Yes I want this product and I agree to complete the required above actions" and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.</p>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group centered">
+                                        <center><label class="form-group">Requirements:</label></center>
+                                        <center>
+                                            <p>
+                                                1. Instagram Post featuring both Products.
+                                            </p>
+                                        </center>
+                                        <center>
+                                            <p>2. On Instagram must tag @seriousskincare.
+                                        </p></center>
+                                    </div>
+                                    <hr />
+                                    <div class="form-group">
+                                        <label class="checkbox-inline">
+                                            <input type="radio" value="" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
+                                        </label>
+
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="checkbox-inline">
+                                            <input type="radio" value="" style="text-align:center;">No I don't want this product
+                                        </label>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-center ">
+                                            <button name="button" type="submit" class="btn btn-primary">Add to box </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div> <!-- End of Modal Login -->
+                </div>
+                <div class="tab-pane fade" id="To-Do-List">
+
+                    <p> Third Para is Here </p>
+
+                </div>
+
+            
+
+        </div>
+
+
+
+
+
+
+
+        <div class="navbar navbar-inverse navbar-static-bottom">
+            <div class="container">
+                <div class="navbar-text pull-left">
+                    <p> Copyright Statusphere</p>
+                </div>
+                <div class="navbar-text pull-right">
+                    <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                    <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+                </div>
+
+            </div>
+        </div>
+        <script>
+
+
+        </script>
+        <script src="js/jquery-3.2.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

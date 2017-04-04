@@ -1,0 +1,43 @@
+﻿
+h1{
+    
+    text-align:center;
+}
+
+input[type=text],[type=password]{
+    
+            width: 100%;
+    padding: 10px 5px;
+    margin:5px;
+    margin-left:0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-style:normal;
+    font-size:medium;
+cursor: pointer;
+}
+button[type=submit]
+        {
+    
+    cursor: pointer;
+        }
+.panel-body {
+    background: #ADD8E6	;
+}
+@media screen and (max-width:1024px) {
+    button[type=submit] {
+        width: 50%;
+    }
+}
+@media screen and (max-width:1440px) {
+    button[type=submit] {
+        width: 50%;
+    }
+}
+@media screen and (max-width:2560px) {
+    button[type=submit] {
+        width: 50%;
+    }
+}
