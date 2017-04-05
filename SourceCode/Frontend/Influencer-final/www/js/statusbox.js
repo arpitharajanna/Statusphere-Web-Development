@@ -3,7 +3,12 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
     $http.get("/json/statusbox.json").then(function (response) {          //Read json file
         $scope.statusbox = response.data.statusbox;
         
-    });
+    },
+                                                 function(error) {
+                                               // Handle error here
+                                               console.log(error.data);
+                                               alert(error.data.message);
+                                                    });
    
     $scope.usern = $window.sessionStorage.getItem("user_name");
     $scope.openmodal = function (productID) {
