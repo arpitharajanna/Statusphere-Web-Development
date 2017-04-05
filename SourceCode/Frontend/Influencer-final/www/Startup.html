@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html ng-app="Startup" ng-controller="myctrl">
 <head>
-    <title>Statusphere</title>
+    <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
@@ -13,8 +13,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <script src="js/OAuth.js"></script>
 </head>
-<body ng-app="Startup" ng-controller="myctrl">
+<body>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -103,7 +104,7 @@
                 
                     <a href="#" class="thumbnail">
                         <img src="images/shopping-image.jpg" style="width:535px;height:471px;" />
-                       
+                        
                     </a>
                 
                
@@ -160,7 +161,7 @@
 
                         <div class="form-group">
                             <div class="text-center">
-                                <a href="http://localhost:57257/forgotpass.html" class="login-link text-center">Lost your password?</a>
+                                <a href="forgotpass.html" class="login-link text-center">Lost your password?</a>
                             </div>
                         </div>
                         <div class="text-center">
@@ -176,9 +177,9 @@
 
                     <div class="social-wrap a">
                         <button id="facebook" ng-click="FBlogin()">Log in with Facebook</button>
-                        <button id="twitter">Log in with Twitter</button>
-                        <button id="googleplus">Log in with Google</button>
-                        <button id="instagram">Log in with Instagram</button>
+                        <button id="twitter" ng-click="twitterLogin()">Log in with Twitter</button>
+                        <button id="googleplus" ng-click="googleplusLogin()">Log in with Google</button>
+                        <button id="instagram" ng-click="instagramLogin()">Log in with Instagram</button>
                     </div>
                 </div>
 
@@ -308,9 +309,9 @@
         </div>
     </div>
 
-    <script>
+ <!--   <script>
         var app = angular.module('Startup', []);
-        app.controller("myctrl", function ($scope, $http,$window) {
+        app.controller("myctrl", function ($scope, $http) {
             $scope.FBlogin = function () {
                 FB.login(function (response) {
                     if (response.authResponse) {
@@ -402,10 +403,7 @@
                              console.log('Data posted successfully');
                              alert(response);
                          }); */
-
-                        $window.sessionStorage.setItem("user_name", $scope.formLogin.username);
-                        $scope.usern = $window.sessionStorage.getItem("user_name");
-                        window.location.href = "http://localhost:57257/Statustodo.html";
+                        window.location.href = "http://localhost:57257/Profile.html";
                     }
                 }
             };
@@ -433,7 +431,7 @@
                  */
         });
     </script>
-
+     -->
 
 
     <script src="js/jquery-3.2.0.min.js"></script>
