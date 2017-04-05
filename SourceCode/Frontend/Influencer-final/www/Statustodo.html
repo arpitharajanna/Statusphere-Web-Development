@@ -37,6 +37,15 @@
         </div>
     </nav>
 
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> Leena</a></li>
+                <li><a href="#" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <ul class="nav nav-tabs nav-tabs-responsive">
            
@@ -316,7 +325,7 @@
 
 
 
-
+</div>
 
 
                                 <div class="navbar navbar-inverse navbar-static-bottom">
@@ -332,23 +341,9 @@
 
                                     </div>
                                 </div>
-                                <script>
-                                    var app = angular.module("status_app", []);
-
-                                    app.controller("status_ctrl", function ($scope, $http, $window) {
-                                        $scope.usern = $window.sessionStorage.getItem("user_name");
-
-                                        $http.get('/Json/Profile.json').then(function (response) {
-
-                                            $scope.userinfo = response.data.userinfo;
-
-
-                                        });
-
-
-                                    });
-
-                                </script>
+                                 <script src="js/ProfileDisplay.js"></script>
+                                <script src="js/Status.js"></script>
+                                <script src="js/todolist.js"></script>
                                 <script src="js/jquery-3.2.0.min.js"></script>
                                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
