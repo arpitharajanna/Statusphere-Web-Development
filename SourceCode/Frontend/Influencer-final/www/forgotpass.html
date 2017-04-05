@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Forgot Password</title>
@@ -46,13 +46,13 @@
                                 <p>You can reset your password here.</p>
                                 <div class="panel-body">
 
-                                    <form name="form" class="form" ng-submit="form.$invalid && forgotpassword.clickme()" novalidate="novalidate" role="form">
+                                    <form name="form" class="form" ng-submit="forgotpassword.clickme()" novalidate="novalidate" role="form">
                                         <fieldset>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
 
-                                                    <input id="email" placeholder="email address" name="email" class="form-control" type="email" ng-model="forgotpassword.email" required="required" style="cursor:pointer"/>
+                                                    <input id="email" placeholder="email address" name="email" class="form-control" type="email" ng-model="email" required="required" style="cursor:pointer"/>
                                                  
                                                 </div>
                                                 <span class="help-block" ng-show="form.email.$error.required && form.$submitted" style="color:red;"> Please enter email </span>
@@ -74,15 +74,25 @@
     
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
+
             <div class="navbar-text pull-left">
-                <p> Copyright Statusphere</p>
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
             </div>
+
             <div class="navbar-text pull-right">
+
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
                 <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
                 <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
             </div>
-
         </div>
     </div>
     <script>
@@ -94,7 +104,7 @@
 
 
                 clickme: function () {
-                    if ($scope.forgotpasword.$invalid)
+                  if ($scope.forgotpasword.$invalid)
                         return false;
                     else {
                         /*  var data = $.param({
@@ -104,7 +114,7 @@
                                   password: $scope.password,
   
                               })
-                          });*/
+                          });*/ 
                         alert($scope.forgotpassword.email);
                         /* $http.post("/", data).success(function (response) {
                              console.log('Data posted successfully');
@@ -114,10 +124,9 @@
                         window.location.href = "http://localhost:57257/Profile.html";*/
                     }
                 }
+           
 
 
-
-            };
         });
 
 
@@ -126,3 +135,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
+
