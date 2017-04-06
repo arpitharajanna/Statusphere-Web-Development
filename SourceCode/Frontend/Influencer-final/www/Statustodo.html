@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style6.css" />
+    
     <script src="js/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -14,37 +15,45 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-   <style>
-        .row::after {
-    content: "";
-    clear: both;
-    display: block;
-}
-[class*="col-"] {
-    float: left;
-    padding: 15px;
-}
-/* For desktop: */
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+    <style>
+        @media only screen and (min-width : 320px)  {
+    .row.equal-height {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .row.equal-height > [class*='col-'] {
+        display: flex;
+        flex-direction: column;
+    }
+    .row.equal-height.row:after,
+    .row.equal-height.row:before {
+        display: flex;
+    }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="col-"] {
+    .row.equal-height > [class*='col-'] > .thumbnail,
+    .row.equal-height > [class*='col-'] > .thumbnail > .caption {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+    }
+    .row.equal-height > [class*='col-'] > .thumbnail > .caption > .flex-text {
+        flex-grow: 1;
+    }
+    .row.equal-height > [class*='col-'] > .thumbnail > img {
         width: 100%;
+        height: 200px; /* force image's height */
+
+        /* force image fit inside it's "box" */
+        -webkit-object-fit: cover;
+           -moz-object-fit: cover;
+            -ms-object-fit: cover;
+             -o-object-fit: cover;
+                object-fit: cover;
     }
 }
     </style>
+    
+
 </head>
 <body ng-app="status_app" ng-controller="status_ctrl">
 
@@ -67,7 +76,6 @@
             </div>
         </div>
     </nav>
-
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
@@ -84,146 +92,31 @@
             <li><a href="#Profile" data-toggle="tab"> Profile </a></li>
             <li><a href="#To-Do-List" data-toggle="tab">  To-Do List </a></li>
         </ul>
+
+
         <div class="tab-content">
             <div class="tab-pane fade in active" id="Status-List">
                 <br />
-                <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
+                <div class="container-fluid">
+                <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
+                <div class="row equal-height">
+                    <div class="col-sm-6 col-md-4" ng-repeat="item in statusbox">
                         <div class="thumbnail">
                             <br />
-                            <img src="images/Active-Instagram-3-icon.png">
+                            <img src="{{item.productpath}}">
                             <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
+                                <center><a href="#Product" data-toggle="modal" ng-click="getDetails(item.productid)" ng-model="pname">{{item.productname}} </a></center>
 
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="images/Active-Instagram-3-icon.png">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
 
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="images/Active-Instagram-3-icon.png">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
-
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="images/Active-Instagram-3-icon.png">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="images/Active-Instagram-3-icon.png">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="images/Active-Instagram-3-icon.png">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal">Facial & Gommage </a></center>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="Product" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <center><h2 class="modal-title"> Overview of product</h2></center>
-                            </div>
-                            <!-- Modal Body -->
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <div class="centered">
-                                        <center> <label>Facial & Gommage</label></center>
-                                        <img class="center-block" src="images/Active-Instagram-3-icon.png" />
-
-                                    </div>
-                                    <hr />
-                                    <div class="form-group">
-                                        <center><label class="control-label">Desciption:</label></center>
-
-                                        <p>When the Influencer clicks on product, he/she can see the information about product I.e. description of the product, requirements of the product. If the influencer wants that package, he/she need to select radiobutton "Yes I want this product and I agree to complete the required above actions" and the click on Add to box button. If the influencer does not select Yes I want this product, and clicks on the Add to box button.</p>
-                                    </div>
-                                    <hr />
-                                    <div class="form-group centered">
-                                        <center><label class="form-group">Requirements:</label></center>
-                                        <center>
-                                            <p>
-                                                1. Instagram Post featuring both Products.
-                                            </p>
-                                        </center>
-                                        <center>
-                                            <p>
-                                                2. On Instagram must tag @seriousskincare.
-                                            </p>
-                                        </center>
-                                    </div>
-                                    <hr />
-                                    <div class="form-group">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
-                                        </label>
-
-                                    </div>
-                                    <div class="form-group">
-
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="" style="text-align:center;">No I don't want this product
-                                        </label>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="text-center ">
-                                            <button name="button" type="submit" class="btn btn-primary">Add to box </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div> <!-- End of Modal Login -->
             </div>
+                </div>
+
 
             <div class="tab-pane fade" id="Profile">
 
@@ -328,9 +221,9 @@
                                 </div>
                                 <div class="panel-footer">
 
-
-                                    <button type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</button>
-
+                                    <center>
+                                        <button type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                                    </center>
 
                                 </div>
 
@@ -342,70 +235,126 @@
 
 
             <div class="tab-pane fade" id="To-Do-List">
-
                 <br />
                 <div class="container">
                     <div class="row">
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3>   Your todo list  </h3>
-                            </div>
-                            <div class="panel-body" ng-repeat-start="item in todolist">
-                                <center> <label>  <strong> {{item.productname}}</strong>    </label>    </center>
-                                <hr />
-                                <div class="col-md-3">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
-                                    <img src="{{item.productpath}}" height="250" width="250" />
-                                  <!--  <center><label> No. of quantities</label></center>
-                                    <center>  <span> {{item.productquantity}} </span></center>-->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <center><h1 class="panel-title">Your todo list</h1></center>
+                                </div>
+                                <div class="panel-body" ng-repeat-start="item in todolist">
+                                    <center> <label>  <strong> {{item.productname}}</strong>    </label>    </center>
+                                    <hr />
+
+                                    <div class="row">
+                                        <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{item.productpath}}" height="300" width="300">  </div>
+                                        <div class="col-md-9 col-lg-9">
+                                            <table class="table table-user-information">
+                                                <tbody>
+                                                    <tr>
+                                                        <th> Requirements </th>
+                                                        <th>Enter the link upon successful post </th>
+                                                    </tr>
+                                                    <tr ng-repeat="x in item.requirements">
+                                                        <td>{{x.requirement_desc}}</td>
+                                                        <td><input type="url" value="{{x.linkforpost}}" /> </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr ng-repeat-end ng-if="$index % 1 === 0" />
+                                <div class="panel-footer">
+                                    <center>
+                                     
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </center>
                                 </div>
 
-                                <div class="col-md-9">
-                                    <br />
-                                    <table class="table table-user-information">
-                                        <tr>
-                                            <th> Requirements </th>
-                                            <th>Enter the link upon successful post </th>
-                                        </tr>
-                                        <tr ng-repeat="x in item.requirements">
-                                            <td>{{x.requirement_desc}}</td>
-                                            <td><input type="url" value="{{x.linkforpost}}" /> </td>
-                                        </tr>
-                                    </table>
-
-                                </div>
-
                             </div>
-                            <hr ng-repeat-end ng-if="$index % 1 === 0" />
-                            <div class="panel-footer">
-                                <center>
-                                    <label> If you have finished the above tasks, click on submit  </label>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </center>
-                            </div>
-
-
 
                         </div>
-
-
-
-
-
                     </div>
+
                 </div>
-
             </div>
-
-
-
         </div>
 
-
-
-
     </div>
+  
+
+
+    <div class="modal fade" id="Product" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center><h2 class="modal-title"> Overview of product</h2></center>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body" ng-repeat="item in statusbox">
+                    <div class="form-group">
+                        <div class="centered">
+                            <center> <label>{{item.productname}}</label></center>
+                            <img class="center-block" src="{{item.productpath}}" />
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <center><label class="control-label">Desciption:</label></center>
+
+                            <p>{{item.productdesc}}</p>
+                        </div>
+                        <hr />
+                        <div class="form-group centered" ng-repeat="x in item.requirements">
+                            <center><label class="form-group">Requirements:</label></center>
+                            <center>
+                                <p>
+                                    {{x.requirement_desc}}
+                                </p>
+                            </center>
+
+                        </div>
+                        <hr />
+                        <div class="form-group">
+                            <label class="checkbox-inline">
+                                <input type="radio" value="" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+
+                            <label class="checkbox-inline">
+                                <input type="radio" value="" style="text-align:center;">No I don't want this product
+                            </label>
+
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center ">
+                                <button name="button" type="submit" class="btn btn-primary">Add to box </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- End of Modal Login -->
+
+
+
+
+
 
 
     <div class="navbar navbar-inverse navbar-static-bottom">
@@ -421,11 +370,11 @@
 
         </div>
     </div>
-    <script src="js/ProfileDisplay.js"></script>
-    <script src="js/Status.js"></script>
+
     <script src="js/todolist.js"></script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 </body>
 </html>

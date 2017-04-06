@@ -1,7 +1,7 @@
 var appTodolist = angular.module("status_app", []);
-appTodolist.controller("status_ctrl", function ($scope, $http) {
 
-    $http.get("/json/todolist.json").then(function (response) {          //Read json file
+appTodolist.controller("status_ctrl", function ($scope, $http,$window) {
+    $http.get("/Json/todolist.json").then(function (response) {          //Read json file - todolist.json
         $scope.todolist = response.data.todolist;
     },
             function (error) {
@@ -10,18 +10,23 @@ appTodolist.controller("status_ctrl", function ($scope, $http) {
                 alert(error.data.message);
             }
     );
-   // alert("hi");
-    $http.get('/json/Profile.json').then(function (response) {
+
+
+    $http.get('/Json/Profile.json').then(function (response) {
+
         $scope.userinfo = response.data.userinfo;
+
+
     });
 
-    $http.get("/json/statusbox.json").then(function (response) {          //Read json file
-        $scope.statusbox = response.data.statusbox;
 
-    },
-                                                function (error) {
-                                                    // Handle error here
-                                                    console.log(error.data);
-                                                    alert(error.data.message);
-                                                });
+    $scope.usern = $window.sessionStorage.getItem("user_name");
+    $http.get("/Json/statusbox.json").then(function (response) {          //Read json file
+        $scope.statusbox = response.data.statusbox;
+      
+    });
+
+
+
+
 });

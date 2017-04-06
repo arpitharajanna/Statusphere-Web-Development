@@ -43,11 +43,11 @@
                         <div class="panel-title">Create New Password</div>
                     </div>
                     <div class="panel-body">
-                        <form id="signupform" class="form-horizontal" role="form" name="form" novalidate="novalidate" ng-submit="resetPass()">
+                        <form id="signupform" class="form-horizontal" role="form" name="form" novalidate="novalidate" ng-submit="pass_reset.click()">
                             <div class="form-group">
                                 <label for="email" class="control-label col-sm-3">Registered email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" ng-model="email" name="email" placeholder="Please input your registered email" required="required">
+                                    <input type="text" class="form-control" ng-model="pass_reset.email" name="email" placeholder="Please input your registered email" required="required">
 
                                 </div>
 
@@ -55,14 +55,14 @@
                             <div class="form-group">
                                 <label for="email" class="control-label col-sm-3">New password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" ng-model="pass" name="password" placeholder="create your new password" required="required">
+                                    <input type="password" class="form-control" ng-model="pass_reset.pass" name="password" placeholder="create your new password" required="required">
                                     <span class="help-block" ng-show="form.password.$error.required && form.$submitted" style="color:red;"> Please enter password </span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="control-label col-sm-3">Confirm password</label>
                                 <div class="col-sm-9">
-                                    <input type="password" class="form-control" ng-model="pass1" name="password_confirmation" placeholder="confirm your new password" required="required">
+                                    <input type="password" class="form-control" ng-model="pass_reset.pass1" name="password_confirmation" placeholder="confirm your new password" required="required">
                                     <span style="color:red;" class="help-block" ng-show="(!form.password_confirmation.$pristine && form.password.$error.required && !form.password_confirmation.$error.required) || (!form.password_confirmation.$pristine && form.password.$viewValue!==form.password_confirmation.$viewValue) || (!form.password_confirmation.$pristine && !form.password.$error.required && form.password_confirmation.$error.required)"> Password Mismatch</span>
                                 </div>
                             </div>
@@ -80,28 +80,17 @@
     </div>
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
-
             <div class="navbar-text pull-left">
-
-                <span class="glyphicon glyphicon-envelope"></span>
-                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
-                <br />
-                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
-                <div class="navbar-text pull-right" id="ContactUS">
-                </div>
-
-
+                <p> Copyright Statusphere</p>
             </div>
-
             <div class="navbar-text pull-right">
-
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
                 <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
                 <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
             </div>
         </div>
     </div>
-   <script src="js/resetpass.js"></script>
+    <script src="js/Password_reset.js">  </script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>

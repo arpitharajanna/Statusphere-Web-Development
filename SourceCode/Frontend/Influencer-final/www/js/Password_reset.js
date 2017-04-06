@@ -22,7 +22,7 @@ app.controller("reset_pwd_ctrl", function ($scope) {
                      alert(response);  
                      
                  }); */
-                //  window.location.href = "http://localhost:57257/Profile.html";
+                 window.location.href = "http://localhost:57257/Startup.html";
             }
         }
     };
