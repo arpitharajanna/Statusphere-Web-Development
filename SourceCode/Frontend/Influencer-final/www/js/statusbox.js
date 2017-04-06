@@ -30,14 +30,18 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
         if( $scope.reqField == 'true')
         {
             //alert("valid");
-            $scope.productid = $scope.productID;
-            alert($scope.productid);
-            var statusboxdata = $.param({
-                statusboxDetails: JSON.stringify({
-                    username: $scope.usern,
-                    productId: $scope.productid
-                })
-            });
+//             $scope.productid = $scope.productID;
+//             alert($scope.productid);
+//             var statusboxdata = $.param({
+//                 statusboxDetails: JSON.stringify({
+//                     username: $scope.usern,
+//                     productId: $scope.productid
+//                 })
+//             });
+            var statusboxdata = {
+                    username: $scope.username,
+                    product_Id: $scope.productID
+            }
             
             
             alert(statusboxdata);
