@@ -10,7 +10,8 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
                                                alert(error.data.message);
                                                     });
    
-    $scope.usern = $window.sessionStorage.getItem("user_name");
+  //  $scope.usern = $window.sessionStorage.getItem("user_name");
+    $scope.usern = $window.localStorage.getItem("user_name");
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
         // $scope.reqField = 'false';
@@ -37,6 +38,8 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
                     productId: $scope.productid
                 })
             });
+            
+            
             alert(statusboxdata);
 
             /* $http.post("/Startup", data).success(function (data, status) {
