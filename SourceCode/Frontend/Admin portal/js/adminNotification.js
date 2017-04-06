@@ -28,8 +28,8 @@ function getSentMessage()
     for ( mIndex in notificationMsgObj.messages)
     {
       //alert(notificationMsgObj.messages[mIndex].email);
-        table += "<tr><td><input type='text' value='" + notificationMsgObj.messages[mIndex].email + "'</td>";
-        table += "<td><textarea  class='form-control' rows='2' cols='50'>" + notificationMsgObj.messages[mIndex].message + "</textarea></td></tr>"
+        table += "<tr><td><input type='text' value='" + notificationMsgObj.messages[mIndex].email + "' readonly </td>";
+        table += "<td><textarea  readonly rows='2' cols='50' >" + notificationMsgObj.messages[mIndex].message + "</textarea></td></tr>"
 
     }
     table += "</tbody></table>";
