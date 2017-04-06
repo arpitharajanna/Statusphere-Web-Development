@@ -46,9 +46,15 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
             
             alert(statusboxdata);
 
-            /* $http.post("/Startup", data).success(function (data, status) {
+            $http.post("", statusboxdata).then(function (res) {
                  console.log('Data posted successfully');
-             })*/
+                 alert("Package has been added")
+             },
+               function(error) {
+                                               // Handle error here
+                               console.log(error.data);
+                               alert(error.data.message);
+                                    });
 
         }
         else
