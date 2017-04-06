@@ -314,58 +314,7 @@
 
                                     <div class="tab-pane fade" id="To-Do-List">
 
-                                         <br />
-                <div class="container">
-                    <div class="row">
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h2>   This is your todo list  </h2>
-                            </div>
-                            <div class="panel-body" ng-repeat-start="item in todolist">
-                                <center> <label>  <strong> {{item.productname}}</strong>    </label>    </center>
-                                <hr />
-                                <div class="col-md-3">
-
-                                    <img src="{{item.productpath}}" />
-                                    <center><label> No. of quantities</label></center>
-                                    <center>  <span> {{item.productquantity}} </span></center>
-                                </div>
-                                
-                                <div class="col-md-9">
-                                    <br />
-                                    <table class="table table-user-information">
-                                        <tr>
-                                            <th> Requirements </th>
-                                            <th>Enter the link upon successful post </th>
-                                        </tr>
-                                        <tr ng-repeat="x in item.requirements">
-                                            <td>{{x.requirement_desc}}</td>
-                                            <td><input type="url" value="{{x.linkforpost}}"/> </td>
-                                        </tr>
-                                    </table>
-                                    
-                                 </div>
-                                
-                                </div>
-                            <hr ng-repeat-end ng-if="$index % 1 === 0" />
-                            <div class="panel-footer">
-                                <center>
-                                    <label> If you have finished the above tasks, click on submit  </label>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                </center>
-                            </div>
-
-
-
-                        </div>
-
-
-
-
-
-                    </div>
-                </div>
+                                        <p> Third Para is Here </p>
 
                                     </div>
 

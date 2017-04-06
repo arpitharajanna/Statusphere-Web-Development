@@ -7,19 +7,19 @@
     "requirements": [
                   {        
                        "requirement_id": 1,
-                       "requirement_desc": "1. Post on instagram",
+                       "requirement_desc": "Post on instagram",
                        "statusofrequirement": "true",
                        "linkforpost": "https"
                   },
       {
         "requirement_id": 2,
-        "requirement_desc": "2. On Instagram must tag @seriousskincare.",
+        "requirement_desc": "On Instagram must tag @seriousskincare.",
         "statusofrequirement": "false",
         "linkforpost": ""
       },
        {       
                         "requirement_id": 3,
-                         "requirement_desc": "3. On Instagram must tag @seriousskincare.",
+                         "requirement_desc": "On Instagram must tag @seriousskincare.",
                          "statusofrequirement": "false",
                          "linkforpost": ""
                   }
@@ -34,14 +34,14 @@
                               {
         
                               "requirement_id": 1,
-                              "requirement_desc": "1. Post on instagram with hashtag",
+                              "requirement_desc": "Post on instagram with hashtag",
                               "statusofrequirement": "false",
                               "linkforpost": ""
                             },
                             {
         
                               "requirement_id": 2,
-                              "requirement_desc": "2. On Instagram must tag @seriousskincare.",
+                              "requirement_desc": "On Instagram must tag @seriousskincare.",
                               "statusofrequirement": "true",
                               "linkforpost": "http"
                             }
@@ -56,14 +56,14 @@
                             {
         
                               "requirement_id": 1,
-                              "requirement_desc": "1. Post on instagram",
+                              "requirement_desc": "Post on instagram",
                               "statusofrequirement": "true",
                               "linkforpost": ""
                             },
                             {
         
                               "requirement_id": 2,
-                              "requirement_desc": "2. On Instagram must tag @seriousskincare.",
+                              "requirement_desc": "On Instagram must tag @seriousskincare.",
                               "statusofrequirement": "true",
                               "linkforpost": ""
                             }
@@ -78,14 +78,14 @@
                  {
         
                               "requirement_id": 1,
-                              "requirement_desc": "1. Post on instagram",
+                              "requirement_desc": "Post on instagram",
                               "statusofrequirement": "true",
                               "linkforpost": ""
                             },
                             {
         
                               "requirement_id": 2,
-                              "requirement_desc": "2. On Instagram must tag @seriousskincare.",
+                              "requirement_desc": "On Instagram must tag @seriousskincare.",
                               "statusofrequirement": "true",
                               "linkforpost": "https://www.google.com/"
                             }
