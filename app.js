@@ -20,7 +20,10 @@ var acceptedlist = require('./routes/acceptedlist');
 var applicantlist = require('./routes/api/applicantlist');
 // API to get whole list of influencers
 var influencerlist = require('./routes/api/influencerlist');
-
+// API to get whole list of packages
+var packageslist = require('./routes/api/packageslist');
+// API to get whole list of products
+var productslist = require('./routes/api/productslist');
 
 var app = express();
 mongoose.connect('mongodb://localhost:27017/applicant');
@@ -49,6 +52,8 @@ app.use('/', index);
 app.use('/acceptedlist', acceptedlist);
 app.use('/api/applicantlist', applicantlist);
 app.use('/api/influencerlist', influencerlist);
+app.use('/api/packageslist', packageslist);
+app.use('/api/productslist', productslist);
 
 // app.use('/api', routesApi);
 // catch 404 and forward to error handler
