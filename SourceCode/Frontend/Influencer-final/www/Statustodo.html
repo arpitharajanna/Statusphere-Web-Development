@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-<nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
                 <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> Leena</a></li>
@@ -48,9 +48,9 @@
 
     <div class="container-fluid">
         <ul class="nav nav-tabs nav-tabs-responsive">
-           
+
             <li class="active"><a href="#Status-List" data-toggle="tab"> Status List </a></li>
-            <li ><a href="#Profile" data-toggle="tab"> Profile </a></li>
+            <li><a href="#Profile" data-toggle="tab"> Profile </a></li>
             <li><a href="#To-Do-List" data-toggle="tab">  To-Do List </a></li>
         </ul>
 
@@ -58,7 +58,7 @@
         <div class="tab-content">
             <div class="tab-pane fade in active" id="Status-List">
                 <br />
-                <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
+                <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
@@ -197,13 +197,13 @@
             </div>
 
             <div class="tab-pane fade" id="Profile">
-               
 
-               
+
+
 
                 <div class="container">
                     <div class="row">
-                       
+
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
@@ -290,7 +290,7 @@
                                                         <td> Categories of Interest</td>
                                                         <td>{{user.categories}}</td>
                                                     </tr>
-                                                
+
 
                                                 </tbody>
                                             </table>
@@ -298,40 +298,40 @@
                                     </div>
                                 </div>
                                 <div class="panel-footer">
-                                    
-                                    
-                                        <button type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</button>
-                                    
-                                    
+
+
+                                    <button type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+
+
                                 </div>
 
-                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
 
-                                    <div class="tab-pane fade" id="To-Do-List">
 
-                                         <br />
+            <div class="tab-pane fade" id="To-Do-List">
+
+                <br />
                 <div class="container">
                     <div class="row">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h2>   This is your todo list  </h2>
+                                <h3>   Your todo list  </h3>
                             </div>
                             <div class="panel-body" ng-repeat-start="item in todolist">
                                 <center> <label>  <strong> {{item.productname}}</strong>    </label>    </center>
                                 <hr />
                                 <div class="col-md-3">
 
-                                    <img src="{{item.productpath}}" />
-                                    <center><label> No. of quantities</label></center>
-                                    <center>  <span> {{item.productquantity}} </span></center>
+                                    <img src="{{item.productpath}}" height="250" width="250" />
+                                  <!--  <center><label> No. of quantities</label></center>
+                                    <center>  <span> {{item.productquantity}} </span></center>-->
                                 </div>
-                                
+
                                 <div class="col-md-9">
                                     <br />
                                     <table class="table table-user-information">
@@ -341,13 +341,13 @@
                                         </tr>
                                         <tr ng-repeat="x in item.requirements">
                                             <td>{{x.requirement_desc}}</td>
-                                            <td><input type="url" value="{{x.linkforpost}}"/> </td>
+                                            <td><input type="url" value="{{x.linkforpost}}" /> </td>
                                         </tr>
                                     </table>
-                                    
-                                 </div>
-                                
+
                                 </div>
+
+                            </div>
                             <hr ng-repeat-end ng-if="$index % 1 === 0" />
                             <div class="panel-footer">
                                 <center>
@@ -367,36 +367,36 @@
                     </div>
                 </div>
 
-                                    </div>
+            </div>
 
 
 
-                                </div>
+        </div>
 
 
 
 
-</div>
+    </div>
 
 
-                                <div class="navbar navbar-inverse navbar-static-bottom">
-                                    <div class="container">
-                                        <div class="navbar-text pull-left">
-                                            <p> Copyright Statusphere</p>
-                                        </div>
-                                        <div class="navbar-text pull-right">
-                                            <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
-                                            <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
-                                            <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
-                                        </div>
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p> Copyright Statusphere</p>
+            </div>
+            <div class="navbar-text pull-right">
+                <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
+            </div>
 
-                                    </div>
-                                </div>
-                                 <script src="js/ProfileDisplay.js"></script>
-                                <script src="js/Status.js"></script>
-                                <script src="js/todolist.js"></script>
-                                <script src="js/jquery-3.2.0.min.js"></script>
-                                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        </div>
+    </div>
+    <script src="js/ProfileDisplay.js"></script>
+    <script src="js/Status.js"></script>
+    <script src="js/todolist.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
 </html>
