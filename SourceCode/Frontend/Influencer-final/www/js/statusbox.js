@@ -10,7 +10,8 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
                                                alert(error.data.message);
                                                     });
    
-    $scope.usern = $window.sessionStorage.getItem("user_name");
+  //  $scope.usern = $window.sessionStorage.getItem("user_name");
+    $scope.usern = $window.localStorage.getItem("user_name");
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
         // $scope.reqField = 'false';
@@ -29,19 +30,31 @@ appStatusbox.controller("ctrlStatusbox", function ($scope, $http, $window) {
         if( $scope.reqField == 'true')
         {
             //alert("valid");
-            $scope.productid = $scope.productID;
-            alert($scope.productid);
-            var statusboxdata = $.param({
-                statusboxDetails: JSON.stringify({
-                    username: $scope.usern,
-                    productId: $scope.productid
-                })
-            });
+//             $scope.productid = $scope.productID;
+//             alert($scope.productid);
+//             var statusboxdata = $.param({
+//                 statusboxDetails: JSON.stringify({
+//                     username: $scope.usern,
+//                     productId: $scope.productid
+//                 })
+//             });
+            var statusboxdata = {
+                    username: $scope.username,
+                    product_Id: $scope.productID
+            }
+            
+            
             alert(statusboxdata);
 
-            /* $http.post("/Startup", data).success(function (data, status) {
+            $http.post("", statusboxdata).then(function (res) {
                  console.log('Data posted successfully');
-             })*/
+                 alert("Package has been added")
+             },
+               function(error) {
+                                               // Handle error here
+                               console.log(error.data);
+                               alert(error.data.message);
+                                    });
 
         }
         else
