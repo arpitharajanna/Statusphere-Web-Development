@@ -1,6 +1,6 @@
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
 
 
 
