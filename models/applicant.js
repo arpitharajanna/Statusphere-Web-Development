@@ -61,11 +61,11 @@ facebook_url: {
 	unique: true, 
 },
 categories: {
-	type: String;
+	type: String,
 	required: true
 },
 date_applied: {
-	type: Date
+	type: Date,
 	required: true
 },
 hash: String,
