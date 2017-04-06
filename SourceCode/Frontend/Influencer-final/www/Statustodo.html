@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style6.css" />
-    
+
     <script src="js/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -16,43 +16,32 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <style>
-        @media only screen and (min-width : 320px)  {
-    .row.equal-height {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .row.equal-height > [class*='col-'] {
-        display: flex;
-        flex-direction: column;
-    }
-    .row.equal-height.row:after,
-    .row.equal-height.row:before {
-        display: flex;
-    }
+      @media only screen and (min-width : 320px)  {
+   .row.equal-height {
+       display: flex;
+       flex-wrap: wrap;
+   }
+   .row.equal-height > [class*='col-'] {
+       display: flex;
+       flex-direction: column;
+   }
+   .row.equal-height.row:after,
+   .row.equal-height.row:before {
+       display: flex;
+   }
 
-    .row.equal-height > [class*='col-'] > .thumbnail,
-    .row.equal-height > [class*='col-'] > .thumbnail > .caption {
-        display: flex;
-        flex: 1 0 auto;
-        flex-direction: column;
-    }
-    .row.equal-height > [class*='col-'] > .thumbnail > .caption > .flex-text {
-        flex-grow: 1;
-    }
-    .row.equal-height > [class*='col-'] > .thumbnail > img {
-        width: 100%;
-        height: 200px; /* force image's height */
-
-        /* force image fit inside it's "box" */
-        -webkit-object-fit: cover;
-           -moz-object-fit: cover;
-            -ms-object-fit: cover;
-             -o-object-fit: cover;
-                object-fit: cover;
-    }
-}
+   .row.equal-height > [class*='col-'] > .thumbnail,
+   .row.equal-height > [class*='col-'] > .thumbnail > .caption {
+       display: flex;
+       flex: 1 0 auto;
+       flex-direction: column;
+   }
+   .row.equal-height > [class*='col-'] > .thumbnail > .caption > .flex-text {
+       flex-grow: 1;
+   }           
+        }
     </style>
-    
+
 
 </head>
 <body ng-app="status_app" ng-controller="status_ctrl">
@@ -98,24 +87,24 @@
             <div class="tab-pane fade in active" id="Status-List">
                 <br />
                 <div class="container-fluid">
-                <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
-                <div class="row equal-height">
-                    <div class="col-sm-6 col-md-4" ng-repeat="item in statusbox">
-                        <div class="thumbnail">
-                            <br />
-                            <img src="{{item.productpath}}">
-                            <div class="caption">
-                                <center><a href="#Product" data-toggle="modal" ng-click="getDetails(item.productid)" ng-model="pname">{{item.productname}} </a></center>
+                    <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
+                    <div class="row equal-height">
+                        <div class="col-sm-6 col-md-4" ng-repeat="product in statusbox">
+                            <div class="thumbnail">
+                                <br />
+                                <img src="{{product.productpath}}" height="250" width="250" >
+                                <div class="caption">
+                                    <center><a href="#Product" ng-click="openmodal(product.productid)">{{product.productname}} </a></center>
+
+                                </div>
 
                             </div>
-
                         </div>
+
+
                     </div>
-
-
                 </div>
             </div>
-                </div>
 
 
             <div class="tab-pane fade" id="Profile">
@@ -271,7 +260,7 @@
                                 <hr ng-repeat-end ng-if="$index % 1 === 0" />
                                 <div class="panel-footer">
                                     <center>
-                                     
+
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </center>
                                 </div>
@@ -286,7 +275,7 @@
         </div>
 
     </div>
-  
+
 
 
     <div class="modal fade" id="Product" role="dialog">
@@ -299,43 +288,37 @@
                     <center><h2 class="modal-title"> Overview of product</h2></center>
                 </div>
                 <!-- Modal Body -->
-                <div class="modal-body" ng-repeat="item in statusbox">
-                    <div class="form-group">
+                <div class="modal-body">
+                    <div class="form-group" ng-repeat="product in statusbox | filter:{productid:productID}">
                         <div class="centered">
-                            <center> <label>{{item.productname}}</label></center>
-                            <img class="center-block" src="{{item.productpath}}" />
+                            <center> <label>{{product.productname}}</label></center>
+                            <img class="center-block" height="250" width="250" src="{{product.productpath}}" />
 
                         </div>
                         <hr />
                         <div class="form-group">
                             <center><label class="control-label">Desciption:</label></center>
 
-                            <p>{{item.productdesc}}</p>
+                            <p>{{product.productdesc}}</p>
                         </div>
                         <hr />
-                        <div class="form-group centered" ng-repeat="x in item.requirements">
+                        <div class="form-group centered" >
                             <center><label class="form-group">Requirements:</label></center>
-                            <center>
-                                <p>
-                                    {{x.requirement_desc}}
-                                </p>
-                            </center>
+                            <div ng-repeat="req in product.requirements">                                
+                                    <p>
+                                        {{req.requirement_desc}}
+                                    </p>                                
+                            </div>
 
                         </div>
                         <hr />
                         <div class="form-group">
                             <label class="checkbox-inline">
-                                <input type="radio" value="" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
+                                <input type="checkbox" value="" ng-model="checked" style="text-align:center;" ng-click="changestatus()">Yes I want that product and I agree to complete the required above actions
                             </label>
+                            <p>{{errormessage}}</p>
 
-                        </div>
-                        <div class="form-group">
-
-                            <label class="checkbox-inline">
-                                <input type="radio" value="" style="text-align:center;">No I don't want this product
-                            </label>
-
-                        </div>
+                        </div>                        
                         <div class="form-group">
                             <div class="text-center ">
                                 <button name="button" type="submit" class="btn btn-primary">Add to box </button>
