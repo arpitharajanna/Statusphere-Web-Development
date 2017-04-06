@@ -34,15 +34,9 @@ appTodolist.controller("status_ctrl", function ($scope, $http,$window) {
         $("#Product").modal();
     }
 
-    $scope.changestatus = function () {
-        //$scope.reqField = 'true';
-        $scope.errormessage = '';
-    }
-    $scope.errormessage = '';
+    
     $scope.addtobox = function () {
-        alert($scope.checked);
-
-        if ($scope.checked) {
+        
             var statusboxdata = {
                 username: $scope.username,
                 product_Id: $scope.productID
@@ -59,13 +53,8 @@ appTodolist.controller("status_ctrl", function ($scope, $http,$window) {
                    alert(error.data.message);
                });
 
-        }
-        else {
-            alert($scope.reqField);
-            // alert("invalid");
-            $scope.errormessage = "Please select Product agreement";
-        }
+        }       
 
-
-    }
+    
 });
+
