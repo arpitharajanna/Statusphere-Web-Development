@@ -1,0 +1,110 @@
+{
+  "categoryName": "Sample Set of Products",
+  "products": [
+		{
+			"product_Name" : "Hair Spray", 
+			"product_id" : "1236",
+			"img_url":"https://www.tresemme.com/content/dam/unilever/tresemme/united_states_of_america/pack_shot/front/hair_care/styling/tresemm%C3%A9_perfectly_(un)done_ultra-brushable_hair_spray_7_7oz/84143042_perfectlyundone_flexible_hairspray_7p7oz_fop-621609.png",
+			"Description" : "About the product 1)All day hold for natural movement 2)Ultra Brush able Hold 3)Professional Quality", 
+			"Brand Instagram" : "images/active-instagram-3-icon.png#",
+			"Category" : "Order placed",
+			"quantity" : "2",
+			"points_required":"10",
+			 "requirements":[
+		      {
+		        "requirement_id": 1,
+		        "requirement_desc": "Post on instagram"
+		      },
+		      {
+		        "requirement_id": 2,
+		        "requirement_desc": "On Instagram must tag @besthairspray."
+		      }
+		    ]
+		},
+		{
+			"product_Name" : "Facial Scrub", 
+			"product_id" : "6458",
+			"img_url":"http://www.simpleskincare.com.au/Resources/Images/Kind_To_Skin_Smoothing_Facial_Scrub_large_tcm1599-408841.png",
+			"Description" : "Facial Scrub is a perfect blend of ingredients to remove dead skin cells and keep your skin brighter and more even textured. Perfect for even sensitive skin.", 
+			"Brand_Instagram" : "images/active-instagram-7-icon.png#",
+			"video_link" : "",
+			"Category" : "Product Shipped", 
+			"quantity" : "8",
+			"points_required":"3",
+			 "requirements":[
+			{
+		        "requirement_id": 3,
+		        "requirement_desc": "Post on instagram."
+		      },
+		      {
+		        "requirement_id": 4,
+		        "requirement_desc": "On Instagram must tag @perfectfacial_scrub."
+		      },
+			  {
+			  	"requirement_id":5,
+				"requirement_desc": "On Instagram share your experience with Facial Scrub." 
+			  }
+			
+		    ]
+		},
+		{
+			"product_Name" : "Wooden iphone5 Case",
+			"product_id" : "2315", 
+			"img_url":"http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=83679507",
+			"Description" : "Outfit your iPhone5 this season with our 100% bamboo tree wood phone hard case. Get one for yourself, and give one to a friend! Front graphic. Snaps on", 
+			"Brand Instagram" : "images/active-instagram-9-icon.png#",
+			"video_link" : "",
+			"Category" : "Product Delivered", 
+			"quantity" : "5",
+			"points_required":"10",
+			 "requirements":[
+			{
+		        "requirement_id": 6,
+		        "requirement_desc": "Post on instagram."
+		      },
+		      {
+		        "requirement_id": 7,
+		        "requirement_desc": "On Instagram must tag @cool-iphone-cases."
+		      },
+			  {
+		        "requirement_id": 8,
+		        "requirement_desc": "On Instagram @cool-iphone-cases."
+		      },
+			  {
+		        "requirement_id": 9,
+		        "requirement_desc": "On Instagram suggest others to buy the iphone cases."
+		      },
+		    ]
+
+		},
+		{
+			"product_Name" : "Casual Outfit",
+			"product_id" : "7412", 
+			"img_url":"http://trulyhandpicked.com/wp-content/uploads/2016/02/x-spring-outfis-1455167364gn48k.jpg",
+			"Description" : "1)Classic look 2)Comfortable to wear", 
+			"Brand Instagram" : "images/active-instagram-1-icon.png#",
+			"video_link" : "",
+			"Category" : "Processing", 
+			"quantity" : "1",
+			"points_required":"20",
+			 "requirements":[
+			{
+		        "requirement_id": 10,
+		        "requirement_desc": "Post on instagram"
+		      },
+		      {
+		        "requirement_id": 11,
+		        "requirement_desc": "On Instagram must tag @springcasual_outfit."
+		      },
+			  {
+		        "requirement_id": 12,
+		        "requirement_desc": "Share you experience with the outfit."
+		      },
+		    ]
+		}
+	]
+}
+
+
+
+

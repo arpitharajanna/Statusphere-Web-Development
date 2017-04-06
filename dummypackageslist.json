@@ -1,0 +1,29 @@
+{
+  "categoryName": "Sample Set of Packages",
+  "packages": [
+		  	{
+			"product_id" : "78HY-2203", 
+			"influencer_id" : "SW0066_KMT", 
+			"status" : "Order placed", 
+			"package_timestamp" : "2017-03-25T12:00:55.784-0400"
+		},
+		{
+			"product_id" : "24LD-4573", 
+			"influencer_id" : "AT0011_DVR", 
+			"status" : "Product Shipped", 
+			"package_timestamp" : "2017-03-20T14:35:20.784-0400"
+		},
+		{
+			"product_id" : "10JW-8697", 
+			"influencer_id" : "KE0571_NES", 
+			"status" : "Product Delivered", 
+			"package_timestamp" : "2017-02-07T17:32:05.784-0400"
+		},
+		{
+			"product_id" : "62AD-0005", 
+			"influencer_id" : "LZ1000_EEM", 
+			"status" : "Processing", 
+			"package_timestamp" : "2017-03-15T22:40:23.784-0400"
+		}
+ 	]
+ }
