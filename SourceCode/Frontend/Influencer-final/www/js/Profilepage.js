@@ -1,4 +1,4 @@
-﻿var app = angular.module("appProfile", []);
+var app = angular.module("appProfile", []);
 app.controller('ctrlProfile', function ($scope, $http, $window) {
     $http.get('/Json/Countries.json').then(function (response) {
 
@@ -25,8 +25,6 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
     }
 
     $scope.form = {
-
-
         submit: function () {
             if ($scope.form.$invalid)
                 return false;
@@ -36,7 +34,6 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
                           username: $scope.name,
                           email: $scope.email,
                           password: $scope.password,
-
                       })
                   }); */
                 alert("success");
@@ -45,14 +42,17 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
                      alert(response);  
                      
                  }); */
-                window.location.href = "http://localhost:57257/Statustodo.html";
+                window.location.href = "Statustodo.html";
             }
         }
     };
 
-
+    $scope.updateProfile = function()
+    {
+        alert("success");
+    }
 });
-app.directive('myUpload', [function () {
+/*app.directive('myUpload', [function () {
     return {
         restrict: 'A',
         link: function (scope, elem, attrs) {
@@ -67,4 +67,4 @@ app.directive('myUpload', [function () {
             });
         }
     };
-}]);
+}]);*/
