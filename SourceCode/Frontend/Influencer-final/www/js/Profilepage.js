@@ -8,15 +8,22 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
 
         $scope.states = response.data.states;
     });
+    $scope.GetSelectedCountry = function () {
+        $scope.strCountry = $scope.form.selectCountry;
+    };
 
-    /*  for (var i = 0; i < country_arr.length; i++)
-      {
-          $scope.country_name = country_arr[i];
-      }
-      for (var j = 0; j < s_a.length; j++) {
-          $scope.state_name = s_a[i];
-      }
-      */
+
+    $scope.someSelected = function (object) {
+        if (!object) return false;
+        return Object.keys(object).some(function (key) {
+            return object[key];
+        });
+    }
+
+    $scope.doTouched = function () {
+        $scope.theForm.subscribe.$setTouched();
+    }
+
     $scope.form = {
 
 
@@ -38,7 +45,7 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
                      alert(response);  
                      
                  }); */
-                window.location.href = "http://localhost:57257/Startup.html";
+                window.location.href = "http://localhost:57257/Statustodo.html";
             }
         }
     };

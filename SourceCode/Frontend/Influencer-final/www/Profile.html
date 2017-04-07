@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-<nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
                 <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> Leena</a></li>
@@ -93,29 +93,29 @@
                             <div class="form-group required">
                                 <label for="Instagram-Account" class="control-label col-md-3">  Instagram Account </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="Instagram-Account" name="Instagram-Account" ng-model="form.insta" required="required" type="text" />
-                                    <span class="help-block" ng-show="theForm.Instagram-Account.$error.required && theForm.$submitted" style="color:red;"> Instagram account is required</span>
+                                    <input class="form-control" id="Instagram-Account" name="instagram" ng-model="form.insta" required="required" type="text" />
+                                    <span class="help-block" ng-show="theForm.instagram.$error.required && theForm.$submitted" style="color:red;"> Instagram account is required</span>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <label for="Facebook-name" class="control-label col-md-3">  Facebook name </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="Facebook-name" name="Facebook-name" required="required" ng-model="form.fb" type="text" />
-                                    <span class="help-block" ng-show="theForm.Facebook-name.$error.required && theForm.$submitted" style="color:red;"> Facebook name is required</span>
+                                    <input class="form-control" id="Facebook-name" name="facebook" required="required" ng-model="form.fb" type="text" />
+                                    <span class="help-block" ng-show="theForm.facebook.$error.required && theForm.$submitted" style="color:red;"> Facebook name is required</span>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <label for="Twitter-username" class="control-label col-md-3">  Twitter username </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="Twitter-username" name="Twitter-username" required="required" ng-model="form.tweet" type="text" />
-                                    <span class="help-block" ng-show="theForm.Twitter-username.$error.required && theForm.$submitted" style="color:red;"> Twitter username is required</span>
+                                    <input class="form-control" id="Twitter-username" name="twitter" required="required" ng-model="form.tweet" type="text" />
+                                    <span class="help-block" ng-show="theForm.twitter.$error.required && theForm.$submitted" style="color:red;"> Twitter username is required</span>
                                 </div>
                             </div>
                             <div class="form-group required">
                                 <label for="Snapchat-username" class="control-label col-md-3">  Snapchat username </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="Snapchat-username" name="Snapchat-username" required="required" ng-model="form.sc" type="text" />
-                                    <span class="help-block" ng-show="theForm.Snapchat-username.$error.required && theForm.$submitted" style="color:red;"> Snapchat username is required</span>
+                                    <input class="form-control" id="Snapchat-username" name="snapchat" required="required" ng-model="form.sc" type="text" />
+                                    <span class="help-block" ng-show="theForm.snapchat.$error.required && theForm.$submitted" style="color:red;"> Snapchat username is required</span>
                                 </div>
                             </div>
                             <div class="form-group required">
@@ -149,18 +149,19 @@
                             <div class="form-group required">
                                 <label for="country" class="control-label col-md-3">  Country </label>
                                 <div class="col-md-7">
-                                    <select class="form-control" id="drpCountry" name="select_country" ng-model="form.selectCountry" ng-options="x.name for x in countries" data-ng-change="changeCountry()">
+                                    <select class="form-control" id="drpCountry" name="select_country" ng-model="form.selectCountry" ng-options="x.name for x in countries" ng-change="GetSelectedCountry()" required="required">
                                         <option value="">Select Country</option>
                                         <!-- <option ng-repeat="countryname in country"></option>-->
 
                                     </select>
+                                    <span class="help-block" ng-show="theForm.select_country.$error.required && theForm.$submitted" style="color:red;"> Select your country </span>
                                 </div>
-
+                                
                             </div>
                             <div class="form-group required">
                                 <label for="states" class="control-label col-md-3">  State </label>
                                 <div class="col-md-7">
-                                    <select class="form-control" id="drpState" ng-model="form.selectstate" ng-options="states.name for states in states | filter: {country_id: '9'}">
+                                    <select class="form-control" ng-disabled="!form.selectCountry" id="drpState" ng-model="form.selectstate" ng-options="y.name for y in states | filter: {country_id:form.selectCountry.country_id}">
                                         Select State
                                         <option value="">Select state</option>
                                     </select>
@@ -171,7 +172,7 @@
                                 <div class="col-md-7">
 
                                     <input class="form-control" id="city" name="city" required="required" type="text" ng-model="form.city" />
-                                    <span class="help-block" ng-show="theForm.city.$error.required && theForm.$submitted" style="color:red;"> Address Line 2 is required</span>
+                                    <span class="help-block" ng-show="theForm.city.$error.required && theForm.$submitted" style="color:red;"> City is required</span>
 
                                 </div>
                             </div>
@@ -193,8 +194,12 @@
                                 <label for="picture" class="control-label col-md-3">  Upload your picture in max of 300X300 pixels </label>
                                 <br />
                                 <div class="col-md-7">
-                                    <img ng-if="image" src="{{image}}" alt="">
-                                    <input my-upload type="file" name="upload" ng-model="form.photo">
+                                    
+                                    <input my-upload type="file" name="upload" ng-model="form.photo" required="required" />
+                                        <img ng-if="image" src="{{image}}" alt="">
+                                        <br />
+                                        <br />
+                                    
                                     <span class="help-block" ng-show="theForm.upload.$error.required && theForm.$submitted" style="color:red;"> Please upload you picture </span>
                                 </div>
 
@@ -203,10 +208,10 @@
                             <div class="form-group required">
                                 <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
 
-                                <div class="col-md-7">
+                                <div class="col-md-7" ng-class="{ 'has-error' : (theForm.subscribe.$invalid && theForm.subscribe.$touched) || (theForm.subscribe.$invalid && theForm.$submitted) }">
 
                                     <label>
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe1" value="option1" name="subscribe"  ng-model="form.subscribe[1]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Fashion
 
 
@@ -214,34 +219,36 @@
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe2" value="option2" name="subscribe"  ng-model="form.subscribe[2]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Food
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe3" value="option3" name="subscribe"  ng-model="form.subscribe[3]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Sports
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe4" value="option4" name="subscribe"  ng-model="form.subscribe[4]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Electronic Gadgets
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe5" value="option5" name="subscribe"  ng-model="form.subscribe[5]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Lifestyle
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input">
+                                        <input type="checkbox" class="form-check-input" id="subscribe6" value="option6" name="subscribe"  ng-model="form.subscribe[6]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Makeup
                                     </label>
-
+                                    <span class="help-block" ng-messages="theForm.subscribe.$error" ng-show="(theForm.subscribe.$invalid && theForm.subscribe.$touched)||(theForm.subscribe.$invalid && theForm.$submitted)" style="color:red;">
+                                        Please select atleast one category
+                                    </span>
 
                                 </div>
                             </div>
@@ -275,7 +282,7 @@
     </div>
 
 
-     <script src="js/Profilepage.js"></script>
+    <script src="js/Profilepage.js"></script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
