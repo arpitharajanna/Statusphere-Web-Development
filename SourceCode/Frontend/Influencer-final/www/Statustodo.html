@@ -8,7 +8,11 @@
 
     <script src="js/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="js/sweet-alert.min.js"></script>
+    <script src="js/SweetAlert.min.js"></script>
     <!-- Latest compiled and minified CSS -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/Profile_display_style.css" />
 
@@ -40,6 +44,20 @@
        flex-grow: 1;
    }           
         }
+
+      body {
+  padding: 50px;
+}
+
+.tool-tip {
+  display: inline-block;
+}
+
+.tool-tip [disabled] {
+  pointer-events: none;
+}
+
+
     </style>
 
 
@@ -314,15 +332,18 @@
                         <hr />
                         <div class="form-group">
                             <label class="checkbox-inline">
-                                <input type="checkbox" value="" ng-model="checked" style="text-align:center;" ng-click="changestatus()">Yes I want that product and I agree to complete the required above actions
+                                <input type="checkbox" value="" ng-model="checked" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
                             </label>
                             <p>{{errormessage}}</p>
 
                         </div>                        
                         <div class="form-group">
                             <div class="text-center ">
-                                <button name="button" type="submit" class="btn btn-primary">Add to box </button>
+                                <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
+                                    <button name="button" type="submit" id="addbox" class="btn btn-primary" ng-click="addtobox()">Add to box </button>
+                                    </span>
                             </div>
+                                
                         </div>
                     </div>
                 </div>
@@ -335,24 +356,68 @@
     </div> <!-- End of Modal Login -->
 
 
+    <!-- Modal Confirm -->
+    <div class="modal fade"  tabindex="-1" aria-hidden="true"  id="confirmModal" style="display: none; z-index: 1050;">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:lightblue">                    
+                    <h3 class="modal-title"> Confirmation</h3>
+                </div>
+                <div class="modal-body" id="confirmMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirmOk">Ok</button>
+                    <button type="button" class="btn btn-warning" id="confirmCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal Confirm -->
 
-
-
+    <!-- Modal Confirm -->
+    <div class="modal fade" tabindex="-1" aria-hidden="true" id="successModal" style="display: none; z-index: 1050;">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">               
+                <div class="modal-body">
+                    <p>Product has been added</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="successOk">Ok</button>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal Confirm -->
 
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
+
             <div class="navbar-text pull-left">
-                <p> Copyright Statusphere</p>
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
             </div>
+
             <div class="navbar-text pull-right">
+
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
                 <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
                 <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
             </div>
-
         </div>
     </div>
+    <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+    </script>
 
     <script src="js/todolist.js"></script>
     <script src="js/jquery-3.2.0.min.js"></script>

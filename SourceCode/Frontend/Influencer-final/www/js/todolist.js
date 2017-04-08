@@ -33,25 +33,48 @@ appTodolist.controller("status_ctrl", function ($scope, $http,$window) {
       //  alert(productID);
         $("#Product").modal();
     }
+    var confirm_message = "Do you want to add this product?";
+    function confirmDialog(message, onConfirm) {
+       // $("addbox").disabled = true;
+        var fClose = function () {
+           
+            modal.modal("hide");                     
+        };      
+        var modal = $("#confirmModal");
+        modal.modal("show");
+        $("#confirmMessage").empty().append(message);
+        $("#confirmOk").one('click', onConfirm);
+        $("#confirmOk").one('click', fClose);
+        $("#confirmCancel").one("click", fClose);
+    }
 
-    
+    $("#confirmModal").on('hidden', function () {
+        $("successModal").modal("show");
+    })
     $scope.addtobox = function () {
-        
-            var statusboxdata = {
+
+        confirmDialog(confirm_message, function () {        
+            //My code to add product
+           alert("add product");
+
+           var statusboxdata = {
                 username: $scope.username,
                 product_Id: $scope.productID
             }
-            //alert(statusboxdata);
+           
 
-            $http.post("", statusboxdata).then(function (res) {
+         /*  $http.post("", statusboxdata).then(function (res) {
                 console.log('Data posted successfully');
                 alert("Package has been added")
+
+
             },
                function (error) {
                    // Handle error here
                    console.log(error.data);
                    alert(error.data.message);
-               });
+               });*/
+        });            
 
         }       
 
