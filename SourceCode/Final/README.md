@@ -6,7 +6,12 @@ All code associated with Statusphere Project; other documentation can be stored 
 Steps to execute it:- 
 
 Install mongodb 
+Then follow the tutorial to set the environment vaiable:- 
+http://stackoverflow.com/questions/15053893/error-when-trying-to-connect-to-a-mongod
+Then type the following command in commanf=d prompt or terminal:- 
+
 mongod --dbpath "path to data folder in final" 
+
 
 if mongodb is installed:- 
 1. npm install
