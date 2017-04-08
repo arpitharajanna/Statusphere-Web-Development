@@ -1,6 +1,6 @@
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
-var bcrypt = require('bcrypt');
+//var bcrypt = require('bcrypt');
 
 
 
@@ -46,12 +46,12 @@ salt: String
 //   return this.hash === hash;
 // };
 
-applicantSchema.methods.verifyPassword = function(password, cb) {
-  bcrypt.compare(password, this.password, function(err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
-};
+// applicantSchema.methods.verifyPassword = function(password, cb) {
+//   bcrypt.compare(password, this.password, function(err, isMatch) {
+//     if (err) return cb(err);
+//     cb(null, isMatch);
+//   });
+// };
 
 
 applicantSchema.methods.generateJwt= function(){
