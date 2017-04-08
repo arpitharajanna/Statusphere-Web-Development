@@ -3,12 +3,25 @@ All code associated with Statusphere Project; other documentation can be stored 
 
 *Commit early and often*
 
-* start mongod server
-* mongod --dbpath <path to data folder>
+How to start the server: (make sure you install node and mongodb)
 
-* npm start
+1. npm install (this will install all required node modules)
 
-* apps are in routes
+2. Start mongodb server	
+	* mongod --dbpath <path to data folder>
+	
+3. start node server
+	* npm start
+	
+4. go to http://localhost:3000/ to verify everything is working
 
-* apis are in routes/api
+
+Miscellaneous:
+
+Applicant api:
+
+http://localhost:3000/api/applicant    will give list of all applicants
+http://localhost:3000/api/applicant/specificusername	will give details of that specific user
+
+To go post, update and delete, I use a chrome extension [https://chrome.google.com/webstore/detail/resteasy/nojelkgnnpdmhpankkiikipkmhgafoch?hl=en-US]
 
