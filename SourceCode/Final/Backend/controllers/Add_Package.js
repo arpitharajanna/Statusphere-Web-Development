@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var package = require('../models/package');
 const username = require('username');
-var random = require("random-js")(); 
+//var random = require("random-js")(); 
 var Product = require('../models/product');
 
 
