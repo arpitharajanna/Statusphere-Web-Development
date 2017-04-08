@@ -3,6 +3,14 @@ All code associated with Statusphere Project; other documentation can be stored 
 
 *Commit early and often*
 
+Steps to execute it:- 
+
+Install mongodb 
+mongod --dbpath "path to data folder in final" 
+
+if mongodb is installed:- 
+1. npm install
+2. npm start
 
 Integrated our front-end with back-end and simplified as much. 
 
