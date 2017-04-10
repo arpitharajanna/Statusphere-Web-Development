@@ -1,4 +1,4 @@
-﻿var app = angular.module('Startup', []);
+var app = angular.module('Startup', []);
 app.controller("myctrl", function ($scope) {
 
 
@@ -72,46 +72,45 @@ app.controller("myctrl", function ($scope) {
     /* register function  */
     $scope.formModel = {
         submit: function () {
+            alert("hi");
             if ($scope.formModel.$invalid || $scope.formModel.password != $scope.formModel.password1)
                 return false;
             else {
-                /*  var data = $.param({
-                      applicant: JSON.stringify({
-                          username: $scope.name,
-                          email: $scope.email,
-                          password: $scope.password,
-                      })
-                  }); */
-                alert($scope.formModel.name + ' ' + $scope.formModel.password);
-                /* $http.post("/", data).success(function (response) {
-                     console.log('Data posted successfully');
-                     alert(response);
-                 }); */
+                var data = $.param({
+                    applicants: JSON.stringify({
+                        username: $scope.name,
+                        email: $scope.email,
+                        password: $scope.password,
+                    })
+                });
+
+                $http.post("/register", data).success(function (response) {
+                    console.log('Data posted successfully');
+                    alert(response);
+                });
                 window.location.href = "http://localhost:57257/Profile.html";
             }
         }
     };
-    
-    /* login function */
-    $scope.formLogin = {
-        login: function () {
-            if ($scope.formLogin.$invalid)
-                return false;
-            else {
-                /*  var data = $.param({
-                      applicant: JSON.stringify({
-                          username: $scope.name,
-                          email: $scope.email,
-                          password: $scope.password,
-                      })
-                  }); */
-                alert($scope.formLogin.username + ' ' + $scope.formLogin.password);
-                /* $http.post("/", data).success(function (response) {
-                     console.log('Data posted successfully');
-                     alert(response);
-                 }); */
-                window.location.href = "http://localhost:57257/Profile.html";
-            }
-        }
-    };
+
+    /*Login Function*/
+
+    $scope.login = function () {
+
+        var data = $.param({
+            applicants: JSON.stringify({
+                username: $scope.formLogin.username,
+
+                password: $scope.formLogin.password,
+            })
+        });
+        alert(data);
+
+        $http.post("/login", data).success(function (response) {
+            console.log('Data posted successfully');
+            alert(response);
+            $scope.message = response.data;
+        });
+
+    }
 });
