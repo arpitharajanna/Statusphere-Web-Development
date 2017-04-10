@@ -1,65 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title> Status Todolist</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style6.css" />
 
-    <script src="js/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="js/sweet-alert.min.js"></script>
-    <script src="js/SweetAlert.min.js"></script>
+    <!--new added styles-->
     <!-- Latest compiled and minified CSS -->
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/Profile_display_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/statusbox.css" />
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-    <style>
-      @media only screen and (min-width : 320px)  {
-   .row.equal-height {
-       display: flex;
-       flex-wrap: wrap;
-   }
-   .row.equal-height > [class*='col-'] {
-       display: flex;
-       flex-direction: column;
-   }
-   .row.equal-height.row:after,
-   .row.equal-height.row:before {
-       display: flex;
-   }
-
-   .row.equal-height > [class*='col-'] > .thumbnail,
-   .row.equal-height > [class*='col-'] > .thumbnail > .caption {
-       display: flex;
-       flex: 1 0 auto;
-       flex-direction: column;
-   }
-   .row.equal-height > [class*='col-'] > .thumbnail > .caption > .flex-text {
-       flex-grow: 1;
-   }           
-        }
-
-      body {
-  padding: 50px;
-}
-
-.tool-tip {
-  display: inline-block;
-}
-
-.tool-tip [disabled] {
-  pointer-events: none;
-}
-
-
-    </style>
-
+    <!--new styles-->
+    <script src="js/angular.min.js"></script>
 
 </head>
 <body ng-app="status_app" ng-controller="status_ctrl">
@@ -76,8 +33,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li> <a href="#"> Contact</a></li>
+                    <li class="active"><a href="Statustodo.html">Home</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
 
                 </ul>
             </div>
@@ -104,15 +61,19 @@
         <div class="tab-content">
             <div class="tab-pane fade in active" id="Status-List">
                 <br />
+
                 <div class="container-fluid">
-                    <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
+                    <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
+                    <center><span> Here are the list of products of your interest. You can select each product once and the product which you select will be displayed in your to do list.</span></center>
+                    <br />
                     <div class="row equal-height">
                         <div class="col-sm-6 col-md-4" ng-repeat="product in statusbox">
                             <div class="thumbnail">
                                 <br />
-                                <img src="{{product.productpath}}" height="250" width="250" >
+                                <img src="{{product.productpath}}" height="250" width="250">
                                 <div class="caption">
                                     <center><a href="#Product" ng-click="openmodal(product.productid)">{{product.productname}} </a></center>
+
 
                                 </div>
 
@@ -147,76 +108,76 @@
                                             <table class="table table-user-information" ng-repeat="user in userinfo">
                                                 <tbody>
                                                     <tr>
-                                                        <td>FirstName</td>
+                                                        <td><strong> FirstName </strong></td>
                                                         <td>{{user.firstname}}</td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td>LastName</td>
+                                                        <td><strong> LastName </strong></td>
                                                         <td>{{user.lastname}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Date Of Birth</td>
+                                                        <td><strong> Date Of Birth </strong></td>
                                                         <td>{{user.dob}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Gender</td>
+                                                        <td><strong> Gender </strong></td>
                                                         <td>{{user.gender}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Instagram Account</td>
+                                                        <td><strong>Instagram Account</strong></td>
                                                         <td>{{user.instagramaccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Facebook name</td>
+                                                        <td><strong>Facebook name</strong></td>
                                                         <td>{{user.facebookaccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Twitter username</td>
+                                                        <td><strong>Twitter username</strong></td>
                                                         <td>{{user.twitteraccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Snapchat username</td>
+                                                        <td><strong>Snapchat username</strong></td>
                                                         <td>{{user.snapchat}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Youtube Channel</td>
+                                                        <td><strong>Youtube Channel</strong></td>
                                                         <td>{{user.youtubechannel}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Blog/Website</td>
+                                                        <td><strong>Blog/Website</strong></td>
                                                         <td>{{user.Blog}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address Line 1</td>
+                                                        <td><strong>Address Line 1</strong></td>
                                                         <td>{{user.AddressLine1}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address Line 2</td>
+                                                        <td><strong>Address Line 2</strong></td>
                                                         <td>{{user.AddressLine2}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Country</td>
+                                                        <td><strong>Country</strong></td>
                                                         <td>{{user.Country}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>State</td>
+                                                        <td><strong>State</strong></td>
                                                         <td>{{user.State}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>City</td>
+                                                        <td><strong>City</strong></td>
                                                         <td>{{user.City}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Zip Code</td>
+                                                        <td> <strong>Zip Code</strong></td>
                                                         <td>{{user.ZIPCode}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Mobile number</td>
+                                                        <td><strong> Mobile number</strong></td>
                                                         <td>{{user.phonenumber}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Categories of Interest</td>
+                                                        <td><strong> Categories of Interest</strong></td>
                                                         <td>{{user.categories}}</td>
                                                     </tr>
 
@@ -259,6 +220,7 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{item.productpath}}" height="300" width="300">  </div>
+
                                         <div class="col-md-9 col-lg-9">
                                             <table class="table table-user-information">
                                                 <tbody>
@@ -292,6 +254,8 @@
             </div>
         </div>
 
+
+
     </div>
 
 
@@ -307,6 +271,7 @@
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
+
                     <div class="form-group" ng-repeat="product in statusbox | filter:{productid:productID}">
                         <div class="centered">
                             <center> <label>{{product.productname}}</label></center>
@@ -320,31 +285,41 @@
                             <p>{{product.productdesc}}</p>
                         </div>
                         <hr />
-                        <div class="form-group centered" >
+                        <div class="form-group centered">
                             <center><label class="form-group">Requirements:</label></center>
-                            <div ng-repeat="req in product.requirements">                                
-                                    <p>
-                                        {{req.requirement_desc}}
-                                    </p>                                
+                            <div ng-repeat="req in product.requirements">
+                                <p>
+                                    {{req.requirement_desc}}
+                                </p>
                             </div>
 
                         </div>
                         <hr />
                         <div class="form-group">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" value="" ng-model="checked" style="text-align:center;">Yes I want that product and I agree to complete the required above actions
-                            </label>
-                            <p>{{errormessage}}</p>
 
-                        </div>                        
-                        <div class="form-group">
-                            <div class="text-center ">
-                                <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
-                                    <button name="button" type="submit" id="addbox" class="btn btn-primary" ng-click="addtobox()">Add to box </button>
+                            <form name="chkbox_form" novalidate="novalidate" ng-submit="chkbox_form.$valid && addtobox()">
+                                <label class="checkbox-inline" ng-class="{ 'has-error' : (chkbox_form.check1.$invalid && chkbox_form.check1.$touched) || (chkbox_form.check1.$invalid && chkbox_form.$submitted) }">
+                                    <input type="checkbox" name="check1" ng-model="form.checked" style="text-align:center;" ng-required="!someSelected(form.checked)" ng-blur="doTouched()">Yes I want that product and I agree to complete the required above actions
+                                </label>
+                                <br />
+                                <span class="help-block" ng-messages="chkbox_form.check1.$error" ng-show="(chkbox_form.check1.$invalid && chkbox_form.check1.$touched)||(chkbox_form.check1.$invalid && chkbox_form.$submitted)" style="color:red;">
+                                    Please check the checkbox if you want to accept the product
+                                </span>
+                                <br />
+
+                                <div class="text-center">
+
+                                    <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
+                                        <button name="button" type="submit" id="addbox" class="btn btn-primary">Add to todo list </button>
                                     </span>
-                            </div>
-                                
+
+                                </div>
+
+                            </form>
+
+
                         </div>
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -355,12 +330,10 @@
         </div>
     </div> <!-- End of Modal Login -->
 
-
-    <!-- Modal Confirm -->
-    <div class="modal fade"  tabindex="-1" aria-hidden="true"  id="confirmModal" style="display: none; z-index: 1050;">
+    <div class="modal fade" tabindex="-1" aria-hidden="true" id="confirmModal" style="display: none; z-index: 1050;">
         <div class="modal-dialog" role="dialog">
             <div class="modal-content">
-                <div class="modal-header" style="background-color:lightblue">                    
+                <div class="modal-header" style="background-color:lightblue">
                     <h3 class="modal-title"> Confirmation</h3>
                 </div>
                 <div class="modal-body" id="confirmMessage">
@@ -374,25 +347,14 @@
     </div>
     <!-- End of Modal Confirm -->
 
-    <!-- Modal Confirm -->
-    <div class="modal fade" tabindex="-1" aria-hidden="true" id="successModal" style="display: none; z-index: 1050;">
-        <div class="modal-dialog" role="dialog">
-            <div class="modal-content">               
-                <div class="modal-body">
-                    <p>Product has been added</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="successOk">Ok</button>                   
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End of Modal Confirm -->
+
+
+
+
 
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
-
             <div class="navbar-text pull-left">
 
                 <span class="glyphicon glyphicon-envelope"></span>
@@ -404,20 +366,14 @@
 
 
             </div>
-
             <div class="navbar-text pull-right">
-
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
                 <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
                 <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
             </div>
+
         </div>
     </div>
-    <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();
-});
-    </script>
 
     <script src="js/todolist.js"></script>
     <script src="js/jquery-3.2.0.min.js"></script>
@@ -426,9 +382,3 @@ $(document).ready(function(){
 
 </body>
 </html>
-
-
-
-
-
-/*ng-submit="chkbox_form.$valid && check()"*/
