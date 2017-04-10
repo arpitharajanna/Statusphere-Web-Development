@@ -1,8 +1,9 @@
-﻿
+
 var app = angular.module("code_app", []);
 app.controller("code_ctrl", function ($scope, $window) {
     $scope.email = $window.sessionStorage.getItem("email");
-    $scope.submit = function () {
+    $scope.check = function () {
+        alert("hi");
         if ($scope.code.$invalid)
             return false;
         else {
@@ -20,12 +21,17 @@ app.controller("code_ctrl", function ($scope, $window) {
                  alert(response);  
                  
              }); */
-            window.location.href = "http://localhost:57257/PaswordReset.html";
+            window.location.href = "PaswordReset.html";
         }
-    };
-    
+    }
+    $("#code-alert").hide();
+    $("#codelink").click(function showAlert() {
+        $("#code-alert").alert();
+        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#code-alert").slideUp(500);
+        });
+    });
 
-    
+
 });
-
 
