@@ -34,7 +34,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="Statustodo.html">Home</a></li>
                     <li> <a href="#"> Contact</a></li>
 
                 </ul>
@@ -109,76 +109,76 @@
                                             <table class="table table-user-information" ng-repeat="user in userinfo">
                                                 <tbody>
                                                     <tr>
-                                                        <td>FirstName</td>
+                                                        <td><strong> FirstName </strong></td>
                                                         <td>{{user.firstname}}</td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td>LastName</td>
+                                                        <td><strong> LastName </strong></td>
                                                         <td>{{user.lastname}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Date Of Birth</td>
+                                                        <td><strong> Date Of Birth </strong></td>
                                                         <td>{{user.dob}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Gender</td>
+                                                        <td><strong> Gender </strong></td>
                                                         <td>{{user.gender}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Instagram Account</td>
+                                                        <td><strong>Instagram Account</strong></td>
                                                         <td>{{user.instagramaccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Facebook name</td>
+                                                        <td><strong>Facebook name</strong></td>
                                                         <td>{{user.facebookaccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Twitter username</td>
+                                                        <td><strong>Twitter username</strong></td>
                                                         <td>{{user.twitteraccount}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Snapchat username</td>
+                                                        <td><strong>Snapchat username</strong></td>
                                                         <td>{{user.snapchat}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Youtube Channel</td>
+                                                        <td><strong>Youtube Channel</strong></td>
                                                         <td>{{user.youtubechannel}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Blog/Website</td>
+                                                        <td><strong>Blog/Website</strong></td>
                                                         <td>{{user.Blog}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address Line 1</td>
+                                                        <td><strong>Address Line 1</strong></td>
                                                         <td>{{user.AddressLine1}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Address Line 2</td>
+                                                        <td><strong>Address Line 2</strong></td>
                                                         <td>{{user.AddressLine2}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Country</td>
+                                                        <td><strong>Country</strong></td>
                                                         <td>{{user.Country}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>State</td>
+                                                        <td><strong>State</strong></td>
                                                         <td>{{user.State}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>City</td>
+                                                        <td><strong>City</strong></td>
                                                         <td>{{user.City}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Zip Code</td>
+                                                        <td> <strong>Zip Code</strong></td>
                                                         <td>{{user.ZIPCode}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Mobile number</td>
+                                                        <td><strong> Mobile number</strong></td>
                                                         <td>{{user.phonenumber}}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td> Categories of Interest</td>
+                                                        <td><strong> Categories of Interest</strong></td>
                                                         <td>{{user.categories}}</td>
                                                     </tr>
 
@@ -221,6 +221,7 @@
 
                                     <div class="row">
                                         <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{item.productpath}}" height="300" width="300">  </div>
+
                                         <div class="col-md-9 col-lg-9">
                                             <table class="table table-user-information">
                                                 <tbody>
@@ -295,18 +296,20 @@
                         <hr />
                         <div class="form-group">
                            
-                            <form name="chkbox_form" novalidate="novalidate">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" name="check" ng-model="checked" style="text-align:center;" required="required">Yes I want that product and I agree to complete the required above actions
+                            <form name="chkbox_form" novalidate="novalidate" ng-submit="chkbox_form.$valid && check()" >
+                                <label class="checkbox-inline" ng-class="{ 'has-error' : (chkbox_form.check1.$invalid && chkbox_form.check1.$touched) || (chkbox_form.check1.$invalid && chkbox_form.$submitted) }">
+                                    <input type="checkbox" name="check1" ng-model="form.checked" style="text-align:center;" ng-required="!someSelected(form.checked)" ng-blur="doTouched()">Yes I want that product and I agree to complete the required above actions
                                 </label>
                                 <br />
-                                <span class="help-block" ng-show="chkbox_form.check.$error.required && chkbox_form.$submitted" style="color:red;"> Please Check the checkbox if you want to accept the product</span>
+                                <span class="help-block" ng-messages="chkbox_form.check1.$error" ng-show="(chkbox_form.check1.$invalid && chkbox_form.check1.$touched)||(chkbox_form.check1.$invalid && chkbox_form.$submitted)" style="color:red;">
+                                    Please check the checkbox if you want to accept the product
+                                </span>
                                 <br />
-                               
+                             
                                 <div class="text-center">
                                     
                                     <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
-                                        <button name="button" type="submit" id="addbox" class="btn btn-primary" ng-click="addtobox()">Add to box </button>
+                                        <button name="button" type="submit" id="addbox" class="btn btn-primary">Add to todo list </button>
                                     </span>
                                     
                                 </div>
@@ -342,20 +345,7 @@
         </div>
     </div>
     <!-- End of Modal Confirm -->
-    <!-- Modal Confirm -->
-    <div class="modal fade" tabindex="-1" aria-hidden="true" id="successModal" style="display: none; z-index: 1050;">
-        <div class="modal-dialog" role="dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p>Product has been added</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="successOk">Ok</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End of Modal Confirm -->
+    
 
 
 
@@ -365,7 +355,15 @@
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
             <div class="navbar-text pull-left">
-                <p> Copyright Statusphere</p>
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
             </div>
             <div class="navbar-text pull-right">
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
