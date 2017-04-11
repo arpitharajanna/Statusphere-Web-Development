@@ -92,12 +92,12 @@ module.exports.deleteApplicantByName = function(user, callback){
 	Applicant.remove(query, callback);
 }
 
-// Function to update a particular applicant by username??
+// Function to update a particular applicant by username
+// Consider what all needs to be updated
 module.exports.updateApplicant = function(username, applicant, options, callback){
 	var query = {'username' : username};
 	var update = {
-		firstname: applicant.firstname,
-		lastname: applicant.lastname
+		email: applicant.email
 	}
 	Applicant.findOneAndUpdate(query, update, options, callback);
 }

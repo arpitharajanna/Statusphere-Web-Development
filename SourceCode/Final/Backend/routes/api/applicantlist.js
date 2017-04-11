@@ -63,7 +63,7 @@ router.get('/:_username', function(req, res) {
 
 
 // Removing a single Applicant by username
-router.delete(':_user', function(req, res) {
+router.delete('/:_user', function(req, res) {
 	Applicant.deleteApplicantByName(req.params._user, function(err, applicant) {
 		if(err){
 			throw err;
