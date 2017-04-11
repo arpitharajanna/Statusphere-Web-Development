@@ -10,18 +10,11 @@ var packageSchema = new mongoose.Schema({
 		unique :true,
 		required : true
 	},
-	packagename:{
-		type: String,
-		required: true
-	},
-	quantityaccepted:{
+	quantity:{
 		type: Number,
 		required: true
 	},
-	quantityavailable:{
-		type: Number,
-		required: true
-	},
+	
 	packageinfo:{
 		type: String,
 		required: true
