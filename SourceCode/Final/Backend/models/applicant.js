@@ -65,4 +65,39 @@ firstName: this.firstName,
 exp: parseInt(expiry.getTime()/1000),
 }, "MY_SECRET");
 }
-module.exports = mongoose.model('applicant', applicantSchema);
+var Applicant = module.exports = mongoose.model('applicant', applicantSchema);
+
+
+// Function to add applicants
+// Have to handle schema enforcement
+module.exports.addApplicant = function(applicant, callback, random){
+	console.log(random);
+	Applicant.create(applicant, callback);
+}
+
+// Function to get list of all Applicants
+module.exports.getApplicants = function(callback, limit){
+	Applicant.find(callback).limit(limit);
+}
+
+// Function to get applicant detail by username alone.
+module.exports.getApplicantByName = function(username, callback){
+	Applicant.findOne({'username':username}, callback);
+}
+
+// Function to delete a particular applicant by username
+module.exports.deleteApplicantByName = function(user, callback){
+	console.log('going to delete ' + user +'!!!! ');
+	var query = {username: user};
+	Applicant.remove(query, callback);
+}
+
+// Function to update a particular applicant by username??
+module.exports.updateApplicant = function(username, applicant, options, callback){
+	var query = {'username' : username};
+	var update = {
+		firstname: applicant.firstname,
+		lastname: applicant.lastname
+	}
+	Applicant.findOneAndUpdate(query, update, options, callback);
+}

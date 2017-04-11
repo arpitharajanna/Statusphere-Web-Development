@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
 </head>
 <body ng-app="appProfile" ng-controller="ctrlProfile">
-   
+    <script src="js/angular-datepicker.js"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -29,7 +29,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="Startup.html">Home</a></li>
                     <li> <a href="#"> Contact</a></li>
 
                 </ul>
@@ -62,7 +62,7 @@
                             </div>
                         </div>
 
-                      <div class="form-group required">
+                        <div class="form-group required">
                             <label for="lastname" class="control-label col-md-3">  Last Name </label>
                             <div class="col-md-7">
                                 <input class="form-control" id="lastname" name="lastname" ng-model="form.ln" placeholder="Lastname" required="required" type="text" />
@@ -90,7 +90,7 @@
                         </div>
 
 
-                          <div class="form-group required">
+                        <div class="form-group required">
                             <label for="Instagram-Account" class="control-label col-md-3">  Instagram Account </label>
                             <div class="col-md-7">
                                 <input class="form-control" id="Instagram-Account" name="instagram" ng-model="form.insta" required="required" type="text" />
@@ -149,12 +149,12 @@
                                 <span class="help-block" ng-show="theForm.addr2.$error.required && theForm.$submitted" style="color:red;"> Address Line 2 is required</span>
                             </div>
                         </div>
-                       <div class="form-group required">
+                        <div class="form-group required">
                             <label for="country" class="control-label col-md-3">  Country </label>
                             <div class="col-md-7">
                                 <select class="form-control" id="drpCountry" name="select_country" ng-model="form.selectCountry" ng-options="x.name for x in countries" ng-change="GetSelectedCountry()" required="required">
                                     <option value="">Select Country</option>
-                                   
+                                    <!-- <option ng-repeat="countryname in country"></option>-->
 
                                 </select>
                                 <span class="help-block" ng-show="theForm.select_country.$error.required && theForm.$submitted" style="color:red;"> Select your country </span>
@@ -193,17 +193,19 @@
                                 <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Phone number is required</span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group required">
                             <label for="picture" class="control-label col-md-3">  Upload your picture in max of 300X300 pixels </label>
                             <br />
                             <div class="col-md-7">
 
-                                <input my-upload type="file" name="upload" ng-model="form.photo"/>
-                                <img ng-if="image" src="{{image}}" alt="">
+
+                                <input type="file" name="myFile" ng-model="form.myFile" valid-file />
                                 <br />
                                 <br />
 
-                              <!--  <span class="help-block" ng-show="theForm.upload.$error.required && theForm.$submitted" style="color:red;"> Please upload you picture </span>-->
+                                <img ng-if="image" src="{{image}}" alt="">
+
+                                <span class="help-block" ng-show="theForm.myFile.$error.validFile && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
                             </div>
 
                         </div>
@@ -273,7 +275,15 @@
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
             <div class="navbar-text pull-left">
-                <p> Copyright Statusphere</p>
+
+                <span class="glyphicon glyphicon-envelope"></span>
+                <a href="mailto:xyz@gmail.com" style="color:white">&nbsp;&nbsp;mailto:xyz@gmail.com</a>
+                <br />
+                <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
+                <div class="navbar-text pull-right" id="ContactUS">
+                </div>
+
+
             </div>
             <div class="navbar-text pull-right">
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>

@@ -13,7 +13,6 @@ app.controller("reset_pwd_ctrl", function ($scope) {
                           username: $scope.name,
                           email: $scope.email,
                           password: $scope.password,
-
                       })
                   }); */
                 alert("sucess");
@@ -22,15 +21,9 @@ app.controller("reset_pwd_ctrl", function ($scope) {
                      alert(response);  
                      
                  }); */
-                //  window.location.href = "http://localhost:57257/Profile.html";
-                window.location.href = "startup.html";
+                window.location.href = "Startup.html";
             }
         }
     };
-
-    $scope.resetPass = function () {
-        alert("Password reset successful");
-        window.location.href = "startup.html";
-    }
 
 });

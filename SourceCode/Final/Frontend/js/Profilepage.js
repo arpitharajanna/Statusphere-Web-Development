@@ -24,35 +24,14 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         $scope.theForm.subscribe.$setTouched();
     }
 
-    $scope.form = {
-        submit: function () {
-            if ($scope.form.$invalid)
-                return false;
-            else {
-                /*  var data = $.param({
-                      applicant: JSON.stringify({
-                          username: $scope.name,
-                          email: $scope.email,
-                          password: $scope.password,
-                      })
-                  }); */
-                alert("success");
-                /* $http.post("/", data).success(function (response) {
-                     console.log('Data posted successfully');
-                     alert(response);  
-                     
-                 }); */
-                window.location.href = "Statustodo.html";
-            }
-        }
-    };
-
-    $scope.updateProfile = function()
-    {
+    $scope.updateProfile = function () {
         alert("success");
     }
+
+
 });
-/*app.directive('myUpload', [function () {
+
+app.directive('myUpload', [function () {
     return {
         restrict: 'A',
         link: function (scope, elem, attrs) {
@@ -67,4 +46,21 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
             });
         }
     };
-}]);*/
+}]);
+
+app.directive('validFile', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, el, attrs, ctrl) {
+            ctrl.$setValidity('validFile', el.val() != '');
+            //change event is fired when file is selected
+            el.bind('change', function () {
+                ctrl.$setValidity('validFile', el.val() != '');
+                scope.$apply(function () {
+                    ctrl.$setViewValue(el.val());
+                    ctrl.$render();
+                });
+            });
+        }
+    }
+});

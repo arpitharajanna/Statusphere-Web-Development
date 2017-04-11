@@ -1,5 +1,4 @@
-
-var app = angular.module("code_app", []);
+﻿var app = angular.module("code_app", []);
 app.controller("code_ctrl", function ($scope, $window) {
     $scope.email = $window.sessionStorage.getItem("email");
     $scope.check = function () {
@@ -34,4 +33,3 @@ app.controller("code_ctrl", function ($scope, $window) {
 
 
 });
-
