@@ -10,15 +10,7 @@ var packageSchema = new mongoose.Schema({
 		unique :true,
 		required : true
 	},
-	quantity:{
-		type: Number,
-		required: true
-	},
 	
-	packageinfo:{
-		type: String,
-		required: true
-	},
 	username:{
 		type: String
 	},
