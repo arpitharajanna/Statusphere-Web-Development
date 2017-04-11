@@ -15,6 +15,9 @@ var applicant = require('./Backend/models/applicant');
 
 var acceptedlist = require('./Backend/routes/acceptedlist');
 
+// API to get whole list of applicants
+var applicantlist = require('./Backend/routes/api/applicantlist');
+
 var app = express();
 mongoose.connect('mongodb://localhost:27017/Statusphere');
 // view engine setup
@@ -47,7 +50,7 @@ require('./Backend/config/passport');
 app.use(passport.initialize());
 app.use('/', index);
 app.use('/acceptedlist', acceptedlist);
-
+app.use('/api/applicantlist', applicantlist);
 
 // app.use('/api', routesApi);
 // catch 404 and forward to error handler
