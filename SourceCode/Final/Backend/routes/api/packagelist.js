@@ -22,16 +22,6 @@ router.get('/', function(req, res) {
 });
 
 
-// Adding an package
-router.post('/', function(req, res) {
-	var package = req.body;
-	Package.addPackage(package, function(err, package) {
-		if(err){
-			throw err;
-		}
-		res.json(package);
-	}, "lala land");
-});
 
 
 // Getting a single Package by username
