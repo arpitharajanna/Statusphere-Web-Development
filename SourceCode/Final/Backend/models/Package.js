@@ -8,9 +8,7 @@ var packageSchema = new mongoose.Schema({
 	product_Id:{
 		type: ObjectId,
 		unique :true,
-		// change this back to true if required
-		// Not sure how to get an ObjectId from mongoDB
-		required : false
+		required : true
 	},
 	packagename:{
 		type: String,
