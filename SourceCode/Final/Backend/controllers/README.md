@@ -1,10 +1,10 @@
 # Code Ownership:
 Please consult either the listed individual or the project manager (Brandon) before making changes to any of the following files:
 * Add_Package.js: Gaurav
-* authentication.js: ?
+* authentication.js: Gaurav
 * CreateProduct.js: Gaurav
 * Edit_Product.js: Gaurav
-* profile.js: ?
+* profile.js: Gaurav
 * README.md: Brandon
 
 
