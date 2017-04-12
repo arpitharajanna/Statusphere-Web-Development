@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html ng-app="Startup" ng-controller="myctrl">
 <head>
     <title></title>
@@ -43,6 +43,7 @@
             </div>
         </div>
     </nav>
+
 
     <div class="container-fluid">
         <div id="mycarousel" class="carousel slide" data-ride="carousel">
@@ -130,7 +131,10 @@
                                 <i class="fa fa-lock login-field-icon"></i>
                                 <span class="help-block" ng-show="(form1.password.$error.required && form1.$submitted)" style="color:red;">Password is required</span>
                             </div>
-                        </div>
+                            <div class="text-center">
+                                <span> {{message}}  </span>
+                            </div>
+                            </div>
                         <br />
                         <div class="form-group" id="button">
                             <div class="text-center">
