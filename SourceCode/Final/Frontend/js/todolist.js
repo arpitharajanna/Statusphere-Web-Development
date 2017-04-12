@@ -3,7 +3,7 @@ var appTodolist = angular.module("status_app", []);
 
 
 
-appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
+appTodolist.controller("status_ctrl",['$scope','$http','$window', function ($scope, $http, $window) {
 
     $scope.usern = $window.sessionStorage.getItem("user_name");
     $http.get("/json/todolist.json").then(function (response) {          //Read json file
@@ -21,10 +21,7 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
         $scope.userinfo = response.data.userinfo;
     });
 
-    $http.get("/json/statusbox.json").then(function (response) {          //Read json file
-        $scope.statusbox = response.data.statusbox;
-
-    });
+   
     /* ,
                                                   function (error) {
                                                       // Handle error here
@@ -33,7 +30,9 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
                                                   });*/
 
     $scope.usern = $window.sessionStorage.getItem("user_name");
-
+    $http.get('/json/statusbox.json').then(function (response) {
+        $scope.statusbox = response.data.statusbox;
+    });
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
         $scope.errormessage = '';
@@ -67,10 +66,10 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
         $("#confirmOk").one('click', onConfirm);
         $("#confirmOk").one('click', fClose);
         $("#confirmCancel").one("click", fClose);
-
+        
         $("#Product").modal("hide");
     }
-    $scope.addtobox = function () {
+    $scope.check = function () {
 
         confirmDialog(confirm_message, function () {
             //My code to confirmation window
@@ -81,26 +80,41 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
             }
         });
     };
-});
+}]);
+    
+            
+
+
+                        /*  $http.post("", statusboxdata).then(function (res) {
+                                console.log('Data posted successfully');
+                                alert("Package has been added")
+                
+                
+                           },
+                               function (error) {
+                                   // Handle error here
+                                   console.log(error.data);
+                                   alert(error.data.message);
+                               });*/
 
 
 
+   
+    
+   
+        //alert(statusboxdata);
 
-/*  $http.post("", statusboxdata).then(function (res) {
-        console.log('Data posted successfully');
-        alert("Package has been added")
+       /* $http.post("", statusboxdata).then(function (res) {
+            console.log('Data posted successfully');
+            alert("Package has been added")
+        },
+           function (error) {
+               // Handle error here
+               console.log(error.data);
+               alert(error.data.message);
+           });
 
-
-   },
-       function (error) {
-           // Handle error here
-           console.log(error.data);
-           alert(error.data.message);
-       });*/
-
-
-
-
+    }*/
 
 
 
