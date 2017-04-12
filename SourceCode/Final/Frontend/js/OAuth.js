@@ -1,5 +1,5 @@
 var app = angular.module('Startup', []);
-app.controller("myctrl", function ($scope) {
+app.controller("myctrl", function ($scope,$http) {
 
 
     /*$scope.login = function () {
@@ -76,19 +76,25 @@ app.controller("myctrl", function ($scope) {
             if ($scope.formModel.$invalid || $scope.formModel.password != $scope.formModel.password1)
                 return false;
             else {
-                var data = $.param({
-                    applicants: JSON.stringify({
-                        username: $scope.name,
-                        email: $scope.email,
-                        password: $scope.password,
-                    })
-                });
+                
 
-                $http.post("/register", data).success(function (response) {
+                var data={
+                            username: $scope.formModel.name,
+                            email: $scope.formModel.email,
+                            password: $scope.formModel.password
+                        }
+
+
+                $http.post("/register", data).then(function (response) {
                     console.log('Data posted successfully');
-                    alert(response);
-                });
-                window.location.href = "http://localhost:57257/Profile.html";
+                    console.log(data.username); 
+                    alert(response.data.message);
+                },
+                function(error){
+                    alert(error.data.message);
+                }
+                )
+                
             }
         }
     };
@@ -97,20 +103,32 @@ app.controller("myctrl", function ($scope) {
 
     $scope.login = function () {
 
-        var data = $.param({
-            applicants: JSON.stringify({
-                username: $scope.formLogin.username,
+       
+                var data={
+                            username: $scope.formLogin.username,
+                            password: $scope.formLogin.password
+                        }
+        console.log(data.username);
+        console.log(data.password);
 
-                password: $scope.formLogin.password,
-            })
-        });
-        alert(data);
+         $http.post("/login", data).then(function (res) {
+                                                     console.log('Data posted successfully');
+                                                     alert(res.data.message);
+                                                      $scope.message = res.data.message;
+                                                     //$cookies.put('username', data.username);
+                                                     localStorage.setItem("username", data.username);
+                                                     window.location.href = "http://localhost:3000/Statustodo.html";
+                                                 },
+                                                 function(error) {
+                                               // Handle error here
+                                               console.log(error.data);
+                                               alert(error.data.message);
+                                                    }
 
-        $http.post("/login", data).success(function (response) {
-            console.log('Data posted successfully');
-            alert(response);
-            $scope.message = response.data;
-        });
+
+                                                 );
 
     }
+
+
 });
