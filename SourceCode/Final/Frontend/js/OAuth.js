@@ -1,5 +1,5 @@
 var app = angular.module('Startup', []);
-app.controller("myctrl", function ($scope,$http) {
+app.controller("myctrl", function ($scope,$http,$window) {
 
 
     /*$scope.login = function () {
@@ -116,7 +116,9 @@ app.controller("myctrl", function ($scope,$http) {
                                                      alert(res.data.message);
                                                       $scope.message = res.data.message;
                                                      //$cookies.put('username', data.username);
-                                                     localStorage.setItem("username", data.username);
+                                                    // localStorage.setItem("username", data.username);
+						     $window.sessionStorage.setItem("user_name", $scope.formLogin.username);
+                                                     $scope.usern = $window.sessionStorage.getItem("user_name");
                                                      window.location.href = "http://localhost:3000/Statustodo.html";
                                                  },
                                                  function(error) {
