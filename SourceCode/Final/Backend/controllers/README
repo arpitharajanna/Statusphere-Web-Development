@@ -1,6 +1,0 @@
-ADD_Package.js - For Adding the packages in the database and reducing the quanitity of related product by 1 in the product table in database. 
-CreateProduct.js - For Creating a product in the database.
-Authentication.js - For registration and throws error in case if username already exists, 
-                    and for login and it throws error if influencer does not exist or if password is incorrect.
-                    
-Edit_Product.js - for updating the product details. 
