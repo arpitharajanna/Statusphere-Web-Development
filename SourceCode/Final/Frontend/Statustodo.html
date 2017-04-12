@@ -5,22 +5,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style6.css" />
-
+   
     <!--new added styles-->
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/Profile_display_style.css" />
     <link rel="stylesheet" type="text/css" href="css/statusbox.css" />
-
+   
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <!--new styles-->
     <script src="js/angular.min.js"></script>
-
+  
 </head>
 <body ng-app="status_app" ng-controller="status_ctrl">
-
+    
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -43,7 +44,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
-                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> Leena</a></li>
+                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> {{usern}} </a></li>
                 <li><a href="#" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
             </ul>
         </div>
@@ -61,9 +62,9 @@
         <div class="tab-content">
             <div class="tab-pane fade in active" id="Status-List">
                 <br />
-
+              
                 <div class="container-fluid">
-                    <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
+                <center> <h1><strong> Welcome {{usern}} !</strong></h1></center>
                     <center><span> Here are the list of products of your interest. You can select each product once and the product which you select will be displayed in your to do list.</span></center>
                     <br />
                     <div class="row equal-height">
@@ -82,8 +83,8 @@
 
 
                     </div>
-                </div>
             </div>
+                </div>
 
 
             <div class="tab-pane fade" id="Profile">
@@ -240,7 +241,7 @@
                                 <hr ng-repeat-end ng-if="$index % 1 === 0" />
                                 <div class="panel-footer">
                                     <center>
-
+                                     
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </center>
                                 </div>
@@ -254,10 +255,10 @@
             </div>
         </div>
 
-
+      
 
     </div>
-
+  
 
 
     <div class="modal fade" id="Product" role="dialog">
@@ -271,7 +272,7 @@
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
-
+                   
                     <div class="form-group" ng-repeat="product in statusbox | filter:{productid:productID}">
                         <div class="centered">
                             <center> <label>{{product.productname}}</label></center>
@@ -296,8 +297,8 @@
                         </div>
                         <hr />
                         <div class="form-group">
-
-                            <form name="chkbox_form" novalidate="novalidate" ng-submit="chkbox_form.$valid && addtobox()">
+                           
+                            <form name="chkbox_form" novalidate="novalidate" ng-submit="chkbox_form.$valid && check()" >
                                 <label class="checkbox-inline" ng-class="{ 'has-error' : (chkbox_form.check1.$invalid && chkbox_form.check1.$touched) || (chkbox_form.check1.$invalid && chkbox_form.$submitted) }">
                                     <input type="checkbox" name="check1" ng-model="form.checked" style="text-align:center;" ng-required="!someSelected(form.checked)" ng-blur="doTouched()">Yes I want that product and I agree to complete the required above actions
                                 </label>
@@ -306,20 +307,20 @@
                                     Please check the checkbox if you want to accept the product
                                 </span>
                                 <br />
-
+                             
                                 <div class="text-center">
-
+                                    
                                     <span class="tool-tip" data-toggle="tooltip" data-placement="top" title="Check the agreement">
                                         <button name="button" type="submit" id="addbox" class="btn btn-primary">Add to todo list </button>
                                     </span>
-
+                                    
                                 </div>
-
+                              
                             </form>
-
+                            
 
                         </div>
-
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -346,7 +347,7 @@
         </div>
     </div>
     <!-- End of Modal Confirm -->
-
+    
 
 
 
