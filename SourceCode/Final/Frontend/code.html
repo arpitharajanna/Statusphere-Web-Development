@@ -11,15 +11,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-    <style>
-        #code-alert {
-    position: absolute;
-    top:110px;
-   
-    left:430px;
-    z-index: 5000;
-}
-    </style>
+    
 </head>
 <body ng-app="code_app" ng-controller="code_ctrl">
     <nav class="navbar navbar-default">
@@ -35,36 +27,47 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">Home</a></li>
-                    <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="alert alert-success fade" id="code-alert">
-        <button type="button" class="close" data-dismiss="alert">x</button>
-        <!--<strong>Success! </strong>-->
-        You will receive security code in 5 minutes..
-    </div>
+
+   
+   
+                <div class="alert alert-success fade" id="code-alert">
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    <!--<strong>Success! </strong>-->
+                    You will receive security code within 2 minutes..
+                </div>
+           
+            
+       
     <div class="container">
         <div class="row">
+            
+        
+            
             <div id="security_code" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title"><strong> Enter Security Code </strong></div>
+
                     </div>
                     <div class="panel-body">
+
                         <center><label>We have sent you a code to your email and mobile number. Your code is 6 numbers long. Please enter the code below.</label></center>
 
                         <form name="form" class="class=" form-horizontal" novalidate="novalidate" role="form" ng-submit="form.$valid && check()">
+                            
                             <div class="form-group text-center">
-
                                 <center>
                                     <input id="code" placeholder="######" name="code" class="form-control" type="number" ng-model="code" required="required" ng-maxlength="6" ng-minlength="6" style="width:50%;" />
                                 </center>
                                 <span class="help-block" ng-show="form.code.$error.required && form.$submitted" style="color:red;"> Please enter the code </span>
                                 <span style="color:red;" class="help-block" ng-show="!form.code.$pristine && form.code.$error.minlength"> Code too short</span>
                                 <span style="color:red;" class="help-block" ng-show="!form.code.$pristine && form.code.$error.maxlength"> Code too long</span>
-
                                 <label>We sent your code to:</label>
                                 <br />
                                 <span>{{email}}</span>
@@ -74,6 +77,7 @@
                             <div class="text-center">
                                 <input class="btn btn-primary" type="submit">
                             </div>
+
                         </form>
                     </div>
                     <div class="panel-footer">
@@ -89,7 +93,6 @@
             </div>
         </div>
     </div>
-   
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
@@ -100,7 +103,6 @@
                 <span class="glyphicon glyphicon-earphone">&nbsp;410-542-7856</span>
                 <div class="navbar-text pull-right" id="ContactUS">
                 </div>
-
             </div>
             <div class="navbar-text pull-right">
                 <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
