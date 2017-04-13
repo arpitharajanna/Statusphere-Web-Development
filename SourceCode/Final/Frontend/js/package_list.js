@@ -1,63 +1,68 @@
 // JSON Object for sent notification messages  , This JSON object to be replaced with the one we receive from Mongodb
-var influencerListObj = {
-    "information": [
+var app = angular.module('myapp', []);
+app.controller('myCtrl', function ($scope) {
+
+    $scope.information = [
+
+  {
+
+      "PackageName": "Elena",
+      "QuantityAccepted": "2",
+      "QuantityAvailable": "10",
+      "CreatedDate": "01/02/2017",
+      "DateDue": "15/01/2017",
+      "PackageStatus": "shipped",
+      "PackageInfo": "info on product"
+  },
                     {
-                        "FirstName": "Elena",
-                        "LastName": "Desuza",
-                        "QuantityAccepted": "2",
-                        "QuantityAvailable": "10",
-                        "CreatedDate": "01/02/2017",
-                        "DueDate": "15/01/2017",
-                        "PackageStatus": "shipped",
-                        "PackageInfo": "info on product"
-                    },
-                    {
-                        
-                        "FirstName": "Elena",
-                        "LastName": "Desuza",
+
+                        "PackageName": "Elena",
                         "QuantityAccepted": "7",
                         "QuantityAvailable": "10",
                         "CreatedDate": "01/02/2017",
-                        "DueDate": "15/01/2017",
+                        "DateDue": "15/01/2017",
                         "PackageStatus": "shipped",
                         "PackageInfo": "info on product"
                     },
                     {
-                        
-                        "FirstName": "Elena",
-                        "LastName": "Desuza",
+
+                        "PackageName": "Elena",
                         "QuantityAccepted": "5",
                         "QuantityAvailable": "10",
                         "CreatedDate": "01/02/2017",
-                        "DueDate": "15/01/2017",
+                        "DateDue": "15/01/2017",
                         "PackageStatus": "shipped",
                         "PackageInfo": "info on product"
                     },
                     {
-                        
-                        "FirstName": "Nick",
-                        "LastName": "Paul",
+
+                        "PackageName": "Nick",
                         "QuantityAccepted": "3",
                         "QuantityAvailable": "10",
                         "CreatedDate": "01/02/2017",
-                        "DueDate": "15/01/2017",
+                        "DateDue": "15/01/2017",
                         "PackageStatus": "shipped",
                         "PackageInfo": "info on product"
                     },
                     {
-                        
-                       "FirstName": "Carol",
-                        "LastName": "Thomas",
+
+                        "PackageName": "Carol",
                         "QuantityAccepted": "3",
                         "QuantityAvailable": "10",
                         "CreatedDate": "01/02/2017",
-                        "DueDate": "15/01/2017",
+                        "DateDue": "15/01/2017",
                         "PackageStatus": "shipped",
                         "PackageInfo": "info on product"
                     }
     ]
-}
-function getPackageList() {
+});
+
+
+
+
+
+
+/*{function getPackageList() {
     // Remove Existing Content from DIV
     $("#divPackageList").html("");
 
@@ -92,3 +97,4 @@ function getPackageList() {
 
     $(table).appendTo("#divPackageList");
 }
+}*/
