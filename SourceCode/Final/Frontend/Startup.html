@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html ng-app="Startup" ng-controller="myctrl">
 <head>
     <title></title>
@@ -17,12 +17,6 @@
 </head>
 <body>
 
-
-
-
-
-
-
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -38,12 +32,11 @@
                     <li class="active"><a href="Startup.html">Home</a></li>
                     <li> <a href="#ContactUS"> Contact</a></li>
                     <li> <a href="#" data-toggle="modal" data-target="#login"> Login </a></li>
-                    <li> <a href="#" data-toggle="modal" data-target="#signup1"> Sign up </a></li>
+                    <li> <a href="#" data-toggle="modal" data-target="#signup1"> Apply </a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <div class="container-fluid">
         <div id="mycarousel" class="carousel slide" data-ride="carousel">
@@ -91,9 +84,6 @@
                     <img src="images/shopping-image.jpg" style="width:535px;height:471px;" />
 
                 </a>
-
-
-
                 <div class="text-center">
                     <a href="#"> <img src="images/google-play-badge.png" /></a>
                     <br />
@@ -111,7 +101,7 @@
             <div class="modal-content">
                 <div class="modal-header login_modal_header">
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" ng-click="cancel()">&times;</button>
                     <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
                 </div>
                 <div class="modal-body">
@@ -120,9 +110,9 @@
 
                             <div class="text-center">
 
-                                <input type="text" name="username" ng-model="formLogin.username" placeholder="username" required="required" />
+                                <input type="text" id="usern" name="username" ng-model="formLogin.username" placeholder="username" required="required" />
                                 <i class="fa fa-user login-field-icon"></i>
-                                <span class="help-block" ng-show="(form1.username.$error.required && form1.$submitted)" style="color:red;">Username is required</span>
+                                <span class="help-block" id="span_usern" ng-show="(form1.username.$error.required && form1.$submitted)" style="color:red;">Username is required</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -131,17 +121,16 @@
                                 <i class="fa fa-lock login-field-icon"></i>
                                 <span class="help-block" ng-show="(form1.password.$error.required && form1.$submitted)" style="color:red;">Password is required</span>
                             </div>
-                            <div class="text-center">
-                                <span> {{message}}  </span>
-                            </div>
-                            </div>
+                        </div>
                         <br />
                         <div class="form-group" id="button">
                             <div class="text-center">
                                 <button name="button" type="submit" class="btn btn-primary"> Login </button>
                             </div>
                         </div>
-
+                            <div class="form-group">
+                            <center><span class="help-block" style="color:red;">{{errormessage}}</span></center>
+                            </div>
                         <br />
 
                         <div class="form-group">
@@ -171,7 +160,7 @@
 
 
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-default" ng-click="cancel()">Close</button>
                 </div>
 
 
@@ -187,8 +176,9 @@
             <div class="modal-content">
                 <div class="modal-header login_modal_header">
 
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" ng-click="cancelregister()">&times;</button>
                     <h2 class="modal-title" id="myModalLabel">Sign up</h2>
+                   
                 </div>
                 <div class="modal-body">
                     <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
@@ -244,8 +234,11 @@
 
                         </div>
                         <br />
+                       
                         <br />
-
+						<div class="form-group row">
+                            <span class="help-block" style="color:red;">{{errorm}}</span>
+                            </div>
                         <div class="text-center">
                             <!--<button class="btn btn-primary" id="button" ng-click="submit();" /> Submit-->
                             <!--<button class="btn btn-primary" type="submit" /> Submit-->
@@ -258,17 +251,15 @@
                              Clear
                          </div>-->
                     </form>
+                     
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                    <button type="button" class="btn btn-default" ng-click="cancelregister()">close</button>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 
     <div class="navbar navbar-inverse navbar-static-bottom">
         <div class="container">
@@ -293,7 +284,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="js/OAuth.js"></script>
 
