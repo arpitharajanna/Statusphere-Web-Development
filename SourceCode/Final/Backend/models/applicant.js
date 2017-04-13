@@ -21,14 +21,79 @@ password:{
 	type: String,
   required: true
   },
-email:{
-type: String,
 
-},
+lastName: {
+    type: String
+  },
+  dob: {
+    type: Date
+  },
+  gender: {
+    type: String
+  },
+  followers: {
+    type: Number
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  image_url: {
+    type: String,
+   
+  },
+  instagram_url: {
+    type: String,
+    unique: true
+  },
+  twitter_url: {
+    type: String,
+    unique: true
+  },
+  facebook_url: {
+    type: String,
+    unique: true
+  },
+  youtube_channel:{
+    type : String
+  },
+  categories: {
+    type: String
+  },
+  address_line1:{
+    type :String
+  },
+  address_line2:{
+    type : String
+    
+  },
+  country:{
+  	type : String
+  },
+ 
+  state:{
+    type : String
+
+  },
+ city:{
+  type : String
+ },
+ zip_Code:{
+  type : String },
+  date_applied: {
+    type: Date,
+    default: Date.now
+  },
+  mob:{
+    type: String
+  },
 hash: String,
 salt: String
 
 });
+
+
 
 
 // applicantSchema.methods.setPassword = function(password){
