@@ -30,7 +30,7 @@ var packagelist = require('./Backend/routes/api/packagelist');
 
 // API for products
 // More documentation in Backend/routes/api/productlist
-var influencerlist = require('./Backend/routes/api/productlist');
+var productlist = require('./Backend/routes/api/productlist');
 
 
 var app = express();
