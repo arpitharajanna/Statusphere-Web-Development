@@ -1,17 +1,7 @@
 var app = angular.module('Startup', []);
-app.controller("myctrl", function ($scope,$http,$window) {
+app.controller("myctrl", function ($scope,$http) {
 
-
-    /*$scope.login = function () {
-        window.location = "login.html";
-    }
-    $scope.register = function () {
-        window.location = "signup.html";
-    }*/
-
-
-    // 
-
+$scope.errormessage='';
     // Facebook Login
     $scope.FBlogin = function () {
         FB.login(function (response) {
@@ -70,9 +60,9 @@ app.controller("myctrl", function ($scope,$http,$window) {
     }
 
     /* register function  */
-    $scope.formModel = {
+   $scope.formModel = {
         submit: function () {
-            alert("hi");
+            //alert("hi");
             if ($scope.formModel.$invalid || $scope.formModel.password != $scope.formModel.password1)
                 return false;
             else {
@@ -91,19 +81,23 @@ app.controller("myctrl", function ($scope,$http,$window) {
                     alert(response.data.message);
                 },
                 function(error){
+                    
+                    //$scope.errorm = error.data.message ;
                     alert(error.data.message);
+                    //alert($scope.errorm);
                 }
                 )
                 
             }
         }
     };
+    
 
     /*Login Function*/
 
     $scope.login = function () {
 
-       
+       $scope.errormessage='';
                 var data={
                             username: $scope.formLogin.username,
                             password: $scope.formLogin.password
@@ -113,18 +107,20 @@ app.controller("myctrl", function ($scope,$http,$window) {
 
          $http.post("/login", data).then(function (res) {
                                                      console.log('Data posted successfully');
-                                                     alert(res.data.message);
+                                                     //alert(res.data.message);
                                                       $scope.message = res.data.message;
                                                      //$cookies.put('username', data.username);
-                                                    // localStorage.setItem("username", data.username);
-						     $window.sessionStorage.setItem("user_name", $scope.formLogin.username);
-                                                     $scope.usern = $window.sessionStorage.getItem("user_name");
+                                                     localStorage.setItem("username", data.username);
+                                                    // localStorage.setItem("email", data.email);
+                                                     //alert(data.email);
+                                                     //alert(localStorage.getItem("email"));
                                                      window.location.href = "http://localhost:3000/Statustodo.html";
                                                  },
                                                  function(error) {
                                                // Handle error here
                                                console.log(error.data);
-                                               alert(error.data.message);
+                                               $scope.errormessage=error.data.message;
+                                               //alert(error.data.message);
                                                     }
 
 
@@ -132,5 +128,33 @@ app.controller("myctrl", function ($scope,$http,$window) {
 
     }
 
+/*  code added by leena begin    */
+    //code to clear model values on reloading model
+    $scope.cancel = function () {
+      // alert("hello");
+       $("#login").modal("hide");
+    $scope.formLogin.username = "";
+    $scope.formLogin.password = "";
+    $scope.errormessage='';
+    $scope.form1.$setPristine();
+    //var a=document.getElementById('usern');
+   // alert(a);
+    
+};
+
+$scope.cancelregister = function () {
+    //    alert("hello");
+    $scope.formModel.name = "";
+    $scope.formModel.email = "";
+    $scope.formModel.password = "";
+    $scope.formModel.password1= "";
+    $scope.errormessage='';
+    $scope.theForm.$setPristine();
+    //var a=document.getElementById('usern');
+   // alert(a);
+    $("#signup1").modal("hide");
+};
+/*  code added by leena end    */
 
 });
+
