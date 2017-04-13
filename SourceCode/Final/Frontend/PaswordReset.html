@@ -44,15 +44,7 @@
                         <div class="panel-title">Create New Password</div>
                     </div>
                     <div class="panel-body">
-                        <form id="signupform" class="form-horizontal" role="form" name="form" novalidate="novalidate" ng-submit="pass_reset.click()">
-                            <div class="form-group">
-                                <label for="email" class="control-label col-sm-3">Registered email</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" ng-model="pass_reset.email" name="email" placeholder="Please input your registered email" required="required">
-                                    <span style="color:red;" class="help-block" ng-show="!form.email.$pristine && form.email.$error.email"> Please enter a valid email </span>
-                                </div>
-
-                            </div>
+                        <form id="signupform" class="form-horizontal" role="form" name="form" novalidate="novalidate" ng-submit="pass_reset.click()">                            
                             <div class="form-group">
                                 <label for="email" class="control-label col-sm-3">New password</label>
                                 <div class="col-sm-9">
