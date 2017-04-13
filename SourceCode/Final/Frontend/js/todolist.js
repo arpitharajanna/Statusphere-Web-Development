@@ -1,11 +1,8 @@
 var appTodolist = angular.module("status_app", []);
 
+appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
 
-
-
-appTodolist.controller("status_ctrl",['$scope','$http','$window', function ($scope, $http, $window) {
-
-    $scope.usern = $window.sessionStorage.getItem("user_name");
+    $scope.usern = localStorage.getItem("username");
     $http.get("/json/todolist.json").then(function (response) {          //Read json file
         $scope.todolist = response.data.todolist;
     });
@@ -21,7 +18,10 @@ appTodolist.controller("status_ctrl",['$scope','$http','$window', function ($sco
         $scope.userinfo = response.data.userinfo;
     });
 
-   
+    $http.get("/json/statusbox.json").then(function (response) {          //Read json file
+        $scope.statusbox = response.data.statusbox;
+
+    });
     /* ,
                                                   function (error) {
                                                       // Handle error here
@@ -29,10 +29,10 @@ appTodolist.controller("status_ctrl",['$scope','$http','$window', function ($sco
                                                       alert(error.data.message);
                                                   });*/
 
-    $scope.usern = $window.sessionStorage.getItem("user_name");
-    $http.get('/json/statusbox.json').then(function (response) {
-        $scope.statusbox = response.data.statusbox;
-    });
+    //$scope.usern = $window.sessionStorage.getItem("user_name");
+    $scope.usern=localStorage.getItem("username")
+   // alert($scope.usern);
+
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
         $scope.errormessage = '';
@@ -66,55 +66,61 @@ appTodolist.controller("status_ctrl",['$scope','$http','$window', function ($sco
         $("#confirmOk").one('click', onConfirm);
         $("#confirmOk").one('click', fClose);
         $("#confirmCancel").one("click", fClose);
-        
+
         $("#Product").modal("hide");
     }
-    $scope.check = function () {
+    $scope.addtobox = function () {
 
         confirmDialog(confirm_message, function () {
             //My code to confirmation window
 
             var statusboxdata = {
-                username: $scope.username,
+                username: $scope.usern,
                 product_Id: $scope.productID
             }
         });
     };
-}]);
-    
-            
+
+    $scope.logout = function (event) {
+                localStorage.clear();        
+                window.location.href = "http://localhost:3000/Startup.html";
+            };
+
+            $(document).ready(function () {
+       function disableBack() { window.history.forward() }
+
+       window.onload = disableBack();
+       window.onpageshow = function (evt) {
+           if (evt.persisted) disableBack()
+      }
+       
+       
+   });
+});
 
 
-                        /*  $http.post("", statusboxdata).then(function (res) {
-                                console.log('Data posted successfully');
-                                alert("Package has been added")
-                
-                
-                           },
-                               function (error) {
-                                   // Handle error here
-                                   console.log(error.data);
-                                   alert(error.data.message);
-                               });*/
+
+/*  $http.post("", statusboxdata).then(function (res) {
+        console.log('Data posted successfully');
+        alert("Package has been added")
+
+
+   },
+       function (error) {
+           // Handle error here
+           console.log(error.data);
+           alert(error.data.message);
+       });*/
 
 
 
-   
-    
-   
-        //alert(statusboxdata);
 
-       /* $http.post("", statusboxdata).then(function (res) {
-            console.log('Data posted successfully');
-            alert("Package has been added")
-        },
-           function (error) {
-               // Handle error here
-               console.log(error.data);
-               alert(error.data.message);
-           });
 
-    }*/
+
+
+
+
+
 
 
 
