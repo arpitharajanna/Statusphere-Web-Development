@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/influencer.js"></script>
+    <script src="js/package_list.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="StyleSheet2.css" />
@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
+    <!--<style>
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -31,11 +31,22 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+    </style>-->
+    <style type="text/css">
+        thead {color:green; }
+        tbody {color:black;}
+        tfoot {color:red;}
+
+        table, thead, td {
+            border: 1px solid #66ffff;
+            text-align: center;
+        }
+        textarea { border: 0px }
+        input { border: 0px }
     </style>
 
-
 </head>
-<body>
+<body onload="getPackageList()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -69,40 +80,16 @@
     <div class="container">
         
 
-         <button class="btn btn-default"><a href="#"><i class="fa fa-rocket"></i>Draft New Package</button>
+         <button class="btn btn-default"><a href="DraftPackage.html"><i class="fa fa-rocket"></i>Draft New Package</button>
         <div class="pull-right">
             <button class="btn btn-default"><a href="#">Push Packages</a></button>
         </div> 
         <br />
         <h3 align="center"><b>Package List</b></h3>
-        <div ng-app="myapp" ng-controller="myCtrl">
-            <table>
-                <tr>
-
-                    <th align="center">First Name</th>
-                    <th align="center">Last Name</th>
-                    <th align="center">Quantity Accepted</th>
-                    <th align="center">Quantity Available</th>
-                    <th align="center">Date Created</th>
-                    <th align="center">Date Due</th>
-                    <th align="center">Package Status</th>
-                    <th align="center">Package Info</th>
-                </tr>
-                      <tr ng-repeat="x in names">
-                          <td>{{x.Firstname}}</td>
-                          <td>{{x.Lastname}}</td>
-                          <td>{{x.QuantityAccepted}}</td>
-                          <td>{{x.QuantityAvailable}}</td>
-                          <td>{{x.DateCreated}}</td>
-                          <td>{{x.DateDue}}</td>
-                          <td>{{x.PackageStatus}}</td>
-                          <td><a href="#">View Profile</a></td>
-                      </tr>
-
-            </table>
+        <div ng-app="myapp" ng-controller="myCtrl" name="divPackageList" id="divPackageList">
+            
         </div>
     </div>
-
 
     <div id="bottomdiv">
         <div class="navbar navbar-inverse navbar-bottom">

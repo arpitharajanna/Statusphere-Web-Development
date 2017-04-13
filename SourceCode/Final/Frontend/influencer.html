@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/influencer.js"></script>
+    <script src="js/influencer_list.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="StyleSheet2.css" />
+    
 
     <!-- Bootstrap Libraries -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <style>
+    <!--<style>
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -32,11 +33,25 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+    </style>-->
+    <style type="text/css">
+        thead {color:green;}
+        tbody {color:black;}
+        tfoot {color:red;}
+
+        table, thead, td {
+            border: 1px solid #66ffff;
+            /*align-content: center;
+            text-align: right;*/
+        }
+        textarea { border: 0px }
+        input { border: 0px }
     </style>
+    
 
 
 </head>
-<body>
+<body onload="getInfluencerList()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -69,51 +84,8 @@
 
     <div class="container">
         <h3 align="center"><b>INFLUENCERS LIST</b></h3>
-        <div ng-app="myapp" ng-controller="myCtrl">
-            <table>
-                <tr>
-
-                    <th align="center">First Name</th>
-                    <th align="center">Last Name</th>
-                    <th align="center">Instagram ID</th>
-                    <th align="center"># Instagram Followers</th>
-                    <th align="center">Age</th>
-                    <th align="center">Gender</th>
-                    <th align="center">Date Accepted</th>
-                    <th align="center">Package status</th>
-                </tr>
-                <tr ng-repeat="x in names">
-                    <td>{{x.Firstname}}</td>
-                    <td>{{x.Lastname}}</td>
-                    <td>{{x.InstagramID}}</td>
-                    <td>{{x.NoInstagramFollowers}}</td>
-                    <td>{{x.Age}}</td>
-                    <td>{{x.Gender}}</td>
-                    <td>{{x.DateAccepted}}</td>
-                    <td><a href="influencer_info.html">View Profile</a></td>
-                </tr>
-                <!----  <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="applicantinfo.html">View Profile</a></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="applicantinfo.html">View Profile</a></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="applicantinfo.html">View Profile</a></td>
-                </tr>-->
-            </table>
+        <div  name="divInfluencerList" id="divInfluencerList">
+        
         </div>
     </div>
 
