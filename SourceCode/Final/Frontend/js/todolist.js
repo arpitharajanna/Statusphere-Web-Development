@@ -78,6 +78,23 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
                 username: $scope.usern,
                 product_Id: $scope.productID
             }
+             $http.post("", statusboxdata).then(function (res) {
+                 console.log('Data posted successfully');
+                 alert("Package has been added")
+             },
+               function(error) {
+                                               // Handle error here
+                               console.log(error.data);
+                               alert(error.data.message);
+                                    });
+
+        }
+        else
+        {
+            alert($scope.reqField);
+           // alert("invalid");
+            $scope.errormessage = "Please select Product agreement";
+        }
         });
     };
 
