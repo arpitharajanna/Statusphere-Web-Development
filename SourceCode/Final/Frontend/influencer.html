@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="js/influencer_list.js"></script>
+    <script src="js/influencer.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="StyleSheet2.css" />
-    
 
     <!-- Bootstrap Libraries -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!--<style>
+    <style>
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -33,25 +32,11 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-    </style>-->
-    <style type="text/css">
-        thead {color:green;}
-        tbody {color:black;}
-        tfoot {color:red;}
-
-        table, thead, td {
-            border: 1px solid #66ffff;
-            /*align-content: center;
-            text-align: right;*/
-        }
-        textarea { border: 0px }
-        input { border: 0px }
     </style>
-    
 
 
 </head>
-<body onload="getInfluencerList()">
+<body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -75,6 +60,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="package.html">Package</a></li>
                 <li class="active"><a href="influencer.html">Influencers</a></li>
+                <li><a href="influencer-package.html">Influencer-Package</a></li>
                 <li><a href="applicant_list.html">Applicant</a></li>
                 <li><a href="notification.html">Notification</a></li>
                 <li><a href="password_reset.html">Password Reset</a></li>
@@ -84,8 +70,54 @@
 
     <div class="container">
         <h3 align="center"><b>INFLUENCERS LIST</b></h3>
-        <div  name="divInfluencerList" id="divInfluencerList">
         
+        <div ng-app="myapp" ng-controller="myCtrl">
+            <table>
+                <tr>
+                    <td align="right">Search:</td>
+                    <td><input ng-model="query[queryBy]" /></td>
+                </tr>
+                <tr>
+                    <td align="right"> Search By:</td>
+                    <td>
+                        <select ng-model="queryBy">
+                            <option value="$"></option>
+                            <option value="Firstname">First Name</option>
+                            <option value="Lastname">Last Name</option>
+                            <option value="NoInstagramFollowers"># Instagram Followers</option>
+                            <option value="Duedate">Due Date</option>
+                        </select>
+                    </td>
+                </tr>
+
+            </table>
+            <table>
+                <tr>
+
+                    <th align="center">First Name</th>
+                    <th align="center">Last Name</th>
+                    <th align="center">Instagram ID</th>
+                    <th align="center">Email ID</th>
+                    <th align="center"># Instagram Followers</th>
+                    <th align="center">Age</th>
+                    <th align="center">Gender</th>
+                    <th align="center">Date Accepted</th>
+                    <th align="center">Send Notifications</th>
+                    <th align="center">View Profile</th>
+                </tr>
+                <tr ng-repeat="x in names| filter:query">
+                    <td>{{x.Firstname}}</td>
+                    <td>{{x.Lastname}}</td>
+                    <td>{{x.InstagramID}}</td>
+                    <td>{{x.EmailID}}</td>
+                    <td>{{x.NoInstagramFollowers}}</td>
+                    <td>{{x.Age}}</td>
+                    <td>{{x.Gender}}</td>
+                    <td>{{x.DateAccepted}}</td>
+                    <td></td>
+                    <td><a href="influencer_info.html">View Profile</a></td>
+                </tr>
+               </table>
         </div>
     </div>
 
