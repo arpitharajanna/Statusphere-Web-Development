@@ -33,7 +33,7 @@ categories:{
 	
 },
 quantity:{
-	type: Number,
+	type: Number
 	
 },
 
@@ -51,7 +51,7 @@ brand_Instagram:{
 },
 
 points_required:{
-	type:Number,
+	type:Number
 	
 
 }
