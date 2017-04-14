@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -19,7 +19,7 @@
     <script src="js/applicant_list.js"></script>
 
 
-    <!--<style>
+    <style>
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -35,22 +35,10 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
-    </style>-->
-    <style type="text/css">
-        thead {color:green;}
-        tbody {color:black;}
-        tfoot {color:red;}
-
-        table, thead, td {
-            border: 1px solid #66ffff;
-            
-        }
-        textarea { border: 0px }
-        input { border: 0px }
     </style>
 
 </head>
-<body ng-app="myapp" ng-controller="myCtrl" onload="getApplicantList()">
+<body ng-app="myapp" ng-controller="myCtrl">
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -75,19 +63,59 @@
             <ul class="nav navbar-nav">
                 <li><a href="package.html">Package</a></li>
                 <li><a href="influencer.html">Influencers</a></li>
+                <li><a href="influencer-package.html">Influencer-Package</a></li>
                 <li class="active"><a href="applicant_list.html">Applicant</a></li>
                 <li><a href="notification.html">Notification</a></li>
                 <li><a href="password_reset.html">Password Reset</a></li>
             </ul>
         </div>
     </nav>
-    <div class="container">
     <h3 align="center"><b>APPLICANTS LIST</b></h3>
-        <div  name="divApplicantList" id="divApplicantList">
-        
+    <div class="container">
+        <div ng-app="myapp" ng-controller="myCtrl">
+            <table>
+                <tr>
+                    <td align="right">Search:</td>
+                    <td><input ng-model="query[queryBy]" /></td>
+                </tr>
+                <tr>
+                    <td align="right"> Search By:</td>
+                    <td>
+                        <select ng-model="queryBy">
+                            <option value="Username">User Name</option>
+                            <option value="InstagramID">Instagram ID</option>
+                            </select>
+                    </td>
+                </tr>
+
+            </table>
+            
+            <table>
+                <tr>
+
+                    <th align="center">First Name</th>
+                    <th align="center">Last Name</th>
+                    <th align="center">Instagram ID</th>
+                    <th align="center"># Instagram Followers</th>
+                    <th align="center">Age</th>
+                    <th align="center">Gender</th>
+                    <th align="center">Date Applied</th>
+                    <th align="center">Applicant Information</th>
+                </tr>
+                <tr ng-repeat="x in applicants | filter:query">
+                    <td>{{x.Firstname}}</td>
+                    <td>{{x.Lastname}}</td>
+                    <td>{{x.InstagramID}}</td>
+                    <td>{{x.NoInstagramFollowers}}</td>
+                    <td>{{x.Age}}</td>
+                    <td>{{x.Gender}}</td>
+                    <td>{{x.DateApplied}}</td>
+                    <td><a href="applicant_info.html">View Profile</a></td>
+                </tr>
+               
+            </table>
+            </div>
         </div>
-        
-    </div> <!-- END APPLICANT LIST DIV CONTAINER -->
         <div id="bottomdiv">
             <div class="navbar navbar-inverse navbar-bottom">
                 <div class="container">
@@ -106,3 +134,4 @@
     
 </body>
 </html>
+
