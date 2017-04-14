@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -104,7 +104,7 @@
                         <th align="center">Accepted Date</th>
                         <th align="center">Status</th>
                     </tr>
-                    <tr ng-repeat="x in influencer_package | filter:query">
+                    <tr ng-repeat="x in obj | filter:query">
                         <td>{{x.Firstname}}</td>
                         <td>{{x.Lastname}}</td>
                         <td>{{x.Packagename}}</td>
@@ -112,23 +112,7 @@
                         <td>{{x.Accepteddate}}</td>
                         <td>{{x.Status}}</td>
                   </tr>
-                    <!--
-                         <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td><a href="#">View Profile</a></td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td><a href="#">View Profile</a></td>
-
-                          </tr> -->
-
+                    
                 </table>
              </div>
             </div>
@@ -150,3 +134,4 @@
 
 </body>
 </html>
+
