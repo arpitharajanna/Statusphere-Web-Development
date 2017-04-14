@@ -11,7 +11,6 @@ requirement_description:{
 	required: true
 
 }
-
 });
 
 module.exports = mongoose.model('requirement', requirementSchema);
