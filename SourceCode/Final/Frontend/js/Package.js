@@ -1,8 +1,11 @@
-﻿var myapp = angular.module('myapp', []);
-myapp.controller('myCtrl', function ($scope) {
-
-    $scope.names =
-    [
+﻿
+/*
+Script Name: admin_package.js
+Description: 1. Used to populate data of all influencers from database 
+             2. Functionalities for sending notification
+             3. View Profile     
+*/
+var packageListObj = [
 
       {
           "Name": "hello",
@@ -45,5 +48,9 @@ myapp.controller('myCtrl', function ($scope) {
       }
 
     ]
-    ;
+
+var myapp = angular.module('myapp', []);
+myapp.controller('myCtrl', function ($scope) {
+
+    $scope.names = packageListObj;
 });

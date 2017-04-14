@@ -1,7 +1,12 @@
-    var app = angular.module('myapp', []);
-    app.controller('myCtrl', function ($scope) {
+/*
+Script Name: influencer.js
+Description: 1. Used to populate data of all influencers from database 
+             2. Functionalities for sending notification
+             3. View Profile     
+*/
 
-        $scope.names =  [
+    //  JSON object from DB/API for influencer list
+    influencerListObj = [
 
       {   
 
@@ -36,11 +41,17 @@
        "EmailID": "pquwsh@gmail.com",
        "NoInstagramFollowers": 3200,
        "Age": 23,
-       "Gender": "male",
+       "Gender": "female",
        "DateAccepted": "06-01-2017"
 
    }
    
     ]
-    //alert("hi");
+
+
+    var app = angular.module('myapp', []);
+    app.controller('myCtrl', function ($scope) {
+
+    $scope.names =  influencerListObj
+    
 });

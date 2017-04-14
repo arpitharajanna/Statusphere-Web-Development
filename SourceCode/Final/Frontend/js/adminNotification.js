@@ -23,6 +23,9 @@ var notificationMsgObj = {
                     }
     ]
 }
+
+
+
 function getSentMessage() {
     // Remove Existing Content from DIV
     $("#divSentMagTable").html("");
@@ -45,3 +48,44 @@ function getSentMessage() {
 
     $(table).appendTo("#divSentMagTable");
 }
+
+
+
+/*
+Send Message To the Users: 
+*/
+//$scope.login = function () {
+$scope.login = function () {
+
+    alert("dsadhsakdjhas");
+       $scope.errormessage='';
+       alert($scope.frmSendMessage.txtEmailID);
+                /*var data={
+                            username: $scope.formLogin.username,
+                            password: $scope.formLogin.password
+                        }
+        console.log(data.username);
+        console.log(data.password);
+
+         $http.post("/login", data).then(function (res) {
+                                                     console.log('Data posted successfully');
+                                                     //alert(res.data.message);
+                                                      $scope.message = res.data.message;
+                                                     //$cookies.put('username', data.username);
+                                                     localStorage.setItem("username", data.username);
+                                                    // localStorage.setItem("email", data.email);
+                                                     //alert(data.email);
+                                                     //alert(localStorage.getItem("email"));
+                                                     window.location.href = "http://localhost:3000/Statustodo.html";
+                                                 },
+                                                 function(error) {
+                                               // Handle error here
+                                               console.log(error.data);
+                                               $scope.errormessage=error.data.message;
+                                               //alert(error.data.message);
+                                                    }
+
+
+                                                 );*/
+
+    }
