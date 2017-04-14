@@ -6,10 +6,18 @@ product_Name:{
 	unique :true,
 	required : true
 },
+image_url: {
+	type: String,
+	required: true
+},
 description:{
 	type:String,
 	required: true
 
+},
+brand_instagram: {
+	type: String,
+	required: true
 },
 category:{
 	type: String,
@@ -20,9 +28,11 @@ quantity:{
 	required: true
 },
 points_required:{
-	type:Number,
-	required:
-
+	type:Number
+},
+requirements: {
+	type: String,
+	required: true
 }
 
 });
