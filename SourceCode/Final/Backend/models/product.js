@@ -17,8 +17,9 @@ description:{
 
 },
 requirements:{ 
-	type:[string], 
-        required:true },
+	type:[String], 
+    required:true 
+},
 
 
 image_Url:{
