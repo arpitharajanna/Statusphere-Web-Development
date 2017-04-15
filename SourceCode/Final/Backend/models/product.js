@@ -16,14 +16,11 @@ description:{
 	
 
 },
-// requirements:{ 
-// 	type: mongoose.Schema.Types.ObjectId, 
-// 	ref: 'requirement' },
+requirements:{ 
+	type:[string], 
+        required:true },
 
-requirement:{
-	type: String,
-	required : true
-},
+
 image_Url:{
 	type:String
 },
