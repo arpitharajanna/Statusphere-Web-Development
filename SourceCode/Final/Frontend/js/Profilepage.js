@@ -1,6 +1,5 @@
 var app = angular.module("appProfile", []);
-app.controller('ctrlProfile', function ($scope, $http) {
-$scope.usern=localStorage.getItem("username");
+app.controller('ctrlProfile', function ($scope, $http, $window) {
     $http.get('/Json/Countries.json').then(function (response) {
 
         $scope.countries = response.data.countries;
@@ -24,9 +23,20 @@ $scope.usern=localStorage.getItem("username");
     $scope.doTouched = function () {
         $scope.theForm.subscribe.$setTouched();
     }
-
-     $scope.updateProfile = function()
+    $scope.updateProfile = function()
     {
+        var checked = $('.form-check-input:checked').map(function () {
+            return this.value;
+        }).get();
+        if (checked.length) {
+            //console.log(checked);
+            $scope.selected = checked;
+            //categories: checked;
+        } else {
+            console.log('null');
+        }
+      
+        $scope.selected;
         var data = {
             image_url: $scope.form.myFile,
             firstname: $scope.form.fn,
@@ -45,12 +55,13 @@ $scope.usern=localStorage.getItem("username");
             State: $scope.form.selectstate,
             City: $scope.form.city,
             ZIPCode: $scope.form.zip,
-            mob: $scope.form.phno  
-        
+            mob: $scope.form.phno,
+            
+            categories: $scope.selected
 
 
         }
-        $http.post("/profile", data).then(function (response) {
+        $http.post("/editProfile", data).then(function (response) {
             console.log('Data posted successfully');
             alert("success");},
                 function (error) {
@@ -61,13 +72,13 @@ $scope.usern=localStorage.getItem("username");
                 }
                 )
        
-    }
-
-
-
+       // alert("hi");
        
 
+       
+    }
 
+   
 });
 
 app.directive('myUpload', [function () {
