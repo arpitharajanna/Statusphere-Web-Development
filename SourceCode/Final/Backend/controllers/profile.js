@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
 var applicant = require('../models/applicant');
 
-module.exports.profileRead = function(req,res){
+module.exports.profile = function(req,res){
   
+ console.log("hello");
  applicant.findOne({ username: req.body.username }, function(err,Applicant) {
     console.log(Applicant.username);
     if (err){
@@ -10,7 +11,32 @@ module.exports.profileRead = function(req,res){
     
    message: 'There is no influencer'
    });}
-    else{
+//    
+else{
+
+res.json(
+      {                 
+        applicant:Applicant
+      });
+}
+ });
+
+}
+
+
+
+module.exports.profileEdit = function(req,res){
+
+ console.log("hello");
+ applicant.findOne({ username: req.body.username }, function(err,Applicant) {
+    console.log(Applicant.username);
+    if (err){
+      res.status(400).send({
+    
+   message: 'There is no influencer'
+   });}
+
+ else{
     // Update the existing quantity
     Applicant.firstName = req.body.firstname || Applicant.firstName||null;
     Applicant.lastName = req.body.lastname|| Applicant.lastName ||null;
@@ -29,8 +55,9 @@ module.exports.profileRead = function(req,res){
     Applicant.address_line1 = req.body.AddressLine1 || Applicant.address_line1 ||null ;
     Applicant.address_line2 = req.body.AddressLine2 || Applicant.address_line2 || null;
     Applicant.country=req.body.Country ||  Applicant.country ||null ;
+    Applicant.categories = req.body.categories || Applicant.categories || null;
 
-    
+
    
     Applicant.save(function(err) {
       if (err)
@@ -49,10 +76,5 @@ module.exports.profileRead = function(req,res){
   
 
 }
-
- });
-
-
-
-
+});
 }
