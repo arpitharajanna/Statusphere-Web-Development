@@ -203,12 +203,13 @@
                                     <span class="help-block" ng-show="theForm.zip.$error.required && theForm.$submitted" style="color:red;"> Zip code is required </span>
                                 </div>
                             </div>
-                            <div class="form-group required">
-                                <label for="phno" class="control-label col-md-3">  Mobile number </label>
+                           <div class="form-group required">
+                                <label for="phno" class="control-label col-md-3">  Mobile number  </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="phno" name="phno" required="required" type="number" ng-model="form.phno" ng-minlength="10" ng-maxlength="10"/>
-                                    <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Phone number is required</span>
-                                    <span class="help-block" ng-show="(theForm.phno.$error.minlength || theForm.phno.$error.maxlength) && theForm.phno.$dirty" style="color:red;"> Phone number should be in 10 digits</span>
+                                    <input class="form-control" id="phno" name="phno" required="required" type="tel" ng-model="form.phno"/>
+                                    <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Please enter phone number along with your country code</span>
+                                    <span>Example: +1 xxx-xxx-xxxx</span>
+                                    
                                 </div>
                             </div>
                             <div class="form-group required">
