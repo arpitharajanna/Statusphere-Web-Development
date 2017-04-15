@@ -14,6 +14,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.1/angular-messages.min.js"></script>
 </head>
 <body ng-app="appProfile" ng-controller="ctrlProfile">
   
@@ -211,7 +212,7 @@
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label for="picture" class="control-label col-md-3">  Upload your picture in max of 300X300 pixels </label>
+                                <label for="picture" class="control-label col-md-3">  Upload your profile picture  </label>
                                 <br />
                                 <div class="col-md-7">
               
@@ -222,11 +223,13 @@
 
                                     <img ng-if="image" src="{{image}}" alt="">                         
                                         
-                                    <span class="help-block" ng-show="theForm.myFile.$error.validFile && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
+                                    <span class="help-block" ng-show="theForm.myFile.$untouched && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
+                                    <span class="help-block" ng-show="theForm.myFile.$error.extension" style="color:red;">Invalid Image. Image must be in '.jpg','.jpeg' or '.png'</span>
+                                  
                                 </div>
 
                             </div>
-                            <br />
+                            
                             <div class="form-group required">
                                 <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
 
