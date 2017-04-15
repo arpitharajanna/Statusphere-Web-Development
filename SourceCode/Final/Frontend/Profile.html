@@ -14,7 +14,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.1/angular-messages.min.js"></script>
+    
 </head>
 <body ng-app="appProfile" ng-controller="ctrlProfile">
   
@@ -75,18 +75,20 @@
                                 <div class="col-md-7">
                                     <input class="form-control" id="txtdateofbirth" name="dateofbirth" ng-model="form.dob" required="required" type="date" />
                                     <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Date of Birth is required</span>
+                                    
+                                    
                                 </div>
                             </div>
 
                             <div class="form-group required">
                                 <label for="Gender" class="control-label col-md-3">  Gender </label>
                                 <div class="col-md-7">
-                                    <select class="form-control" id="gender1" ng-model="form.sex" name="sex">
+                                    <select class="form-control" id="gender1" ng-model="form.sex" name="sex" required="required">
                                         <option value="">Select Gender</option>
                                         <option>Male</option>
                                         <option>Female</option>
                                     </select>
-                                    <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Select your gender </span>
+                                    <span class="help-block" ng-show="theForm.sex.$error.required && theForm.$submitted" style="color:red;"> Select your gender </span>
                                 </div>
                             </div>
 
@@ -154,8 +156,9 @@
                             <div class="form-group required">
                                 <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
                                 <div class="col-md-7">
-                                    <input class="form-control" id="addr1" name="addr1" required="required" type="text" ng-model="form.addr1" />
+                                    <input class="form-control" id="addr1" name="addr1" required="required" type="text" ng-model="form.addr1" ng-maxlength="40"/>
                                     <span class="help-block" ng-show="theForm.addr1.$error.required && theForm.$submitted" style="color:red;"> Address line 1 is required</span>
+                                    <span class="help-block" ng-show="theForm.addr1.$error.maxlength" style="color:red;"> Only 40 charecters are allowed. Fill remaining in address 2 field</span>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -203,40 +206,39 @@
                                     <span class="help-block" ng-show="theForm.zip.$error.required && theForm.$submitted" style="color:red;"> Zip code is required </span>
                                 </div>
                             </div>
-                           <div class="form-group required">
+                            <div class="form-group required">
                                 <label for="phno" class="control-label col-md-3">  Mobile number  </label>
                                 <div class="col-md-7">
                                     <input class="form-control" id="phno" name="phno" required="required" type="tel" ng-model="form.phno"/>
                                     <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Please enter phone number along with your country code</span>
-                                    <span>Example: +1 xxx-xxx-xxxx</span>
+                                    <span>Example: +1 123-123-1234</span>
                                     
                                 </div>
                             </div>
                             <div class="form-group required">
-                                <label for="picture" class="control-label col-md-3">  Upload your profile picture  </label>
-                                
+                                <label for="picture" class="control-label col-md-3">  Upload your profile picture </label>
+                               
                                 <div class="col-md-7">
               
                                     
                                     <input type="file" name="myFile" ng-model="form.myFile" valid-file/>
-                                    
-
+                               
                                     <img ng-if="image" src="{{image}}" alt="">                         
                                         
                                     <span class="help-block" ng-show="theForm.myFile.$untouched && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
                                     <span class="help-block" ng-show="theForm.myFile.$error.extension" style="color:red;">Invalid Image. Image must be in '.jpg','.jpeg' or '.png'</span>
-                                  
+                                   
                                 </div>
 
                             </div>
-                            
+                           
                             <div class="form-group required">
                                 <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
 
                                 <div class="col-md-7" ng-class="{ 'has-error' : (theForm.subscribe.$invalid && theForm.subscribe.$touched) || (theForm.subscribe.$invalid && theForm.$submitted) }">
 
                                     <label>
-                                        <input type="checkbox" class="form-check-input" id="subscribe1" value="option1" name="subscribe" ng-model="form.subscribe[1]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe1" value="Fashion" name="subscribe" ng-model="form.subscribe[1]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Fashion
 
 
@@ -244,31 +246,31 @@
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input" id="subscribe2" value="option2" name="subscribe" ng-model="form.subscribe[2]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe2" value="Food" name="subscribe" ng-model="form.subscribe[2]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Food
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input" id="subscribe3" value="option3" name="subscribe" ng-model="form.subscribe[3]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe3" value="Sports" name="subscribe" ng-model="form.subscribe[3]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Sports
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input" id="subscribe4" value="option4" name="subscribe" ng-model="form.subscribe[4]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe4" value="Electronic Gadgets" name="subscribe" ng-model="form.subscribe[4]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Electronic Gadgets
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input" id="subscribe5" value="option5" name="subscribe" ng-model="form.subscribe[5]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe5" value="Lifestyle" name="subscribe" ng-model="form.subscribe[5]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Lifestyle
                                     </label>
 
                                     <label>
 
-                                        <input type="checkbox" class="form-check-input" id="subscribe6" value="option6" name="subscribe" ng-model="form.subscribe[6]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        <input type="checkbox" class="form-check-input" id="subscribe6" value="Makeup" name="subscribe" ng-model="form.subscribe[6]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
                                         Makeup
                                     </label>
                                     <span class="help-block" ng-messages="theForm.subscribe.$error" ng-show="(theForm.subscribe.$invalid && theForm.subscribe.$touched)||(theForm.subscribe.$invalid && theForm.$submitted)" style="color:red;">
@@ -324,4 +326,3 @@
 
 
 </html>
-
