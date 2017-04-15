@@ -3,11 +3,6 @@ var applicant = require('../models/applicant');
 
 module.exports.profileRead = function(req,res){
   
-
-
-
- 
- console.log("hello");
  applicant.findOne({ username: req.body.username }, function(err,Applicant) {
     console.log(Applicant.username);
     if (err){
