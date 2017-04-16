@@ -49,19 +49,16 @@ var influencerSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	"instagram_url":{
+	instagram_url:{
 		type: String,
-		unique: true,
 		required: true
 	},
 	twitter_url:{
 		type: String,
-		unique: true,
 		required: true
 	},
 	facebook_url:{
 		type:String,
-		unique: true,
 		required: true
 	},
 	categories:{
