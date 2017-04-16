@@ -44,6 +44,15 @@ router.get('/:_username', function(req, res) {
 	});
 });
 
+// Getting a single Influencer by emailid
+router.get('/:_emailid', function(req, res) {
+	Influencer.getInfluencerByEmail(req.params.emailid, function(err, influencer) {
+		if(err){
+			throw err;
+		}
+		res.json(influencer);
+	});
+});
 
 
 // Removing a single Influencer by username
@@ -62,6 +71,19 @@ router.put('/:_username', function(req, res) {
 	var username = req.params._username;
 	var influencer = req.body;
 	Influencer.updateInfluencer(username, influencer, {}, function(err, influencer) {
+		if(err){
+			throw err;
+		}
+		res.json(influencer);
+	}, "lala land");
+});
+
+// Updating a single Influencers password by filtering with emailid
+router.put('/reset/:_emailid', function(req, res) { //
+	var emailid = req.params._emailid;
+	var influencer = req.body;
+	console.log(emailid);
+	Influencer.updatePassword(emailid, influencer, {}, function(err, influencer) {
 		if(err){
 			throw err;
 		}
