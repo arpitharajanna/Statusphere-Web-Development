@@ -17,7 +17,7 @@ description:{
 
 },
 requirements:{ 
-	type:String, 
+	type:[String], 
         required:true 
 },
 
