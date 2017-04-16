@@ -44,16 +44,13 @@ lastName: {
    
   },
   instagram_url: {
-    type: String,
-    unique: true
+    type: String
   },
   twitter_url: {
-    type: String,
-    unique: true
+    type: String
   },
   facebook_url: {
-    type: String,
-    unique: true
+    type: String
   },
   youtube_channel:{
     type : String
