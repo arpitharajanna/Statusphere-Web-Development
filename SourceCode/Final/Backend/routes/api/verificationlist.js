@@ -74,8 +74,8 @@ router.post('/', function(req, res) {
 
 
 // Getting a single verification by emailID
-router.get('/:emailid', function(req, res) {
-	Verification.getVerificationByEmail(req.params.emailid, function(err, verification) {
+router.get('/:_emailid', function(req, res) {
+	Verification.getVerificationByEmail(req.params._emailid, function(err, verification) {
 		if(err){
 			throw err;
 		}
@@ -87,7 +87,7 @@ router.get('/:emailid', function(req, res) {
 			flag = false;
 		}
 		console.log(flag);
-		Verification.deleteVerificationByEmail(req.params.emailid, function(err, verification){
+		Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
 			if(err){
 				throw err;
 			}
