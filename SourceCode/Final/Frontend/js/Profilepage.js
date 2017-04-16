@@ -1,5 +1,6 @@
 var app = angular.module("appProfile", []);
 app.controller('ctrlProfile', function ($scope, $http, $window) {
+    $scope.usern = localStorage.getItem("username");
     $http.get('/Json/Countries.json').then(function (response) {
 
         $scope.countries = response.data.countries;
@@ -56,6 +57,7 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
             City: $scope.form.city,
             ZIPCode: $scope.form.zip,
             mob: $scope.form.phno,
+            username:$scope.usern
             
             categories: $scope.selected
 
