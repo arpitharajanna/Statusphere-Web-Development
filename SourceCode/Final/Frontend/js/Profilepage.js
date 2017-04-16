@@ -57,7 +57,7 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
             City: $scope.form.city,
             ZIPCode: $scope.form.zip,
             mob: $scope.form.phno,
-            username:$scope.usern
+            username:$scope.usern,
             
             categories: $scope.selected
 
