@@ -1,5 +1,6 @@
 var app = angular.module("appProfile", []);
 app.controller('ctrlProfile', function ($scope, $http, $window) {
+    $scope.usern = localStorage.getItem("username");
     $http.get('/Json/Countries.json').then(function (response) {
 
         $scope.countries = response.data.countries;
@@ -51,11 +52,12 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
             Blog: $scope.form.blog,
             AddressLine1: $scope.form.addr1,
             AddressLine2: $scope.form.addr2,
-            Country: $scope.form.selectCountry,
-            State: $scope.form.selectstate,
+            Country: $scope.form.selectCountry.name,
+            State: $scope.form.selectstate.name,
             City: $scope.form.city,
             ZIPCode: $scope.form.zip,
             mob: $scope.form.phno,
+            username:$scope.usern,
             
             categories: $scope.selected
 
@@ -63,7 +65,7 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         }
         $http.post("/editProfile", data).then(function (response) {
             console.log('Data posted successfully');
-            alert("success");},
+            alert(response.data.message);},
                 function (error) {
 
                     //$scope.errorm = error.data.message ;

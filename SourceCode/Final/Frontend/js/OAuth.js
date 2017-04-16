@@ -79,6 +79,8 @@ $scope.errormessage='';
                     console.log('Data posted successfully');
                     console.log(data.username); 
                     alert(response.data.message);
+                    localStorage.setItem("username", data.username);
+                    window.location.href = "http://localhost:3000/Profile.html";
                 },
                 function(error){
                     

@@ -21,7 +21,7 @@ Applicant.password = req.body.password;
 
  Applicant.save(function(err){
  	        if(err){
- 	        	res.json({"message":"username already exists"});
+ 	        	res.status(404).json({"message":"username already exists"});
  	        }
  	        else{
 		    console.log(req.body.firstName);

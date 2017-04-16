@@ -56,7 +56,7 @@ lastName: {
     type : String
   },
   categories: {
-    type: String
+    type: [String]
   },
   address_line1:{
     type :String
