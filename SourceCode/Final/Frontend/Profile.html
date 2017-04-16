@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style5.css" />
     <script src="js/angular.min.js"></script>
-
+   
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -14,9 +14,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    
 </head>
 <body ng-app="appProfile" ng-controller="ctrlProfile">
-    <script src="js/angular-datepicker.js"></script>
+  
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -30,7 +31,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="Startup.html">Home</a></li>
-                    <li> <a href="#"> Contact</a></li>
+                    <li> <a href="#ContactUS"> Contact</a></li>
 
                 </ul>
             </div>
@@ -52,218 +53,239 @@
                     <h1 class="panel-title"> Personal Info </h1>
                 </div>
                 <div class="panel-body">
-
-                    <form class="form-horizontal" name="theForm" ng-submit="theForm.$valid && updateProfile()" novalidate="novalidate">
-                        <div class="form-group required">
-                            <label for="firstname" class="control-label col-md-3">  First Name </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="firstname" ng-model="form.fn" name="firstname" placeholder="Firstname" required="required" type="text" />
-                                <span class="help-block" ng-show="theForm.firstname.$error.required && theForm.$submitted" style="color:red;"> First name is required</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group required">
-                            <label for="lastname" class="control-label col-md-3">  Last Name </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="lastname" name="lastname" ng-model="form.ln" placeholder="Lastname" required="required" type="text" />
-                                <span class="help-block" ng-show="theForm.lastname.$error.required && theForm.$submitted" style="color:red;"> Last name is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="txtdateofbirth" name="dateofbirth" ng-model="form.dob" required="required" type="date" />
-                                <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Date of Birth is required</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group required">
-                            <label for="Gender" class="control-label col-md-3">  Gender </label>
-                            <div class="col-md-7">
-                                <select class="form-control" id="gender1" ng-model="form.sex" name="sex">
-                                    <option value="">Select Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                </select>
-                                <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Select your gender </span>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group required">
-                            <label for="Instagram-Account" class="control-label col-md-3">  Instagram Account </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="Instagram-Account" name="instagram" ng-model="form.insta" required="required" type="text" />
-                                <span class="help-block" ng-show="theForm.instagram.$error.required && theForm.$submitted" style="color:red;"> Instagram account is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="Facebook-name" class="control-label col-md-3">  Facebook name </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="Facebook-name" name="facebook" required="required" ng-model="form.fb" type="text" />
-                                <span class="help-block" ng-show="theForm.facebook.$error.required && theForm.$submitted" style="color:red;"> Facebook name is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="Twitter-username" class="control-label col-md-3">  Twitter username </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="Twitter-username" name="twitter" required="required" ng-model="form.tweet" type="text" />
-                                <span class="help-block" ng-show="theForm.twitter.$error.required && theForm.$submitted" style="color:red;"> Twitter username is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="Snapchat-username" class="control-label col-md-3">  Snapchat username </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="Snapchat-username" name="snapchat" required="required" ng-model="form.sc" type="text" />
-                                <span class="help-block" ng-show="theForm.snapchat.$error.required && theForm.$submitted" style="color:red;"> Snapchat username is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="youtubechannel" class="control-label col-md-3">  Youtube Channel </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="youtubechannel" name="youtubechannel" required="required" ng-model="form.yc" type="text" />
-                                <span class="help-block" ng-show="theForm.youtubechannel.$error.required && theForm.$submitted" style="color:red;"> Youtube channel is required</span>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="blog" class="control-label col-md-3">  Blog/Website </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="blog" name="blog" type="url" pattern="https?://.+" ng-model="form.blog" />
-                                <span class="help-block" style="color:red" ng-show="theForm.blog.$error.url">
-                                    Sorry Not a Valid URL, Don't Forget to Use http://
-                                </span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="addr1" name="addr1" required="required" type="text" ng-model="form.addr1" />
-                                <span class="help-block" ng-show="theForm.addr1.$error.required && theForm.$submitted" style="color:red;"> Address line 1 is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="addr2" class="control-label col-md-3">  Address Line 2 </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="addr2" name="addr2" required="required" type="text" ng-model="form.addr2" />
-                                <span class="help-block" ng-show="theForm.addr2.$error.required && theForm.$submitted" style="color:red;"> Address Line 2 is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="country" class="control-label col-md-3">  Country </label>
-                            <div class="col-md-7">
-                                <select class="form-control" id="drpCountry" name="select_country" ng-model="form.selectCountry" ng-options="x.name for x in countries" ng-change="GetSelectedCountry()" required="required">
-                                    <option value="">Select Country</option>
-                                    <!-- <option ng-repeat="countryname in country"></option>-->
-
-                                </select>
-                                <span class="help-block" ng-show="theForm.select_country.$error.required && theForm.$submitted" style="color:red;"> Select your country </span>
+                   
+                        <form class="form-horizontal" name="theForm" ng-submit="theForm.$valid && updateProfile()" novalidate="novalidate">
+                            <div class="form-group required">
+                                <label for="firstname" class="control-label col-md-3">  First Name </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="firstname" ng-model="form.fn" name="firstname" placeholder="Firstname" required="required" type="text" />
+                                    <span class="help-block" ng-show="theForm.firstname.$error.required && theForm.$submitted" style="color:red;"> First name is required</span>
+                                </div>
                             </div>
 
-                        </div>
-                        <div class="form-group required">
-                            <label for="states" class="control-label col-md-3">  State </label>
-                            <div class="col-md-7">
-                                <select class="form-control" ng-disabled="!form.selectCountry" id="drpState" ng-model="form.selectstate" ng-options="y.name for y in states | filter: {country_id:form.selectCountry.country_id}">
-                                    Select State
-                                    <option value="">Select state</option>
-                                </select>
+                            <div class="form-group required">
+                                <label for="lastname" class="control-label col-md-3">  Last Name </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="lastname" name="lastname" ng-model="form.ln" placeholder="Lastname" required="required" type="text" />
+                                    <span class="help-block" ng-show="theForm.lastname.$error.required && theForm.$submitted" style="color:red;"> Last name is required</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="city" class="control-label col-md-3">  City </label>
-                            <div class="col-md-7">
-
-                                <input class="form-control" id="city" name="city" required="required" type="text" ng-model="form.city" />
-                                <span class="help-block" ng-show="theForm.city.$error.required && theForm.$submitted" style="color:red;"> City is required</span>
-
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="zip" class="control-label col-md-3">  Zip Code </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="zip" name="zip" required="required" type="text" ng-model="form.zip" />
-                                <span class="help-block" ng-show="theForm.zip.$error.required && theForm.$submitted" style="color:red;"> Zip code is required </span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="phno" class="control-label col-md-3">  Mobile number </label>
-                            <div class="col-md-7">
-                                <input class="form-control" id="phno" name="phno" required="required" type="text" ng-model="form.phno" />
-                                <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Phone number is required</span>
-                            </div>
-                        </div>
-                        <div class="form-group required">
-                            <label for="picture" class="control-label col-md-3">  Upload your picture in max of 300X300 pixels </label>
-                            <br />
-                            <div class="col-md-7">
-
-
-                                <input type="file" name="myFile" ng-model="form.myFile" valid-file />
-                                <br />
-                                <br />
-
-                                <img ng-if="image" src="{{image}}" alt="">
-
-                                <span class="help-block" ng-show="theForm.myFile.$error.validFile && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
+                            <div class="form-group required">
+                                <label for="DOB" class="control-label col-md-3">  Date Of Birth </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="txtdateofbirth" name="dateofbirth" ng-model="form.dob" required="required" type="date" />
+                                    <span class="help-block" ng-show="theForm.dateofbirth.$error.required && theForm.$submitted" style="color:red;"> Date of Birth is required</span>
+                                    
+                                    
+                                </div>
                             </div>
 
-                        </div>
-                        <br />
-                        <div class="form-group required">
-                            <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
+                            <div class="form-group required">
+                                <label for="Gender" class="control-label col-md-3">  Gender </label>
+                                <div class="col-md-7">
+                                    <select class="form-control" id="gender1" ng-model="form.sex" name="sex" required="required">
+                                        <option value="">Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                    <span class="help-block" ng-show="theForm.sex.$error.required && theForm.$submitted" style="color:red;"> Select your gender </span>
+                                </div>
+                            </div>
 
-                            <div class="col-md-7" ng-class="{ 'has-error' : (theForm.subscribe.$invalid && theForm.subscribe.$touched) || (theForm.subscribe.$invalid && theForm.$submitted) }">
 
-                                <label>
-                                    <input type="checkbox" class="form-check-input" id="subscribe1" value="option1" name="subscribe" ng-model="form.subscribe[1]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Fashion
+                            <div class="form-group required">
+                                <label for="Instagram-Account" class="control-label col-md-3">  Instagram Url </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="Instagram-Account" name="instagram" ng-model="form.insta" required="required" type="url" pattern="https?://.+"/>
+                                    <span class="help-block" ng-show="theForm.instagram.$error.required && theForm.$submitted" style="color:red;"> Instagram account is required</span>
+                                    <span class="help-block" style="color:red" ng-show="theForm.instagram.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="Facebook-name" class="control-label col-md-3">  Facebook Url </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="Facebook-name" name="facebook" required="required" ng-model="form.fb" type="url" pattern="https?://.+"/>
+                                    <span class="help-block" ng-show="theForm.facebook.$error.required && theForm.$submitted" style="color:red;"> Facebook name is required</span>
+                                    <span class="help-block" style="color:red" ng-show="theForm.facebook.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="Twitter-username" class="control-label col-md-3">  Twitter Url </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="Twitter-username" name="twitter" required="required" ng-model="form.tweet" type="url" pattern="https?://.+"/>
+                                    <span class="help-block" ng-show="theForm.twitter.$error.required && theForm.$submitted" style="color:red;"> Twitter username is required</span>
+                                    <span class="help-block" style="color:red" ng-show="theForm.twitter.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Snapchat-username" class="control-label col-md-3">  Snapchat Url </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="Snapchat-username" name="snapchat" ng-model="form.sc" type="url" pattern="https?://.+" />
+                                  
+                                    <span class="help-block" style="color:red" ng-show="theForm.snapchat.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="youtubechannel" class="control-label col-md-3">  Youtube Channel </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="youtubechannel" name="youtubechannel" ng-model="form.yc" pattern="https?://.+" type="url" />
+                                    
+                                    <span class="help-block" style="color:red" ng-show="theForm.youtubechannel.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="blog" class="control-label col-md-3">  Blog/Website </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="blog" name="blog" type="url" pattern="https?://.+" ng-model="form.blog" />
+                                    <span class="help-block" style="color:red" ng-show="theForm.blog.$error.url">
+                                        Sorry Not a Valid URL, Don't Forget to Use http://
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="addr1" class="control-label col-md-3">  Address Line 1 </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="addr1" name="addr1" required="required" type="text" ng-model="form.addr1" ng-maxlength="40"/>
+                                    <span class="help-block" ng-show="theForm.addr1.$error.required && theForm.$submitted" style="color:red;"> Address line 1 is required</span>
+                                    <span class="help-block" ng-show="theForm.addr1.$error.maxlength" style="color:red;"> Only 40 charecters are allowed. Fill remaining in address 2 field</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="addr2" class="control-label col-md-3">  Address Line 2 </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="addr2" name="addr2" type="text" ng-model="form.addr2" />
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="country" class="control-label col-md-3">  Country </label>
+                                <div class="col-md-7">
+                                    <select class="form-control" id="drpCountry" name="select_country" ng-model="form.selectCountry" ng-options="x.name for x in countries" ng-change="GetSelectedCountry()" required="required">
+                                        <option value="">Select Country</option>
+                                        <!-- <option ng-repeat="countryname in country"></option>-->
 
-                                </label>
+                                    </select>
+                                    <span class="help-block" ng-show="theForm.select_country.$error.required && theForm.$submitted" style="color:red;"> Select your country </span>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group required">
+                                <label for="states" class="control-label col-md-3">  State </label>
+                                <div class="col-md-7">
+                                    <select name="select_state" class="form-control" ng-disabled="!form.selectCountry" id="drpState" ng-model="form.selectstate" ng-options="y.name for y in states | filter: {country_id:form.selectCountry.country_id}" required="required">
+                                        Select State
+                                        <option value="">Select state</option>
+                                    </select>
+                                    <span class="help-block" ng-show="theForm.select_state.$error.required && theForm.$submitted" style="color:red;"> Select your state </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="city" class="control-label col-md-3">  City </label>
+                                <div class="col-md-7">
 
-                                <label>
+                                    <input class="form-control" id="city" name="city" required="required" type="text" ng-model="form.city" />
+                                    <span class="help-block" ng-show="theForm.city.$error.required && theForm.$submitted" style="color:red;"> City is required</span>
 
-                                    <input type="checkbox" class="form-check-input" id="subscribe2" value="option2" name="subscribe" ng-model="form.subscribe[2]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Food
-                                </label>
-
-                                <label>
-
-                                    <input type="checkbox" class="form-check-input" id="subscribe3" value="option3" name="subscribe" ng-model="form.subscribe[3]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Sports
-                                </label>
-
-                                <label>
-
-                                    <input type="checkbox" class="form-check-input" id="subscribe4" value="option4" name="subscribe" ng-model="form.subscribe[4]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Electronic Gadgets
-                                </label>
-
-                                <label>
-
-                                    <input type="checkbox" class="form-check-input" id="subscribe5" value="option5" name="subscribe" ng-model="form.subscribe[5]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Lifestyle
-                                </label>
-
-                                <label>
-
-                                    <input type="checkbox" class="form-check-input" id="subscribe6" value="option6" name="subscribe" ng-model="form.subscribe[6]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
-                                    Makeup
-                                </label>
-                                <span class="help-block" ng-messages="theForm.subscribe.$error" ng-show="(theForm.subscribe.$invalid && theForm.subscribe.$touched)||(theForm.subscribe.$invalid && theForm.$submitted)" style="color:red;">
-                                    Please select atleast one category
-                                </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="zip" class="control-label col-md-3">  Zip Code </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="zip" name="zip" required="required" type="text" ng-model="form.zip" />
+                                    <span class="help-block" ng-show="theForm.zip.$error.required && theForm.$submitted" style="color:red;"> Zip code is required </span>
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="phno" class="control-label col-md-3">  Mobile number  </label>
+                                <div class="col-md-7">
+                                    <input class="form-control" id="phno" name="phno" required="required" type="tel" ng-model="form.phno"/>
+                                    <span class="help-block" ng-show="theForm.phno.$error.required && theForm.$submitted" style="color:red;"> Please enter phone number along with your country code</span>
+                                    <span>Example: +1 123-123-1234</span>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="picture" class="control-label col-md-3">  Upload your profile picture </label>
+                               
+                                <div class="col-md-7">
+              
+                                    
+                                    <input type="file" name="myFile" ng-model="form.myFile" valid-file/>
+                               
+                                    <img ng-if="image" src="{{image}}" alt="">                         
+                                        
+                                    <span class="help-block" ng-show="theForm.myFile.$untouched && theForm.$submitted" style="color:red;"> Please upload your photo for profile picture </span>
+                                    <span class="help-block" ng-show="theForm.myFile.$error.extension" style="color:red;">Invalid Image. Image must be in '.jpg','.jpeg' or '.png'</span>
+                                   
+                                </div>
 
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
+                           
+                            <div class="form-group required">
+                                <label for="categories" class="control-label col-md-3">  Categories of Interest </label>
 
-                </div>
+                                <div class="col-md-7" ng-class="{ 'has-error' : (theForm.subscribe.$invalid && theForm.subscribe.$touched) || (theForm.subscribe.$invalid && theForm.$submitted) }">
 
+                                    <label>
+                                        <input type="checkbox" class="form-check-input" id="subscribe1" value="Fashion" name="subscribe" ng-model="form.subscribe[1]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Fashion
+
+
+                                    </label>
+
+                                    <label>
+
+                                        <input type="checkbox" class="form-check-input" id="subscribe2" value="Food" name="subscribe" ng-model="form.subscribe[2]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Food
+                                    </label>
+
+                                    <label>
+
+                                        <input type="checkbox" class="form-check-input" id="subscribe3" value="Sports" name="subscribe" ng-model="form.subscribe[3]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Sports
+                                    </label>
+
+                                    <label>
+
+                                        <input type="checkbox" class="form-check-input" id="subscribe4" value="Electronic Gadgets" name="subscribe" ng-model="form.subscribe[4]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Electronic Gadgets
+                                    </label>
+
+                                    <label>
+
+                                        <input type="checkbox" class="form-check-input" id="subscribe5" value="Lifestyle" name="subscribe" ng-model="form.subscribe[5]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Lifestyle
+                                    </label>
+
+                                    <label>
+
+                                        <input type="checkbox" class="form-check-input" id="subscribe6" value="Makeup" name="subscribe" ng-model="form.subscribe[6]" ng-required="!someSelected(form.subscribe)" ng-blur="doTouched()">
+                                        Makeup
+                                    </label>
+                                    <span class="help-block" ng-messages="theForm.subscribe.$error" ng-show="(theForm.subscribe.$invalid && theForm.subscribe.$touched)||(theForm.subscribe.$invalid && theForm.$submitted)" style="color:red;">
+                                        Please select atleast one category
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>
+                
             </div>
         </div>
     </div>

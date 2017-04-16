@@ -19,8 +19,8 @@ var create_Product=require('../controllers/CreateProduct');
 var add_Package=require('../controllers/Add_Package');
 var edit_Product=require('../controllers/Edit_Product');
 // profile
-router.get('/profile', auth, ctrlProfile.profileRead);
-
+router.post('/profile', ctrlProfile.profile);
+router.post('/editProfile', ctrlProfile.profileEdit);
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
