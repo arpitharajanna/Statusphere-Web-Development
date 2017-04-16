@@ -62,13 +62,13 @@ module.exports.profileEdit = function(req,res){
     Applicant.save(function(err) {
       if (err)
         res.send(err);
-
+   else{
     
      res.json(
       {
         message:"your profile details have been successfully submitted, please wait till we notify you about your acceptance or rejection",                  
         applicant:Applicant
-      });
+      });}
      }
    
    );
