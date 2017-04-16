@@ -26,7 +26,7 @@ image_Url:{
 	type:String
 },
 categories:{
-	type: String,
+	type: [String],
 	required:true
 	
 },
