@@ -26,66 +26,84 @@ var notificationMsgObj = {
 
 
 
-function getSentMessage() {
-    // Remove Existing Content from DIV
-    $("#divSentMagTable").html("");
+var app = angular.module('myapp', []);
+app.controller('myCtrl', function ($scope,$http) {
 
-    var table = "<table name='tblSentMessage' styel='border:blue'><thead> \
-                  <tr>\
-                    <td> Email ID</td>\
-                    <td> Message  </td>\
-                  </tr>\
-                </thead>\
-                <tbody>\
-                ";
-    for (mIndex in notificationMsgObj.messages) {
-        //alert(notificationMsgObj.messages[mIndex].email);
-        table += "<tr><td><input type='text' value='" + notificationMsgObj.messages[mIndex].email + "' readonly </td>";
-        table += "<td><textarea  readonly rows='2' cols='50' >" + notificationMsgObj.messages[mIndex].message + "</textarea></td></tr>"
-
-    }
-    table += "</tbody></table>";
-
-    $(table).appendTo("#divSentMagTable");
-}
+    //alert("hi sadaskjdjsakdjsakdjsakjdsakj");
+    //alert($scope.frmSendMessag.txtEmailID);
 
 
+    // Function to send message to the influencer
+    $scope.sendNotification = function() {
 
-/*
-Send Message To the Users: 
-*/
-//$scope.login = function () {
-$scope.login = function () {
+        // Remove history content if present
+        $("#divSentMagTable").html("");
+        //alert("hi notification");
+        //alert($scope.frmSendMessage.txtEmailID);
+        // Get Email id
+        emailID = $scope.frmSendMessage.emailID;
+        // Get Subject of Notification Message
+        emailSub = $scope.frmSendMessage.emailSubject;
+        // Get NOtification Message
+        notificationMsg = $scope.frmSendMessage.notificationMsg;
 
-    alert("dsadhsakdjhas");
-       $scope.errormessage='';
-       alert($scope.frmSendMessage.txtEmailID);
-                /*var data={
-                            username: $scope.formLogin.username,
-                            password: $scope.formLogin.password
-                        }
-        console.log(data.username);
-        console.log(data.password);
+        //alert("Email:" + emailID + "\nSUB:" + emailSub + "\nnotificationMsg:" + notificationMsg);
 
-         $http.post("/login", data).then(function (res) {
+        // Post the data to the server
+        $scope.errormessage='';
+        var data={
+                    emailid: $scope.frmSendMessage.emailID,
+                    subject: $scope.frmSendMessage.emailSubject,
+                    message: $scope.frmSendMessage.notificationMsg
+                }
+        console.log(data.emailid);
+        console.log(data.subject);
+        console.log(data.message);
+
+        $http.post("/sendNotification", data).then(function (res) {
                                                      console.log('Data posted successfully');
-                                                     //alert(res.data.message);
-                                                      $scope.message = res.data.message;
+                                                     alert(res.data.message);
+                                                      $scope.frmSendMessage.message = res.data.message;
                                                      //$cookies.put('username', data.username);
-                                                     localStorage.setItem("username", data.username);
-                                                    // localStorage.setItem("email", data.email);
-                                                     //alert(data.email);
-                                                     //alert(localStorage.getItem("email"));
+                                                     localStorage.setItem("emailid", data.emailid);
                                                      window.location.href = "http://localhost:3000/Statustodo.html";
                                                  },
                                                  function(error) {
                                                // Handle error here
                                                console.log(error.data);
                                                $scope.errormessage=error.data.message;
-                                               //alert(error.data.message);
+                                               alert(error.data.message + "Error Message");
                                                     }
 
 
-                                                 );*/
+                                                 );
 
+        // Call Nishant's Function to process data
     }
+
+    // Show Notification Message History
+    $scope.getNotificationMessage = function (req,res) {
+        //alert("Message History");
+        // Remove Existing Content from DIV
+        $("#divSentMagTable").html("");
+
+        var table = "<table name='tblSentMessage' styel='border:blue'><thead> \
+                      <tr>\
+                        <td> Email ID</td>\
+                        <td> Message  </td>\
+                      </tr>\
+                    </thead>\
+                    <tbody>\
+                    ";
+        for (mIndex in notificationMsgObj.messages) {
+            //alert(notificationMsgObj.messages[mIndex].email);
+            table += "<tr><td><input type='text' value='" + notificationMsgObj.messages[mIndex].email + "' readonly </td>";
+            table += "<td><textarea  readonly rows='2' cols='50' >" + notificationMsgObj.messages[mIndex].message + "</textarea></td></tr>"
+
+        }
+        table += "</tbody></table>";
+
+        $(table).appendTo("#divSentMagTable");
+    } 
+});
+

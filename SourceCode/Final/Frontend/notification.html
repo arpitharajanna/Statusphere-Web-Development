@@ -79,7 +79,7 @@
 
             <div name="divMsgButton" id="divMsgButton">
                 <button class="btn btn-default" data-toggle="modal" data-target="#divSendMessage">Send Message</button>
-                <button class="btn btn-default" onclick="getSentMessage()"> Messages Sent</button> 
+                <button class="btn btn-default" ng-click = "getNotificationMessage()"> Messages Sent</button> 
             </div>
             <br>
             <div name="divSentMagTable" id="divSentMagTable">
@@ -89,7 +89,7 @@
            <div class="modal" id="divSendMessage" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog send-mssg-wrp">
                     <div class="modal-content">
-                        <form name="frmSendMessage" ng-submit="onsubmit(frmSendMessage.$valid && notification())" novalidate="novalidate">
+                        <form name="frmSendMessage" ng-submit="sendNotification()" novalidate="novalidate">
                         <div class="modal-header bg-primary">
                             <button class="close" data-dismiss="modal">&times</button>
                             <div class="modal-title">Email Notification</div>
@@ -99,15 +99,15 @@
                             
                                 <div class="form-group">
                                     <!--<label for="txtEmailID">Email ID</label>-->
-                                    <input type="text" id="txtEmailID" class="form-control" placeholder="Enter Email ID:" />
+                                    <input type="text" id="txtEmailID" ng-model="frmSendMessage.emailID" class="form-control" placeholder="Enter Email ID:" />
                                 </div>
                                 <div class="form-group">
                                     <!--<label for="txtEmailSubject">Sub</label>-->
-                                    <input type="text" id="txtEmailSubject" class="form-control" placeholder="Subject:" />
+                                    <input type="text" id="txtEmailSubject" ng-model="frmSendMessage.emailSubject" class="form-control" placeholder="Subject:" />
                                 </div>
                                 <div class="form-group">
                                     <!--<label for="txtNotificationMsg">Enter Message</label>-->
-                                    <textarea id="txtNotificationMsg" placeholder='Your addres' class="form-control" rows="4" cols="50" >
+                                    <textarea id="txtNotificationMsg" ng-model="frmSendMessage.notificationMsg" placeholder='Your addres' class="form-control" rows="4" cols="50" >
                                     </textarea>
                                 </div>
                             
