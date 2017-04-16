@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var passreset = false; // To determine whether password is to be reset
+
 var influencerSchema = new mongoose.Schema({
 	influencer_username:{
 		type:String,
@@ -96,6 +98,11 @@ module.exports.getInfluencerByName = function(username, callback){
 	Influencer.findOne({'influencer_username':username}, callback);
 }
 
+// Function to get influencer detail by email alone.
+module.exports.getInfluencerByEmail = function(emailid, callback){
+	Influencer.findOne({'emailid':id}, callback);
+}
+
 // Function to delete a particular influencer by username
 module.exports.deleteInfluencerByName = function(user, callback){
 	console.log('going to delete ' + user +'!!!! ');
@@ -112,4 +119,18 @@ module.exports.updateInfluencer = function(username, influencer, options, callba
 		lastname: influencer.lastname
 	}
 	Influencer.findOneAndUpdate(query, update, options, callback);
+}
+
+// Function to update a particular influencer by emailid
+// Consider what all needs to be updated
+module.exports.updatePassword = function(emailid, influencer, options, callback){
+	console.log(emailid);
+	var query = {'emailid' : emailid};
+	if(passreset == true){
+		var update = {
+			influencer_password: influencer.influencer_password
+		}
+		Influencer.findOneAndUpdate(query, update, options, callback);
+		passreset = false;
+	}
 }

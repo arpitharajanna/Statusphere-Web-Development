@@ -23,12 +23,62 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
     $scope.doTouched = function () {
         $scope.theForm.subscribe.$setTouched();
     }
+    $scope.updateProfile = function()
+    {
+        var checked = $('.form-check-input:checked').map(function () {
+            return this.value;
+        }).get();
+        if (checked.length) {
+            //console.log(checked);
+            $scope.selected = checked;
+            //categories: checked;
+        } else {
+            console.log('null');
+        }
+      
+        $scope.selected;
+        var data = {
+            image_url: $scope.form.myFile,
+            firstname: $scope.form.fn,
+            lastname: $scope.form.ln,
+            dob: $scope.form.dob,
+            gender: $scope.form.sex,
+            instagram_url: $scope.form.insta,
+            facebook_url: $scope.form.fb,
+            twitter_url: $scope.form.tweet,
+            snapchat_url: $scope.form.sc,
+            youtubechannel: $scope.form.yc,
+            Blog: $scope.form.blog,
+            AddressLine1: $scope.form.addr1,
+            AddressLine2: $scope.form.addr2,
+            Country: $scope.form.selectCountry,
+            State: $scope.form.selectstate,
+            City: $scope.form.city,
+            ZIPCode: $scope.form.zip,
+            mob: $scope.form.phno,
+            
+            categories: $scope.selected
 
-    $scope.updateProfile = function () {
-        alert("success");
+
+        }
+        $http.post("/editProfile", data).then(function (response) {
+            console.log('Data posted successfully');
+            alert("success");},
+                function (error) {
+
+                    //$scope.errorm = error.data.message ;
+                    alert(error.data.message);
+                    //alert($scope.errorm);
+                }
+                )
+       
+       // alert("hi");
+       
+
+       
     }
 
-
+   
 });
 
 app.directive('myUpload', [function () {
@@ -51,16 +101,29 @@ app.directive('myUpload', [function () {
 app.directive('validFile', function () {
     return {
         require: 'ngModel',
-        link: function (scope, el, attrs, ctrl) {
-            ctrl.$setValidity('validFile', el.val() != '');
-            //change event is fired when file is selected
-            el.bind('change', function () {
-                ctrl.$setValidity('validFile', el.val() != '');
+        link: function (scope, elem, attrs, ngModel) {
+            var validFormats = ['jpg', 'jpeg', 'png'];
+            elem.bind('change', function () {
+                validImage(false);
                 scope.$apply(function () {
-                    ctrl.$setViewValue(el.val());
-                    ctrl.$render();
+                    ngModel.$render();
                 });
             });
+            ngModel.$render = function () {
+                ngModel.$setViewValue(elem.val());
+            };
+            function validImage(bool) {
+                ngModel.$setValidity('extension', bool);
+            }
+            ngModel.$parsers.push(function (value) {
+                var ext = value.substr(value.lastIndexOf('.') + 1);
+                if (ext == '') return;
+                if (validFormats.indexOf(ext) == -1) {
+                    return value;
+                }
+                validImage(true);
+                return value;
+            });
         }
-    }
+    };
 });
