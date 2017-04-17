@@ -97,7 +97,7 @@ module.exports.getInfluencerByName = function(username, callback){
 
 // Function to get influencer detail by email alone.
 module.exports.getInfluencerByEmail = function(emailid, callback){
-	Influencer.findOne({'emailid':id}, callback);
+	Influencer.findOne({'emailid':emailid}, callback);
 }
 
 // Function to delete a particular influencer by username

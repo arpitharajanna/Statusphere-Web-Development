@@ -45,8 +45,8 @@ router.get('/:_username', function(req, res) {
 });
 
 // Getting a single Influencer by emailid
-router.get('/:_emailid', function(req, res) {
-	Influencer.getInfluencerByEmail(req.params.emailid, function(err, influencer) {
+router.get('/reset/:_emailid', function(req, res) {
+	Influencer.getInfluencerByEmail(req.params._emailid, function(err, influencer) {
 		if(err){
 			throw err;
 		}
@@ -88,7 +88,7 @@ router.put('/reset/:_emailid', function(req, res) { //
 			throw err;
 		}
 		res.json(influencer);
-	}, "lala land");
+	});
 });
 
 ///////////////////////////////////////////////////////

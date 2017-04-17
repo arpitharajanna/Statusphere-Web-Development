@@ -1,13 +1,14 @@
 var mongoose = require('mongoose');
 
 var verificationSchema = new mongoose.Schema({
-	influencer_username:{
-		type:String,
-		required : true
-	},
 	emailid:{
 		type: String,
 		required: true
+	},
+	bool:{
+		type: Number,
+		default: true,
+		required: false
 	},
 	randomcode:{
 		type: String,

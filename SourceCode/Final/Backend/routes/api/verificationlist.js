@@ -10,6 +10,7 @@ var tempcode; // temporary code variable
 var flag; // Flag to send to front end
 
 var Verification = require('../../models/verification');
+var Influencer = require('../../models/influencer');
 
 'use strict';
 const nodemailer = require('nodemailer');
@@ -23,7 +24,6 @@ let transporter = nodemailer.createTransport({
 
 let mailOptions = {};
 
-// Put following code under an if statement which checks the due date of a package 
 function SendMail(object){
 
 	console.log("Reached sendMail");
@@ -61,14 +61,26 @@ router.get('/', function(req, res) {
 // Adding a verification code
 router.post('/', function(req, res) {
 	var verification = req.body;
-	tempcode = Math.floor(Math.random()*1000000);
-	verification.randomcode = parseInt(tempcode);
-	Verification.addVerification(verification, function(err, verification) {
+	Influencer.getInfluencerByEmail(verification.emailid, function(err, influencer) {	// Check if emailID exists in Influencer table
 		if(err){
 			throw err;
 		}
-		res.json(verification);
-		SendMail(verification);
+		if(influencer != null){			// If exists, set flag to true, generate random code and send object to front end
+			verification.bool = true;
+			tempcode = Math.floor(Math.random()*1000000);
+			verification.randomcode = parseInt(tempcode);
+			Verification.addVerification(verification, function(err, verification) {
+				if(err){
+					throw err;
+				}
+				res.json(verification);
+				SendMail(verification);
+			});
+		}
+		else{							// If it doesn't set flag to false and send object to front end
+			verification.bool = false;
+			res.json(verification);
+		}
 	});
 });
 
