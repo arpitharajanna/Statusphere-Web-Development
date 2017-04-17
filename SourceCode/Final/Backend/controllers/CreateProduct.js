@@ -22,7 +22,7 @@ Product.image_Url = req.body.image_Url;
 Product.brand_Url = req.body.brand_Url;
 Product.brand_Instagram = req.body.brand_Instagram;
 Product.video_Link = req.body.video_Link;
-Product.requirement = req.body.requirement; 
+Product.requirements = req.body.requirements; 
 
 
 //Applicant.setPassword(req.body.password.toString());
