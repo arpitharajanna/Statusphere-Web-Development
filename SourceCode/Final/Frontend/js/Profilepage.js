@@ -1,5 +1,6 @@
 var app = angular.module("appProfile", []);
 app.controller('ctrlProfile', function ($scope, $http, $window) {
+ $scope.usern = localStorage.getItem("username");
     $scope.usern = localStorage.getItem("username");
     $http.get('/Json/Countries.json').then(function (response) {
 
@@ -65,7 +66,9 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         }
         $http.post("/editProfile", data).then(function (response) {
             console.log('Data posted successfully');
-            alert(response.data.message);},
+            alert(response.data.message);
+
+},
                 function (error) {
 
                     //$scope.errorm = error.data.message ;
@@ -74,14 +77,34 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
                 }
                 )
        
-       // alert("hi");
+
        
 
        
     }
 
-   
+
+/*logout*/
+$scope.logout = function (event) {
+                localStorage.clear();        
+                window.location.href = "http://localhost:3000/Startup.html";
+            };
+
+            $(document).ready(function () {
+       function disableBack() { window.history.forward() }
+
+       window.onload = disableBack();
+       window.onpageshow = function (evt) {
+           if (evt.persisted) disableBack()
+      }
+       
+       
+   });
 });
+
+
+
+   
 
 app.directive('myUpload', [function () {
     return {
@@ -129,3 +152,4 @@ app.directive('validFile', function () {
         }
     };
 });
+
