@@ -112,6 +112,14 @@ $scope.errormessage='';
                                                      //alert(res.data.message);
                                                       $scope.message = res.data.message;
                                                      //$cookies.put('username', data.username);
+                                                     if(res.data.flag==2)
+                                                     { window.location.href = "http://localhost:3000/Statustodo.html";
+                                                      alert(res.data.message);
+                                                       }
+                                                      else{
+                                                      window.location.href = "http://localhost:3000/Profile.html";
+                                                      alert(res.data.message)
+                                                    }
                                                      localStorage.setItem("username", data.username);
                                                     // localStorage.setItem("email", data.email);
                                                      //alert(data.email);
