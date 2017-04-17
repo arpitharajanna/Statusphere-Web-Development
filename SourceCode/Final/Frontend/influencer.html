@@ -36,7 +36,7 @@
 
 
 </head>
-<body>
+<body ng-load="getInfluencerLists()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -82,9 +82,9 @@
                     <td>
                         <select ng-model="queryBy">
                             <option value="$"></option>
-                            <option value="Firstname">First Name</option>
-                            <option value="Lastname">Last Name</option>
-                            <option value="NoInstagramFollowers"># Instagram Followers</option>
+                            <option value="firstname">First Name</option>
+                            <option value="lastname">Last Name</option>
+                            <option value="followers"># Instagram Followers</option>
                             <option value="Duedate">Due Date</option>
                         </select>
                     </td>
@@ -99,21 +99,21 @@
                     <th align="center">Instagram ID</th>
                     <th align="center">Email ID</th>
                     <th align="center"># Instagram Followers</th>
-                    <th align="center">Age</th>
+                    <th align="center">Birthday</th>
                     <th align="center">Gender</th>
                     <th align="center">Date Accepted</th>
                     <th align="center">Notifications</th>
                     <th align="center">View Profile</th>
                 </tr>
                 <tr ng-repeat="x in names| filter:query">
-                    <td>{{x.Firstname}}</td>
-                    <td>{{x.Lastname}}</td>
-                    <td>{{x.InstagramID}}</td>
-                    <td>{{x.EmailID}}</td>
-                    <td>{{x.NoInstagramFollowers}}</td>
-                    <td>{{x.Age}}</td>
-                    <td>{{x.Gender}}</td>
-                    <td>{{x.DateAccepted}}</td>
+                    <td>{{x.firstname}}</td>
+                    <td>{{x.lastname}}</td>
+                    <td>{{x.instagram_url}}</td>
+                    <td>{{x.emailid}}</td>
+                    <td>{{x.followers}}</td>
+                    <td>{{x.birthday}}</td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.date_accepted}}</td>
                     <td><button class="btn btn-default" data-toggle="modal" data-target="#divSendMessage" data-id={{x.EmailID}}>Send</button></td>
                     <td><a href="influencer_info.html">View Profile</a></td>
                 </tr>
@@ -122,36 +122,41 @@
     </div>
 
     <!-- Modal View of Message -->
-    <form name="frmSendMessage" ng-submit="onsubmit(frmSendMessage.$valid)" novalidate="novalidate">
-    <div class="modal" id="divSendMessage" data-backdrop="static" data-keyboard="false">
+           <div class="modal" id="divSendMessage" data-backdrop="static" data-keyboard="false">
                 <div class="modal-dialog send-mssg-wrp">
                     <div class="modal-content">
+                        <form name="frmSendMessage" ng-submit="sendNotification()" novalidate="novalidate">
                         <div class="modal-header bg-primary">
                             <button class="close" data-dismiss="modal">&times</button>
-                            <div class="modal-title">Send an Email</div>
+                            <div class="modal-title">Email Notification</div>
                         </div>
                         
                         <div class="modal-body">
                             
                                 <div class="form-group">
-                                    <label for="enteremailid">Enter Email ID</label>
-                                    <input class="form-control"  type="text" id="txtEmailID" class="form-control" value="#data-id"/>
+                                    <!--<label for="txtEmailID">Email ID</label>-->
+                                    <input type="text" id="txtEmailID" ng-model="frmSendMessage.emailID" class="form-control" placeholder="Enter Email ID:" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="entermessage">Enter Message</label>
-                                    <textarea class="form-control"  id="txtNotificationMsg" class="form-control" rows="4" cols="50">
+                                    <!--<label for="txtEmailSubject">Sub</label>-->
+                                    <input type="text" id="txtEmailSubject" ng-model="frmSendMessage.emailSubject" class="form-control" placeholder="Subject:" />
+                                </div>
+                                <div class="form-group">
+                                    <!--<label for="txtNotificationMsg">Enter Message</label>-->
+                                    <textarea id="txtNotificationMsg" ng-model="frmSendMessage.notificationMsg" placeholder='Your addres' class="form-control" rows="4" cols="50" >
                                     </textarea>
                                 </div>
+                            
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" id="btnOK" type="ng-submit">SEND</button>
                             <button class="btn btn-defaut btn-close" data-dismiss="modal">CANCEL</button>
                         </div>
-                        
+                        </form>
                     </div>
                 </div>
             </div>
-    </div><!-- End of Notification DIV-->
+        </div> <!-- End of Notification DIV-->
     </form>
     <div id="bottomdiv">
         <div class="navbar navbar-inverse navbar-bottom">
