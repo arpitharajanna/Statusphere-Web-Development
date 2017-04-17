@@ -49,10 +49,20 @@ module.exports.login = function(req,res){
 		//token=applicant.generateJwt();
 		res.status(200);// 
 
-	   res.json({
-			message:"login successful",
-			username:applicant.username
+	   if (applicant.firstName==null){
+       	res.json({
+			message:"details are not complete",
+			username:applicant.username,
+			flag:1
 		});
+
+       }
+     else{
+	   res.json({
+			message:"details are complete",
+			username:applicant.username,
+			flag:2
+		});}
         // username().then(username => {
         // console.log(username);
     //=> 'sindresorhus' 
