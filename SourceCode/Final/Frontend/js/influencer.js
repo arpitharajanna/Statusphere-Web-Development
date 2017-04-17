@@ -50,8 +50,14 @@ Description: 1. Used to populate data of all influencers from database
 
 
     var app = angular.module('myapp', []);
-    app.controller('myCtrl', function ($scope) {
+    app.controller('myCtrl', function ($scope,$http) {
 
-    $scope.names =  influencerListObj
+    //$scope.names =  influencerListObj;
+    
+    
+    $http.get('http://localhost:3000/api/influencerlist').then(function(response) {
+            $scope.names = response.data;
+        });
+        
     
 });
