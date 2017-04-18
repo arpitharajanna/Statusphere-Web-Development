@@ -43,7 +43,11 @@ router.post('/', function(req, res) {
 	var applicant = req.body;
 	Applicant.addApplicant(applicant, function(err, applicant) {
 		if(err){
-			throw err;
+			// Sending an error back if duplicate encountered or some invalid scheme is seen.
+			// throw err;
+			var msg = 'Did not add to applicant to db. Possible duplicate/invalid schema';
+			res.status(404).send({ error: msg});
+			console.log(msg);
 		}
 		res.json(applicant);
 	}, "lala land");

@@ -27,7 +27,10 @@ router.post('/', function(req, res) {
 	var influencer = req.body;
 	Influencer.addInfluencer(influencer, function(err, influencer) {
 		if(err){
-			throw err;
+			var msg = 'Did not add to influencer to db. Possible duplicate/invalid schema';
+			res.status(404).send({ error: msg});
+			console.log(msg);
+			//throw err;
 		}
 		res.json(influencer);
 	}, "lala land");
