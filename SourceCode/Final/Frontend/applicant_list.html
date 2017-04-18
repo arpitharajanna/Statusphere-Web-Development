@@ -103,13 +103,13 @@
                     <th align="center">Applicant Information</th>
                 </tr>
                 <tr ng-repeat="x in applicants | filter:query">
-                    <td>{{x.Firstname}}</td>
-                    <td>{{x.Lastname}}</td>
-                    <td>{{x.InstagramID}}</td>
-                    <td>{{x.NoInstagramFollowers}}</td>
-                    <td>{{x.Age}}</td>
-                    <td>{{x.Gender}}</td>
-                    <td>{{x.DateApplied}}</td>
+                    <td>{{x.firstName}}</td>
+                    <td>{{x.lastName}}</td>
+                    <td>{{x.instagram_url}}</td>
+                    <td>{{x.followers}}</td>
+                    <td>{{x.dob}}</td>
+                    <td>{{x.gender}}</td>
+                    <td>{{x.date_applied}}</td>
                     <td><a href="applicant_info.html">View Profile</a></td>
                 </tr>
                
