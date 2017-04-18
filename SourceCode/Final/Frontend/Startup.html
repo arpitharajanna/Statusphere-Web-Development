@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+      <!DOCTYPE html>
 <html ng-app="Startup" ng-controller="myctrl">
 <head>
     <title></title>
@@ -105,6 +105,8 @@
                     <h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
                 </div>
                 <div class="modal-body">
+			  <div id="alert_placeholder" class="text-center"></div>
+<br />
                     <form name="form1" ng-submit="form1.$valid && login()" novalidate="novalidate" role="form">
                         <div class="form-group">
 
@@ -128,10 +130,7 @@
                                 <button name="button" type="submit" class="btn btn-primary"> Login </button>
                             </div>
                         </div>
-                            <div class="form-group">
-                            <center><span class="help-block" style="color:red;">{{errormessage}}</span></center>
-                            </div>
-                        <br />
+                            
 
                         <div class="form-group">
                             <div class="text-center">
@@ -182,6 +181,8 @@
                 </div>
                 <div class="modal-body">
                     <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
+				<div id="alert_placeholder1" class="text-center"></div>
+                             <br />
                     <form name="theForm" novalidate="novalidate" class="form-horizontal" ng-submit="formModel.submit()" role="form">
                         <!--<form name="theForm" novalidate="novalidate" class="form-horizontal" role="form">-->
                         <div class="form-group row">
@@ -233,12 +234,8 @@
                             </div>
 
                         </div>
-                        <br />
                        
-                        <br />
-						<div class="form-group row">
-                            <span class="help-block" style="color:red;">{{errorm}}</span>
-                            </div>
+						
                         <div class="text-center">
                             <!--<button class="btn btn-primary" id="button" ng-click="submit();" /> Submit-->
                             <!--<button class="btn btn-primary" type="submit" /> Submit-->
