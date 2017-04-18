@@ -5,6 +5,7 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
     $scope.message=localStorage.getItem("message");
     $scope.flag=localStorage.getItem("flag");
 
+
     if($scope.flag==1)
     { 
         $('#alert_placeholder3').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.message + '</div>').alert();
@@ -23,9 +24,36 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         $scope.states = response.data.states;
     });
     $scope.GetSelectedCountry = function () {
-        $scope.strCountry = $scope.form.selectCountry;
+
+        $scope.strCountry = $scope.selectCountry;
     };
 
+
+    //code added by leena for edit profile
+    $scope.fn=localStorage.getItem("first_name");
+    $scope.ln= localStorage.getItem("last_name");
+    //$scope.dob=localStorage.getItem("dob");
+    $scope.sex=localStorage.getItem("gender");
+    $scope.insta=localStorage.getItem("instagram_url");
+    $scope.fb=localStorage.getItem("facebook_url");
+    $scope.tweet=localStorage.getItem("twitter_url");
+   // alert(localStorage.getItem("snapchat_url"));
+   $scope.sc=localStorage.getItem("snapchat_url");
+   
+    
+   $scope.yc=localStorage.getItem("youtube_channel");
+    $scope.blog=localStorage.getItem("website");
+    $scope.addr1= localStorage.getItem("address_line1");
+    $scope.addr2=localStorage.getItem("address_line2");    
+	//$scope.selectCountry = localStorage.getItem("country");
+	//$scope.selectstate.name=localStorage.getItem("state");
+	$scope.city=localStorage.getItem("city");
+	$scope.zip=localStorage.getItem("zip_Code");
+	 $scope.phno=localStorage.getItem("mob");
+
+	//$scope.theForm.$setPristine();
+
+	//code end by leena
 
     $scope.someSelected = function (object) {
         if (!object) return false;
@@ -52,24 +80,24 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
       
         $scope.selected;
         var data = {
-            image_url: $scope.form.myFile,
-            firstname: $scope.form.fn,
-            lastname: $scope.form.ln,
-            dob: $scope.form.dob,
-            gender: $scope.form.sex,
-            instagram_url: $scope.form.insta,
-            facebook_url: $scope.form.fb,
-            twitter_url: $scope.form.tweet,
-            snapchat_url: $scope.form.sc,
-            youtubechannel: $scope.form.yc,
-            Blog: $scope.form.blog,
-            AddressLine1: $scope.form.addr1,
-            AddressLine2: $scope.form.addr2,
-            Country: $scope.form.selectCountry.name,
-            State: $scope.form.selectstate.name,
-            City: $scope.form.city,
-            ZIPCode: $scope.form.zip,
-            mob: $scope.form.phno,
+            image_url: $scope.myFile,
+            firstname: $scope.fn,
+            lastname: $scope.ln,
+            dob: $scope.dob,
+            gender: $scope.sex,
+            instagram_url: $scope.insta,
+            facebook_url: $scope.fb,
+            twitter_url: $scope.tweet,
+            snapchat_url: $scope.sc,
+            youtubechannel: $scope.yc,
+            Blog: $scope.blog,
+            AddressLine1: $scope.addr1,
+            AddressLine2: $scope.addr2,
+            Country: $scope.selectCountry.name,
+            State: $scope.selectstate.name,
+            City: $scope.city,
+            ZIPCode: $scope.zip,
+            mob: $scope.phno,
             username:$scope.usern,
             
             categories: $scope.selected
@@ -80,14 +108,27 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
             console.log('Data posted successfully');
             $scope.success=response.data.message;
            // alert($scope.success);
- 			//code added by leena for popup
+ 			//code added by leena for popup 			  		
  			 
- 			 var confirm_message=$scope.success;
- 			 confirmDialog(confirm_message, function () {
+              $scope.editProfileFlag = localStorage.getItem("editProfileFlag");
+              if($scope.editProfileFlag==1)
+              {
+                    var confirm_message="Your profile has been updated sucessfully!!";
+                    confirmDialog(confirm_message, function () {
+                    localStorage.setItem("editProfileFlag", 0);
+                    window.location.href = "http://localhost:3000/Statustodo.html";
+              })
+              }
+              else
+              {
+                    var confirm_message=$scope.success;
+                    confirmDialog(confirm_message, function () {
 
- 			 		window.location.href = "http://localhost:3000/Startup.html";
+                    window.location.href = "http://localhost:3000/Startup.html";
 
- 			 })
+             })
+              }
+ 			 			
 
  			//code end by leena for popup
             
@@ -193,5 +234,7 @@ $scope.logout = function (event) {
             }
         };
     });
+
+
 
 
