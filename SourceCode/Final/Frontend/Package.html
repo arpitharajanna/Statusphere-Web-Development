@@ -32,7 +32,7 @@
         }
     </style>
 </head>
-<body>
+<body ng-load="getPackages()">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -65,7 +65,7 @@
     </nav>
     <div class="container">
 
-        <button class="btn btn-default"><a href="#">Draft New Package</a></button>
+        <button class="btn btn-default"><a href="packagecreate.html">Draft New Package</a></button>
        <!-- <div class="pull-right">
             <button class="btn btn-default"><a href="#">Push Packages</a></button>
         </div>-->
@@ -81,7 +81,8 @@
                     <td align="right"> Search By:</td>
                     <td>
                         <select ng-model="queryBy">
-                            <option value="$"></option>
+                            <!--<option value="$"></option>-->
+                            <option value="Name">Name</option>
                             <option value="DateDue">Date Due</option>
                         </select>
                     </td>
