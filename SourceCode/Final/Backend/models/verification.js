@@ -10,6 +10,11 @@ var verificationSchema = new mongoose.Schema({
 		default: true,
 		required: false
 	},
+	match:{
+		type: Number,
+		default: false,
+		required: false
+	},
 	randomcode:{
 		type: String,
 		required: false
@@ -36,11 +41,11 @@ module.exports.getVerification = function(callback, limit){
 
 // Function to get verification detail by emailID alone.
 module.exports.getVerificationByEmail = function(emailid, callback){
-	Verification.findOne({'emailid':id}, callback);
+	Verification.findOne({'emailid':emailid}, callback);
 }
 
 // Function to remove verification code
 module.exports.deleteVerificationByEmail = function(emailid, callback){
-	var query = {emailid: id};
+	var query = {emailid: emailid};
 	Verification.remove(query, callback);
 }

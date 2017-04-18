@@ -25,9 +25,6 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {};
 
 function SendMail(object){
-
-	console.log("Reached sendMail");
-
 	    mailOptions = {
 	    from: '"Statusphere Team" <random12394123@gmail.com>', // sender address
 	    to: object.emailid, // list of receivers
@@ -86,25 +83,24 @@ router.post('/', function(req, res) {
 
 
 // Getting a single verification by emailID
-router.get('/:_emailid', function(req, res) {
+router.post('/code/:_emailid', function(req, res) {
+	var newverification = req.body;
 	Verification.getVerificationByEmail(req.params._emailid, function(err, verification) {
 		if(err){
 			throw err;
 		}
-		res.json(verification);
-		if(code == verification.randomcode){
-			flag = true;
+		if(newverification.randomcode == verification.randomcode){
+			newverification.match = true;
+			Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
+				if(err){
+					throw err;
+				}
+			});
 		}
 		else{
-			flag = false;
+			newverification.match = false;
 		}
-		console.log(flag);
-		Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
-			if(err){
-				throw err;
-			}
-			res.json(verification);
-		});
+		res.json(newverification);
 	});
 });
 
