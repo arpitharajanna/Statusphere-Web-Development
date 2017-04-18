@@ -62,12 +62,12 @@ function readURL(input) {
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="Package.html">Products</a></li>
+                <li class="active"><a href="Product.html">Products</a></li>
                 <li><a href="influencer.html">Influencers</a></li>
                 <li><a href="influencer-package.html">Influencer-Package</a></li>
                 <li><a href="applicant_list.html">Applicants</a></li>
-                <li><a href="#">Notifications</a></li>
-                <li><a href="#">MyProfile</a></li>
+                <li><a href="notification.html">Notifications</a></li>
+                <li><a href="password_reset">Password reset</a></li>
             </ul>
 
         </div>
