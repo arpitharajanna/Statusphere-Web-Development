@@ -94,13 +94,13 @@ router.post('/code/:_emailid', function(req, res) {
 		}
 		else{
 			newverification.match = true;
-			Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
-				if(err){
-					throw err;
-				}
-			});
 		}
 		res.json(newverification);
+		Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
+			if(err){
+				throw err;
+			}
+		});
 	});
 });
 
