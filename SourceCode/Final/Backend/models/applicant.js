@@ -71,7 +71,7 @@ lastName: {
  snapchat_url:{
 	 type:String
  },
-website_url:{
+website:{
 	type:String
 },
   state:{
