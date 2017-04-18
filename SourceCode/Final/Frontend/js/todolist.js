@@ -87,6 +87,72 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
         });
     };
 
+     //code added by leena for edit
+    $scope.editprofile = function(){
+       // alert("hi");
+      localStorage.setItem("editProfileFlag", 1);
+      localStorage.setItem("first_name", $scope.userinfo.firstName);
+      localStorage.setItem("last_name", $scope.userinfo.lastName);
+      localStorage.setItem("dob", $scope.userinfo.dob);
+      localStorage.setItem("gender", $scope.userinfo.gender);
+      localStorage.setItem("instagram_url", $scope.userinfo.instagram_url);
+      localStorage.setItem("facebook_url", $scope.userinfo.facebook_url);
+      localStorage.setItem("twitter_url", $scope.userinfo.twitter_url);
+      if($scope.userinfo.snapchat_url==null)
+      {
+        //alert("d");
+            localStorage.setItem("snapchat_url", "");
+      }
+      else
+      {
+            localStorage.setItem("snapchat_url", $scope.userinfo.snapchat_url);
+      }
+      if($scope.userinfo.youtube_channel==null)
+      {
+        //alert("d");
+            localStorage.setItem("youtube_channel", "");
+      }
+      else
+      {
+            localStorage.setItem("youtube_channel", $scope.userinfo.youtube_channel);
+      }
+      if($scope.userinfo.website==null)
+      {
+        //alert("d");
+            localStorage.setItem("website", "");
+      }
+      else
+      {
+            localStorage.setItem("website", $scope.userinfo.website);
+      }
+      
+      //localStorage.setItem("youtube_channel", $scope.userinfo.youtube_channel);
+      //localStorage.setItem("website", $scope.userinfo.website);
+      localStorage.setItem("address_line1", $scope.userinfo.address_line1);
+       if($scope.userinfo.address_line2address_line2==null)
+      {
+        //alert("d");
+            localStorage.setItem("address_line2", "");
+      }
+      else
+      {
+            localStorage.setItem("address_line2", $scope.userinfo.address_line2);
+      }
+      //localStorage.setItem("address_line2", $scope.userinfo.address_line2);
+      localStorage.setItem("country", $scope.userinfo.country);
+      localStorage.setItem("state", $scope.userinfo.state);
+      localStorage.setItem("city", $scope.userinfo.city);
+      //alert($scope.userinfo.zip_Code);
+      localStorage.setItem("zip_Code", $scope.userinfo.zip_Code);
+      localStorage.setItem("mob", $scope.userinfo.mob);
+      localStorage.setItem("categories", $scope.userinfo.categories);
+          
+      window.location.href = "http://localhost:3000/Profile.html";
+    }
+
+    //code end by leena for edit
+
+
     $scope.logout = function (event) {
         localStorage.clear();
         window.location.href = "http://localhost:3000/Startup.html";
