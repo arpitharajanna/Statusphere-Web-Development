@@ -80,6 +80,24 @@ $scope.errormessage='';
                     console.log(data.username); 
                    $scope.register_msg= response.data.message;
                     localStorage.setItem("username", data.username);
+                     localStorage.setItem("first_name", "");
+                    localStorage.setItem("last_name", "");
+                    localStorage.setItem("dob", "");
+                    localStorage.setItem("gender", "");
+                    localStorage.setItem("instagram_url", "");
+                    localStorage.setItem("facebook_url", "");
+                    localStorage.setItem("twitter_url", "");
+                    localStorage.setItem("snapchat_url", "");
+                    localStorage.setItem("youtube_channel", "");
+                    localStorage.setItem("website", "");
+                    localStorage.setItem("address_line1", "");
+                    localStorage.setItem("address_line2", "");
+                    localStorage.setItem("country", "");
+                    localStorage.setItem("state", "");
+                    localStorage.setItem("city", "");
+                    localStorage.setItem("zip_Code", "");
+                    localStorage.setItem("mob", "");
+                    localStorage.setItem("categories", "");
                     window.location.href = "http://localhost:3000/Profile.html";
                 },
                 function(error){
@@ -179,4 +197,5 @@ $scope.cancelregister = function () {
 /*  code added by leena end    */
 
 });
+
 
