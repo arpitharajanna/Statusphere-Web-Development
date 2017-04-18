@@ -62,7 +62,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li><a href="package.html">Package</a></li>
+                <li><a href="package.html">Product</a></li>
                 <li><a href="influencer.html">Influencers</a></li>
                 <li class="active"><a href="influencer-package.html">Influencer-Package</a></li>
                 <li><a href="applicant_list.html">Applicant</a></li>
@@ -71,30 +71,33 @@
             </ul>
         </div>
     </nav>
-    <h3 align="center"><b>INFLUENCER-PACKAGE LIST</b></h3>
     <div class="container">
-         <div ng-app="myapp" ng-controller="myCtrl">
-             <table>
-                 <tr>
-                     <td align="right">Search:</td>
-                     <td><input ng-model="query[queryBy]"/></td>
-                 </tr>
-                 <tr>
-                     <td align="right"> Search By:</td>
-                     <td>
-                         <select ng-model="queryBy">
-                             <option value="$"></option>
-                             <option value="Firstname">First Name</option>
-                             <option value="Lastname">Last Name</option>
-                             <option value="Packagename">Package Name</option>
-                             <option value="Duedate">Due Date</option>
-                         </select>
-                     </td>
-                 </tr>
-                 
-             </table>
 
-                 <table>
+        <button class="btn btn-default"><a href="createpackage.html">Create Package</a></button>
+        <h3 align="center"><b>INFLUENCER-PACKAGE LIST</b></h3>
+        <div class="container">
+            <div ng-app="myapp" ng-controller="myCtrl">
+                <table>
+                    <tr>
+                        <td align="right">Search:</td>
+                        <td><input ng-model="query[queryBy]" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right"> Search By:</td>
+                        <td>
+                            <select ng-model="queryBy">
+                                <option value="$"></option>
+                                <option value="Firstname">First Name</option>
+                                <option value="Lastname">Last Name</option>
+                                <option value="Packagename">Package Name</option>
+                                <option value="Duedate">Due Date</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table>
                     <tr>
 
                         <th align="center">First Name</th>
@@ -111,27 +114,45 @@
                         <td>{{x.Duedate}}</td>
                         <td>{{x.Accepteddate}}</td>
                         <td>{{x.Status}}</td>
-                  </tr>
-                    
+                    </tr>
+                    <!--
+                         <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><a href="#">View Profile</a></td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td><a href="#">View Profile</a></td>
+
+                          </tr> -->
+
                 </table>
-             </div>
             </div>
-            <div id="bottomdiv">
-                <div class="navbar navbar-inverse navbar-bottom">
-                    <div class="container">
-                        <div class="navbar-text pull-left">
-                            <p> Copyright Statusphere</p>
-                        </div>
-                        <div class="pull-right">
-                            <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
-                            <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
-                            <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
-                        </div>
+        </div>
+    </div>
+        <div id="bottomdiv">
+            <div class="navbar navbar-inverse navbar-bottom">
+                <div class="container">
+                    <div class="navbar-text pull-left">
+                        <p> Copyright Statusphere</p>
+                    </div>
+                    <div class="pull-right">
+                        <a href="https://www.facebook.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-facebook-official fa-3x" aria-hidden="false"></i></a>
+                        <a href="https://twitter.com/joinstatus?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-twitter fa-3x" aria-hidden="false"></i></a>
+                        <a href="https://www.instagram.com/statusphere/?__hstc=234261505.a570f2de9aba4c2c3b40da55326aa261.1487100475248.1489899396079.1489935179421.18&__hssc=234261505.1.1489935179421&__hsfp=290129038">   <i class="fa fa-instagram fa-3x" aria-hidden="false"></i></a>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 </body>
 </html>
+
 
