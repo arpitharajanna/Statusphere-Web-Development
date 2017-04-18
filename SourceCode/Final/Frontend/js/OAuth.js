@@ -78,15 +78,18 @@ $scope.errormessage='';
                 $http.post("/register", data).then(function (response) {
                     console.log('Data posted successfully');
                     console.log(data.username); 
-                    alert(response.data.message);
+                   $scope.register_msg= response.data.message;
                     localStorage.setItem("username", data.username);
                     window.location.href = "http://localhost:3000/Profile.html";
                 },
                 function(error){
                     
-                    //$scope.errorm = error.data.message ;
-                    alert(error.data.message);
-                    //alert($scope.errorm);
+                   
+                    $scope.register_err=error.data.message;
+                   $('#alert_placeholder1').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.register_err + '</div>').alert();
+        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#code-alert").slideUp(500);
+        });
                 }
                 )
                 
@@ -107,30 +110,37 @@ $scope.errormessage='';
         console.log(data.username);
         console.log(data.password);
 
-         $http.post("/login", data).then(function (res) {
+         $http.post("/login",data).then(function (res) {
                                                      console.log('Data posted successfully');
-                                                     //alert(res.data.message);
+                                                     
                                                       $scope.message = res.data.message;
-                                                     //$cookies.put('username', data.username);
-                                                     if(res.data.flag==2)
+                                                     
+                                                     localStorage.setItem("username", data.username);
+							
+							 if(res.data.flag==2)
                                                      { window.location.href = "http://localhost:3000/Statustodo.html";
-                                                      alert(res.data.message);
+                                                         
+                                                           //$scope.profilemessage=res.data.message;
                                                        }
                                                       else{
+                                                      localStorage.setItem("message",res.data.message);
+                                                      localStorage.setItem("flag",1);
+
                                                       window.location.href = "http://localhost:3000/Profile.html";
-                                                      alert(res.data.message)
+                                                         
+                                                      
                                                     }
-                                                     localStorage.setItem("username", data.username);
-                                                    // localStorage.setItem("email", data.email);
-                                                     //alert(data.email);
-                                                     //alert(localStorage.getItem("email"));
-                                                     window.location.href = "http://localhost:3000/Statustodo.html";
+
+                                                     
                                                  },
                                                  function(error) {
-                                               // Handle error here
+                                              
                                                console.log(error.data);
                                                $scope.errormessage=error.data.message;
-                                               //alert(error.data.message);
+                                                $('#alert_placeholder').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.errormessage + '</div>').alert();
+        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#code-alert").slideUp(500);
+        });
                                                     }
 
 
@@ -138,6 +148,8 @@ $scope.errormessage='';
 
     }
 
+ 
+     
 /*  code added by leena begin    */
     //code to clear model values on reloading model
     $scope.cancel = function () {
@@ -158,7 +170,7 @@ $scope.cancelregister = function () {
     $scope.formModel.email = "";
     $scope.formModel.password = "";
     $scope.formModel.password1= "";
-    $scope.errormessage='';
+    $scope.register_err='';
     $scope.theForm.$setPristine();
     //var a=document.getElementById('usern');
    // alert(a);
