@@ -1,7 +1,19 @@
 var app = angular.module("appProfile", []);
 app.controller('ctrlProfile', function ($scope, $http, $window) {
- $scope.usern = localStorage.getItem("username");
+
     $scope.usern = localStorage.getItem("username");
+    $scope.message=localStorage.getItem("message");
+    $scope.flag=localStorage.getItem("flag");
+
+    if($scope.flag==1)
+    { 
+        $('#alert_placeholder3').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.message + '</div>').alert();
+        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+            $("#code-alert").slideUp(500);
+        });
+    }
+
+
     $http.get('/Json/Countries.json').then(function (response) {
 
         $scope.countries = response.data.countries;
@@ -66,15 +78,21 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         }
         $http.post("/editProfile", data).then(function (response) {
             console.log('Data posted successfully');
-            alert(response.data.message);
+            $scope.success=response.data.message;
+ 
+            
+		
+window.location.href = "http://localhost:3000/Startup.html";
 
-},
-                function (error) {
+                
+			
+            },
+                            function (error) {
 
-                    //$scope.errorm = error.data.message ;
-                    alert(error.data.message);
-                    //alert($scope.errorm);
-                }
+                                //$scope.errorm = error.data.message ;
+                                alert(error.data.message);
+                                //alert($scope.errorm);
+                            }
                 )
        
 
@@ -82,74 +100,73 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
 
        
     }
-
-
+   
 /*logout*/
 $scope.logout = function (event) {
-                localStorage.clear();        
-                window.location.href = "http://localhost:3000/Startup.html";
-            };
+    localStorage.clear();        
+    window.location.href = "http://localhost:3000/Startup.html";
+};
 
-            $(document).ready(function () {
-       function disableBack() { window.history.forward() }
+        $(document).ready(function () {
+            function disableBack() { window.history.forward() }
 
-       window.onload = disableBack();
-       window.onpageshow = function (evt) {
-           if (evt.persisted) disableBack()
-      }
+            window.onload = disableBack();
+            window.onpageshow = function (evt) {
+                if (evt.persisted) disableBack()
+            }
        
        
-   });
-});
+        });
+    });
 
 
 
    
 
-app.directive('myUpload', [function () {
-    return {
-        restrict: 'A',
-        link: function (scope, elem, attrs) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                scope.image = e.target.result;
-                scope.$apply();
-            }
-
-            elem.on('change', function () {
-                reader.readAsDataURL(elem[0].files[0]);
-            });
-        }
-    };
-}]);
-
-app.directive('validFile', function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elem, attrs, ngModel) {
-            var validFormats = ['jpg', 'jpeg', 'png'];
-            elem.bind('change', function () {
-                validImage(false);
-                scope.$apply(function () {
-                    ngModel.$render();
-                });
-            });
-            ngModel.$render = function () {
-                ngModel.$setViewValue(elem.val());
-            };
-            function validImage(bool) {
-                ngModel.$setValidity('extension', bool);
-            }
-            ngModel.$parsers.push(function (value) {
-                var ext = value.substr(value.lastIndexOf('.') + 1);
-                if (ext == '') return;
-                if (validFormats.indexOf(ext) == -1) {
-                    return value;
+    app.directive('myUpload', [function () {
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    scope.image = e.target.result;
+                    scope.$apply();
                 }
-                validImage(true);
-                return value;
-            });
-        }
-    };
-});
+
+                elem.on('change', function () {
+                    reader.readAsDataURL(elem[0].files[0]);
+                });
+            }
+        };
+    }]);
+
+    app.directive('validFile', function () {
+        return {
+            require: 'ngModel',
+            link: function (scope, elem, attrs, ngModel) {
+                var validFormats = ['jpg', 'jpeg', 'png'];
+                elem.bind('change', function () {
+                    validImage(false);
+                    scope.$apply(function () {
+                        ngModel.$render();
+                    });
+                });
+                ngModel.$render = function () {
+                    ngModel.$setViewValue(elem.val());
+                };
+                function validImage(bool) {
+                    ngModel.$setValidity('extension', bool);
+                }
+                ngModel.$parsers.push(function (value) {
+                    var ext = value.substr(value.lastIndexOf('.') + 1);
+                    if (ext == '') return;
+                    if (validFormats.indexOf(ext) == -1) {
+                        return value;
+                    }
+                    validImage(true);
+                    return value;
+                });
+            }
+        };
+    });
 
