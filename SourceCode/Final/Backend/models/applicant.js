@@ -68,7 +68,12 @@ lastName: {
   country:{
   	type : String
   },
- 
+ snapchat_url:{
+	 type:String
+ },
+website_url:{
+	type:String
+},
   state:{
     type : String
 
