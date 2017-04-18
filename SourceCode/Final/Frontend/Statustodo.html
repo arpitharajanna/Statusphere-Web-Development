@@ -101,14 +101,14 @@
                                 <div class="panel-heading">
                                     <center><h1 class="panel-title">{{usern}}</h1></center>
                                 </div>
-                                <div class="panel-body">
+                                 <div class="panel-body">
                                     <div class="row">
-                                       <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{userinfo.image_url}}" height="300" width="300">  </div>
+                                        <div class="col-md-3 col-lg-3 " align="center"><img class="img-circle img-responsive" src="{{userinfo.image_url}}">  </div>
                                         <div class="col-md-9 col-lg-9">
-                                        <div class="table-responsive">
+                                         <div class="table-responsive">
                                             <table class="table table-user-information">
-                                                 <tbody>
-                                                     <tr>
+                                                <tbody>
+                                                    <tr>
                                                         <td><strong> FirstName </strong></td>
                                                         <td>{{userinfo.firstName}}</td>
                                                     </tr>
@@ -181,17 +181,16 @@
                                                         <td>{{userinfo.categories}}</td>
                                                     </tr>
 
-
                                                 </tbody>
                                             </table>
-                                          </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="panel-footer">
 
                                     <center>
-                                        <button type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+                                        <button type="button" class="btn btn-sm btn-warning" ng-click="editprofile()"><i class="glyphicon glyphicon-edit"></i> Edit</button>
                                     </center>
 
                                 </div>
@@ -383,4 +382,5 @@
 
 </body>
 </html>
+
 
