@@ -72,11 +72,11 @@ var influencerSchema = new mongoose.Schema({
 	gamification_points:{
 		type: Number,
 		required: true
-	}
+	},
 	passreset:{
 		type: Number,
 		default: false
-	},
+	}
 });
 
 var Influencer = module.exports = mongoose.model('influencer', influencerSchema);
