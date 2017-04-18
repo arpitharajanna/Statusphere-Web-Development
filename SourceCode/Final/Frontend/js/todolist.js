@@ -14,10 +14,16 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
             }
     );*/
     // alert("hi");
-    $http.get('/json/Profile.json').then(function (response) {
-        $scope.userinfo = response.data.userinfo;
-    });
+    var data= {username: $scope.usern}
+    $http.post("/profile",data).then(function (response) {
+        $scope.userinfo = response.data.applicant;
+    }, function (error) {
 
+        //$scope.errorm = error.data.message ;
+        $scope.profile_err = error.data.message;
+        //alert($scope.errorm);
+    })
+    
     $http.get("/json/statusbox.json").then(function (response) {          //Read json file
         $scope.statusbox = response.data.statusbox;
 
@@ -30,8 +36,8 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
                                                   });*/
 
     //$scope.usern = $window.sessionStorage.getItem("user_name");
-    $scope.usern=localStorage.getItem("username")
-   // alert($scope.usern);
+    $scope.usern = localStorage.getItem("username")
+    // alert($scope.usern);
 
     $scope.openmodal = function (productID) {
         $scope.productID = productID;
@@ -78,41 +84,25 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
                 username: $scope.usern,
                 product_Id: $scope.productID
             }
-             $http.post("", statusboxdata).then(function (res) {
-                 console.log('Data posted successfully');
-                 alert("Package has been added")
-             },
-               function(error) {
-                                               // Handle error here
-                               console.log(error.data);
-                               alert(error.data.message);
-                                    });
-
-        }
-        else
-        {
-            alert($scope.reqField);
-           // alert("invalid");
-            $scope.errormessage = "Please select Product agreement";
-        }
         });
     };
 
     $scope.logout = function (event) {
-                localStorage.clear();        
-                window.location.href = "http://localhost:3000/Startup.html";
-            };
+        localStorage.clear();
+        window.location.href = "http://localhost:3000/Startup.html";
+    };
 
-            $(document).ready(function () {
-       function disableBack() { window.history.forward() }
+    $(document).ready(function () {
+        function disableBack() { window.history.forward() }
 
-       window.onload = disableBack();
-       window.onpageshow = function (evt) {
-           if (evt.persisted) disableBack()
-      }
-       
-       
-   });
+        window.onload = disableBack();
+        window.onpageshow = function (evt) {
+            if (evt.persisted) disableBack()
+            return "please login";
+        }
+
+
+    });
 });
 
 
@@ -128,16 +118,3 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
            console.log(error.data);
            alert(error.data.message);
        });*/
-
-
-
-
-
-
-
-
-
-
-
-
-
