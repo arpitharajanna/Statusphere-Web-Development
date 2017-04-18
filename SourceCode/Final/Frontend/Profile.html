@@ -41,11 +41,22 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <ul class="nav navbar-nav navbar-right">
-                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span> Leena</a></li>
-                <li><a href="#" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
+                <li><a style="color:white"><span class="glyphicon glyphicon-user"></span>{{usern}}</a></li>
+<li><a href="" ng-click="logout()" style="color:white"><span class="glyphicon glyphicon-log-out"></span> SignOut</a></li>
             </ul>
         </div>
     </nav>
+ <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+           
+            <p class="lead"> Please fill the below form. Once you submit this form, then only the admin will evaluate your details and decide upon your acceptance.</p>
+
+        </div>
+    </div>
+<div id="alert_placeholder3" class="text-center"></div>
+
+
+<br />
     <div class="container">
         <div class="row">
             <div class="panel panel-primary">
@@ -281,9 +292,10 @@
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+				
                             </div>
                         </form>
-
+			
                     </div>
                 
             </div>
