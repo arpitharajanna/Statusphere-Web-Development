@@ -89,16 +89,16 @@ router.post('/code/:_emailid', function(req, res) {
 		if(err){
 			throw err;
 		}
-		if(newverification.randomcode == verification.randomcode){
+		if(newverification.randomcode == null || newverification.randomcode != verification.randomcode){
+			newverification.match = false;
+		}
+		else{
 			newverification.match = true;
 			Verification.deleteVerificationByEmail(req.params._emailid, function(err, verification){
 				if(err){
 					throw err;
 				}
 			});
-		}
-		else{
-			newverification.match = false;
 		}
 		res.json(newverification);
 	});
