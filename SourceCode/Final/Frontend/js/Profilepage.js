@@ -79,13 +79,21 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
         $http.post("/editProfile", data).then(function (response) {
             console.log('Data posted successfully');
             $scope.success=response.data.message;
- 
+           // alert($scope.success);
+ 			//code added by leena for popup
+ 			 
+ 			 var confirm_message=$scope.success;
+ 			 confirmDialog(confirm_message, function () {
+
+ 			 		window.location.href = "http://localhost:3000/Startup.html";
+
+ 			 })
+
+ 			//code end by leena for popup
             
 		
-window.location.href = "http://localhost:3000/Startup.html";
-
-                
-			
+			//window.location.href = "http://localhost:3000/Startup.html";
+               
             },
                             function (error) {
 
@@ -95,11 +103,27 @@ window.location.href = "http://localhost:3000/Startup.html";
                             }
                 )
        
-
-       
-
-       
     }
+
+    /* code added by leena for popup */
+    // var confirm_message = "Do you want to add this product? If you click on 'OK' button, the product will be added to  your to-do list";
+    function confirmDialog(message, onConfirm) {
+        // $("addbox").disabled = true;
+        var fClose = function () {
+
+            modal.modal("hide");
+        };
+        var modal = $("#confirmPopup");
+        modal.modal("show");
+        $("#confirmMessage").empty().append(message);
+        $("#confirmOk").one('click', onConfirm);
+        $("#confirmOk").one('click', fClose);
+       // $("#confirmCancel").one("click", fClose);
+
+        
+    }
+
+    /* code end by leen */
    
 /*logout*/
 $scope.logout = function (event) {
@@ -169,4 +193,5 @@ $scope.logout = function (event) {
             }
         };
     });
+
 
