@@ -47,6 +47,7 @@ module.exports.profileEdit = function(req,res){
     Applicant.twitter_url = req.body.twitter_url || Applicant.twitter_url || null ;
     Applicant.image_url=req.body.image_url || Applicant.image_url || null ;
     Applicant.snapchat_url= req.body.snapchat_url ||  Applicant.snapchat_url ||null ;
+    Applicant.website= req.body.website ||  Applicant.website ||null ;
     Applicant.youtube_channel = req.body.youtubechannel ||  Applicant.youtube_channel || null;
     Applicant.state = req.body.State || Applicant.state ||null; 
     Applicant.city = req.body.City || Applicant.city ||null ;
