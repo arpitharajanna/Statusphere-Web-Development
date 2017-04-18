@@ -73,6 +73,10 @@ var influencerSchema = new mongoose.Schema({
 		type: Number,
 		required: true
 	}
+	passreset:{
+		type: Number,
+		default: false
+	},
 });
 
 var Influencer = module.exports = mongoose.model('influencer', influencerSchema);
@@ -121,13 +125,9 @@ module.exports.updateInfluencer = function(username, influencer, options, callba
 // Function to update a particular influencer by emailid
 // Consider what all needs to be updated
 module.exports.updatePassword = function(emailid, influencer, options, callback){
-	console.log(emailid);
 	var query = {'emailid' : emailid};
-	if(passreset == true){
-		var update = {
-			influencer_password: influencer.influencer_password
-		}
-		Influencer.findOneAndUpdate(query, update, options, callback);
-		passreset = false;
+	var update = {
+		influencer_password: influencer.influencer_password
 	}
+	Influencer.findOneAndUpdate(query, update, options, callback);
 }

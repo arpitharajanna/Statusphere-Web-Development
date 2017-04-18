@@ -85,11 +85,11 @@ router.put('/:_username', function(req, res) {
 router.put('/reset/:_emailid', function(req, res) { //
 	var emailid = req.params._emailid;
 	var influencer = req.body;
-	console.log(emailid);
 	Influencer.updatePassword(emailid, influencer, {}, function(err, influencer) {
 		if(err){
 			throw err;
 		}
+		influencer.passreset = true;
 		res.json(influencer);
 	});
 });
