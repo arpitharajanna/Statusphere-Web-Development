@@ -84,6 +84,7 @@
                             <!--<option value="$"></option>-->
                             <option value="Name">Name</option>
                             <option value="DateDue">Date Due</option>
+                            <option value="ProductID">Product ID</option>
                         </select>
                     </td>
                 </tr>
@@ -94,22 +95,22 @@
                     <tr>
 
                         <th align="center">Name</th>
+                        <th align="center">Product ID</th>
                         <th align="center">Quantity Accepted</th>
                         <th align="center">Quantity Available</th>
                         <th align="center">Date Created</th>
                         <th align="center">Date Due</th>
-                        <th align="center">Product Status</th>
                         <th align="center">Product Info</th>
                     </tr>
 
                     <tr ng-repeat="x in names | filter:query">
 
                         <td>{{x.Name}}</td>
+                        <td>{{x.ProductID}}</td>
                         <td>{{x.QuantityAccepted}}</td>
                         <td>{{x.QuantityAvailable}}</td>
                         <td>{{x.DateCreated}}</td>
                         <td>{{x.DateDue}}</td>
-                        <td>{{x.PackageStatus}}</td>
                         <td><a href="packageinfo.html">View Profile</a></td>
                     </tr>
                    
