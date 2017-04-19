@@ -35,24 +35,66 @@ Applicant.password = req.body.password;
   }
 
 
+// module.exports.login = function(req,res){
+
+// 	passport.authenticate('local',function(err,applicant,info){
+// 	var token;
+// 	if(err){
+// 		return res.status(404).json(err);
+
+		
+// 	}
+// 	if (applicant){
+
+// 		//token=applicant.generateJwt();
+// 		res.status(200);// 
+
+// 	   if (applicant.firstName==null){
+//        	res.json({
+// 			message:"details are not complete",
+// 			username:applicant.username,
+// 			flag:1
+// 		});
+
+//        }
+//      else{
+// 	   res.json({
+// 			message:"details are complete",
+// 			username:applicant.username,
+// 			flag:2
+// 		});}
+//         // username().then(username => {
+//         // console.log(username);
+//     //=> 'sindresorhus' 
+	
+// 	}
+// 	else{
+// 		 res.status(401);
+// 		 res.json(info);
+		
+// 	}
+
+// })(req,res);
+// };
+
 module.exports.login = function(req,res){
 
-	passport.authenticate('local',function(err,applicant,info){
+	passport.authenticate('local',function(err,influencer,info){
 	var token;
 	if(err){
 		return res.status(404).json(err);
 
 		
 	}
-	if (applicant){
+	if (influencer){
 
 		//token=applicant.generateJwt();
 		res.status(200);// 
 
-	   if (applicant.firstName==null){
+	   if (influencer.firstname==null){
        	res.json({
 			message:"details are not complete",
-			username:applicant.username,
+			username:influencer.influencer_username,
 			flag:1
 		});
 
@@ -60,7 +102,7 @@ module.exports.login = function(req,res){
      else{
 	   res.json({
 			message:"details are complete",
-			username:applicant.username,
+			username:influencer.influencer_username,
 			flag:2
 		});}
         // username().then(username => {
