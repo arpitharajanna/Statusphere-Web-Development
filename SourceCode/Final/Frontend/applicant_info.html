@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/applicant_info.js"></script>
 
 
 </head>
-<body ng-app="myapp" ng-controller="myCtrl">
+<body ng-app="myapp" ng-controller="myCtrl" ng-click="getApplicantInfo('atuljohn')">
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -63,23 +64,38 @@
                             <div class="col-xs-12 col-sm-8">
                                 <table >
 
-                                    <tr><td><strong>Full Name: </strong></td><td>{{applicants[0].firstName}} {{applicants[0].lastName}} </td>
+                                    <tr><td><input type="text"  value="Full Name:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.firstName}}" size="30" readonly></td>
                                     <td rowspan="8"><img src="images/shopping-image.jpg" alt="Mountain View" style="width:200px;height:150px;">   
                                     </td></tr>
-                                    <tr><td><strong>Date of Birth:</strong></td><td>{{applicants.dob}}</td></tr>
-                                    <tr><td><strong>State:</strong></td><td>{{applicants.state}}</td></tr>
-                                    <tr><td><strong>Zipcode:</strong></td><td>{{applicants.zipcode}}</td></tr>
-                                    <tr><td><strong>Phone:</strong></td><td>{{applicants.phone}}</td></tr>
-                                    <tr><td><strong>Email ID:</strong></td><td>{{applicants.email}}</td></tr>
-                                    <tr><td><strong>Instagram ID:</strong></td><td>{{applicants.instagram_url}}</td></tr>
-                                    <tr><td><strong>#Instagram Followers:</strong></td><td>{{applicants.followers}}</td></tr>
-                                    <tr><td><strong>Snapchat ID:</strong></td><td>{{applicants.snapchat_url}}</td></tr>
-                                    <tr><td><strong>Twitter ID:</strong></td><td>{{applicants.twitter_url}}</td></tr>
-                                    <tr><td><strong>Youtube Channel:</strong></td><td>{{applicants.youtube_channel}}</td></tr>
-                                    <tr><td><strong>Twitter ID:</strong></td><td>{{applicants.twitter_url}}</td></tr>
-                                    <tr><td><strong>Address:</strong></td><td>{{applicants.address}}</td></tr>
-                                    <tr><td><strong>Twitter ID:</strong></td><td>{{applicants.twitter_url}}</td></tr>
-                                    <tr><td><strong>Category:</strong></td><td>{{applicants.category}</td></tr>
+                                    <tr><td><input type="text" value="Date of Birth:" readonly> </td>
+                                        <td><input type="text" value="{{applicant_info.dob}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="State:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.state}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Zipcode:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.zipcode}}" size="30" readonly> </td></tr>
+                                    <tr><td><input type="text" value="Phone:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.mob}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Email ID:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.email}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Instagram ID:" readonly></td>
+                                            <td><input type="text" value="{{applicant_info.instagram_url}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="#Instagram Followers:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.followers}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Snapchat ID:" readonly></td>
+                                         <td><input type="text" value="{{applicant_info.snapchat_url}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Twitter ID:" readonly></td>
+                                         <td><input type="text" value="{{applicant_info.twitter_url}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Youtube Channel:" readonly></td>
+                                    <td><input type="text" value="{{applicant_info.youtube_channel}}"" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Twitter ID:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.twitter_url}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Address:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.address}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Twitter ID:" readonly></td> 
+                                        <td><input type="text" value="{{applicant_info.twitter_url}}" size="30" readonly></td></tr>
+                                    <tr><td><input type="text" value="Category:" readonly></td>
+                                        <td><input type="text" value="{{applicant_info.category}" size="30" readonly></td></tr>
                                 </table>
                                 <div class="container">
 
