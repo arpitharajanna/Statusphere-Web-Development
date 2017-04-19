@@ -1,7 +1,7 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
-var applicant = require('../models/applicant');
+//var applicant = require('../models/applicant');
 var influencer = require('../models/influencer')
 
 
