@@ -28,7 +28,7 @@ router.post('/login', ctrlAuth.login);
 router.post('/product',create_Product.Create_Product);
 router.post('/package',add_Package.AddPackage);
 router.post('/editProduct',edit_Product.Edit_Product);
-router.get('/todolist',todolist.getProducts);
+router.get('/todolist',todolist.getProductsofuserinterest);
 
 
 
