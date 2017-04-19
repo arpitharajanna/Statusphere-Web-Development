@@ -35,6 +35,12 @@ var influencerSchema = new mongoose.Schema({
 	address:{
 		type: String
 	},
+	country:{
+		type:string},
+	state:{
+		type:String},
+	city:{
+		type:String},	
 	emailid:{
 		type: String,
 		unique: true,
