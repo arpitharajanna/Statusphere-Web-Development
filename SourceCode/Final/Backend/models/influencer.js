@@ -156,10 +156,5 @@ module.exports.addApplicantToInfluencer = function(applicant, callback){
 		gamification_points: 0,
 		passreset: false
 	}
-
-	console.log(influencer);
-
-
-
 	Influencer.create(influencer, callback);
 }

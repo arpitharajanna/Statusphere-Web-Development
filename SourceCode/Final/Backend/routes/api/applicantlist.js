@@ -29,7 +29,6 @@ router.post('/api/applicant', function(req, res) {
 
 // Getting list of all applicants
 router.get('/', function(req, res) {
-	console.log("inside");
 	Applicant.getApplicants(function(err, applicants) {
 		if(err){
 			throw err;
@@ -113,7 +112,7 @@ router.get('/addtoinfluencer/:_username', function(req, res) {
 					}
 					else
 					{
-						console.log("Deleted " + req.params._username + "from Applicant DB"); // For testing only.
+						console.log("Deleted " + req.params._username + "from Applicant DB");
 					}
 				})
 			}

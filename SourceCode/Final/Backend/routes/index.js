@@ -45,7 +45,7 @@ router.get('/getAllProducts',getAllProducts.getAllProducts);//
 
 
 
-// we can use this for sending notification message and storing data into databse. 
+// we can use this for sending notification message and storing data into database. 
 router.post('/sendNotification', ctrlNotification.sendNotification);
 
 // Get notification mesage from database
@@ -94,12 +94,4 @@ router.post('/sendNotification', ctrlNotification.sendNotification);
 // 		}
 // 	})
 // })
-
-
-
-
-// router.get('/newstudent',function(req,res){
-// 	res.render('studentList',{student_list_item:studentlist})
-// });
-// Adding a comment so it commits. Will remove later.
 module.exports = router;

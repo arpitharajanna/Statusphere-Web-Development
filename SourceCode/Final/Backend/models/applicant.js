@@ -143,7 +143,7 @@ module.exports.getApplicantByName = function(username, callback){
 
 // Function to delete a particular applicant by username
 module.exports.deleteApplicantByName = function(user, callback){
-	console.log('going to delete ' + user +'!!!! ');
+	console.log('Deleting ' + user +'!!!! ');
 	var query = {username: user};
 	Applicant.remove(query, callback);
 }
