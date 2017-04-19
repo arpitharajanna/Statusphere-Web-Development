@@ -1,31 +1,57 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
-var applicant = require('../models/applicant');
-// var BasicStrategy = require('passport-http').BasicStrategy;
+//var applicant = require('../models/applicant');
+var influencer = require('../models/influencer')
+
+
+// passport.use(new LocalStrategy({
+//     usernameField: 'username'
+//   },
+//   function(username, password, done) {
+//     applicant.findOne({ username: username }, function (err,applicant) {
+//       if (err) { return done(err); }
+//       // Return if user not found in database
+//       if (!applicant) {
+//         return done(null, false, {
+//           message: 'Influencer not found'
+//         });
+//       }
+     
+//       //Return if password is wrong
+//       if (applicant.password!=password) {
+//         return done(null, false, {
+//           message: 'Please enter the correct password'
+//         });
+//       }
+//      // If credentials are correct, return the user object
+//       return done(null, applicant);
+//     });
+//   }
+// ));
 
 
 passport.use(new LocalStrategy({
     usernameField: 'username'
   },
   function(username, password, done) {
-    applicant.findOne({ username: username }, function (err,applicant) {
+    influencer.findOne({ influencer_username: username }, function (err,influencer) {
       if (err) { return done(err); }
       // Return if user not found in database
-      if (!applicant) {
+      if (!influencer) {
         return done(null, false, {
           message: 'Influencer not found'
         });
       }
      
       //Return if password is wrong
-      if (applicant.password!=password) {
+      if (influencer.influencer_password!=password) {
         return done(null, false, {
           message: 'Please enter the correct password'
         });
       }
      // If credentials are correct, return the user object
-      return done(null, applicant);
+      return done(null, influencer);
     });
   }
 ));
