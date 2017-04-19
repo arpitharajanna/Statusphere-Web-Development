@@ -7,6 +7,7 @@ var router = express.Router();
 console.log('Inside list of Applicants');
 
 var Applicant = require('../../models/applicant');
+var Influencer = require('../../models/influencer');
 
 /*
 var Applicant = require('./Backend/models/applicant');
@@ -50,7 +51,7 @@ router.post('/', function(req, res) {
 			console.log(msg);
 		}
 		res.json(applicant);
-	}, "lala land");
+	});
 });
 
 
@@ -86,7 +87,23 @@ router.put('/:_username', function(req, res) {
 			throw err;
 		}
 		res.json(applicant);
-	}, "lala land");
+	});
+});
+
+
+// Moving a particular applicant to influencer table based on the username
+router.get('/addtoinfluencer/:_username', function(req, res) {
+	Applicant.getApplicantByName(req.params._username, function(err, applicant) {
+		if(err){
+			throw err;
+		}
+		res.json(applicant);
+		Influencer.addApplicantToInfluencer(applicant, function(err, res) {
+			if(err){
+				throw err;
+			}
+		})
+	});
 });
 
 ///////////////////////////////////////////////////////

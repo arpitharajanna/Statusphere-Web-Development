@@ -30,10 +30,11 @@ router.post('/', function(req, res) {
 			var msg = 'Did not add to influencer to db. Possible duplicate/invalid schema';
 			res.status(404).send({ error: msg});
 			console.log(msg);
+			console.log(err);
 			//throw err;
 		}
 		res.json(influencer);
-	}, "lala land");
+	});
 });
 
 
@@ -78,7 +79,7 @@ router.put('/:_username', function(req, res) {
 			throw err;
 		}
 		res.json(influencer);
-	}, "lala land");
+	});
 });
 
 // Updating a single Influencers password by filtering with emailid

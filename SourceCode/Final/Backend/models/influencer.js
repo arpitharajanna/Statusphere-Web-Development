@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var jwt = require('jsonwebtoken');
 
 var passreset = false; // To determine whether password is to be reset
 
@@ -25,7 +26,7 @@ var influencerSchema = new mongoose.Schema({
 		required: true
 	},
 	birthday:{
-		type: Number,
+		type: Date,
 		required: true
 	},
 	gender:{
@@ -84,8 +85,7 @@ var Influencer = module.exports = mongoose.model('influencer', influencerSchema)
 
 // Function to add influencers
 // Have to handle schema enforcement
-module.exports.addInfluencer = function(influencer, callback, random){
-	console.log(random);
+module.exports.addInfluencer = function(influencer, callback){
 	Influencer.create(influencer, callback);
 }
 
@@ -130,4 +130,36 @@ module.exports.updatePassword = function(emailid, influencer, options, callback)
 		influencer_password: influencer.influencer_password
 	}
 	Influencer.findOneAndUpdate(query, update, options, callback);
+}
+
+// Function to add an Applicant into the Influencer table
+// Had to handle all cases where a null is encountered because mongoDB is picky
+// Date accepted will automatically default to Date.now
+module.exports.addApplicantToInfluencer = function(applicant, callback){
+	var influencer = {
+		// check if value exists, else put a string which says empty
+		influencer_username : (applicant.username != null) ? applicant.username : "empty",
+		influencer_password : (applicant.password!= null) ? applicant.password : "empty",
+		applicant_id: Math.floor(Math.random()*1000000),
+		firstname: (applicant.firstName != null) ? applicant.firstName : "empty",
+		lastname: (applicant.lastName != null) ? applicant.lastName : "empty",
+		birthday: (applicant.dob != null) ? applicant.dob : 01011900,
+		gender: (applicant.gender != null) ? applicant.gender : "empty",
+		followers: (applicant.followers != null) ? applicant.followers : 0,
+		address: (applicant.address_line1 != null) ? applicant.address_line1 : "empty",
+		emailid: (applicant.email != null) ? applicant.email : "empty",
+		image_url: (applicant.image_url != null) ? applicant.image_url : "empty",
+		instagram_url: (applicant.instagram_url != null) ? applicant.instagram_url : "empty",
+		twitter_url: (applicant.twitter_url != null) ? applicant.twitter_url : "empty",
+		facebook_url: (applicant.facebook_url != null) ? applicant.facebook_url : "empty",
+		categories: (applicant.categories.length > 0) ? applicant.categories : ["empty"],
+		gamification_points: 0,
+		passreset: false
+	}
+
+	console.log(influencer);
+
+
+
+	Influencer.create(influencer, callback);
 }
