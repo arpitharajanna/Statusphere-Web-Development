@@ -2,8 +2,9 @@ var passport= require('passport')
 var mongoose = require('mongoose')
 var applicant = require('../models/applicant');
 const username = require('username');
+var admin= require('../models/admin');
 var influencer = require('../models/influencer');
-var admin = require('../models/admin);
+
 
 
 var sendJSONresponse = function(res, status, content) {
