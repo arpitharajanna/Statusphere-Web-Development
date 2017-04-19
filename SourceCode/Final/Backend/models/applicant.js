@@ -3,27 +3,23 @@ var jwt = require('jsonwebtoken');
 //var bcrypt = require('bcrypt');
 
 
-
-
 var mongoose = require('mongoose');
 
 var applicantSchema = new mongoose.Schema({
-username:{
-	type:String,
-	unique :true,
-	required : true
-},
-firstName: {
+  username:{
+    type:String,
+  	unique :true,
+  	required : true
+  },
+  firstName: {
     type: String
   },
-
-password:{
-	type: String,
-  required: true
+  password:{
+  	type: String,
+    required: true
   },
-
-lastName: {
-    type: String
+  lastName: {
+      type: String
   },
   dob: {
     type: Date
@@ -41,7 +37,6 @@ lastName: {
   },
   image_url: {
     type: String,
-   
   },
   instagram_url: {
     type: String
@@ -63,40 +58,35 @@ lastName: {
   },
   address_line2:{
     type : String
-    
   },
   country:{
   	type : String
   },
- snapchat_url:{
-	 type:String
- },
-website:{
-	type:String
-},
+  snapchat_url:{
+    type:String
+  },
+  website:{
+  	type:String
+  },
   state:{
     type : String
-
   },
- city:{
-  type : String
- },
- zip_Code:{
-  type : String },
-  date_applied: {
-    type: Date,
-    default: Date.now
+  city:{
+    type : String
+  },
+  zip_Code:{
+    type : String },
+    date_applied: {
+      type: Date,
+      default: Date.now
   },
   mob:{
     type: String
   },
-hash: String,
-salt: String
+  hash: String,
+  salt: String
 
 });
-
-
-
 
 // applicantSchema.methods.setPassword = function(password){
 //   this.salt = crypto.randomBytes(16).toString('hex');
@@ -137,8 +127,7 @@ var Applicant = module.exports = mongoose.model('applicant', applicantSchema);
 
 // Function to add applicants
 // Have to handle schema enforcement
-module.exports.addApplicant = function(applicant, callback, random){
-	console.log(random);
+module.exports.addApplicant = function(applicant, callback){
 	Applicant.create(applicant, callback);
 }
 
