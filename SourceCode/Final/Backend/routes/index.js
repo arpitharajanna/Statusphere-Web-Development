@@ -32,7 +32,7 @@ router.post('/login', ctrlAuth.login);
 router.post('/product',create_Product.Create_Product);
 router.post('/package',add_Package.AddPackage);
 router.post('/editProduct',edit_Product.Edit_Product);
-router.get('/todolist',todolist.getProductsofuserinterest);
+//router.get('/todolist',todolist.getProductsofuserinterest);
 
 
 // we can use this for sending notification message and storing data into databse. 
