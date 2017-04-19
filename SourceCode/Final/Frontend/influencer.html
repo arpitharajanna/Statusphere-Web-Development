@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/Style1.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="js/influencer.js"></script>
+    <!--<script src="js/adminNotification.js"></script>-->
     <!-- Optional theme -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="StyleSheet2.css" />
@@ -117,7 +118,7 @@
                     <td>{{x.birthday}}</td>
                     <td>{{x.gender}}</td>
                     <td>{{x.date_accepted}}</td>
-                    <td><button class="btn btn-default" data-toggle="modal" data-target="#divSendMessage" data-id={{x.EmailID}}>Send</button></td>
+                    <td><button class="btn btn-default" data-toggle="modal" data-target="#divSendMessage" data-id="{{x.EmailID}}">Send</button></td>
                     <td><a href="influencer_info.html">View Profile</a></td>
                 </tr>
                </table>
@@ -160,7 +161,6 @@
                 </div>
             </div>
         </div> <!-- End of Notification DIV-->
-    </form>
     <div id="bottomdiv">
         <div class="navbar navbar-inverse navbar-bottom">
             <div class="container">
