@@ -11,7 +11,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
-    
+
 </head>
 <body ng-app="code_app" ng-controller="code_ctrl">
     <nav class="navbar navbar-default">
@@ -33,21 +33,21 @@
         </div>
     </nav>
 
-   
-   
-                <div class="alert alert-success fade" id="code-alert">
-                    <button type="button" class="close" data-dismiss="alert">x</button>
-                    <!--<strong>Success! </strong>-->
-                    You will receive security code within 2 minutes..
-                </div>
-           
-            
-       
+
+
+    <div class="alert alert-success fade" id="code-alert">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <!--<strong>Success! </strong>-->
+        You will receive security code within 2 minutes..
+    </div>
+
+
+
     <div class="container">
         <div class="row">
-            
-        
-            
+
+
+
             <div id="security_code" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
                 <div class="panel panel-default">
@@ -60,18 +60,18 @@
                         <center><label>We have sent you a code to your email and mobile number. Your code is 6 numbers long. Please enter the code below.</label></center>
 
                         <form name="form" class="class=" form-horizontal" novalidate="novalidate" role="form" ng-submit="form.$valid && check()">
-                            
+
                             <div class="form-group text-center">
                                 <center>
-                                    <input id="code" placeholder="######" name="code" class="form-control" type="number" ng-model="code" required="required" ng-maxlength="6" ng-minlength="6" style="width:50%;" />
+                                    <input id="code" placeholder="######" name="code" class="form-control" type="number" ng-model="code" required="required" ng-maxlength="6" style="width:50%;" />
                                 </center>
                                 <span class="help-block" ng-show="form.code.$error.required && form.$submitted" style="color:red;"> Please enter the code </span>
-                                <span style="color:red;" class="help-block" ng-show="!form.code.$pristine && form.code.$error.minlength"> Code too short</span>
+
                                 <span style="color:red;" class="help-block" ng-show="!form.code.$pristine && form.code.$error.maxlength"> Code too long</span>
                                 <label>We sent your code to:</label>
                                 <br />
                                 <span>{{email}}</span>
-                                <span>{{phno}}</span>
+
                                 <br />
                             </div>
                             <div class="text-center">
@@ -82,7 +82,7 @@
                     </div>
                     <div class="panel-footer">
                         <div>
-                            <a id="codelink" href="javascript:;">didn't get a code ?</a>
+                            <a id="codelink" href="javascript:;" ng-click="code_notobtained()">didn't get a code ?</a>
 
                             <div class="text-center">
                                 <a class="btn btn-default text-center" href="Startup.html">Cancel</a>
