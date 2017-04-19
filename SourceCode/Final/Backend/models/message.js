@@ -3,25 +3,13 @@ var mongoose = require('mongoose');
 var messageSchema = new mongoose.Schema({
 	influencer_username:{
 		type:String,
-		required : true
-	},
-	applicant_id:{
-		type: Number,
-		required: true
+		default : 'None'
 	},
 	subject:{
 		type: String,
 		required: true
 	},
 	message:{
-		type: String,
-		required: true
-	},
-	firstname:{
-	    type: String,
-	    required: true
-	},
-	lastname:{
 		type: String,
 		required: true
 	},
