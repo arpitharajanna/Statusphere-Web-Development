@@ -18,6 +18,10 @@ var ctrlAuth = require('../controllers/authentication');
 var create_Product=require('../controllers/CreateProduct');
 var add_Package=require('../controllers/Add_Package');
 var edit_Product=require('../controllers/Edit_Product');
+var ctrlNotification = require('../controllers/notification');
+var ctrlPackages     = require('../routes/api/packagelist'); // New controller script required for package
+
+
 // profile
 router.post('/profile', ctrlProfile.profile);
 router.post('/editProfile', ctrlProfile.profileEdit);
@@ -28,6 +32,14 @@ router.post('/login', ctrlAuth.login);
 router.post('/product',create_Product.Create_Product);
 router.post('/package',add_Package.AddPackage);
 router.post('/editProduct',edit_Product.Edit_Product);
+
+// we can use this for sending notification message and storing data into databse. 
+router.post('/sendNotification', ctrlNotification.sendNotification);
+
+// Get notification mesage from database
+//router.get('/getNotificationMessage', ctrlNotification.getNotification);
+//router.get('/', ctrlPackages.getPackages);
+
 
 
 // app.use(function (err, req, res, next) {
