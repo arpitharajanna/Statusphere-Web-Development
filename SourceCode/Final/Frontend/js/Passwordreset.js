@@ -1,6 +1,6 @@
 ﻿var app = angular.module("reset_pwd_app", []);
-app.controller("reset_pwd_ctrl", function ($scope) {
-
+app.controller("reset_pwd_ctrl", function ($scope, $http) {
+    $scope.email = localStorage.getItem("email");
     $scope.pass_reset = {
 
 
@@ -8,20 +8,22 @@ app.controller("reset_pwd_ctrl", function ($scope) {
             if ($scope.pass_reset.$invalid || $scope.pass_reset.pass != $scope.pass_reset.pass1)
                 return false;
             else {
-                /*  var data = $.param({
-                      applicant: JSON.stringify({
-                          username: $scope.name,
-                          email: $scope.email,
-                          password: $scope.password,
-                      })
-                  }); */
-                alert("sucess");
-                /* $http.post("/", data).success(function (response) {
-                     console.log('Data posted successfully');
-                     alert(response);  
-                     
-                 }); */
-                window.location.href = "Startup.html";
+                var data = JSON.stringify({
+
+                    password: $scope.pass_reset.pass
+
+                })
+                $http.put("/api/influencerlist/reset/" + $scope.email, data).then(function (response) {
+
+                    if (response.data.passreset == true) {
+                        alert("password updated successfully");
+                        window.location.href = "Startup.html";
+                    }
+                    else {
+                        alert("password not updated successfully");
+                    }
+                })
+
             }
         }
     };
