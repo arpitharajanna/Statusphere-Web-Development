@@ -131,7 +131,7 @@ module.exports.login = function(req,res){
 }
 else{
 	return res.status(200).json({
-		flag:3
+		flag:3,
 		admin:Admin
 	});
 	}
