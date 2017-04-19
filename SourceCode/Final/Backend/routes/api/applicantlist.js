@@ -102,7 +102,24 @@ router.get('/addtoinfluencer/:_username', function(req, res) {
 			if(err){
 				throw err;
 			}
+			else{
+				console.log("Added applicant: " + req.params._username + " to Influencer DB");
+				// Delete Applicant
+				Applicant.deleteApplicantByName(req.params._username, function(err, res) {
+					if (err){
+						var msg = 'Not able to delete applicant:' + req.params._username +' to db.';
+						res.status(404).send({ error: msg});
+						console.log(msg);
+					}
+					else
+					{
+						console.log("Deleted " + req.params._username + "from Applicant DB"); // For testing only.
+					}
+				})
+			}
+
 		})
+
 	});
 });
 
