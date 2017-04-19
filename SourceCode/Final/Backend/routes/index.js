@@ -20,6 +20,10 @@ var add_Package=require('../controllers/Add_Package');
 var edit_Product=require('../controllers/Edit_Product');
 var ctrlNotification = require('../controllers/notification');
 var ctrlPackages     = require('../routes/api/packagelist'); // New controller script required for package
+var Influencer_Profile= require('../controllers/InfluencerProfile');
+var getAllProducts=require('../controllers/getAllProducts');//controller for getting products
+var todolist=require('../controllers/todolist');
+
 
 
 // profile
@@ -32,7 +36,13 @@ router.post('/login', ctrlAuth.login);
 router.post('/product',create_Product.Create_Product);
 router.post('/package',add_Package.AddPackage);
 router.post('/editProduct',edit_Product.Edit_Product);
-//router.get('/todolist',todolist.getProductsofuserinterest);
+router.get('/todolist',todolist.getProductsofuserinterest);
+
+router.post('/todolist',todolist.getProductsofuserinterest);
+router.post('/influencer_profile',Influencer_Profile.influencer_profile);
+router.post('/editinfluencer_profile',Influencer_Profile.profileEdit);
+router.get('/getAllProducts',getAllProducts.getAllProducts);//
+
 
 
 // we can use this for sending notification message and storing data into databse. 

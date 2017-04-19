@@ -1,27 +1,60 @@
 ﻿var app = angular.module("code_app", []);
-app.controller("code_ctrl", function ($scope, $window) {
-    $scope.email = $window.sessionStorage.getItem("email");
-    $scope.check = function () {
-        alert("hi");
-        if ($scope.code.$invalid)
-            return false;
-        else {
-            /*  var data = $.param({
-                  applicant: JSON.stringify({
-                      username: $scope.name,
-                      email: $scope.email,
-                      password: $scope.password,
+app.controller("code_ctrl", function ($scope, $http) {
+    $scope.email = localStorage.getItem("email");
 
-                  })
-              }); */
-            alert("sucess");
-            /* $http.post("/", data).success(function (response) {
-                 console.log('Data posted successfully');
-                 alert(response);  
-                 
-             }); */
-            window.location.href = "PaswordReset.html";
-        }
+    $scope.check = function () {
+
+
+
+        var data = JSON.stringify({
+
+            emailid: $scope.email,
+            randomcode: $scope.code
+        })
+
+
+        $http.post("/api/verificationlist/code/" + $scope.email, data).then(function (response) {
+            alert(response.data.match);
+
+            if (response.data.match == true) {
+                window.location.href = "PaswordReset.html";
+            }
+            else {
+                alert("You entered wrong code. Please enter correct code.");
+            }
+        })
+
+
+    }
+    $scope.code_notobtained = function () {
+
+
+        var data = JSON.stringify({
+
+            emailid: $scope.email
+
+        })
+
+
+
+        $http.post("/api/verificationlist", data).then(function (response) {
+
+            console.log('Data posted successfully');
+
+            if (response.data.bool == 1) {
+                window.location.href = "Code.html";
+            }
+
+            else {
+
+
+                alert("your email is invalid. Please enter correct email id");
+
+            }
+        })
+
+
+
     }
     $("#code-alert").hide();
     $("#codelink").click(function showAlert() {
