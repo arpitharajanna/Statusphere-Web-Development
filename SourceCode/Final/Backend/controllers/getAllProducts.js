@@ -3,7 +3,7 @@ var package = require('../models/package');
 var Product = require('../models/product');
 
 
-module.exports.getALlProducts = function(req,res){
+module.exports.getAllProducts = function(req,res){
 
 
 Product.find({},function(err,Products){
