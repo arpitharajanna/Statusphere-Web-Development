@@ -18,8 +18,7 @@ var influencerSchema = new mongoose.Schema({
 		required: true
 	},
 	firstname:{
-	    type: String,
-	    required: true
+	    type: String
 	},
 	lastname:{
 		type: String
@@ -42,16 +41,14 @@ var influencerSchema = new mongoose.Schema({
 		required: true
 	},
 	image_url:{
-		type: String,
-		required: true
+		type: String
 	},
 	instagram_url:{
 		type: String,
 		required: true
 	},
 	twitter_url:{
-		type: String,
-		required: true
+		type: String
 	},
 	facebook_url:{
 		type:String
