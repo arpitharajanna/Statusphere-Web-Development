@@ -38,8 +38,7 @@ app.controller('myCtrl', function ($scope,$http) {
 
         // Remove history content if present
         $("#divSentMagTable").html("");
-        //alert("hi notification");
-        //alert($scope.frmSendMessage.txtEmailID);
+        
         // Get Email id
         emailID = $scope.frmSendMessage.emailID;
         // Get Subject of Notification Message
@@ -55,30 +54,25 @@ app.controller('myCtrl', function ($scope,$http) {
                     emailid: $scope.frmSendMessage.emailID,
                     subject: $scope.frmSendMessage.emailSubject,
                     message: $scope.frmSendMessage.notificationMsg
-                }
+                };
+        
+
+        //alert("DATA:" + data.emailid + data.subject + data.message);
         console.log(data.emailid);
         console.log(data.subject);
         console.log(data.message);
 
-        $http.post("/sendNotification", data).then(function (res) {
-                                                     console.log('Data posted successfully');
-                                                     alert(res.data.message);
-                                                      $scope.frmSendMessage.message = res.data.message;
-                                                     //$cookies.put('username', data.username);
-                                                     localStorage.setItem("emailid", data.emailid);
-                                                     window.location.href = "http://localhost:3000/Statustodo.html";
-                                                 },
-                                                 function(error) {
-                                               // Handle error here
-                                               console.log(error.data);
-                                               $scope.errormessage=error.data.message;
-                                               alert(error.data.message + "Error Message");
-                                                    }
+        /*$http.post("/sendNotification", data).then(function(res,status){
+                $scope.status = status;
+                alert("Status Code" + status);
 
+        });*/
 
-                                                 );
+        $http.post("api/messagelist", data).then(function (response, status) {
+            $scope.status = status;
+            alert("Status Code" + status);
 
-        // Call Nishant's Function to process data
+        });
     }
 
     // Show Notification Message History
@@ -95,15 +89,33 @@ app.controller('myCtrl', function ($scope,$http) {
                     </thead>\
                     <tbody>\
                     ";
-        for (mIndex in notificationMsgObj.messages) {
+
+        // Get Notification Messages
+        $http.get("api/messagelist").then(function (response) {
+                $scope.messages = response.data;
+                var messages = response.data;
+                //alert("MSG" + messages[0].emailid + messages[0].message);
+                for (var mIndex =0; mIndex < messages.length; mIndex++) {
+                    
+                    table += "<tr><td><input type='text' value='" + messages[mIndex].emailid + "' readonly </td>";
+                    table += "<td><textarea  readonly rows='2' cols='50' >" + messages[mIndex].message + "</textarea></td></tr>"
+
+                }  
+                table += "</tbody></table>";
+
+                $(table).appendTo("#divSentMagTable");
+
+            });
+        
+        /*for (mIndex in notificationMsgObj.messages) {
             //alert(notificationMsgObj.messages[mIndex].email);
             table += "<tr><td><input type='text' value='" + notificationMsgObj.messages[mIndex].email + "' readonly </td>";
             table += "<td><textarea  readonly rows='2' cols='50' >" + notificationMsgObj.messages[mIndex].message + "</textarea></td></tr>"
 
         }
-        table += "</tbody></table>";
+        //table += "</tbody></table>";
 
-        $(table).appendTo("#divSentMagTable");
+        //$(table).appendTo("#divSentMagTable");*/
     } 
 });
 

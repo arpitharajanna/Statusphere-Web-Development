@@ -59,9 +59,13 @@ router.post('/', function(req, res) {
 	var message = req.body;
 	Message.addMessage(message, function(err, message) {
 		if(err){
-			throw err;
+			//throw err;
+			// Instead of throwing error , sending the error message
+			res.status(404).send({error: err}); 
 		}
 		res.json(message);
+		// Sending the status code on success
+		res.status(200).send(); 
 		SendMail(message);
 	});
 });
