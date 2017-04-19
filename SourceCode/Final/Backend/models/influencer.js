@@ -22,24 +22,19 @@ var influencerSchema = new mongoose.Schema({
 	    required: true
 	},
 	lastname:{
-		type: String,
-		required: true
+		type: String
 	},
 	birthday:{
-		type: Date,
-		required: true
+		type: Date
 	},
 	gender:{
-		type: String,
-		required: true
+		type: String
 	},
 	followers:{
-		type: Number,
-		required: true
+		type: Number
 	},
 	address:{
-		type: String,
-		required: true
+		type: String
 	},
 	emailid:{
 		type: String,
@@ -59,20 +54,17 @@ var influencerSchema = new mongoose.Schema({
 		required: true
 	},
 	facebook_url:{
-		type:String,
-		required: true
+		type:String
 	},
 	categories:{
-		type: [String],
-		required: true
+		type: [String]
 	},
 	date_accepted:{
 		type: Date,
 		default: Date.now
 	},
 	gamification_points:{
-		type: Number,
-		required: true
+		type: Number
 	},
 	passreset:{
 		type: Number,
