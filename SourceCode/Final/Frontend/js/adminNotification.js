@@ -29,23 +29,18 @@ app.controller('myCtrl', function ($scope,$http) {
                     subject: $scope.frmSendMessage.emailSubject,
                     message: $scope.frmSendMessage.notificationMsg
                 };
-        
-
-        //alert("DATA:" + data.emailid + data.subject + data.message);
-        console.log(data.emailid);
+        /*console.log(data.emailid);
         console.log(data.subject);
-        console.log(data.message);
-
-        /*$http.post("/sendNotification", data).then(function(res,status){
-                $scope.status = status;
-                alert("Status Code" + status);
-
-        });*/
+        console.log(data.message);*/
 
         $http.post("api/messagelist", data).then(function (response, status) {
             $scope.status = status;
-            alert("Status Code" + status);
+            //alert("Status Code" + status);
             $("#divSendMessage").modal('toggle');
+
+            // Call confirm dialog message on success of the status code
+            var confirm_message="Message Sent sucessfully!!";
+            confirmDialog(confirm_message, function () {})
 
         });
     }
@@ -92,5 +87,25 @@ app.controller('myCtrl', function ($scope,$http) {
 
         //$(table).appendTo("#divSentMagTable");*/
     } 
+
+
+    /* code added by leena for popup */
+    // var confirm_message = "Do you want to add this product? If you click on 'OK' button, the product will be added to  your to-do list";
+    function confirmDialog(message, onConfirm) {
+        // $("addbox").disabled = true;
+        var fClose = function () {
+
+            modal.modal("hide");
+        };
+        var modal = $("#confirmPopup");
+        modal.modal("show");
+        $("#confirmMessage").empty().append(message);
+        $("#confirmOk").one('click', onConfirm);
+        $("#confirmOk").one('click', fClose);
+       // $("#confirmCancel").one("click", fClose);
+
+        
+    }
+
 });
 

@@ -80,8 +80,8 @@
         <div class="container" name="divNotification">
 
             <div name="divMsgButton" id="divMsgButton">
-                <button class="btn btn-default" data-toggle="modal" data-target="#divSendMessage">Send Message</button>
-                <button class="btn btn-default" ng-click = "getNotificationMessage()"> Messages Sent</button> 
+                <button class="btn btn-info btn-Lg" data-toggle="modal" data-target="#divSendMessage">Send Message</button>
+                <button class="btn btn-info btn-Lg" ng-click = "getNotificationMessage()"> Messages Sent</button> 
             </div>
             <br>
             <div name="divSentMagTable" id="divSentMagTable">
@@ -121,8 +121,26 @@
                         </form>
                     </div>
                 </div>
+            </div> <!-- End of Notification DIV-->
+        </div> <!-- End of Container -->
+
+        <!-- Dialog for popup window to show the success message -->
+        <div class="modal fade" tabindex="-1" aria-hidden="true" id="confirmPopup" style="display: none; z-index: 1050;">
+        <div class="modal-dialog" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:lightblue">
+                    <h3 class="modal-title"> Great!</h3>
+                </div>
+                <div class="modal-body" id="confirmMessage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirmOk">Ok</button>
+                    <!--  <button type="button" class="btn btn-warning" id="confirmCancel">Cancel</button>-->
+                </div>
             </div>
-        </div> <!-- End of Notification DIV-->
+        </div>
+        </div>
+
         <!-- Footer Section -->
         <div id="bottomdiv">
             <div class="navbar navbar-inverse navbar-static-bottom">
