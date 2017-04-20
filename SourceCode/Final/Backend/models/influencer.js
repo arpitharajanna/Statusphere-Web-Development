@@ -34,6 +34,9 @@ var influencerSchema = new mongoose.Schema({
 	followers:{
 		type: Number
 	},
+	zip_Code:{
+		type:String
+	},
 	address:{
 		type: String
 	},
