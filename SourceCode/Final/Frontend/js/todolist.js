@@ -124,8 +124,8 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
     $scope.editprofile = function(){
        // alert("hi");
       localStorage.setItem("editProfileFlag", 1);
-      localStorage.setItem("first_name", $scope.userinfo.firstName);
-      localStorage.setItem("last_name", $scope.userinfo.lastName);
+      localStorage.setItem("first_name", $scope.userinfo.firstname);
+      localStorage.setItem("last_name", $scope.userinfo.lastname);
       localStorage.setItem("dob", $scope.userinfo.dob);
       localStorage.setItem("gender", $scope.userinfo.gender);
       localStorage.setItem("instagram_url", $scope.userinfo.instagram_url);
@@ -161,7 +161,7 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
       
       //localStorage.setItem("youtube_channel", $scope.userinfo.youtube_channel);
       //localStorage.setItem("website", $scope.userinfo.website);
-      localStorage.setItem("address_line1", $scope.userinfo.address_line1);
+      localStorage.setItem("address_line1", $scope.userinfo.address);
        if($scope.userinfo.address_line2address_line2==null)
       {
         //alert("d");

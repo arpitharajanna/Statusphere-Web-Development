@@ -9,6 +9,45 @@ console.log('Inside list of Influencers');
 var Influencer = require('../../models/influencer');
 
 ///////////////////////////////////////////////////////
+// Code for sending email to applicant that they have 
+// been accepted
+// Move to separate js file
+
+'use strict';
+const nodemailer = require('nodemailer');
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'random12394123@gmail.com',
+        pass: '123456789094'
+    }
+});
+
+let mailOptions = {};
+
+// Put following code under an if statement which checks the due date of a package 
+function SendMail(object){
+
+	console.log("Reached sendMail");
+
+	    mailOptions = {
+	    from: '"Statusphere Team" <random12394123@gmail.com>', // sender address
+	    to: object.emailid, // list of receivers
+	    subject: "Welcome to Statusphere",
+	    text: " Hello! We are glad to welcome you to the Statusphere team",
+	    html: object.message
+	};
+
+	transporter.sendMail(mailOptions, (error, info) => {
+	    if (error) {
+	        return console.log(error);
+	    }
+	    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
+}
+
+
+///////////////////////////////////////////////////////
 
 // Getting list of all influencers
 router.get('/', function(req, res) {
@@ -33,6 +72,7 @@ router.post('/', function(req, res) {
 			console.log(err);
 			//throw err;
 		}
+		SendMail(influencer);
 		res.json(influencer);
 	});
 });
