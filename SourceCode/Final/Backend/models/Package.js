@@ -6,9 +6,7 @@ var Schema = mongoose.Schema,
 var packageSchema = new mongoose.Schema({
 	//please don't make any changes 
 	product_Id:{
-		type: ObjectId,
-		unique :true,
-		required : true
+		type: ObjectId
 	},
 	
 	username:{
