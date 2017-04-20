@@ -45,6 +45,7 @@ app.controller('myCtrl', function ($scope,$http) {
         $http.post("api/messagelist", data).then(function (response, status) {
             $scope.status = status;
             alert("Status Code" + status);
+            $("#divSendMessage").modal('toggle');
 
         });
     }

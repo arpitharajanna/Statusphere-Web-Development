@@ -35,6 +35,18 @@
             background-color: #dddddd;
         }
     </style>
+    <!-- <style type="text/css">
+        thead {color:green;}
+        tbody {color:black;}
+        tfoot {color:red;}
+
+        table, thead, td {
+            border: 1px solid #66ffff;
+            align-content: center;
+        }
+        textarea { border: 0px }
+        input { border: 0px }
+    </style>-->
 </head>
 <body ng-app="myapp" ng-controller="myCtrl">
     <nav class="navbar navbar-default">
@@ -116,7 +128,7 @@
                         <td>{{product.quantity}}</td>
                         <td>{{product.date_craeted}}</td>
                         <td>{{product.description}}</td>
-                        <td><a href="packageinfo.html">View Profile</a></td>
+                        <td><button class="btn btn-info btn-sm" id="btnProductInfo" ng-click="viewProduct(product.product_Name)" >INFO</button></td>
                           
                     </tr>
                    
@@ -125,27 +137,47 @@
         </div>
         </div>
 
+    <!-- Modal View of Product -->
+        <div class="modal" id="divViewProduct" role="dialog">
+            <div class="modal-dialog send-mssg-wrp">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <div class="modal-title">Product Information</div>
+                    </div>
+                        
+                    <div class="modal-body" >
+                        <div name="divProductInfo" id="divProductInfo">
+
+                        </div>     
+                    </div> <!-- Modal Body-->
+                    <div class="modal-footer">
+                        <button class="btn btn-info btn-sm btn-close" data-dismiss="modal">CANCEL</button>
+                    </div>
+                        
+                </div>
+            </div>
+        </div> <!-- END of Product View Information-->
 
     <!-- Modal View of Create Product-->
     <!-- Modal View of Message -->
-           <div class="modal" id="divCreateProduct" data-backdrop="static" data-keyboard="false">
-                <div class="modal-dialog send-mssg-wrp">
-                    <div class="modal-content">
-                        <div class="modal-header bg-primary">
-                            <button class="close" data-dismiss="modal">&times</button>
-                            <div class="modal-title">Create Product</div>
-                        </div>
+        <div class="modal" id="divCreateProduct" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog send-mssg-wrp">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <div class="modal-title">Create Product</div>
+                    </div>
                         
-                        <div class="modal-body">
+                    <div class="modal-body">
                             
                               
-                        </div> <!-- Modal Body-->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" id="btnOK" type="ng-submit" >SEND</button>
-                            <button class="btn btn-defaut btn-close" data-dismiss="modal">CANCEL</button>
-                        </div>
-                        
+                    </div> <!-- Modal Body-->
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="btnOK" type="ng-submit" >SEND</button>
+                        <button class="btn btn-defaut btn-close" data-dismiss="modal">CANCEL</button>
                     </div>
+                        
                 </div>
             </div>
         </div> <!-- End of Notification DIV-->
