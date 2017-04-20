@@ -23,6 +23,9 @@ var influencerSchema = new mongoose.Schema({
 	lastname:{
 		type: String
 	},
+	mob:{
+		type:String
+	},
 	birthday:{
 		type: Date
 	},
