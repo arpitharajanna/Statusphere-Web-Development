@@ -8,7 +8,7 @@ var productSchema = new mongoose.Schema({
 
 productID:{
 	type:String,
-	required:true
+	//required:true
 
 },
 product_Name:{
