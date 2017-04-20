@@ -21,39 +21,36 @@ myapp.controller('productListCtrl', function ($scope,$http) {
    
     $scope.createProduct = function()
     {
-      //alert("craete product !!");
-        product_Name = $scope.frmProductCreate.productname;
-        productID = "ING245";
-        requirements = [  $scope.frmProductCreate.requirements ];
-
-
+        //alert("craete product !!");
+        
         //alert("Email:" + emailID + "\nSUB:" + emailSub + "\nnotificationMsg:" + notificationMsg);
   
-        var categories = [ 'fashion', 'foods'];
-        /*if ( $scope.frmProductCreate.fashion == true)
+        var categories = [ ];
+        //alert("Fashion:" + $scope.frmProductCreate.fashion);
+        if ( $scope.frmProductCreate.fashion == true)
         {
-          categories.push(fashion);
+          categories.push('fashion');
         }
         if ($scope.frmProductCreate.food == true)
         {
-          categories.push(food);
+          categories.push('food');
         }
         if ( $scope.frmProductCreate.sports == true)
         {
-          categories.push(sports);
+          categories.push('sports');
         }
         if ($scope.frmProductCreate.gadgets == true)
         {
-          categories.push(gadgets);
+          categories.push('gadgets');
         }
         if ( $scope.frmProductCreate.lifestyle == true)
         {
-          categories.push(lifestyle);
+          categories.push('lifestyle');
         }
         if ($scope.frmProductCreate.makeup == true)
         {
-          categories.push(makeup);
-        }*/
+          categories.push('makeup');
+        }
         
         categories.push(frmProductCreate.fashion)
         // Post the data to the server
@@ -69,7 +66,8 @@ myapp.controller('productListCtrl', function ($scope,$http) {
                     brand_Url: $scope.frmProductCreate.brandURL ,
                     video_Link: $scope.frmProductCreate.videolink, 
                     brand_Instagram: $scope.frmProductCreate.brand_Instagram, 
-                    points_required: $scope.frmProductCreate.points_required
+                    points_required: $scope.frmProductCreate.points_required,
+                    date_craeted: Date()
 
                 };
         /*console.log(data.emailid);
@@ -79,14 +77,16 @@ myapp.controller('productListCtrl', function ($scope,$http) {
 
         $http.post("api/productlist", data).then(function (response, status) {
             $scope.status = status;
+            
             //alert("Status Code" + status);
             // Call confirm dialog message on success of the status code
             var confirm_message="Product Stored sucessfully!!";
             confirmDialog(confirm_message, function () {})
 
-            $("#divCreateProduct").modal('toggle');
+            //$("#divCreateProduct").modal('toggle');
 
         });
+
 
 
     }
@@ -94,7 +94,7 @@ myapp.controller('productListCtrl', function ($scope,$http) {
     // Dislay all the information of a product
     $scope.viewProduct = function( productName)
     {
-      alert("View Product:" + productName);
+      //alert("View Product:" + productName);
       $("#divProductInfo").html("");
       var table = "<table name='tblSentMessage' styel='border:blue'><tbody>";
 
@@ -112,7 +112,7 @@ myapp.controller('productListCtrl', function ($scope,$http) {
           table += "<tr><td> Video Link </td><td><input type='text' value='" + productInfo['video_Link'] + "' readonly </td></tr>";
           table += "<tr><td> Instragram  </td><td><input type='text' value='" + productInfo['brand_Instagram'] + "' readonly </td></tr>";
           table += "<tr><td> Required Points  </td><td><input type='text' value='" + productInfo['points_required'] + "' readonly </td></tr>";
-          table += "<tr><td> Date Created  </td><td><input type='text' value='" + productInfo['date_created'] + "' readonly </td></tr>";       
+          table += "<tr><td> Date Created  </td><td><input type='text' value='" + productInfo['date_craeted'] + "' readonly </td></tr>";       
           table += "</tbody></table>";
 
           $(table).appendTo("#divProductInfo");
