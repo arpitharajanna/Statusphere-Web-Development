@@ -14,8 +14,7 @@ var influencerSchema = new mongoose.Schema({
 		required:true
 	},
 	applicant_id:{
-		type: Number,
-		required: true
+		type: Number
 	},
 	firstname:{
 	    type: String
@@ -45,16 +44,13 @@ var influencerSchema = new mongoose.Schema({
 	city:{
 		type:String},	
 	emailid:{
-		type: String,
-		unique: true,
-		required: true
+		type: String
 	},
 	image_url:{
 		type: String
 	},
 	instagram_url:{
-		type: String,
-		required: true
+		type: String
 	},
 	twitter_url:{
 		type: String
