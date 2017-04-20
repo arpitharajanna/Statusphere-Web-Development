@@ -1,10 +1,10 @@
 var mongoose = require('mongoose')
 var package = require('../models/package'); 
 var Product = require('../models/product');
+var influencer = require('../models/influencer')
 
 
 module.exports.getProductsofuserinterest = function(req,res){
-
 
 influencer.findOne({ influencer_username: req.body.username }, function(err,Influencer) {
     if (err){
@@ -13,6 +13,7 @@ influencer.findOne({ influencer_username: req.body.username }, function(err,Infl
    message: 'There is no influencer'
    });}
       else{
+
 Product.find({categories:Influencer.categories},function(err,Products){
 if(err){
 	
@@ -22,7 +23,7 @@ if(err){
 else{
 	res.status(200);
 	res.json({
-		"message":Products
+		"getProductsofuserinterest":Products
 	});
 }
 }
@@ -32,4 +33,5 @@ else{
 }
 
 );
+
 }
