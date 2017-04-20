@@ -54,49 +54,10 @@ var packageListObj = [
                     }
     ];
 var app = angular.module('myapp', []);
-app.controller('myCtrl', function ($scope) {
-
-    $scope.names = packageListObj;
+app.controller('myCtrl', function ($scope,$http) {
+    $http.get('http://localhost:3000/api/packagelist').then(function(response) {
+            $scope.applicants = response.data; // To be UPdated when there is any data into the database, and all the required fields matches.
+        });
+    //$scope.names = packageListObj;
 });
 
-
-
-
-
-
-/*{function getPackageList() {
-    // Remove Existing Content from DIV
-    $("#divPackageList").html("");
-
-    var table = "<table name='tblInfluencerList' styel='border:blue'><thead> \
-                  <tr>\
-                    <td align='center'><b>First Name</b></td>\
-                    <td align='center'><b>Last Name</b></td>\
-                    <td align='center'><b>Quantity Accepted</b></td>\
-                    <td align='center'><b>Quantity Available</b></td>\
-                    <td align='center'><b>Created Date</b></td>\
-                    <td align='center'><b>Due Date</b></td>\
-                    <td align='center'><b>Package Status</b></td>\
-                    <td align='center'><b>Package Info</b></td>\
-                  </tr>\
-                </thead>\
-                <tbody>\
-                ";
-    for (mIndex in influencerListObj.information) {
-        //alert(notificationMsgObj.messages[mIndex].email);
-        table += "<tr><td><input type='text' align='center' value='" + influencerListObj.information[mIndex].FirstName + "' readonly </td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].LastName + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].QuantityAccepted + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].QuantityAvailable + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].CreatedDate + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].DueDate + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].PackageStatus + "' readonly</td>";
-        table += "<td><input  type='text'  align='center' value='" + influencerListObj.information[mIndex].PackageInfo + "' readonly</td>";
-        table += "</tr>";
-
-    }
-    table += "</tbody></table>";
-
-    $(table).appendTo("#divPackageList");
-}
-}*/
