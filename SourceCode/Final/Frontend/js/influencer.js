@@ -66,6 +66,46 @@ app.controller('influencerCtrl', function ($scope,$http) {
         });
     }
 
+    // Dislay all the information of a product
+    $scope.viewInfluencer = function( username)
+    {
+      alert("View Product:" + username);
+      $("#divInfluencerInfo").html("");
+      var table = "<table name='tblSentMessage' styel='border:blue'><tbody>";
+
+      // Get Notification Messages
+      $http.get("api/influencerlist/" + username).then(function (response) {
+          var influencerInfo = response.data;
+          var table = "<table name='tblInfluencerInfo' styel='border:blue'><tbody>" ;       
+          table += "<tr><td> First Name</td><td><input type='text' value='" + influencerInfo['firstname'] + "' readonly ></td></tr>";
+          table += "<tr><td> Last Name </td><td><input type='text' value='" + influencerInfo['lastname'] + "' readonly ></td></tr>";
+          table += "<tr><td> User Name </td><td><input type='text' value='" + influencerInfo['influencer_username'] + "' readonly ></td></tr>";
+          table += "<tr><td> Instagram ID </td><td><input type='text' value='" + influencerInfo['instagram_url']+ "' readonly ></td></tr>";
+          table += "<tr><td> Instagram Followers </td><td><input type='text' value='" + influencerInfo['followers'] + "' readonly ></td></tr>";
+          table += "<tr><td> Twitter ID </td><td><input type='text' value='" + influencerInfo['twitter_url'] + "' readonly ></td></tr>";
+          table += "<tr><td> Facebook ID </td><td><input type='text' value='" + influencerInfo['facebook_url'] + "' readonly ></td></tr>";
+          table += "<tr><td> Mobile  </td><td><input type='text' value='" + influencerInfo['mob'] + "' readonly ></td></tr>";
+          table += "<tr><td> Birthday </td><td><input type='text' value='" + influencerInfo['birthday'] + "' readonly ></td></tr>";
+          table += "<tr><td> Gender  </td><td><input type='text' value='" + influencerInfo['gender'] + "' readonly ></td></tr>";
+          table += "<tr><td> Address  </td><td><input type='text' value='" + influencerInfo['address'] + "' readonly ></td></tr>";
+          table += "<tr><td> Country  </td><td><input type='text' value='" + influencerInfo['country'] + "' readonly ></td></tr>"; 
+          table += "<tr><td> State  </td><td><input type='text' value='" + influencerInfo['state'] + "' readonly ></td></tr>";
+          table += "<tr><td> City  </td><td><input type='text' value='" + influencerInfo['city'] + "' readonly ></td></tr>";
+          table += "<tr><td> zip_Code  </td><td><input type='text' value='" + influencerInfo['zip_Code'] + "' readonly ></td></tr>";
+          table += "<tr><td> Categories  </td><td><input type='text' value='" + influencerInfo['categories'].join() + "' readonly ></td></tr>";
+          table += "<tr><td> Date Accepted  </td><td><input type='text' value='" + influencerInfo['date_accepted'] + "' readonly ></td></tr>"; 
+          //table += "<tr><td> Gamification Points  </td><td><input type='text' value='" + influencerInfo['gamification_points'] + "' readonly ></td></tr>";      
+          table += "</tbody></table>";
+
+          $(table).appendTo("#divInfluencerInfo");
+          console.log(table);
+
+      });
+      $("#divViewInfluencer").modal('toggle');
+
+      
+    }
+
 
     /* Popup Window to show success message */
     function confirmDialog(message, onConfirm) {
