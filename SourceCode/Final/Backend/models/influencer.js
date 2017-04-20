@@ -36,7 +36,7 @@ var influencerSchema = new mongoose.Schema({
 		type: String
 	},
 	country:{
-		type:string},
+		type:String},
 	state:{
 		type:String},
 	city:{
