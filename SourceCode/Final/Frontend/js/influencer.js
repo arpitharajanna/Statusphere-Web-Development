@@ -5,59 +5,83 @@ Description: 1. Used to populate data of all influencers from database
              3. View Profile     
 */
 
-    //  JSON object from DB/API for influencer list
-    influencerListObj = [
-
-      {   
-
-   "Firstname": "meoutside",
-       "Lastname": "poaaeside",
-       "InstagramID": "wqesidegirl",
-       "EmailID" : "abbvsh@gmail.com",
-       "NoInstagramFollowers": 320000,
-       "Age": 23,
-       "Gender": "male",
-       "DateAccepted": "06-01-2017"
-       },
-
-   {
-
-       "Firstname": "outside",
-       "Lastname": "aeside",
-       "InstagramID": "sidegirl",
-       "EmailID": "qwrtwsh@gmail.com",
-       "NoInstagramFollowers": 320,
-       "Age": 23,
-       "Gender": "male",
-       "DateAccepted": "06-01-2017"
-
-   },
-
-   {
-       
-       "Firstname": "side",
-       "Lastname": "aide",
-       "InstagramID": "degirl",
-       "EmailID": "pquwsh@gmail.com",
-       "NoInstagramFollowers": 3200,
-       "Age": 23,
-       "Gender": "female",
-       "DateAccepted": "06-01-2017"
-
-   }
-   
-    ]
-
-
-    var app = angular.module('myapp', []);
-    app.controller('myCtrl', function ($scope,$http) {
+var app = angular.module('influencerApp', []);
+app.controller('influencerCtrl', function ($scope,$http) {
 
     //$scope.names =  influencerListObj;
     
     
-    $http.get('http://localhost:3000/api/influencerlist').then(function(response) {
-            $scope.names = response.data;
+    $http.get('api/influencerlist').then(function(response) {
+            $scope.influencers = response.data;
         });
+
+    $scope.openNotificationModal = function( emailid)
+    {
+        //alert("Open Modal " + emailid);
+        $("#divNotificationEmailID").html("");
+
+        document.getElementById('txtEmailID').value = emailid;
+        //var modalBody = "<input type='text' id='txtEmailID' ng-model='frmSendMessage.emailID' class='form-control' value=\" " + emailid + " \" />";
+
+        //console.log("input: " + modalBody);
+        //$(modalBody).appendTo("#divNotificationEmailID");
+        $("#divSendMessage").modal('toggle');
+
         
+    }
     
+    $scope.sendNotification = function() {
+
+        // Get Email id
+        emailID = $scope.frmSendMessage.emailID;
+        // Get Subject of Notification Message
+        emailSub = $scope.frmSendMessage.emailSubject;
+        // Get NOtification Message
+        notificationMsg = $scope.frmSendMessage.notificationMsg;
+
+        //alert("Email:" + emailID + "\nSUB:" + emailSub + "\nnotificationMsg:" + notificationMsg);
+
+        // Post the data to the server
+        $scope.errormessage='';
+        var data={
+                    emailid: $scope.frmSendMessage.emailID,
+                    subject: $scope.frmSendMessage.emailSubject,
+                    message: $scope.frmSendMessage.notificationMsg
+                };
+        
+        //alert("DATA:" + data.emailid + data.subject + data.message);
+        /*console.log(data.emailid);
+        console.log(data.subject);
+        console.log(data.message);*/
+
+        $http.post("api/messagelist", data).then(function (response, status) {
+            $scope.status = status;
+            //alert("Status Code" + status);
+            // On success perform the following task
+            $("#divSendMessage").modal('toggle');
+            // Call confirm dialog message on success of the status code
+            var confirm_message="Message Sent sucessfully!!";
+            confirmDialog(confirm_message, function () {})
+
+        });
+    }
+
+
+    /* Popup Window to show success message */
+    function confirmDialog(message, onConfirm) {
+        // $("addbox").disabled = true;
+        var fClose = function () {
+
+            modal.modal("hide");
+        };
+        var modal = $("#confirmPopup");
+        modal.modal("show");
+        $("#confirmMessage").empty().append(message);
+        $("#confirmOk").one('click', onConfirm);
+        $("#confirmOk").one('click', fClose);
+       // $("#confirmCancel").one("click", fClose);
+
+        
+    }
+
 });

@@ -89,8 +89,7 @@ app.controller('myCtrl', function ($scope,$http) {
     } 
 
 
-    /* code added by leena for popup */
-    // var confirm_message = "Do you want to add this product? If you click on 'OK' button, the product will be added to  your to-do list";
+    /* Popup Window to show success message */
     function confirmDialog(message, onConfirm) {
         // $("addbox").disabled = true;
         var fClose = function () {
