@@ -24,7 +24,7 @@ app.controller("myctrl", function ($scope, $http) {
     $scope.googleplusLogin = function () {
         // Google's OAuth 2.0 endpoint for requesting an access token
 
-        window.location = "https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri=http://joinstatus.com/&response_type=token&client_id=727180293449-nt9gj5f6tup99q7atce93ip6o5beh78r.apps.googleusercontent.com";
+        window.location = "https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.metadata.readonly&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3000/Statustodo.html&response_type=token&client_id=727180293449-nt9gj5f6tup99q7atce93ip6o5beh78r.apps.googleusercontent.com";
 
         // Google's OAuth 2.0 endpoint for requesting an access token
 
