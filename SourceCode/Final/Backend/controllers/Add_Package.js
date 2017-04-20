@@ -33,11 +33,11 @@ Package.save(function(err){
 });
  }
  else{
-	console.log(req.body.influencer_Id);
-	res.status(200);
-	res.json({
-		"message":"success"
-	});
+	console.log("success");
+	//res.status(200);
+// 	res.json({
+// 		"message":"success"
+// 	});
 }
 });
 
@@ -52,12 +52,12 @@ Package.save(function(err){
     product.quantity = product.quantity-1;
 
     product.save(function(err) {
-      if (err){
+      if (err)
         res.send(err);
-      }
-     else{
-	     res.json({product:product});
-     }
+      
+//      else{
+// 	     res.json({product:product});
+//      }
     //  res.json(product);
     });}
   });
