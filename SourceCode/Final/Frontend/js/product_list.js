@@ -52,7 +52,8 @@ myapp.controller('productListCtrl', function ($scope,$http) {
           categories.push('makeup');
         }
         
-        categories.push(frmProductCreate.fashion)
+        
+        //categories.push(frmProductCreate.fashion)
         // Post the data to the server
         $scope.errormessage='';
         var data={
