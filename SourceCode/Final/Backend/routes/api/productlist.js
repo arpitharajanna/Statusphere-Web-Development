@@ -1,61 +1,85 @@
-// Application to get list of packages from database and send it to front end
+// Application to get list of Products from database and send it to front end
 // All actions will happen in /models
 
 
 var express = require('express');
 var router = express.Router();
-console.log('Inside list of Packages');
+console.log('Inside list of Products');
 
-var Package = require('../../models/product');
+var Product = require('../../models/product');
 
 ///////////////////////////////////////////////////////
 
-// Getting list of all packages
+// Getting list of all Products
 router.get('/', function(req, res) {
-	console.log("Inside get all Packages");
-	Package.getPackages(function(err, packages) {
+	console.log("Inside get all Products");
+	Product.getProducts(function(err, products) {
 		if(err){
 			throw err;
 		}
-		res.json(packages);
+		res.json(products);
 	});
 });
 
 
 
+// Adding an applicant
+router.post('/', function(req, res) {
+	var product = req.body;
+	Product.addProduct(product, function(err, product) {
+		if(err){
+			// Sending an error back if duplicate encountered or some invalid scheme is seen.
+			// throw err;
+			var msg = 'Did not add to product to db. Possible duplicate/invalid schema';
+			res.status(404).send({ error: msg});
+			console.log(msg);
+		}
+		res.json(product);
+	});
+});
 
-// Getting a single Package by username
-router.get('/:_username', function(req, res) {
-	Package.getPackageByName(req.params._username, function(err, package) {
+
+// Getting a single Product by productID
+router.get('/:_productID', function(req, res) {
+	Product.getProductByName(req.params._productID, function(err, product) {
 		if(err){
 			throw err;
 		}
-		res.json(package);
+		res.json(product);
 	});
 });
 
 
 
-// Removing a single Package by username
-router.delete('/:_user', function(req, res) {
-	Package.deletePackageByName(req.params._user, function(err, package) {
+// Removing a single Product by product name
+router.delete('/:_Name', function(req, res) {
+	Product.deleteProductByName(req.params._Name, function(err, product) {
 		if(err){
 			throw err;
 		}
-		res.json(package);
+		res.json(product);
 	});
 });
 
-
-// Updating a single Packages firstname and lastname by filtering with packagename
-router.put('/:_packagename', function(req, res) {
-	var packagename = req.params._packagename;
-	var package = req.body;
-	Package.updatePackage(packagename, package, {}, function(err, package) {
+// Removing a single Product by product name
+router.delete('/:_productID', function(req, res) {
+	Product.deleteProductByName(req.params._productID, function(err, product) {
 		if(err){
 			throw err;
 		}
-		res.json(package);
+		res.json(product);
+	});
+});
+
+// Updating a single Products firstname and lastname by filtering with Productname
+router.put('/:_Productname', function(req, res) {
+	var Productname = req.params._Productname;
+	var Product = req.body;
+	Product.updateProduct(Productname, Product, {}, function(err, product) {
+		if(err){
+			throw err;
+		}
+		res.json(product);
 	}, "lala land");
 });
 
