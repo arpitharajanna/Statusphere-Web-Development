@@ -45,15 +45,15 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
     $scope.blog=localStorage.getItem("website");
     $scope.addr1= localStorage.getItem("address_line1");
     $scope.addr2=localStorage.getItem("address_line2");    
-	//$scope.selectCountry = localStorage.getItem("country");
-	//$scope.selectstate.name=localStorage.getItem("state");
-	$scope.city=localStorage.getItem("city");
-	$scope.zip=localStorage.getItem("zip_Code");
-	 $scope.phno=localStorage.getItem("mob");
+    //$scope.selectCountry = localStorage.getItem("country");
+    //$scope.selectstate.name=localStorage.getItem("state");
+    $scope.city=localStorage.getItem("city");
+    $scope.zip=localStorage.getItem("zip_Code");
+     $scope.phno=localStorage.getItem("mob");
 
-	//$scope.theForm.$setPristine();
+    //$scope.theForm.$setPristine();
 
-	//code end by leena
+    //code end by leena
 
     $scope.someSelected = function (object) {
         if (!object) return false;
@@ -104,45 +104,62 @@ app.controller('ctrlProfile', function ($scope, $http, $window) {
 
 
         }
-        $http.post("/editProfile", data).then(function (response) {
-            console.log('Data posted successfully');
-            $scope.success=response.data.message;
+            
+
+
+
            // alert($scope.success);
- 			//code added by leena for popup 			  		
- 			 
+            //code added by leena for popup                     
+             
               $scope.editProfileFlag = localStorage.getItem("editProfileFlag");
               if($scope.editProfileFlag==1)
               {
+
+                    $http.post("/editinfluencer_profile", data).then(function (response) {
+                    console.log('Data posted successfully');
                     var confirm_message="Your profile has been updated sucessfully!!";
                     confirmDialog(confirm_message, function () {
                     localStorage.setItem("editProfileFlag", 0);
                     window.location.href = "http://localhost:3000/Statustodo.html";
               })
+                },
+
+                    function (error) {
+
+                                //$scope.errorm = error.data.message ;
+                                alert(error.data.message);
+                                //alert($scope.errorm);
+                            })
+
+                    
               }
               else
               {
+
+                 $http.post("/editProfile", data).then(function (response) {
+                    console.log('Data posted successfully');
+                     $scope.success=response.data.message;
                     var confirm_message=$scope.success;
                     confirmDialog(confirm_message, function () {
 
                     window.location.href = "http://localhost:3000/Startup.html";
-
-             })
-              }
- 			 			
-
- 			//code end by leena for popup
-            
-		
-			//window.location.href = "http://localhost:3000/Startup.html";
-               
-            },
+                     })
+                 },
                             function (error) {
 
                                 //$scope.errorm = error.data.message ;
                                 alert(error.data.message);
                                 //alert($scope.errorm);
-                            }
-                )
+                            })
+
+             }
+              
+                        
+
+            //code end by leena for popup
+            
+        
+            //window.location.href = "http://localhost:3000/Startup.html";                
        
     }
 
@@ -234,6 +251,10 @@ $scope.logout = function (event) {
             }
         };
     });
+
+
+
+
 
 
 
