@@ -84,6 +84,8 @@ myapp.controller('productListCtrl', function ($scope,$http) {
             var confirm_message="Product Stored sucessfully!!";
             confirmDialog(confirm_message, function () {})
 
+            $("#divCreateProduct").modal('toggle');
+
         });
 
 
