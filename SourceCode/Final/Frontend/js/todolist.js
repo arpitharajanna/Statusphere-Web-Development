@@ -24,8 +24,16 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
         //alert($scope.errorm);
     })
     
-    $http.get("/json/statusbox.json").then(function (response) {          //Read json file
+   /* $http.get("/json/statusbox.json").then(function (response) {          //Read json file
         $scope.statusbox = response.data.statusbox;
+
+    });*/
+     $http.post("/todolist",data).then(function (response) {  //Read json file
+        //alert("hi");         
+
+       //alert(response);
+        $scope.statusbox = response.data.getProductsofuserinterest;
+        //console.log($scope.statusbox[0]);
 
     });
     /* ,
@@ -39,10 +47,11 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
     $scope.usern = localStorage.getItem("username")
     // alert($scope.usern);
 
-    $scope.openmodal = function (productID) {
-        $scope.productID = productID;
+    $scope.openmodal = function (prodid) {
+      //alert(prodid);
+        $scope.productID = prodid;
         $scope.errormessage = '';
-        //  alert(productID);
+        // alert(productID);
         $("#Product").modal();
     }
 
@@ -84,6 +93,30 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
                 username: $scope.usern,
                 product_Id: $scope.productID
             }
+
+            $http.post("/package", statusboxdata).then(function (res) {
+        console.log('Data posted successfully');
+       // alert("Package has been added")
+        //code added by leena
+                           $('#alert_placeholder1').html('<div class="alert alert-success fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong></strong>Package has been added</div>').alert();
+                        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+                            $("#code-alert").slideUp(500);
+                             });
+                        //code end by leena
+
+
+   },
+       function (error) {
+           // Handle error here
+           console.log(error.data);
+           //alert(error.data.message);
+            //code added by leena
+                           $('#alert_placeholder1').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>'+error.data.message+'</div>').alert();
+                        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+                            $("#code-alert").slideUp(500);
+                             });
+                        //code end by leena
+       });
         });
     };
 
