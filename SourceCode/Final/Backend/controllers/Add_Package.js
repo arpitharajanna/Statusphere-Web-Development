@@ -33,11 +33,11 @@ Package.save(function(err){
 });
  }
  else{
-	console.log(req.body.influencer_Id);
-	res.status(200);
-	res.json({
-		"message":"success"
-	});
+	console.log("success");
+	//res.status(200);
+// 	res.json({
+// 		"message":"success"
+// 	});
 }
 });
 
