@@ -5,8 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/Style5.css" />
-    <script src="\js\angular.min.js"></script>
+    <!-- Javascript Library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="js/countries.js"></script>
+    <script src="js/Product.js"></script>
+    <script src="js/angular-datepicker.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -40,8 +46,7 @@ function readURL(input) {
     }
 }</script>
 </head>
-<body ng-app="myapp" ng-controller="myctrl">
-    <script src="js/angular-datepicker.js"></script>
+<body ng-app="myapp" ng-controller="myCtrl">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -83,11 +88,13 @@ function readURL(input) {
             </div>
             <div class="panel-body">
                 <div class="col-md-8">
-                    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">
+                <!--<form name="frmSendMessage" ng-submit="sendNotification()" novalidate="novalidate">
+                    <form name="theForm" ng-submit="onsubmit(theForm.$valid)" novalidate="novalidate">-->
+                    <form name="theForm" ng-submit="createProduct()" novalidate="novalidate">
                         <div class="form-group required col-md-12">
-                            <label for="packagename" class="control-label col-md-3">  Product Name </label>
+                            <label for="productname" class="control-label col-md-3">  Product Name </label>
                             <div class="col-md-5">
-                                <input class="form-control" id="packagename" name="packagename" placeholder="Packagename" required="required" type="text" />
+                                <input class="form-control" id="productname" name="productname" placeholder="Product Name" required="required" type="text" />
                             </div>
                             <span class="col-md-4"></span>
                         </div>
@@ -226,17 +233,14 @@ function readURL(input) {
                         </div>
                         <div class="col-md-12">
                             <div class="text-center">
-                                <input type="button" name="c1" value="Create";>
-                                <input type="button" name="c2" value="Cancel" ;>
+                                <button class="btn btn-primary" id="btnOK" type="ng-submit">Create</button>
+                                <input type="button" name="c1" ng-click="createProduct()" value="Create">
+                                <input type="button" name="c2" value="Cancel" >
 
                                 <div class="form-group required col-md-12">
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </form>
                 </div>
                 <div class="col-md-4">
