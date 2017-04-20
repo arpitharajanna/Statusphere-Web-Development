@@ -63,7 +63,7 @@ var influencerSchema = new mongoose.Schema({
 		type:String
 	},
 	categories:{
-		type: String
+		type: [String]
 	},
 	date_accepted:{
 		type: Date,
