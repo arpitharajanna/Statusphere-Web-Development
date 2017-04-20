@@ -56,7 +56,7 @@ app.controller("myctrl", function ($scope, $http) {
     }
     // Instagram Login
     $scope.instagramLogin = function () {
-        window.location = "https://instagram.com/oauth/authorize/?client_id=2ae73508dca141f891f5f099ce1c6a84&amp;redirect_uri=http://joinstatus.com/&amp;response_type=token";
+        window.location = "https://instagram.com/oauth/authorize/?client_id=2ae73508dca141f891f5f099ce1c6a84&amp;redirect_uri=http://localhost:3000/Statustodo.html&amp;response_type=token";
     }
 
     /* register function  */
