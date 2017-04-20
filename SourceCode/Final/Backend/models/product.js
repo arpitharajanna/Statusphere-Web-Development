@@ -56,8 +56,9 @@ brand_Instagram:{
 
 points_required:{
 	type:Number
-	
-
+},
+date_craeted:{
+		type: Date
 }
 
 

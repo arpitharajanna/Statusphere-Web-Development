@@ -26,6 +26,8 @@ router.get('/', function(req, res) {
 // Adding an applicant
 router.post('/', function(req, res) {
 	var product = req.body;
+	console.log("Inside add Product");
+	console.log("ProductID   :" + product.productID);
 	Product.addProduct(product, function(err, product) {
 		if(err){
 			// Sending an error back if duplicate encountered or some invalid scheme is seen.
@@ -74,8 +76,8 @@ router.delete('/:_productID', function(req, res) {
 // Updating a single Products firstname and lastname by filtering with Productname
 router.put('/:_Productname', function(req, res) {
 	var Productname = req.params._Productname;
-	var Product = req.body;
-	Product.updateProduct(Productname, Product, {}, function(err, product) {
+	var product = req.body;
+	Product.updateProduct(Productname, product, {}, function(err, product) {
 		if(err){
 			throw err;
 		}
