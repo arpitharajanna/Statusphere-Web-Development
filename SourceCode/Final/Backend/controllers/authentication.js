@@ -2,7 +2,9 @@ var passport= require('passport')
 var mongoose = require('mongoose')
 var applicant = require('../models/applicant');
 const username = require('username');
-var influencer = require('../models/influencer')
+var admin= require('../models/admin');
+var influencer = require('../models/influencer');
+
 
 
 var sendJSONresponse = function(res, status, content) {
@@ -78,7 +80,63 @@ Applicant.password = req.body.password;
 // })(req,res);
 // };
 
+// module.exports.login = function(req,res){
+
+// 	passport.authenticate('local',function(err,influencer,info){
+// 	var token;
+// 	if(err){
+// 		return res.status(404).json(err);
+
+		
+// 	}
+// 	if (influencer){
+
+// 		//token=applicant.generateJwt();
+// 		res.status(200);// 
+
+// 	   if (influencer.firstname==null){
+//        	res.json({
+// 			message:"details are not complete",
+// 			username:influencer.influencer_username,
+// 			flag:1
+// 		});
+
+//        }
+//      else{
+// 	   res.json({
+// 			message:"details are complete",
+// 			username:influencer.influencer_username,
+// 			flag:2
+// 		});}
+//         // username().then(username => {
+//         // console.log(username);
+//     //=> 'sindresorhus' 
+	
+// 	}
+// 	else{
+// 		 res.status(401);
+// 		 res.json(info);
+		
+// 	}
+
+// })(req,res);
+// };
+
 module.exports.login = function(req,res){
+	admin.findOne({admin_username:req.body.username},function(err,Admin){
+    if(Admin!=null){
+    	if (Admin.admin_password!=req.body.password){
+	 res.status(404);
+		 res.json({message:"Admin password is not correct"});
+}
+else{
+	return res.status(200).json({
+		flag:3,
+		admin:Admin
+	});
+	}
+}
+ else{
 
 	passport.authenticate('local',function(err,influencer,info){
 	var token;
@@ -91,11 +149,10 @@ module.exports.login = function(req,res){
 
 		//token=applicant.generateJwt();
 		res.status(200);// 
-
-	   if (influencer.firstname==null){
+       if (influencer.firstname==null){
        	res.json({
 			message:"details are not complete",
-			username:influencer.influencer_username,
+			username:influencer.username,
 			flag:1
 		});
 
@@ -103,7 +160,7 @@ module.exports.login = function(req,res){
      else{
 	   res.json({
 			message:"details are complete",
-			username:influencer.influencer_username,
+			username:influencer.username,
 			flag:2
 		});}
         // username().then(username => {
@@ -118,4 +175,8 @@ module.exports.login = function(req,res){
 	}
 
 })(req,res);
+	
+}
+});
 };
+   

@@ -15,8 +15,8 @@ appTodolist.controller("status_ctrl", function ($scope, $http, $window) {
     );*/
     // alert("hi");
     var data= {username: $scope.usern}
-    $http.post("/profile",data).then(function (response) {
-        $scope.userinfo = response.data.applicant;
+    $http.post("/influencer_profile",data).then(function (response) {
+        $scope.userinfo = response.data.influencer;
     }, function (error) {
 
         //$scope.errorm = error.data.message ;

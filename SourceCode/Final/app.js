@@ -57,7 +57,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/Frontend/Startup.html');
 });
 app.get('/admin/', function(req, res){
-    res.sendFile(__dirname + '/Frontend/package.html');
+    res.sendFile(__dirname + '/Frontend/Product.html');
 });
 
 

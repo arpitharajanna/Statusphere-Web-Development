@@ -1,4 +1,4 @@
-﻿var app = angular.module("code_app", []);
+var app = angular.module("code_app", []);
 app.controller("code_ctrl", function ($scope, $http) {
     $scope.email = localStorage.getItem("email");
 
@@ -14,13 +14,19 @@ app.controller("code_ctrl", function ($scope, $http) {
 
 
         $http.post("/api/verificationlist/code/" + $scope.email, data).then(function (response) {
-            alert(response.data.match);
+            //alert(response.data.match);
 
             if (response.data.match == true) {
                 window.location.href = "PaswordReset.html";
             }
             else {
-                alert("You entered wrong code. Please enter correct code.");
+                     //code added by leena
+                           $('#alert_placeholder1').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>You entered wrong code. Please enter correct code.</div>').alert();
+                        $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+                            $("#code-alert").slideUp(500);
+                             });
+                        //code end by leena
+                //alert("You entered wrong code. Please enter correct code.");
             }
         })
 

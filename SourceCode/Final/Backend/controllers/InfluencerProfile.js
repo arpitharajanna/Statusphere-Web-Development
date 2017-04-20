@@ -38,9 +38,9 @@ module.exports.profileEdit = function(req,res){
 
  else{
     // Update the existing quantity
-    Influencer.firstname = req.body.firstname || Influencer.firstName||null;
+   Influencer.firstname = req.body.firstname || Influencer.firstName||null;
     Influencer.lastname = req.body.lastname|| Influencer.lastName ||null;
-    Influencer.dob = req.body.dob ||Influencer.dob|| null;
+    Influencer.birthday = req.body.dob ||Influencer.dob|| null;
     Influencer.mob = req.body.mob || Influencer.mob||null;
     Influencer.instagram_url = req.body.instagram_url || Influencer.instagram_url || null ;
     Influencer.facebook_url = req.body.facebook_url ||  Influencer.facebook_url ||null;
@@ -53,10 +53,10 @@ module.exports.profileEdit = function(req,res){
     Influencer.city = req.body.City || Influencer.city ||null ;
     Influencer.zip_Code = req.body.ZipCode || Influencer.zip_Code ||null ;
     Influencer.gender = req.body.gender || Influencer.gender || null ;
-    Influencer.address_line1 = req.body.AddressLine1 || Influencer.address_line1 ||null ;
-    Influencer.address_line2 = req.body.AddressLine2 || Influencer.address_line2 || null;
+    Influencer.address = req.body.AddressLine1 || Influencer.address_line1 ||null ;
     Influencer.country=req.body.Country ||  Influencer.country ||null ;
     Influencer.categories = req.body.categories || Influencer.categories || null;
+
 
 
    

@@ -18,61 +18,59 @@ var influencerSchema = new mongoose.Schema({
 		required: true
 	},
 	firstname:{
-	    type: String,
-	    required: true
+	    type: String
 	},
 	lastname:{
-		type: String,
-		required: true
+		type: String
+	},
+	mob:{
+		type:String
 	},
 	birthday:{
-		type: Date,
-		required: true
+		type: Date
 	},
 	gender:{
-		type: String,
-		required: true
+		type: String
 	},
 	followers:{
-		type: Number,
-		required: true
+		type: Number
 	},
 	address:{
-		type: String,
-		required: true
+		type: String
 	},
+	country:{
+		type:String},
+	state:{
+		type:String},
+	city:{
+		type:String},	
 	emailid:{
 		type: String,
 		unique: true,
 		required: true
 	},
 	image_url:{
-		type: String,
-		required: true
+		type: String
 	},
 	instagram_url:{
 		type: String,
 		required: true
 	},
 	twitter_url:{
-		type: String,
-		required: true
+		type: String
 	},
 	facebook_url:{
-		type:String,
-		required: true
+		type:String
 	},
 	categories:{
-		type: [String],
-		required: true
+		type: [String]
 	},
 	date_accepted:{
 		type: Date,
 		default: Date.now
 	},
 	gamification_points:{
-		type: Number,
-		required: true
+		type: Number
 	},
 	passreset:{
 		type: Number,
@@ -156,10 +154,5 @@ module.exports.addApplicantToInfluencer = function(applicant, callback){
 		gamification_points: 0,
 		passreset: false
 	}
-
-	console.log(influencer);
-
-
-
 	Influencer.create(influencer, callback);
 }

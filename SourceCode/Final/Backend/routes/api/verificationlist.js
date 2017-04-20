@@ -45,7 +45,7 @@ function SendMail(object){
 
 // Getting list of all verification codes
 router.get('/', function(req, res) {
-	console.log("Inside get all verification codes");
+	console.log("Get all verification codes");
 	Verification.getVerification(function(err, verification) {
 		if(err){
 			throw err;
