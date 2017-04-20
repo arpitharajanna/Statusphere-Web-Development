@@ -1,39 +1,8 @@
 var app = angular.module('myapp', []);
-app.controller('myCtrl', function ($scope) {
+app.controller('myCtrl', function ($scope,$http) {
 
-    $scope.obj = [
-
-          {
-              "Firstname": "hello",
-              "Lastname": "howare",
-              "Packagename": "uoi",
-              "Duedate": "04-05-2017",
-              "Accepteddate": "04-23-2017",
-              "Status": "accepted"
-
-          },
-          {
-              "Firstname": "llo",
-              "Lastname": "are",
-              "Packagename": "uoi",
-              "Duedate": "04/05/2017",
-              "Accepteddate": "04/23/2017",
-              "Status": "accepted"
-
-          },
-           {
-               "Firstname": "abc",
-               "Lastname": "re",
-               "Packagename": "uoi",
-               "Duedate": "04-05-2017",
-               "Accepteddate": "04-23-2017",
-               "Status": "accepted"
-
-           }
-    ];
-    
-
-        
-    
-    //alert("hi");
+    $http.get('http://localhost:3000/api/packagelist').then(function(response) {
+            alert("dsagsah");
+            $scope.applicants = response.data; // To be UPdated when there is any data into the database, and all the required fields matches.
+        });
 });
