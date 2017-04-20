@@ -8,12 +8,12 @@ app.controller('myCtrl', function ($scope,$http) {
 
 
 
-    alert(localStorage.getItem("username"));
+    //alert(localStorage.getItem("username"));
     //$scope.applicant_info = $scope.applicants[1];
     $scope.getApplicantInfo = function(applicant)
     {
     	//$scope.applicant_info = applicant;
-    	alert("sadasjhd" + applicant);
+    	//alert("sadasjhd" + applicant);
     	//$("#divViewApplicantProfile").modal();
 
     }
