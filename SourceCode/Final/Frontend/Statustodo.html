@@ -66,13 +66,15 @@
                     <center> <h3><strong> Welcome {{usern}} !</strong></h3></center>
                     <center><span> Here are the list of products of your interest. You can select each product once and the product which you select will be displayed in your to do list.</span></center>
                     <br />
+                     <div id="alert_placeholder1" class="text-center"></div>
+                             <br />
                     <div class="row equal-height">
                         <div class="col-sm-6 col-md-4" ng-repeat="product in statusbox">
                             <div class="thumbnail">
                                 <br />
-                                <img src="{{product.productpath}}" height="250" width="250">
+                                <img src="{{product.image_Url}}" height="250" width="250">
                                 <div class="caption">
-                                    <center><a href="#Product" ng-click="openmodal(product.productid)">{{product.productname}} </a></center>
+                                    <center><a href="#Product" ng-click="openmodal(product._id)">{{product.product_Name}} </a></center>
 
 
                                 </div>
@@ -272,24 +274,24 @@
                 <!-- Modal Body -->
                 <div class="modal-body">
 
-                    <div class="form-group" ng-repeat="product in statusbox | filter:{productid:productID}">
+                    <div class="form-group" ng-repeat="product in statusbox | filter:{_id:productID}">
                         <div class="centered">
-                            <center> <label>{{product.productname}}</label></center>
-                            <img class="center-block" height="250" width="250" src="{{product.productpath}}" />
+                            <center> <label>{{product.product_Name}}</label></center>
+                            <img class="center-block" height="250" width="250" src="{{product.image_Url}}" />
 
                         </div>
                         <hr />
                         <div class="form-group">
                             <center><label class="control-label">Desciption:</label></center>
 
-                            <p>{{product.productdesc}}</p>
+                            <p>{{product.description}}</p>
                         </div>
                         <hr />
                         <div class="form-group centered">
                             <center><label class="form-group">Requirements:</label></center>
                             <div ng-repeat="req in product.requirements">
                                 <p>
-                                    {{req.requirement_desc}}
+                                    {{req.requirements}}
                                 </p>
                             </div>
 
@@ -382,5 +384,6 @@
 
 </body>
 </html>
+
 
 
