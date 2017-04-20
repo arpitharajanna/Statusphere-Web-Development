@@ -52,12 +52,12 @@ Package.save(function(err){
     product.quantity = product.quantity-1;
 
     product.save(function(err) {
-      if (err){
+      if (err)
         res.send(err);
-      }
-     else{
-	     res.json({product:product});
-     }
+      
+//      else{
+// 	     res.json({product:product});
+//      }
     //  res.json(product);
     });}
   });
