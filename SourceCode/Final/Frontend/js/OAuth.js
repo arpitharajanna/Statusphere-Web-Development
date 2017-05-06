@@ -16,7 +16,7 @@ app.controller("myctrl", function ($scope, $http) {
         });
     };
 
-    // Twitter Login 
+    // Twitter Login
     $scope.twitterLogin = function () {
         alert("Twitter Login");
     }
@@ -29,7 +29,7 @@ app.controller("myctrl", function ($scope, $http) {
         // Google's OAuth 2.0 endpoint for requesting an access token
 
         /*
-        // Java Script Implementation:    
+        // Java Script Implementation:
         var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
         // Create <form> element to submit parameters to OAuth 2.0 endpoint.
         var form = document.createElement('form');
@@ -132,39 +132,37 @@ app.controller("myctrl", function ($scope, $http) {
             console.log('Data posted successfully');
 
             $scope.message = res.data.message;
-
             localStorage.setItem("username", data.username);
+
+            <!-- Login as Admin -->
             if (res.data.flag == 3) {
                 window.location.href = "http://localhost:3000/influencer_info.html";
             }
+
+            <!-- Login as Influencer ? -->
             if (res.data.flag == 2) {
                 window.location.href = "http://localhost:3000/Statustodo.html";
-
                 //$scope.profilemessage=res.data.message;
             }
+
+            <!-- Finish Profile -->
             else {
                 localStorage.setItem("message", res.data.message);
                 localStorage.setItem("flag", 1);
 
                 window.location.href = "http://localhost:3000/Profile.html";
-
-
             }
 
 
         },
-                                                function (error) {
-
-                                                    console.log(error.data);
-                                                    $scope.errormessage = error.data.message;
-                                                    $('#alert_placeholder').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.errormessage + '</div>').alert();
-                                                    $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
-                                                        $("#code-alert").slideUp(500);
-                                                    });
-                                                }
-
-
-                                                );
+        function (error) {
+            console.log(error.data);
+            $scope.errormessage = error.data.message;
+            $('#alert_placeholder').html('<div class="alert alert-danger fade" id="code-alert" style="width:50%; margin:auto;"><button type="button" class="close" data-dismiss="alert">x</button><strong>Sorry! </strong>' + $scope.errormessage + '</div>').alert();
+            $("#code-alert").fadeTo(2000, 500).slideUp(500, function () {
+                $("#code-alert").slideUp(500);
+            });
+        });
 
     }
 
@@ -199,7 +197,3 @@ app.controller("myctrl", function ($scope, $http) {
     /*  code added by leena end    */
 
 });
-
-
-
-
