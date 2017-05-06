@@ -141,7 +141,7 @@ app.controller("myctrl", function ($scope, $http) {
 
             <!-- Login as Influencer ? -->
             if (res.data.flag == 2) {
-                window.location.href = "http://localhost:3000/Statustodo.html";
+                window.location.href = "http://localhost:3000/statusbox.html";
                 //$scope.profilemessage=res.data.message;
             }
 
@@ -149,8 +149,7 @@ app.controller("myctrl", function ($scope, $http) {
             else {
                 localStorage.setItem("message", res.data.message);
                 localStorage.setItem("flag", 1);
-
-                window.location.href = "http://localhost:3000/Profile.html";
+                window.location.href = "http://localhost:3000/profile.html";
             }
 
 
